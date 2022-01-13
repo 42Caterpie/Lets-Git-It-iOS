@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73710D9B279009F3009EBA62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73710D9A279009F3009EBA62 /* GoogleService-Info.plist */; };
 		73CF60A327900339005F4BF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF60A227900339005F4BF4 /* AppDelegate.swift */; };
 		73CF60A527900339005F4BF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF60A427900339005F4BF4 /* SceneDelegate.swift */; };
 		73CF60A727900339005F4BF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF60A627900339005F4BF4 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73710D9A279009F3009EBA62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		73CF609F27900339005F4BF4 /* Git-Challenges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Git-Challenges.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CF60A227900339005F4BF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73CF60A427900339005F4BF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				73CF60AB2790033B005F4BF4 /* Assets.xcassets */,
 				73CF60AD2790033B005F4BF4 /* LaunchScreen.storyboard */,
 				73CF60B02790033B005F4BF4 /* Info.plist */,
+				73710D9A279009F3009EBA62 /* GoogleService-Info.plist */,
 			);
 			path = "Git-Challenges";
 			sourceTree = "<group>";
@@ -86,6 +89,8 @@
 			dependencies = (
 			);
 			name = "Git-Challenges";
+			packageProductDependencies = (
+			);
 			productName = "Git-Challenges";
 			productReference = 73CF609F27900339005F4BF4 /* Git-Challenges.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +119,8 @@
 				Base,
 			);
 			mainGroup = 73CF609627900339005F4BF4;
+			packageReferences = (
+			);
 			productRefGroup = 73CF60A027900339005F4BF4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -131,6 +138,7 @@
 				73CF60AF2790033B005F4BF4 /* LaunchScreen.storyboard in Resources */,
 				73CF60AC2790033B005F4BF4 /* Assets.xcassets in Resources */,
 				73CF60AA27900339005F4BF4 /* Main.storyboard in Resources */,
+				73710D9B279009F3009EBA62 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
