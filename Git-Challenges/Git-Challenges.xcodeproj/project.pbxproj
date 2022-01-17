@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3BD27914950000E4E8C /* ContributionView.swift */; };
+		735AA3C527916A16000E4E8C /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3C427916A16000E4E8C /* GithubService.swift */; };
 		73710D9B279009F3009EBA62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73710D9A279009F3009EBA62 /* GoogleService-Info.plist */; };
+		73710DAC279018A6009EBA62 /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73710DAB279018A6009EBA62 /* CardModifier.swift */; };
+		73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73710DAD27902ED2009EBA62 /* NameCardView.swift */; };
 		73CF60A327900339005F4BF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF60A227900339005F4BF4 /* AppDelegate.swift */; };
 		73CF60A527900339005F4BF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF60A427900339005F4BF4 /* SceneDelegate.swift */; };
 		73CF60A727900339005F4BF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF60A627900339005F4BF4 /* ViewController.swift */; };
@@ -18,10 +22,18 @@
 		A8A113352793F95F00F9C984 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A113342793F95F00F9C984 /* Constants.swift */; };
 		A8F8233927929C920000FB08 /* ChallengeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8233827929C920000FB08 /* ChallengeCard.swift */; };
 		A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8233C27929DCB0000FB08 /* MainView.swift */; };
+		73E7F07727927A3A0045AC5F /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07627927A3A0045AC5F /* Commit.swift */; };
+		73E7F07A27927B9D0045AC5F /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07927927B9D0045AC5F /* String+Extensions.swift */; };
+		73E7F07D2792F7EF0045AC5F /* CommitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07C2792F7EF0045AC5F /* CommitViewModel.swift */; };
+		73F29E6B2791B7850000E5B6 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 73F29E6A2791B7850000E5B6 /* SwiftSoup */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		735AA3BD27914950000E4E8C /* ContributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionView.swift; sourceTree = "<group>"; };
+		735AA3C427916A16000E4E8C /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
 		73710D9A279009F3009EBA62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		73710DAB279018A6009EBA62 /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
+		73710DAD27902ED2009EBA62 /* NameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCardView.swift; sourceTree = "<group>"; };
 		73CF609F27900339005F4BF4 /* Git-Challenges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Git-Challenges.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CF60A227900339005F4BF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73CF60A427900339005F4BF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +46,9 @@
 		A8A113342793F95F00F9C984 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A8F8233827929C920000FB08 /* ChallengeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCard.swift; sourceTree = "<group>"; };
 		A8F8233C27929DCB0000FB08 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		73E7F07627927A3A0045AC5F /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
+		73E7F07927927B9D0045AC5F /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		73E7F07C2792F7EF0045AC5F /* CommitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,12 +56,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73F29E6B2791B7850000E5B6 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		735AA3C227915C94000E4E8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				73CF60B627900355005F4BF4 /* ContentView.swift */,
+				73710DAD27902ED2009EBA62 /* NameCardView.swift */,
+				735AA3BD27914950000E4E8C /* ContributionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		735AA3C3279169FC000E4E8C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				735AA3C427916A16000E4E8C /* GithubService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		73CF609627900339005F4BF4 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +102,12 @@
 			children = (
 				73CF60B627900355005F4BF4 /* ContentView.swift */,
 				A8F8233C27929DCB0000FB08 /* MainView.swift */,
+				73E7F07827927B820045AC5F /* Extension */,
+				73E7F07527927A270045AC5F /* Model */,
+				735AA3C3279169FC000E4E8C /* Service */,
+				735AA3C227915C94000E4E8C /* View */,
+				73E7F07B2792F7D20045AC5F /* ViewModel */,
+				73ECFA6C279531160099C654 /* Modifier */,
 				73CF60A227900339005F4BF4 /* AppDelegate.swift */,
 				73CF60A427900339005F4BF4 /* SceneDelegate.swift */,
 				73CF60A627900339005F4BF4 /* ViewController.swift */,
@@ -80,6 +120,38 @@
 				A8A113342793F95F00F9C984 /* Constants.swift */,
 			);
 			path = "Git-Challenges";
+			sourceTree = "<group>";
+		};
+		73E7F07527927A270045AC5F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				73E7F07627927A3A0045AC5F /* Commit.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		73E7F07827927B820045AC5F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				73E7F07927927B9D0045AC5F /* String+Extensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		73E7F07B2792F7D20045AC5F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				73E7F07C2792F7EF0045AC5F /* CommitViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		73ECFA6C279531160099C654 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				73710DAB279018A6009EBA62 /* CardModifier.swift */,
+			);
+			path = Modifier;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +171,7 @@
 			);
 			name = "Git-Challenges";
 			packageProductDependencies = (
+				73F29E6A2791B7850000E5B6 /* SwiftSoup */,
 			);
 			productName = "Git-Challenges";
 			productReference = 73CF609F27900339005F4BF4 /* Git-Challenges.app */;
@@ -129,6 +202,7 @@
 			);
 			mainGroup = 73CF609627900339005F4BF4;
 			packageReferences = (
+				73F29E692791B7850000E5B6 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = 73CF60A027900339005F4BF4 /* Products */;
 			projectDirPath = "";
@@ -158,12 +232,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73E7F07727927A3A0045AC5F /* Commit.swift in Sources */,
+				73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */,
 				73CF60A727900339005F4BF4 /* ViewController.swift in Sources */,
 				A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */,
+				735AA3C527916A16000E4E8C /* GithubService.swift in Sources */,
+				73710DAC279018A6009EBA62 /* CardModifier.swift in Sources */,
 				73CF60A327900339005F4BF4 /* AppDelegate.swift in Sources */,
+				735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */,
+				73E7F07D2792F7EF0045AC5F /* CommitViewModel.swift in Sources */,
 				73CF60B727900355005F4BF4 /* ContentView.swift in Sources */,
 				A8A113352793F95F00F9C984 /* Constants.swift in Sources */,
 				A8F8233927929C920000FB08 /* ChallengeCard.swift in Sources */,
+				73E7F07A27927B9D0045AC5F /* String+Extensions.swift in Sources */,
 				73CF60A527900339005F4BF4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +467,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		73F29E692791B7850000E5B6 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		73F29E6A2791B7850000E5B6 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73F29E692791B7850000E5B6 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 73CF609727900339005F4BF4 /* Project object */;
 }
