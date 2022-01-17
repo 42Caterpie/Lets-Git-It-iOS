@@ -11,9 +11,9 @@ struct MainView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                // User Card
+                NameCardView()
                 ChallengeCard(size: geometry.size)
-                // Contribution Card
+                ContributionView()
                 // Badge Card
             }
             .frame(maxWidth: .infinity, alignment: .center)

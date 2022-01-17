@@ -18,14 +18,14 @@
 		73CF60AA27900339005F4BF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73CF60A827900339005F4BF4 /* Main.storyboard */; };
 		73CF60AC2790033B005F4BF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73CF60AB2790033B005F4BF4 /* Assets.xcassets */; };
 		73CF60AF2790033B005F4BF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73CF60AD2790033B005F4BF4 /* LaunchScreen.storyboard */; };
-		73CF60B727900355005F4BF4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF60B627900355005F4BF4 /* ContentView.swift */; };
-		A8A113352793F95F00F9C984 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A113342793F95F00F9C984 /* Constants.swift */; };
-		A8F8233927929C920000FB08 /* ChallengeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8233827929C920000FB08 /* ChallengeCard.swift */; };
-		A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8233C27929DCB0000FB08 /* MainView.swift */; };
 		73E7F07727927A3A0045AC5F /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07627927A3A0045AC5F /* Commit.swift */; };
 		73E7F07A27927B9D0045AC5F /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07927927B9D0045AC5F /* String+Extensions.swift */; };
 		73E7F07D2792F7EF0045AC5F /* CommitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07C2792F7EF0045AC5F /* CommitViewModel.swift */; };
 		73F29E6B2791B7850000E5B6 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 73F29E6A2791B7850000E5B6 /* SwiftSoup */; };
+		A8A113352793F95F00F9C984 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A113342793F95F00F9C984 /* Constants.swift */; };
+		A8E51E882795378600B4F08A /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E51E872795378600B4F08A /* Color+Extensions.swift */; };
+		A8F8233927929C920000FB08 /* ChallengeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8233827929C920000FB08 /* ChallengeCardView.swift */; };
+		A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8233C27929DCB0000FB08 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,13 +42,13 @@
 		73CF60AB2790033B005F4BF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73CF60AE2790033B005F4BF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73CF60B02790033B005F4BF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		73CF60B627900355005F4BF4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A8A113342793F95F00F9C984 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		A8F8233827929C920000FB08 /* ChallengeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCard.swift; sourceTree = "<group>"; };
-		A8F8233C27929DCB0000FB08 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		73E7F07627927A3A0045AC5F /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		73E7F07927927B9D0045AC5F /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		73E7F07C2792F7EF0045AC5F /* CommitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitViewModel.swift; sourceTree = "<group>"; };
+		A8A113342793F95F00F9C984 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A8E51E872795378600B4F08A /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		A8F8233827929C920000FB08 /* ChallengeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCardView.swift; sourceTree = "<group>"; };
+		A8F8233C27929DCB0000FB08 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +66,10 @@
 		735AA3C227915C94000E4E8C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				73CF60B627900355005F4BF4 /* ContentView.swift */,
+				A8F8233C27929DCB0000FB08 /* MainView.swift */,
 				73710DAD27902ED2009EBA62 /* NameCardView.swift */,
 				735AA3BD27914950000E4E8C /* ContributionView.swift */,
+				A8F8233827929C920000FB08 /* ChallengeCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -100,8 +101,6 @@
 		73CF60A127900339005F4BF4 /* Git-Challenges */ = {
 			isa = PBXGroup;
 			children = (
-				73CF60B627900355005F4BF4 /* ContentView.swift */,
-				A8F8233C27929DCB0000FB08 /* MainView.swift */,
 				73E7F07827927B820045AC5F /* Extension */,
 				73E7F07527927A270045AC5F /* Model */,
 				735AA3C3279169FC000E4E8C /* Service */,
@@ -116,7 +115,6 @@
 				73CF60AD2790033B005F4BF4 /* LaunchScreen.storyboard */,
 				73CF60B02790033B005F4BF4 /* Info.plist */,
 				73710D9A279009F3009EBA62 /* GoogleService-Info.plist */,
-				A8F8233827929C920000FB08 /* ChallengeCard.swift */,
 				A8A113342793F95F00F9C984 /* Constants.swift */,
 			);
 			path = "Git-Challenges";
@@ -134,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				73E7F07927927B9D0045AC5F /* String+Extensions.swift */,
+				A8E51E872795378600B4F08A /* Color+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -241,9 +240,9 @@
 				73CF60A327900339005F4BF4 /* AppDelegate.swift in Sources */,
 				735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */,
 				73E7F07D2792F7EF0045AC5F /* CommitViewModel.swift in Sources */,
-				73CF60B727900355005F4BF4 /* ContentView.swift in Sources */,
 				A8A113352793F95F00F9C984 /* Constants.swift in Sources */,
-				A8F8233927929C920000FB08 /* ChallengeCard.swift in Sources */,
+				A8F8233927929C920000FB08 /* ChallengeCardView.swift in Sources */,
+				A8E51E882795378600B4F08A /* Color+Extensions.swift in Sources */,
 				73E7F07A27927B9D0045AC5F /* String+Extensions.swift in Sources */,
 				73CF60A527900339005F4BF4 /* SceneDelegate.swift in Sources */,
 			);
