@@ -8,25 +8,38 @@
 import SwiftUI
 import UIKit
 
+func getThemeColors() -> [Color] {
+    let colorPalette = ColorPalette()
+    let themeColor: String = UserDefaults.standard.string(forKey: "ColorTheme") ?? "pink"
+    UserDefaults.standard.setValue(themeColor, forKey: "ColorTheme")
+    return colorPalette.getColors(themeColor)
+}
+
+func getThemeEmojis() -> [String] {
+    let colorPalette = ColorPalette()
+    let themeColor: String = UserDefaults.standard.string(forKey: "ColorTheme") ?? "pink"
+    UserDefaults.standard.setValue(themeColor, forKey: "ColorTheme")
+    return colorPalette.getEmoji(themeColor)
+}
+
 
 
 struct ContributionView: View {
+    // MARK: Commits Data ViewModel
     @StateObject var vm = CommitViewModel()
-    //    let contributionLevelArray = [0, 1, 2, 3, 4, 1, 2, 3, 4,0, 1, 2, 3, 4, 1, 2, 3, 4,0, 1, 2, 3, 4, 1, 2, 3, 4,0, 1, 2, 3, 4, 1, 2, 3, 4,0, 1, 2, 3, 4, 1, 2, 3, 4]
-    let colors: [Color] = [.gray, .green, .blue, .yellow, .purple]
+    
     let weekday = Calendar.current.component(.weekday, from: Date())
     
     @ViewBuilder
     func ColorView(_ contributionLevel:Int) -> some View {
+        let themeColors = getThemeColors()
         RoundedRectangle(cornerRadius: 2)
-            .foregroundColor(colors[contributionLevel])
+            .foregroundColor(themeColors[contributionLevel])
             .frame(width:15, height:15)
-        
     }
     
     var body: some View {
         VStack {
-            
             HStack {
                 Text("Contribution")
                     .font(.system(size: 18, weight: .bold))

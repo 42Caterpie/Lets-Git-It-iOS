@@ -22,6 +22,10 @@ struct ChallengeCard: View {
     // Main View's size
     let size: CGSize
     
+    // MARK: add
+    let colors: [Color] = getThemeColors()
+    let emojis: [String] = getThemeEmojis()
+    
     init(size: CGSize) {
         self.size = size
     }
@@ -62,7 +66,7 @@ struct ChallengeCard: View {
             Text("😱 목표가 없어요")
                 .font(.system(size: 18))
                 .bold()
-                .foregroundColor(Color.init(hex: ColorPalette.Pink.pinkLevelOne))
+                .foregroundColor(colors[color.levelOne.rawValue])
         }
     }
     
@@ -109,7 +113,7 @@ struct ChallengeCard: View {
         return VStack(alignment: .center, spacing: 0) {
             // Indicator
             HStack(spacing: 0) {
-                Text(Emoji.Pink.progressIndicatior)
+                Text(emojis[emoji.committed.rawValue])
                     .font(.system(size: 15))
                     .padding(.bottom, 5)
                     .padding(.leading, defaultPadding + progressBarWidth * percentDone)
@@ -120,10 +124,10 @@ struct ChallengeCard: View {
             ZStack(alignment: .leading) {
                 Capsule()
                     .frame(width: progressBarWidth, height: progressBarHeight, alignment: .leading)
-                    .foregroundColor(Color(hex: ColorPalette.defaultGray))
+                    .foregroundColor(colors[color.defaultGray.rawValue])
                 Capsule()
                     .frame(width: progressBarWidth * percentDone , height: progressBarHeight, alignment: .leading)
-                    .foregroundColor(Color(hex: ColorPalette.Pink.progressDone))
+                    .foregroundColor(colors[color.progressBar.rawValue])
             }
         }
         .frame(width: fullWidth)
