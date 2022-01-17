@@ -15,6 +15,9 @@
 		73CF60AC2790033B005F4BF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73CF60AB2790033B005F4BF4 /* Assets.xcassets */; };
 		73CF60AF2790033B005F4BF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73CF60AD2790033B005F4BF4 /* LaunchScreen.storyboard */; };
 		73CF60B727900355005F4BF4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF60B627900355005F4BF4 /* ContentView.swift */; };
+		A8A113352793F95F00F9C984 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A113342793F95F00F9C984 /* Constants.swift */; };
+		A8F8233927929C920000FB08 /* ChallengeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8233827929C920000FB08 /* ChallengeCard.swift */; };
+		A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8233C27929DCB0000FB08 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		73CF60AE2790033B005F4BF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73CF60B02790033B005F4BF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73CF60B627900355005F4BF4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A8A113342793F95F00F9C984 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A8F8233827929C920000FB08 /* ChallengeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCard.swift; sourceTree = "<group>"; };
+		A8F8233C27929DCB0000FB08 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				73CF60B627900355005F4BF4 /* ContentView.swift */,
+				A8F8233C27929DCB0000FB08 /* MainView.swift */,
 				73CF60A227900339005F4BF4 /* AppDelegate.swift */,
 				73CF60A427900339005F4BF4 /* SceneDelegate.swift */,
 				73CF60A627900339005F4BF4 /* ViewController.swift */,
@@ -69,6 +76,8 @@
 				73CF60AD2790033B005F4BF4 /* LaunchScreen.storyboard */,
 				73CF60B02790033B005F4BF4 /* Info.plist */,
 				73710D9A279009F3009EBA62 /* GoogleService-Info.plist */,
+				A8F8233827929C920000FB08 /* ChallengeCard.swift */,
+				A8A113342793F95F00F9C984 /* Constants.swift */,
 			);
 			path = "Git-Challenges";
 			sourceTree = "<group>";
@@ -150,8 +159,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				73CF60A727900339005F4BF4 /* ViewController.swift in Sources */,
+				A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */,
 				73CF60A327900339005F4BF4 /* AppDelegate.swift in Sources */,
 				73CF60B727900355005F4BF4 /* ContentView.swift in Sources */,
+				A8A113352793F95F00F9C984 /* Constants.swift in Sources */,
+				A8F8233927929C920000FB08 /* ChallengeCard.swift in Sources */,
 				73CF60A527900339005F4BF4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
