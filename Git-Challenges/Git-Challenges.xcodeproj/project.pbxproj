@@ -22,6 +22,12 @@
 		73E7F07A27927B9D0045AC5F /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07927927B9D0045AC5F /* String+Extensions.swift */; };
 		73E7F07D2792F7EF0045AC5F /* CommitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07C2792F7EF0045AC5F /* CommitViewModel.swift */; };
 		73F29E6B2791B7850000E5B6 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 73F29E6A2791B7850000E5B6 /* SwiftSoup */; };
+		A83E07F12796F69000BFB1A0 /* ChallengeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F02796F68F00BFB1A0 /* ChallengeViewModel.swift */; };
+		A83E07F32796F6DC00BFB1A0 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F22796F6DC00BFB1A0 /* Goal.swift */; };
+		A83E07F52796F85500BFB1A0 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F42796F85500BFB1A0 /* UIApplication+Extensions.swift */; };
+		A83E07F7279707E000BFB1A0 /* Streak.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F6279707DF00BFB1A0 /* Streak.swift */; };
+		A83E07F927971B8500BFB1A0 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F827971B8500BFB1A0 /* Progress.swift */; };
+		A83E07FB27971CC200BFB1A0 /* GoalInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07FA27971CC200BFB1A0 /* GoalInputField.swift */; };
 		A8A113352793F95F00F9C984 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A113342793F95F00F9C984 /* Constants.swift */; };
 		A8E51E882795378600B4F08A /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E51E872795378600B4F08A /* Color+Extensions.swift */; };
 		A8F8233927929C920000FB08 /* ChallengeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8233827929C920000FB08 /* ChallengeCardView.swift */; };
@@ -45,6 +51,12 @@
 		73E7F07627927A3A0045AC5F /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		73E7F07927927B9D0045AC5F /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		73E7F07C2792F7EF0045AC5F /* CommitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitViewModel.swift; sourceTree = "<group>"; };
+		A83E07F02796F68F00BFB1A0 /* ChallengeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewModel.swift; sourceTree = "<group>"; };
+		A83E07F22796F6DC00BFB1A0 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		A83E07F42796F85500BFB1A0 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		A83E07F6279707DF00BFB1A0 /* Streak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Streak.swift; sourceTree = "<group>"; };
+		A83E07F827971B8500BFB1A0 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
+		A83E07FA27971CC200BFB1A0 /* GoalInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalInputField.swift; sourceTree = "<group>"; };
 		A8A113342793F95F00F9C984 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A8E51E872795378600B4F08A /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		A8F8233827929C920000FB08 /* ChallengeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCardView.swift; sourceTree = "<group>"; };
@@ -68,8 +80,8 @@
 			children = (
 				A8F8233C27929DCB0000FB08 /* MainView.swift */,
 				73710DAD27902ED2009EBA62 /* NameCardView.swift */,
-				735AA3BD27914950000E4E8C /* ContributionView.swift */,
 				A8F8233827929C920000FB08 /* ChallengeCardView.swift */,
+				735AA3BD27914950000E4E8C /* ContributionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -101,6 +113,7 @@
 		73CF60A127900339005F4BF4 /* Git-Challenges */ = {
 			isa = PBXGroup;
 			children = (
+				A83E07ED2796938200BFB1A0 /* Subview */,
 				73E7F07827927B820045AC5F /* Extension */,
 				73E7F07527927A270045AC5F /* Model */,
 				735AA3C3279169FC000E4E8C /* Service */,
@@ -124,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				73E7F07627927A3A0045AC5F /* Commit.swift */,
+				A83E07F22796F6DC00BFB1A0 /* Goal.swift */,
+				A83E07F6279707DF00BFB1A0 /* Streak.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,6 +148,7 @@
 			children = (
 				73E7F07927927B9D0045AC5F /* String+Extensions.swift */,
 				A8E51E872795378600B4F08A /* Color+Extensions.swift */,
+				A83E07F42796F85500BFB1A0 /* UIApplication+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -141,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				73E7F07C2792F7EF0045AC5F /* CommitViewModel.swift */,
+				A83E07F02796F68F00BFB1A0 /* ChallengeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -151,6 +168,15 @@
 				73710DAB279018A6009EBA62 /* CardModifier.swift */,
 			);
 			path = Modifier;
+			sourceTree = "<group>";
+		};
+		A83E07ED2796938200BFB1A0 /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				A83E07F827971B8500BFB1A0 /* Progress.swift */,
+				A83E07FA27971CC200BFB1A0 /* GoalInputField.swift */,
+			);
+			path = Subview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,12 +259,18 @@
 			files = (
 				73E7F07727927A3A0045AC5F /* Commit.swift in Sources */,
 				73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */,
+				A83E07F52796F85500BFB1A0 /* UIApplication+Extensions.swift in Sources */,
+				A83E07F12796F69000BFB1A0 /* ChallengeViewModel.swift in Sources */,
 				73CF60A727900339005F4BF4 /* ViewController.swift in Sources */,
+				A83E07F927971B8500BFB1A0 /* Progress.swift in Sources */,
+				A83E07F7279707E000BFB1A0 /* Streak.swift in Sources */,
 				A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */,
 				735AA3C527916A16000E4E8C /* GithubService.swift in Sources */,
 				73710DAC279018A6009EBA62 /* CardModifier.swift in Sources */,
+				A83E07FB27971CC200BFB1A0 /* GoalInputField.swift in Sources */,
 				73CF60A327900339005F4BF4 /* AppDelegate.swift in Sources */,
 				735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */,
+				A83E07F32796F6DC00BFB1A0 /* Goal.swift in Sources */,
 				73E7F07D2792F7EF0045AC5F /* CommitViewModel.swift in Sources */,
 				A8A113352793F95F00F9C984 /* Constants.swift in Sources */,
 				A8F8233927929C920000FB08 /* ChallengeCardView.swift in Sources */,

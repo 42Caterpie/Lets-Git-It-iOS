@@ -28,18 +28,18 @@ enum emoji: Int {
 
 struct ColorPalette {
     static var pink: ([Color], [String]) = (
-    [
-        Color(hex: 0xC4C4C4),
-        Color(hex: 0xF0C1C1),
-        Color(hex: 0xFBAAAA),
-        Color(hex: 0xE78181),
-        Color(hex: 0xE68181)
-    ],
-    [
-        "😡",
-        "🔥"
-    ]
-)
+        [
+            Color(hex: 0xC4C4C4),
+            Color(hex: 0xF0C1C1),
+            Color(hex: 0xFBAAAA),
+            Color(hex: 0xE78181),
+            Color(hex: 0xE68181)
+        ],
+        [
+            "😡",
+            "🔥"
+        ]
+    )
     
     static var blue: ([Color], [String]) = (
         [
@@ -94,4 +94,8 @@ struct ColorPalette {
             return []
         }
     }
+}
+
+enum AttributedText {
+    case placeholder
 }
