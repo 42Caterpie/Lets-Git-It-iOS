@@ -8,16 +8,29 @@
 import SwiftUI
 
 struct MainView: View {
+    // StateObject of Challenge Card View
+    @StateObject private var challengeViewModel = ChallengeViewModel()
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
                 NameCardView()
                 ChallengeCard(size: geometry.size)
+                    .environmentObject(challengeViewModel)
                 ContributionView()
                 // Badge Card
             }
             .frame(maxWidth: .infinity, alignment: .center)
+            .onTapGesture {
+                textFieldClosed()
+            }
         }
+    }
+    
+    private func textFieldClosed() {
+        challengeViewModel.saveUserGoal()
+        challengeViewModel.update()
+        UIApplication.shared.endEditing()
     }
 }
 
