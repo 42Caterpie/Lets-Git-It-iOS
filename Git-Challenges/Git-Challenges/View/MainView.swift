@@ -25,12 +25,25 @@ struct MainView: View {
                 textFieldClosed()
             }
         }
+        .modifier(IgnoreKeyboard())
     }
     
     private func textFieldClosed() {
         challengeViewModel.saveUserGoal()
         challengeViewModel.update()
         UIApplication.shared.endEditing()
+    }
+}
+
+struct IgnoreKeyboard: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 14.0, *) {
+            content
+                .ignoresSafeArea(.keyboard)
+        }
+        else {
+            content
+        }
     }
 }
 
