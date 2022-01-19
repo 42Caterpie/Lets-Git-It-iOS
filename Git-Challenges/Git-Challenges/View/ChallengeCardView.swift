@@ -16,7 +16,6 @@ struct ChallengeCard: View {
     
     // Size of Main View and Card View
     private let mainViewSize: CGSize
-    private let cardSize: CGSize = CGSize(width: 333, height: 113)
     
     // Color Theme
     private let colors: [Color] = getThemeColors()
@@ -42,15 +41,15 @@ struct ChallengeCard: View {
     private var cardView: some View {
         VStack(alignment: .center) {
             if hasInitialValue {
-                GoalInputFields()
+                GoalInputFields(mainViewSize: mainViewSize)
                 Progress(fullWidth: mainViewSize.width)
             }
             else {
                 cover
             }
         }
-        .environmentObject(challengeViewModel)
-        .frame(width: cardSize.width, height: cardSize.height)
+        .frame(width: mainViewSize.width * SizeRatio.challengeCard.width,
+               height: mainViewSize.height * SizeRatio.challengeCard.height)
         .modifier(CardModifier())
         .onTapGesture {
             if !hasInitialValue {
