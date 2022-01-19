@@ -17,3 +17,7 @@ struct Commit: Codable, Identifiable {
         self.level = level
     }
 }
+
+struct ProfileImage: Decodable {
+    var image: Data
+}
