@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		731FF2A82796B296001CD5E7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FF2A72796B296001CD5E7 /* Theme.swift */; };
 		735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3BD27914950000E4E8C /* ContributionView.swift */; };
 		735AA3C527916A16000E4E8C /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3C427916A16000E4E8C /* GithubService.swift */; };
 		73710D9B279009F3009EBA62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73710D9A279009F3009EBA62 /* GoogleService-Info.plist */; };
@@ -18,6 +19,8 @@
 		73CF60AA27900339005F4BF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73CF60A827900339005F4BF4 /* Main.storyboard */; };
 		73CF60AC2790033B005F4BF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73CF60AB2790033B005F4BF4 /* Assets.xcassets */; };
 		73CF60AF2790033B005F4BF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73CF60AD2790033B005F4BF4 /* LaunchScreen.storyboard */; };
+		73E33FA92796C35300BF994D /* NameCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E33FA82796C35300BF994D /* NameCardViewModel.swift */; };
+		73E33FAB2796C36F00BF994D /* NameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E33FAA2796C36F00BF994D /* NameCard.swift */; };
 		73E7F07727927A3A0045AC5F /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07627927A3A0045AC5F /* Commit.swift */; };
 		73E7F07A27927B9D0045AC5F /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07927927B9D0045AC5F /* String+Extensions.swift */; };
 		73E7F07D2792F7EF0045AC5F /* CommitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07C2792F7EF0045AC5F /* CommitViewModel.swift */; };
@@ -29,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		731FF2A72796B296001CD5E7 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		735AA3BD27914950000E4E8C /* ContributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionView.swift; sourceTree = "<group>"; };
 		735AA3C427916A16000E4E8C /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
 		73710D9A279009F3009EBA62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -42,6 +46,8 @@
 		73CF60AB2790033B005F4BF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73CF60AE2790033B005F4BF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73CF60B02790033B005F4BF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73E33FA82796C35300BF994D /* NameCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCardViewModel.swift; sourceTree = "<group>"; };
+		73E33FAA2796C36F00BF994D /* NameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCard.swift; sourceTree = "<group>"; };
 		73E7F07627927A3A0045AC5F /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		73E7F07927927B9D0045AC5F /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		73E7F07C2792F7EF0045AC5F /* CommitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitViewModel.swift; sourceTree = "<group>"; };
@@ -63,6 +69,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		731FF2A62796B281001CD5E7 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A8A113342793F95F00F9C984 /* Constants.swift */,
+				731FF2A72796B296001CD5E7 /* Theme.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		735AA3C227915C94000E4E8C /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +122,7 @@
 				735AA3C227915C94000E4E8C /* View */,
 				73E7F07B2792F7D20045AC5F /* ViewModel */,
 				73ECFA6C279531160099C654 /* Modifier */,
+				731FF2A62796B281001CD5E7 /* Util */,
 				73CF60A227900339005F4BF4 /* AppDelegate.swift */,
 				73CF60A427900339005F4BF4 /* SceneDelegate.swift */,
 				73CF60A627900339005F4BF4 /* ViewController.swift */,
@@ -115,7 +131,6 @@
 				73CF60AD2790033B005F4BF4 /* LaunchScreen.storyboard */,
 				73CF60B02790033B005F4BF4 /* Info.plist */,
 				73710D9A279009F3009EBA62 /* GoogleService-Info.plist */,
-				A8A113342793F95F00F9C984 /* Constants.swift */,
 			);
 			path = "Git-Challenges";
 			sourceTree = "<group>";
@@ -124,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				73E7F07627927A3A0045AC5F /* Commit.swift */,
+				73E33FAA2796C36F00BF994D /* NameCard.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				73E7F07C2792F7EF0045AC5F /* CommitViewModel.swift */,
+				73E33FA82796C35300BF994D /* NameCardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -232,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73E7F07727927A3A0045AC5F /* Commit.swift in Sources */,
+				73E33FAB2796C36F00BF994D /* NameCard.swift in Sources */,
 				73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */,
 				73CF60A727900339005F4BF4 /* ViewController.swift in Sources */,
 				A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */,
@@ -240,9 +258,11 @@
 				73CF60A327900339005F4BF4 /* AppDelegate.swift in Sources */,
 				735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */,
 				73E7F07D2792F7EF0045AC5F /* CommitViewModel.swift in Sources */,
+				73E33FA92796C35300BF994D /* NameCardViewModel.swift in Sources */,
 				A8A113352793F95F00F9C984 /* Constants.swift in Sources */,
 				A8F8233927929C920000FB08 /* ChallengeCardView.swift in Sources */,
 				A8E51E882795378600B4F08A /* Color+Extensions.swift in Sources */,
+				731FF2A82796B296001CD5E7 /* Theme.swift in Sources */,
 				73E7F07A27927B9D0045AC5F /* String+Extensions.swift in Sources */,
 				73CF60A527900339005F4BF4 /* SceneDelegate.swift in Sources */,
 			);

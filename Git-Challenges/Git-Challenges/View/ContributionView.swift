@@ -8,22 +8,6 @@
 import SwiftUI
 import UIKit
 
-func getThemeColors() -> [Color] {
-    let colorPalette = ColorPalette()
-    let themeColor: String = UserDefaults.standard.string(forKey: "ColorTheme") ?? "pink"
-    UserDefaults.standard.setValue(themeColor, forKey: "ColorTheme")
-    return colorPalette.getColors(themeColor)
-}
-
-func getThemeEmojis() -> [String] {
-    let colorPalette = ColorPalette()
-    let themeColor: String = UserDefaults.standard.string(forKey: "ColorTheme") ?? "pink"
-    UserDefaults.standard.setValue(themeColor, forKey: "ColorTheme")
-    return colorPalette.getEmoji(themeColor)
-}
-
-
-
 struct ContributionView: View {
     // MARK: Commits Data ViewModel
     @StateObject var vm = CommitViewModel()
@@ -52,7 +36,7 @@ struct ContributionView: View {
                 .modifier(CardModifier())
                 ScrollView (.horizontal) {
                     HStack (spacing: 3) {
-                        ForEach (0..<52, id: \.self) { col in
+                        ForEach (30..<52, id: \.self) { col in
                             VStack (spacing: 3) {
                                 ForEach (0..<7, id: \.self) { row in
                                     ColorView(vm.commits![col * 7 + row].level)

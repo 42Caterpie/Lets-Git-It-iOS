@@ -13,6 +13,12 @@ import SwiftSoup
 class CommitViewModel: ObservableObject {
     @Published var commits: [Commit]? = []
     
+    let url = URL(string: "http://github.com/users/2unbini/contributions")
+//    lazy var publisher = URLSession.shared
+//        .dataTaskPublisher(for: url!)
+//        .map(\.data)
+//        .decode(type: ProfileImage.self, decoder: JSONDecoder())
+//
     init() {
         getCommits()
     }
@@ -26,8 +32,6 @@ class CommitViewModel: ObservableObject {
         let doc = try? SwiftSoup.parse(html ?? "")
         let contributions = try? doc?.select("rect")
         
-        
-        
         self.commits = contributions?
             .compactMap({ (element) -> (String, String)? in
                 guard let date = try? element.attr("data-date"),
@@ -39,7 +43,7 @@ class CommitViewModel: ObservableObject {
             .compactMap({ (dateString, levelString) -> Commit? in
                 guard let level = Int(levelString),
                       let date = dateString.toDate()
-                else { return nil}
+                else { return nil }
                 return Commit(date: date, level: level)
             })
     }

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct NameCardView: View {
     @State var daysOngoing: Int = 10
+    @StateObject var nameCardViewModel = NameCardViewModel()
+    let themeEmojis = getThemeEmojis()
     
     func captionText(_ caption: String) -> some View {
         Text(caption)
@@ -24,7 +26,7 @@ struct NameCardView: View {
                 Spacer()
             }
             HStack {
-                Image(systemName: "person.circle")
+                Image(uiImage: nameCardViewModel.image)
                     .resizable()
                     .frame(width: 77, height: 77)
                 Spacer()
@@ -36,7 +38,8 @@ struct NameCardView: View {
                 }
                 Spacer()
                 VStack {
-                    Text("❄️")
+                    Text(themeEmojis[nameCardViewModel.todayCommit])
+//                    Text("❄️")
                         .font(.system(size: 36, weight: .bold))
                         .padding([.bottom], 4)
                     captionText("today\ncommit")
