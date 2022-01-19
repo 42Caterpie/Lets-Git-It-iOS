@@ -13,6 +13,14 @@ import SwiftUI
 // UserDefault.standard.set(ColorPalette.pink, forKey: "theme")
 // let theme = UserDefault.standard.object("theme")
 
+enum SizeRatio {
+    static let nameCard: CGSize = CGSize(width: 0.888, height: 0.172)
+    static let challengeCard: CGSize = CGSize(width: 0.888, height: 0.14)
+    static let contribution: CGSize = CGSize(width: 0.888, height: 0.175)
+    static let badge: CGSize = CGSize(width: 0, height: 0)
+    static let progressBar: CGSize = CGSize(width: 0.773, height: 0)
+}
+
 enum color: Int {
     case defaultGray = 0
     case levelOne
@@ -94,8 +102,4 @@ struct ColorPalette {
             return []
         }
     }
-}
-
-enum AttributedText {
-    case placeholder
 }
