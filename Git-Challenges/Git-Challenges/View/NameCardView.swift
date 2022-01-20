@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct NameCardView: View {
-    @State var daysOngoing: Int = 10
-    @StateObject var nameCardViewModel = NameCardViewModel()
+    @State var daysOngoing: Int
+    @ObservedObject var nameCardViewModel = NameCardViewModel()
+    
     let themeEmojis = getThemeEmojis()
     
     func captionText(_ caption: String) -> some View {
@@ -20,42 +21,49 @@ struct NameCardView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text("hekang")
-                    .font(.system(size: 18, weight: .bold))
-                Spacer()
-            }
-            HStack {
-                Image(uiImage: nameCardViewModel.image)
-                    .resizable()
-                    .frame(width: 77, height: 77)
-                Spacer()
-                VStack {
-                    Text("\(daysOngoing)")
-                        .font(.system(size: 36, weight: .bold))
-                        .padding([.bottom], 4)
-                    captionText("days\nongoing")
-                }
-                Spacer()
-                VStack {
-                    Text(themeEmojis[nameCardViewModel.todayCommit])
-//                    Text("❄️")
-                        .font(.system(size: 36, weight: .bold))
-                        .padding([.bottom], 4)
-                    captionText("today\ncommit")
-                }
-                Spacer()
-            }
-            .frame(alignment:.center)
+            userIdView
+            nameCard
         }
         .frame(width:333 , height:140)
         .padding()
         .modifier(CardModifier())
     }
+    
+    private var userIdView: some View {
+        HStack {
+            Text("hekang")
+                .font(.system(size: 18, weight: .bold))
+            Spacer()
+        }
+    }
+    
+    private var nameCard: some View {
+        HStack {
+            Image(uiImage: nameCardViewModel.image)
+                .resizable()
+                .clipShape(Circle())
+                .frame(width: 77, height: 77)
+            Spacer()
+            VStack {
+                Text("\(daysOngoing)")
+                    .font(.system(size: 36, weight: .bold))
+                    .padding([.bottom], 4)
+                captionText("days\nongoing")
+            }
+            Spacer()
+            VStack {
+                Text(themeEmojis[nameCardViewModel.todayCommit])
+                    .font(.system(size: 36, weight: .bold))
+                    .padding([.bottom], 4)
+                captionText("today\ncommit")
+            }
+            Spacer()
+        }
+    }
 }
 
 struct NameCardView_Previews: PreviewProvider {
     static var previews: some View {
-        NameCardView()
+        NameCardView(daysOngoing: 10)
     }
 }

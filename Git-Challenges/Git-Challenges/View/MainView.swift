@@ -14,7 +14,7 @@ struct MainView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                NameCardView()
+                NameCardView(daysOngoing: challengeViewModel.currentStreak.count)
                 ChallengeCard(size: geometry.size)
                     .environmentObject(challengeViewModel)
                 ContributionView()
