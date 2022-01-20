@@ -10,6 +10,7 @@ import SwiftUI
 struct ChallengeCard: View {
     // ObservedObject of Challenge Card View
     @ObservedObject var challengeViewModel = ChallengeViewModel()
+    @EnvironmentObject private var githubService: GithubService
     
     // Check if the app has initial value
     @State private var hasInitialValue: Bool = UserDefaults.standard.bool(forKey: "hasInitialValue")
@@ -39,6 +40,9 @@ struct ChallengeCard: View {
                     Progress()
                 }
                 .environmentObject(challengeViewModel)
+                .onAppear {
+                    self.challengeViewModel.calculatePercentage(with: githubService.currentStreak.count)
+                }
             }
             else {
                 cover

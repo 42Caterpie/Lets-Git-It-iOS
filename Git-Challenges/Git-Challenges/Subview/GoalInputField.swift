@@ -47,6 +47,7 @@ struct GoalInputFields: View {
                     if count < 10 {
                         challengeViewModel.userGoal.count = "10"
                     }
+                    challengeViewModel.userGoal.count = String(count)
                     challengeViewModel.calculatePercentage(with: githubService.currentStreak.count)
                     challengeViewModel.saveUserGoal()
                 })
@@ -55,8 +56,6 @@ struct GoalInputFields: View {
         }
         .frame(width: cardSize.width * 0.2)
     }
-    
-
 }
 
 struct NumberFieldModifier: ViewModifier {
