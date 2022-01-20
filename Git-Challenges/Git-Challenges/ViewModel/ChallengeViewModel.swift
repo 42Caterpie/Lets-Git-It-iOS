@@ -28,7 +28,7 @@ class ChallengeViewModel: ObservableObject {
         
         percentage = CGFloat(streakCount) / CGFloat(divisor)
         
-        self.percentage =  percentage <= 1 ? percentage : 1
+        self.percentage = percentage <= 1 ? percentage : 1
         if percentage >= 1 {
             UserDefaults.standard.set(true, forKey: "finishChallengeBadge")
         }
@@ -44,7 +44,7 @@ class ChallengeViewModel: ObservableObject {
     // TODO: Get User's Goal From Server
     private func getUserGoal() {
         let title: String = UserDefaults.standard.string(forKey: "userGoalTitle") ?? ""
-        let count: String = UserDefaults.standard.string(forKey: "userGoalCount") ?? ""
+        let count: String = UserDefaults.standard.string(forKey: "userGoalCount") ?? "365"
         
         self.userGoal = Goal(title: title, count: count)
     }
