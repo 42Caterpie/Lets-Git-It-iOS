@@ -9,28 +9,19 @@ import SwiftUI
 
 struct MainView: View {
     // ObservedObject of Challenge Card View
-    @ObservedObject private var challengeViewModel = ChallengeViewModel()
+    @ObservedObject var githubService: GithubService = GithubService()
     
     var body: some View {
-        GeometryReader { geometry in
+        ScrollView {
             VStack {
                 NameCardView()
-                ChallengeCard(size: geometry.size)
+                ChallengeCard()
                 ContributionView()
                 // Badge Card
             }
-            .frame(maxWidth: .infinity, alignment: .center)
-            .onTapGesture {
-                textFieldClosed()
-            }
+            .environmentObject(githubService)
         }
         .modifier(IgnoreKeyboard())
-    }
-    
-    private func textFieldClosed() {
-        challengeViewModel.saveUserGoal()
-        challengeViewModel.update()
-        UIApplication.shared.endEditing()
     }
 }
 

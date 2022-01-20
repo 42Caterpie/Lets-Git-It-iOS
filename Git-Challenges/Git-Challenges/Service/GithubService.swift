@@ -5,28 +5,29 @@
 //  Created by 강희영 on 2022/01/14.
 //
 
-// URL = http://github.com/users/hekang42/contributions
-
 import Foundation
 import SwiftSoup
-import Combine
-//import SwiftUI
 
 class GithubService: ObservableObject {
     @Published var commits: [Commit] = []
     @Published var currentStreak: Streak = Streak()
     
-    let url = URL(string: "http://github.com/users/2unbini/contributions")
+    // Would be Changed after Github Login Implemented
+    private let userID: String = "2unbini"
+    private let baseURL: String
+    
+    // Has committed Today?
+    var hasCommitted: Int = emoji.notCommitted.rawValue
     
     init() {
+        self.baseURL = "http://github.com/users/\(userID)/contributions"
+        
         getCommitData()
         currentStreak = calculateCurrentStreak()
     }
     
     func getCommitData() {
-        let userID: String = "hekang42"
-        let baseUrl: String = "http://github.com/users/\(userID)/contributions"
-        guard let url: URL = URL(string: baseUrl) else { fatalError("Cannot Get URL") }
+        guard let url: URL = URL(string: baseURL) else { fatalError("Cannot Get URL") }
         
         do {
             let html = try String(contentsOf: url, encoding: .utf8)
@@ -49,8 +50,13 @@ class GithubService: ObservableObject {
                     
                     return Commit(date: date, level: level)
                 })
+            
+            if commits.last!.date.isToday && commits.last!.level > 0 {
+                self.hasCommitted = emoji.committed.rawValue
+            }
         }
         catch {
+            // TODO: Alert to User
             fatalError("Cannot Get Data: \(error.localizedDescription)")
         }
     }

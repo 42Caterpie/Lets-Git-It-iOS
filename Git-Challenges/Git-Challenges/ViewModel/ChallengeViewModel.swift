@@ -12,26 +12,23 @@ class ChallengeViewModel: ObservableObject {
     // User's Goal
     @Published var userGoal: Goal = Goal()
     
-    // Current Streak Count
-    @Published var currentStreak: Streak = Streak()
-    
-    // Percentage of Progress
     @Published var percentage: CGFloat = 0.0
-    
-    // Whole Commit Data
-    private var commits: [Commit] = []
-    
-    // MARK: EnvironmentObject to ObservedObject
-    @ObservedObject var githubService = GithubService()
     
     init() {
         getUserGoal()
-        self.currentStreak = githubService.currentStreak
-        self.percentage = calculatePercentage()
     }
     
-    func update() {
-        self.percentage = calculatePercentage()
+    func calculatePercentage(with streakCount: Int) {
+        let divisor = Int(self.userGoal.count) ?? 0
+        var percentage: CGFloat
+        
+        if divisor == 0 {
+            self.percentage = 0
+        }
+        
+        percentage = CGFloat(streakCount) / CGFloat(divisor)
+        
+        self.percentage =  percentage <= 1 ? percentage : 1
     }
     
     // TODO: Save User's Goal To Server
@@ -47,18 +44,5 @@ class ChallengeViewModel: ObservableObject {
         let count: String = UserDefaults.standard.string(forKey: "userGoalCount") ?? ""
         
         self.userGoal = Goal(title: title, count: count)
-    }
-    
-    private func calculatePercentage() -> CGFloat {
-        let divisor = Int(self.userGoal.count) ?? 0
-        var percentage: CGFloat
-        
-        if divisor == 0 {
-            return 0
-        }
-        
-        percentage = CGFloat(self.currentStreak.count) / CGFloat(divisor)
-        
-        return percentage <= 1 ? percentage : 1
     }
 }

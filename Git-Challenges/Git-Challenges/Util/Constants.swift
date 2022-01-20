@@ -8,17 +8,12 @@
 import Foundation
 import SwiftUI
 
-// Usage:
-// UserDefault에 theme을 key로 하는 객체 저장
-// UserDefault.standard.set(ColorPalette.pink, forKey: "theme")
-// let theme = UserDefault.standard.object("theme")
+let uiSize: CGSize = UIScreen.main.bounds.size
 
-enum SizeRatio {
-    static let nameCard: CGSize = CGSize(width: 0.888, height: 0.172)
-    static let challengeCard: CGSize = CGSize(width: 0.888, height: 0.14)
-    static let contribution: CGSize = CGSize(width: 0.888, height: 0.175)
-    static let badge: CGSize = CGSize(width: 0, height: 0)
-    static let progressBar: CGSize = CGSize(width: 0.773, height: 0)
+enum widthRatio {
+    static let card: CGFloat = 0.888
+    static let badge: CGFloat = 1
+    static let progressBar: CGFloat = 0.773
 }
 
 enum color: Int {
@@ -26,6 +21,7 @@ enum color: Int {
     case levelOne
     case levelTwo
     case levelThree
+    case levelFour
     case progressBar
 }
 
@@ -40,6 +36,7 @@ struct ColorPalette {
             Color(hex: 0xC4C4C4),
             Color(hex: 0xF0C1C1),
             Color(hex: 0xFBAAAA),
+            Color(hex: 0xF09696),
             Color(hex: 0xE78181),
             Color(hex: 0xE68181)
         ],
@@ -54,6 +51,7 @@ struct ColorPalette {
             Color(hex: 0xC4C4C4),
             Color(hex: 0xC1DAF0),
             Color(hex: 0xA0C7EA),
+            Color(hex: 0x86ADD0),
             Color(hex: 0x6DA8DB),
             Color(hex: 0x6DA8DB),
         ],
@@ -68,6 +66,7 @@ struct ColorPalette {
             Color(hex: 0xC4C4C4),
             Color(hex: 0xCAEBBB),
             Color(hex: 0xAFDB9B),
+            Color(hex: 0x9BC987),
             Color(hex: 0x85C767),
             Color(hex: 0x85C767),
         ],

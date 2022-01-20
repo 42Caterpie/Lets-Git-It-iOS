@@ -13,9 +13,6 @@ import SwiftUI
 
 class NameCardViewModel: ObservableObject {
     @Published var image: UIImage = UIImage(systemName: "person.circle") ?? UIImage()
-    @Published var todayCommit: Int = 0
-    @ObservedObject var githubService = GithubService()
-    @Published var currentStreak: Int = 0
     
     // MARK: Subject
     //    private let nameCardSubject = PassthroughSubject<String, Never>()
@@ -24,8 +21,6 @@ class NameCardViewModel: ObservableObject {
     // MARK: init
     init () {
         imageCrawling()
-        getTodayCommit()
-        currentStreak = githubService.currentStreak.count
     }
     
     func imageCrawling() {
@@ -38,14 +33,15 @@ class NameCardViewModel: ObservableObject {
         let data = try? Data(contentsOf: urlImage!)
         self.image = UIImage(data: data!)!
     }
-    
-    func getTodayCommit() {
-        let commits = githubService.commits
-        if commits[commits.count - 1].level == 0 {
-            todayCommit = emoji.notCommitted.rawValue
-        } else {
-            todayCommit = emoji.committed.rawValue
-        }
-    }
+
+//    MARK: Replaced with githubService.hasCommitted value
+//    func getTodayCommit() {
+//        let commits = githubService.commits
+//        if commits[commits.count - 1].level == 0 {
+//            todayCommit = emoji.notCommitted.rawValue
+//        } else {
+//            todayCommit = emoji.committed.rawValue
+//        }
+//    }
 }
 

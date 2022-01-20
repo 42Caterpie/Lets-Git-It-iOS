@@ -10,17 +10,13 @@ import Combine
 
 struct GoalInputFields: View {
     @EnvironmentObject private var challengeViewModel: ChallengeViewModel
+    @EnvironmentObject private var githubService: GithubService
     
     // Size Of Card
-    private let cardSize: CGSize
+    private let cardSize: CGSize = CGSize(width: uiSize.width * widthRatio.card, height: 113)
     
     // Theme Components
     private let colors: [Color] = getThemeColors()
-    
-    init(mainViewSize: CGSize) {
-        self.cardSize = CGSize(width: mainViewSize.width * SizeRatio.challengeCard.width,
-                               height: mainViewSize.height * SizeRatio.challengeCard.height)
-    }
     
     var body: some View {
         HStack(alignment: .bottom, spacing: 10) {
@@ -40,13 +36,20 @@ struct GoalInputFields: View {
     private var numberField: some View {
         HStack(alignment: .bottom, spacing: 0) {
             
-            Text("\(Int(challengeViewModel.currentStreak.count))")
+            Text("\(Int(githubService.currentStreak.count))")
                 .font(.system(size: 24, weight: .bold))
             
             HStack(alignment: .bottom, spacing: 0) {
                 Text("/")
-                    .modifier(SlashTextModifier(color: colors[color.defaultGray.rawValue]))
-                TextField("365", text: $challengeViewModel.userGoal.count)
+                    .modifier(SlashText(color: colors[color.defaultGray.rawValue]))
+                TextField("365", text: $challengeViewModel.userGoal.count, onCommit: {
+                    let count = Int(challengeViewModel.userGoal.count) ?? 10
+                    if count < 10 {
+                        challengeViewModel.userGoal.count = "10"
+                    }
+                    challengeViewModel.calculatePercentage(with: githubService.currentStreak.count)
+                    challengeViewModel.saveUserGoal()
+                })
                     .modifier(NumberFieldModifier(color: colors[color.defaultGray.rawValue]))
             }
         }
@@ -54,18 +57,6 @@ struct GoalInputFields: View {
     }
     
 
-}
-
-struct SlashTextModifier: ViewModifier {
-    
-    let color: Color
-    
-    func body(content: Content) -> some View {
-        content
-            .padding(.bottom, 2)
-            .font(.system(size: 14, weight: .bold))
-            .foregroundColor(color)
-    }
 }
 
 struct NumberFieldModifier: ViewModifier {
@@ -76,7 +67,7 @@ struct NumberFieldModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .keyboardType(.numberPad)
+            .keyboardType(.numbersAndPunctuation)
             .onReceive(Just(challengeViewModel.$userGoal.count), perform: { _ in
                 if challengeViewModel.userGoal.count.count > 3 {
                     challengeViewModel.userGoal.count.removeLast()

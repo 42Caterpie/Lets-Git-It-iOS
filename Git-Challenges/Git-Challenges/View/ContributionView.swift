@@ -9,8 +9,7 @@ import SwiftUI
 import UIKit
 
 struct ContributionView: View {
-    // MARK: Commits Data ViewModel
-    @ObservedObject var vm = GithubService()
+    @EnvironmentObject private var githubService: GithubService
     
     let weekday = Calendar.current.component(.weekday, from: Date())
     
@@ -32,20 +31,19 @@ struct ContributionView: View {
             }
             ZStack {
                 HStack(){}
-                .frame(width:403, height:150)
-                .modifier(CardModifier())
+                .modifier(CardModifier(height: 150))
                 ScrollView (.horizontal) {
                     HStack (spacing: 3) {
                         ForEach (30..<52, id: \.self) { col in
                             VStack (spacing: 3) {
                                 ForEach (0..<7, id: \.self) { row in
-                                    ColorView(vm.commits[col * 7 + row].level)
+                                    ColorView(githubService.commits[col * 7 + row].level)
                                 }
                             }
                         }
                         VStack (spacing: 3) {
                             ForEach(0..<weekday, id: \.self) {cell in
-                                ColorView(vm.commits[364 + cell].level )
+                                ColorView(githubService.commits[364 + cell].level)
                             }
                             Spacer()
                         }
