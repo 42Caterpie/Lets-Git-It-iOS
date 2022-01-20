@@ -25,6 +25,10 @@
 		73E7F07A27927B9D0045AC5F /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07927927B9D0045AC5F /* String+Extensions.swift */; };
 		73E7F07D2792F7EF0045AC5F /* CommitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07C2792F7EF0045AC5F /* CommitViewModel.swift */; };
 		73F29E6B2791B7850000E5B6 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 73F29E6A2791B7850000E5B6 /* SwiftSoup */; };
+		A83AA0E327992E870006A718 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E227992E870006A718 /* Indicator.swift */; };
+		A83AA0E527992EA10006A718 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E427992EA10006A718 /* ProgressBar.swift */; };
+		A83AA0E7279932890006A718 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E6279932890006A718 /* Date+Extensions.swift */; };
+		A83AA0E9279935BF0006A718 /* SlashText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E8279935BF0006A718 /* SlashText.swift */; };
 		A83E07F12796F69000BFB1A0 /* ChallengeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F02796F68F00BFB1A0 /* ChallengeViewModel.swift */; };
 		A83E07F32796F6DC00BFB1A0 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F22796F6DC00BFB1A0 /* Goal.swift */; };
 		A83E07F52796F85500BFB1A0 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F42796F85500BFB1A0 /* UIApplication+Extensions.swift */; };
@@ -57,6 +61,10 @@
 		73E7F07627927A3A0045AC5F /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		73E7F07927927B9D0045AC5F /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		73E7F07C2792F7EF0045AC5F /* CommitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitViewModel.swift; sourceTree = "<group>"; };
+		A83AA0E227992E870006A718 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
+		A83AA0E427992EA10006A718 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		A83AA0E6279932890006A718 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		A83AA0E8279935BF0006A718 /* SlashText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlashText.swift; sourceTree = "<group>"; };
 		A83E07F02796F68F00BFB1A0 /* ChallengeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewModel.swift; sourceTree = "<group>"; };
 		A83E07F22796F6DC00BFB1A0 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		A83E07F42796F85500BFB1A0 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
@@ -165,6 +173,7 @@
 				73E7F07927927B9D0045AC5F /* String+Extensions.swift */,
 				A8E51E872795378600B4F08A /* Color+Extensions.swift */,
 				A83E07F42796F85500BFB1A0 /* UIApplication+Extensions.swift */,
+				A83AA0E6279932890006A718 /* Date+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -183,6 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				73710DAB279018A6009EBA62 /* CardModifier.swift */,
+				A83AA0E227992E870006A718 /* Indicator.swift */,
+				A83AA0E427992EA10006A718 /* ProgressBar.swift */,
+				A83AA0E8279935BF0006A718 /* SlashText.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -277,14 +289,17 @@
 				73E7F07727927A3A0045AC5F /* Commit.swift in Sources */,
 				73E33FAB2796C36F00BF994D /* NameCard.swift in Sources */,
 				73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */,
+				A83AA0E7279932890006A718 /* Date+Extensions.swift in Sources */,
 				A83E07F52796F85500BFB1A0 /* UIApplication+Extensions.swift in Sources */,
 				A83E07F12796F69000BFB1A0 /* ChallengeViewModel.swift in Sources */,
 				73CF60A727900339005F4BF4 /* ViewController.swift in Sources */,
 				A83E07F927971B8500BFB1A0 /* Progress.swift in Sources */,
+				A83AA0E327992E870006A718 /* Indicator.swift in Sources */,
 				A83E07F7279707E000BFB1A0 /* Streak.swift in Sources */,
 				A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */,
 				735AA3C527916A16000E4E8C /* GithubService.swift in Sources */,
 				73710DAC279018A6009EBA62 /* CardModifier.swift in Sources */,
+				A83AA0E9279935BF0006A718 /* SlashText.swift in Sources */,
 				A83E07FB27971CC200BFB1A0 /* GoalInputField.swift in Sources */,
 				73CF60A327900339005F4BF4 /* AppDelegate.swift in Sources */,
 				735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */,
@@ -296,6 +311,7 @@
 				A8E51E882795378600B4F08A /* Color+Extensions.swift in Sources */,
 				731FF2A82796B296001CD5E7 /* Theme.swift in Sources */,
 				73E7F07A27927B9D0045AC5F /* String+Extensions.swift in Sources */,
+				A83AA0E527992EA10006A718 /* ProgressBar.swift in Sources */,
 				73CF60A527900339005F4BF4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

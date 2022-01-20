@@ -14,15 +14,8 @@ struct ChallengeCard: View {
     // Check if the app has initial value
     @State private var hasInitialValue: Bool = UserDefaults.standard.bool(forKey: "hasInitialValue")
     
-    // Size of Main View and Card View
-    private let mainViewSize: CGSize
-    
     // Color Theme
     private let colors: [Color] = getThemeColors()
-    
-    init(size: CGSize) {
-        self.mainViewSize = size
-    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -42,8 +35,8 @@ struct ChallengeCard: View {
         VStack(alignment: .center) {
             if hasInitialValue {
                 Group {
-                    GoalInputFields(mainViewSize: mainViewSize)
-                    Progress(fullWidth: mainViewSize.width)
+                    GoalInputFields()
+                    Progress()
                 }
                 .environmentObject(challengeViewModel)
             }
@@ -51,9 +44,7 @@ struct ChallengeCard: View {
                 cover
             }
         }
-        .frame(width: mainViewSize.width * SizeRatio.challengeCard.width,
-               height: mainViewSize.height * SizeRatio.challengeCard.height)
-        .modifier(CardModifier())
+        .modifier(CardModifier(height: 113))
         .onTapGesture {
             if !hasInitialValue {
                 hasInitialValue.toggle()
@@ -66,7 +57,7 @@ struct ChallengeCard: View {
         ZStack {
             Rectangle()
                 .foregroundColor(.white)
-                .modifier(CardModifier())
+                .modifier(CardModifier(height: 113))
                 .cornerRadius(20)
             Text("😱 목표가 없어요")
                 .font(.system(size: 18, weight: .bold))

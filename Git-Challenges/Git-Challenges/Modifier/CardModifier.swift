@@ -11,8 +11,18 @@
 import SwiftUI
 
 struct CardModifier: ViewModifier {
+    
+    let width: CGFloat
+    let height: CGFloat
+    
+    init(height: CGFloat) {
+        self.width = uiSize.width * widthRatio.card
+        self.height = height
+    }
+    
     func body(content: Content) -> some View {
         content
+            .frame(width: width, height: height)
             .background(
                 RoundedRectangle(cornerRadius: 20)
                     .foregroundColor(.white)
