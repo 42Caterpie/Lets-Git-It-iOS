@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ChallengeCard: View {
-    // EnvironmentObject of Challenge Card View
-    @EnvironmentObject private var challengeViewModel: ChallengeViewModel
-
+    // ObservedObject of Challenge Card View
+    @ObservedObject var challengeViewModel = ChallengeViewModel()
+    
     // Check if the app has initial value
     @State private var hasInitialValue: Bool = UserDefaults.standard.bool(forKey: "hasInitialValue")
     
@@ -41,8 +41,11 @@ struct ChallengeCard: View {
     private var cardView: some View {
         VStack(alignment: .center) {
             if hasInitialValue {
-                GoalInputFields(mainViewSize: mainViewSize)
-                Progress(fullWidth: mainViewSize.width)
+                Group {
+                    GoalInputFields(mainViewSize: mainViewSize)
+                    Progress(fullWidth: mainViewSize.width)
+                }
+                .environmentObject(challengeViewModel)
             }
             else {
                 cover

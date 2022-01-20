@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct MainView: View {
-    // StateObject of Challenge Card View
-    @StateObject private var challengeViewModel = ChallengeViewModel()
+    // ObservedObject of Challenge Card View
+    @ObservedObject private var challengeViewModel = ChallengeViewModel()
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                NameCardView(daysOngoing: challengeViewModel.currentStreak.count)
+                NameCardView()
                 ChallengeCard(size: geometry.size)
-                    .environmentObject(challengeViewModel)
                 ContributionView()
                 // Badge Card
             }

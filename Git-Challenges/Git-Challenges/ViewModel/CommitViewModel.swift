@@ -14,11 +14,7 @@ class CommitViewModel: ObservableObject {
     @Published var commits: [Commit]? = []
     
     let url = URL(string: "http://github.com/users/2unbini/contributions")
-//    lazy var publisher = URLSession.shared
-//        .dataTaskPublisher(for: url!)
-//        .map(\.data)
-//        .decode(type: ProfileImage.self, decoder: JSONDecoder())
-//
+    
     init() {
         getCommits()
     }

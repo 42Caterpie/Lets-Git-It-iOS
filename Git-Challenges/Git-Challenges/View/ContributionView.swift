@@ -10,7 +10,7 @@ import UIKit
 
 struct ContributionView: View {
     // MARK: Commits Data ViewModel
-    @ObservedObject var vm = CommitViewModel()
+    @ObservedObject var vm = GithubService()
     
     let weekday = Calendar.current.component(.weekday, from: Date())
     
@@ -39,13 +39,13 @@ struct ContributionView: View {
                         ForEach (30..<52, id: \.self) { col in
                             VStack (spacing: 3) {
                                 ForEach (0..<7, id: \.self) { row in
-                                    ColorView(vm.commits![col * 7 + row].level)
+                                    ColorView(vm.commits[col * 7 + row].level)
                                 }
                             }
                         }
                         VStack (spacing: 3) {
                             ForEach(0..<weekday, id: \.self) {cell in
-                                ColorView(vm.commits?[364 + cell].level ?? 0)
+                                ColorView(vm.commits[364 + cell].level )
                             }
                             Spacer()
                         }

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct NameCardView: View {
-    @State var daysOngoing: Int
     @ObservedObject var nameCardViewModel = NameCardViewModel()
     
     let themeEmojis = getThemeEmojis()
@@ -45,10 +44,11 @@ struct NameCardView: View {
                 .frame(width: 77, height: 77)
             Spacer()
             VStack {
-                Text("\(daysOngoing)")
+                Text("\(nameCardViewModel.currentStreak)")
                     .font(.system(size: 36, weight: .bold))
                     .padding([.bottom], 4)
                 captionText("days\nongoing")
+                    .scaledToFill()
             }
             Spacer()
             VStack {
@@ -64,6 +64,6 @@ struct NameCardView: View {
 
 struct NameCardView_Previews: PreviewProvider {
     static var previews: some View {
-        NameCardView(daysOngoing: 10)
+        NameCardView()
     }
 }
