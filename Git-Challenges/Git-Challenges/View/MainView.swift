@@ -12,27 +12,48 @@ struct MainView: View {
     @ObservedObject var githubService: GithubService = GithubService()
     
     var body: some View {
-//        ScrollView {
-            VStack {
+        NavigationView {
+            VStack(spacing: 10) {
+                settings
                 NameCardView()
                 ChallengeCard()
                 ContributionView()
                 BadgeView()
             }
             .environmentObject(githubService)
-//        }
-        .modifier(IgnoreKeyboard())
+            .modifier(NavigationBar())
+        }
+    }
+    
+    private var settings: some View {
+        HStack {
+            Spacer()
+            NavigationLink {
+                SettingView()
+            } label: {
+                Image(systemName: "gear")
+                    .foregroundColor(getThemeColors()[color.defaultGray.rawValue])
+                    .font(.system(size: 20, weight: .bold))
+            }
+            .padding(.trailing, 20)
+            .padding([.top, .bottom], 10)
+        }
     }
 }
 
-struct IgnoreKeyboard: ViewModifier {
+struct NavigationBar: ViewModifier {
     func body(content: Content) -> some View {
         if #available(iOS 14.0, *) {
             content
+                .navigationTitle("")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarHidden(true)
                 .ignoresSafeArea(.keyboard)
         }
         else {
             content
+                .navigationBarHidden(true)
+                .navigationBarTitle("")
         }
     }
 }

@@ -10,6 +10,11 @@ import SwiftUI
 
 let uiSize: CGSize = UIScreen.main.bounds.size
 
+enum Message {
+    static let notiDeniedInSettingsTitle: String = "Notification has been disabled for this app"
+    static let notiDeniedInSettingsMessage: String = "Please go to settings to enable it now"
+}
+
 enum widthRatio {
     static let card: CGFloat = 0.888
     static let badge: CGFloat = 1
