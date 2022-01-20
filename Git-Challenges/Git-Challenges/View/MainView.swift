@@ -12,15 +12,15 @@ struct MainView: View {
     @ObservedObject var githubService: GithubService = GithubService()
     
     var body: some View {
-        ScrollView {
+//        ScrollView {
             VStack {
                 NameCardView()
                 ChallengeCard()
                 ContributionView()
-                // Badge Card
+                BadgeView()
             }
             .environmentObject(githubService)
-        }
+//        }
         .modifier(IgnoreKeyboard())
     }
 }

@@ -24,7 +24,6 @@ struct NameCardView: View {
             userIdView
             nameCard
         }
-        .padding()
         .modifier(CardModifier(height: 140))
     }
     
@@ -56,9 +55,10 @@ struct NameCardView: View {
                     .font(.system(size: 36, weight: .bold))
                     .padding([.bottom], 4)
                 captionText("today\ncommit")
+                    .scaledToFill()
             }
-            Spacer()
         }
+        .padding([.horizontal])
     }
 }
 
