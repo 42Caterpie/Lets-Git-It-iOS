@@ -14,7 +14,8 @@ import SwiftUI
 class NameCardViewModel: ObservableObject {
     @Published var image: UIImage = UIImage(systemName: "person.circle") ?? UIImage()
     @Published var todayCommit: Int = 0
-    @ObservedObject var commitViewModel = CommitViewModel()
+    @ObservedObject var githubService = GithubService()
+    @Published var currentStreak: Int = 0
     
     // MARK: Subject
     //    private let nameCardSubject = PassthroughSubject<String, Never>()
@@ -24,28 +25,27 @@ class NameCardViewModel: ObservableObject {
     init () {
         imageCrawling()
         getTodayCommit()
+        currentStreak = githubService.currentStreak.count
     }
     
     func imageCrawling() {
-        let userID = "hekang42"
+        let userID = "2unbini"
         let url = URL(string: "https://github.com/\(userID)")!
         let html = try? String(contentsOf: url, encoding: .utf8)
         let doc = try? SwiftSoup.parse(html ?? "")
         let stringImage = try? doc?.select(".js-profile-editable-replace").select("img").attr("src").description
         let urlImage = URL(string: stringImage!)
-        print(stringImage ?? "")
         let data = try? Data(contentsOf: urlImage!)
         self.image = UIImage(data: data!)!
     }
     
     func getTodayCommit() {
-        let commits = commitViewModel.commits
-        if let commits = commits {
-            if commits[commits.count - 1].level == 0 {
-                todayCommit = emoji.notCommitted.rawValue
-            } else {
-                todayCommit = emoji.committed.rawValue
-            }
+        let commits = githubService.commits
+        if commits[commits.count - 1].level == 0 {
+            todayCommit = emoji.notCommitted.rawValue
+        } else {
+            todayCommit = emoji.committed.rawValue
         }
     }
 }
+
