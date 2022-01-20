@@ -34,7 +34,7 @@ struct ContributionView: View {
                 .modifier(CardModifier(height: 150))
                 ScrollView (.horizontal) {
                     HStack (spacing: 3) {
-                        ForEach (30..<52, id: \.self) { col in
+                        ForEach (35..<52, id: \.self) { col in
                             VStack (spacing: 3) {
                                 ForEach (0..<7, id: \.self) { row in
                                     ColorView(githubService.commits[col * 7 + row].level)
@@ -49,10 +49,9 @@ struct ContributionView: View {
                         }
                     }
                     .cornerRadius(4)
+                    .padding()
                 }
                 .frame(width:353, height: 100)
-                .padding()
-                
             }
         }
     }

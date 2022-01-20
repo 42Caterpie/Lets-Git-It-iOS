@@ -19,11 +19,13 @@
 		73CF60AA27900339005F4BF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73CF60A827900339005F4BF4 /* Main.storyboard */; };
 		73CF60AC2790033B005F4BF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73CF60AB2790033B005F4BF4 /* Assets.xcassets */; };
 		73CF60AF2790033B005F4BF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73CF60AD2790033B005F4BF4 /* LaunchScreen.storyboard */; };
+		73E1A83F27993C8400E1BDFE /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1A83E27993C8400E1BDFE /* BadgeView.swift */; };
+		73E1A84127993CB500E1BDFE /* BadgeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1A84027993CB500E1BDFE /* BadgeViewModel.swift */; };
+		73E1A84327994DC800E1BDFE /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1A84227994DC800E1BDFE /* Badge.swift */; };
 		73E33FA92796C35300BF994D /* NameCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E33FA82796C35300BF994D /* NameCardViewModel.swift */; };
 		73E33FAB2796C36F00BF994D /* NameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E33FAA2796C36F00BF994D /* NameCard.swift */; };
 		73E7F07727927A3A0045AC5F /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07627927A3A0045AC5F /* Commit.swift */; };
 		73E7F07A27927B9D0045AC5F /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07927927B9D0045AC5F /* String+Extensions.swift */; };
-		73E7F07D2792F7EF0045AC5F /* CommitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07C2792F7EF0045AC5F /* CommitViewModel.swift */; };
 		73F29E6B2791B7850000E5B6 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 73F29E6A2791B7850000E5B6 /* SwiftSoup */; };
 		A83AA0E327992E870006A718 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E227992E870006A718 /* Indicator.swift */; };
 		A83AA0E527992EA10006A718 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E427992EA10006A718 /* ProgressBar.swift */; };
@@ -56,11 +58,13 @@
 		73CF60AB2790033B005F4BF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73CF60AE2790033B005F4BF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73CF60B02790033B005F4BF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73E1A83E27993C8400E1BDFE /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		73E1A84027993CB500E1BDFE /* BadgeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeViewModel.swift; sourceTree = "<group>"; };
+		73E1A84227994DC800E1BDFE /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		73E33FA82796C35300BF994D /* NameCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCardViewModel.swift; sourceTree = "<group>"; };
 		73E33FAA2796C36F00BF994D /* NameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCard.swift; sourceTree = "<group>"; };
 		73E7F07627927A3A0045AC5F /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		73E7F07927927B9D0045AC5F /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		73E7F07C2792F7EF0045AC5F /* CommitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitViewModel.swift; sourceTree = "<group>"; };
 		A83AA0E227992E870006A718 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
 		A83AA0E427992EA10006A718 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		A83AA0E6279932890006A718 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 				73710DAD27902ED2009EBA62 /* NameCardView.swift */,
 				A8F8233827929C920000FB08 /* ChallengeCardView.swift */,
 				735AA3BD27914950000E4E8C /* ContributionView.swift */,
+				73E1A83E27993C8400E1BDFE /* BadgeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -163,6 +168,7 @@
 				A83E07F22796F6DC00BFB1A0 /* Goal.swift */,
 				A83E07F6279707DF00BFB1A0 /* Streak.swift */,
 				73E33FAA2796C36F00BF994D /* NameCard.swift */,
+				73E1A84227994DC800E1BDFE /* Badge.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,8 +187,8 @@
 		73E7F07B2792F7D20045AC5F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				73E7F07C2792F7EF0045AC5F /* CommitViewModel.swift */,
 				A83E07F02796F68F00BFB1A0 /* ChallengeViewModel.swift */,
+				73E1A84027993CB500E1BDFE /* BadgeViewModel.swift */,
 				73E33FA82796C35300BF994D /* NameCardViewModel.swift */,
 			);
 			path = ViewModel;
@@ -288,13 +294,16 @@
 			files = (
 				73E7F07727927A3A0045AC5F /* Commit.swift in Sources */,
 				73E33FAB2796C36F00BF994D /* NameCard.swift in Sources */,
+				73E1A84127993CB500E1BDFE /* BadgeViewModel.swift in Sources */,
 				73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */,
 				A83AA0E7279932890006A718 /* Date+Extensions.swift in Sources */,
 				A83E07F52796F85500BFB1A0 /* UIApplication+Extensions.swift in Sources */,
 				A83E07F12796F69000BFB1A0 /* ChallengeViewModel.swift in Sources */,
 				73CF60A727900339005F4BF4 /* ViewController.swift in Sources */,
 				A83E07F927971B8500BFB1A0 /* Progress.swift in Sources */,
+				73E1A84327994DC800E1BDFE /* Badge.swift in Sources */,
 				A83AA0E327992E870006A718 /* Indicator.swift in Sources */,
+				73E1A83F27993C8400E1BDFE /* BadgeView.swift in Sources */,
 				A83E07F7279707E000BFB1A0 /* Streak.swift in Sources */,
 				A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */,
 				735AA3C527916A16000E4E8C /* GithubService.swift in Sources */,
@@ -304,7 +313,6 @@
 				73CF60A327900339005F4BF4 /* AppDelegate.swift in Sources */,
 				735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */,
 				A83E07F32796F6DC00BFB1A0 /* Goal.swift in Sources */,
-				73E7F07D2792F7EF0045AC5F /* CommitViewModel.swift in Sources */,
 				73E33FA92796C35300BF994D /* NameCardViewModel.swift in Sources */,
 				A8A113352793F95F00F9C984 /* Constants.swift in Sources */,
 				A8F8233927929C920000FB08 /* ChallengeCardView.swift in Sources */,

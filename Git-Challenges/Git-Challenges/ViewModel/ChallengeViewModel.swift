@@ -29,6 +29,9 @@ class ChallengeViewModel: ObservableObject {
         percentage = CGFloat(streakCount) / CGFloat(divisor)
         
         self.percentage =  percentage <= 1 ? percentage : 1
+        if percentage >= 1 {
+            UserDefaults.standard.set(true, forKey: "finishChallengeBadge")
+        }
     }
     
     // TODO: Save User's Goal To Server
