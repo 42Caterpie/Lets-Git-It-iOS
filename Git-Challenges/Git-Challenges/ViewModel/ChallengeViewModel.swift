@@ -28,7 +28,7 @@ class ChallengeViewModel: ObservableObject {
         
         percentage = CGFloat(streakCount) / CGFloat(divisor)
         
-        self.percentage =  percentage <= 1 ? percentage : 1
+        self.percentage = percentage <= 1 ? percentage : 1
         if percentage >= 1 {
             UserDefaults.standard.set(true, forKey: "finishChallengeBadge")
         }
