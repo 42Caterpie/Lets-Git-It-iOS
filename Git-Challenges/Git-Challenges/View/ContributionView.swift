@@ -10,7 +10,7 @@ import UIKit
 
 struct ContributionView: View {
     // MARK: Commits Data ViewModel
-    @StateObject var vm = CommitViewModel()
+    @ObservedObject var vm = CommitViewModel()
     
     let weekday = Calendar.current.component(.weekday, from: Date())
     
