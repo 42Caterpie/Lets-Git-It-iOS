@@ -46,7 +46,7 @@ struct SettingView: View {
     private var settings: some View {
         VStack(alignment: .leading, spacing: 0) {
             Divider()
-            Text("2unbini")
+            Text(UserDefaults.standard.string(forKey: "userId")!)
                 .modifier(UserNameText())
             Divider()
             HStack {
@@ -70,9 +70,9 @@ struct SettingView: View {
                 do {
                     try Auth.auth().signOut()
                     print("success log out")
+                    UserDefaults.standard.removeObject(forKey: "autoLogin")
                     self.presentationMode.wrappedValue.dismiss()
-                    UserDefaults.standard.removeObject(forKey: "userId")
-                    self.loging.wrappedValue.toggle()
+                    self.loging.wrappedValue = false
                 }
                 catch let signOutError as NSError {
                     print("Error signing out: ", signOutError)

@@ -11,7 +11,7 @@ struct NameCardView: View {
     @EnvironmentObject private var githubService: GithubService
     @ObservedObject var nameCardViewModel = NameCardViewModel()
     
-    let userId = UserDefaults.standard.string(forKey: "userId")!
+    let userId = UserDefaults.standard.string(forKey: "userId") ?? ""
     let themeEmojis = getThemeEmojis()
     
     func captionText(_ caption: String) -> some View {

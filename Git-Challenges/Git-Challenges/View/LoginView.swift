@@ -23,7 +23,7 @@ struct LoginView: View {
     let themeColors = getThemeColors()
     
     var body: some View {
-        @State var autoLogin: Bool = UserDefaults.standard.string(forKey: "userId") != nil
+        @State var autoLogin: Bool = UserDefaults.standard.bool(forKey: "autoLogin") != false
         
         return Group {
             if loginViewmodel.isLogin == false && autoLogin == false {
@@ -35,6 +35,7 @@ struct LoginView: View {
                 }
                 .onTapGesture {
                     loginViewmodel.githubLogin()
+                    UserDefaults.standard.set(true, forKey: "autoLogin")
                 }
                 .font(.system(size: 14, weight: .bold))
                 .foregroundColor(.white)
