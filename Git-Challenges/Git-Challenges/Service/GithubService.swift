@@ -13,13 +13,14 @@ class GithubService: ObservableObject {
     @Published var currentStreak: Streak = Streak()
     
     // Would be Changed after Github Login Implemented
-    private let userID: String = "2unbini"
+    private let userID: String
     private let baseURL: String
     
     // Has committed Today?
     var hasCommitted: Int = emoji.notCommitted.rawValue
     
     init() {
+        self.userID = UserDefaults.standard.string(forKey: "userId")!
         self.baseURL = "http://github.com/users/\(userID)/contributions"
         
         getCommitData()

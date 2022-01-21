@@ -17,14 +17,13 @@ class NameCardViewModel: ObservableObject {
     // MARK: Subject
     //    private let nameCardSubject = PassthroughSubject<String, Never>()
     
-    
     // MARK: init
     init () {
         imageCrawling()
     }
     
     func imageCrawling() {
-        let userID = "2unbini"
+        let userID = UserDefaults.standard.string(forKey: "userId")!
         let url = URL(string: "https://github.com/\(userID)")!
         let html = try? String(contentsOf: url, encoding: .utf8)
         let doc = try? SwiftSoup.parse(html ?? "")

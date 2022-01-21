@@ -6,51 +6,27 @@
 //
 
 import SwiftUI
-import Firebase
-import FirebaseAuth
 
 struct LoginView: View {
-    var provider = OAuthProvider(providerID: "github.com")
-    @State var islogin: Bool = false
+    @ObservedObject var loginViewmodel = LoginViewModel()
+    let themeColors = getThemeColors()
     
     var body: some View {
-        if !islogin {
-            Button("Github Login") {
-                githubLogin()
+        if !loginViewmodel.isLogin {
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .frame(width: 211, height: 34)
+                    .foregroundColor(themeColors[3])
+                Text("Github 게정으로 시작하기")
             }
+            .onTapGesture {
+                loginViewmodel.githubLogin()
+            }
+            .font(.system(size: 14, weight: .bold))
+            .foregroundColor(.white)
         } else {
             MainView()
         }
-    }
-    
-    private func githubLogin() {
-        // Request read access to a user's email addresses.
-        // This must be preconfigured in the app's API permissions.
-        provider.scopes = ["user:email"]
-        provider.getCredentialWith(nil) { credential, err in
-            if let err = err {
-                print(err)
-            }
-            if let credential = credential {
-                Auth.auth().signIn(with: credential) { authResult, err in
-                    if let err = err {
-                        fatalError("Login Error 2: \(err.localizedDescription)")
-                    }
-                    // User is signed in
-                    
-                    guard let oauthCredential = authResult?.credential as? OAuthCredential else { return }
-                    // GitHub OAuth access token can also be retrieved by:
-                    // oauthCredential.accessToken
-                    // GitHub OAuth ID token can be retrieved by calling:
-                    // oauthCredential.idToken
-                    
-                    print(authResult?.user.displayName ?? "")
-                    print(oauthCredential)
-                    islogin = true
-                }
-            }
-        }
-        
     }
 }
 

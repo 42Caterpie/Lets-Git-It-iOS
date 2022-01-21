@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "75bba56748359f297a83f620d45f72cf4ebee4e7",
+          "version": "4.8.2"
+        }
+      },
+      {
         "package": "BoringSSL-GRPC",
         "repositoryURL": "https://github.com/firebase/boringssl-SwiftPM.git",
         "state": {
@@ -113,9 +122,9 @@
         "package": "SwiftSoup",
         "repositoryURL": "https://github.com/scinfu/SwiftSoup",
         "state": {
-          "branch": null,
-          "revision": "45a7566f7ec2de0b977f28e825f8df874f210327",
-          "version": "2.3.6"
+          "branch": "master",
+          "revision": "bc4350fc4dd520e92c10055ac1e2640238efb462",
+          "version": null
         }
       }
     ]
