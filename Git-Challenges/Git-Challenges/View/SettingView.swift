@@ -12,6 +12,7 @@ import Firebase
 struct SettingView: View {
     @ObservedObject private var notificationManager: NotificationManager = NotificationManager()
     @Environment(\.loginStatus) var loging
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack {
@@ -69,6 +70,7 @@ struct SettingView: View {
                 do {
                     try Auth.auth().signOut()
                     print("success log out")
+                    self.presentationMode.wrappedValue.dismiss()
                     UserDefaults.standard.removeObject(forKey: "userId")
                     self.loging.wrappedValue.toggle()
                 }
