@@ -30,7 +30,9 @@
 		A83AA0E327992E870006A718 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E227992E870006A718 /* Indicator.swift */; };
 		A83AA0E527992EA10006A718 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E427992EA10006A718 /* ProgressBar.swift */; };
 		A83AA0E7279932890006A718 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E6279932890006A718 /* Date+Extensions.swift */; };
-		A83AA0E9279935BF0006A718 /* SlashText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E8279935BF0006A718 /* SlashText.swift */; };
+		A83AA0E9279935BF0006A718 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E8279935BF0006A718 /* Texts.swift */; };
+		A83AA0EF2799857F0006A718 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0EE2799857F0006A718 /* SettingView.swift */; };
+		A83AA0F127998FA80006A718 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0F027998FA80006A718 /* NotificationManager.swift */; };
 		A83E07F12796F69000BFB1A0 /* ChallengeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F02796F68F00BFB1A0 /* ChallengeViewModel.swift */; };
 		A83E07F32796F6DC00BFB1A0 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F22796F6DC00BFB1A0 /* Goal.swift */; };
 		A83E07F52796F85500BFB1A0 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F42796F85500BFB1A0 /* UIApplication+Extensions.swift */; };
@@ -68,7 +70,9 @@
 		A83AA0E227992E870006A718 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
 		A83AA0E427992EA10006A718 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		A83AA0E6279932890006A718 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
-		A83AA0E8279935BF0006A718 /* SlashText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlashText.swift; sourceTree = "<group>"; };
+		A83AA0E8279935BF0006A718 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
+		A83AA0EE2799857F0006A718 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		A83AA0F027998FA80006A718 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		A83E07F02796F68F00BFB1A0 /* ChallengeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewModel.swift; sourceTree = "<group>"; };
 		A83E07F22796F6DC00BFB1A0 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		A83E07F42796F85500BFB1A0 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 				A8F8233827929C920000FB08 /* ChallengeCardView.swift */,
 				735AA3BD27914950000E4E8C /* ContributionView.swift */,
 				73E1A83E27993C8400E1BDFE /* BadgeView.swift */,
+				A83AA0EE2799857F0006A718 /* SettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 		735AA3C3279169FC000E4E8C /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				A83AA0F027998FA80006A718 /* NotificationManager.swift */,
 				735AA3C427916A16000E4E8C /* GithubService.swift */,
 			);
 			path = Service;
@@ -200,7 +206,7 @@
 				73710DAB279018A6009EBA62 /* CardModifier.swift */,
 				A83AA0E227992E870006A718 /* Indicator.swift */,
 				A83AA0E427992EA10006A718 /* ProgressBar.swift */,
-				A83AA0E8279935BF0006A718 /* SlashText.swift */,
+				A83AA0E8279935BF0006A718 /* Texts.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73E7F07727927A3A0045AC5F /* Commit.swift in Sources */,
+				A83AA0F127998FA80006A718 /* NotificationManager.swift in Sources */,
 				73E33FAB2796C36F00BF994D /* NameCard.swift in Sources */,
 				73E1A84127993CB500E1BDFE /* BadgeViewModel.swift in Sources */,
 				73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */,
@@ -308,11 +315,12 @@
 				A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */,
 				735AA3C527916A16000E4E8C /* GithubService.swift in Sources */,
 				73710DAC279018A6009EBA62 /* CardModifier.swift in Sources */,
-				A83AA0E9279935BF0006A718 /* SlashText.swift in Sources */,
+				A83AA0E9279935BF0006A718 /* Texts.swift in Sources */,
 				A83E07FB27971CC200BFB1A0 /* GoalInputField.swift in Sources */,
 				73CF60A327900339005F4BF4 /* AppDelegate.swift in Sources */,
 				735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */,
 				A83E07F32796F6DC00BFB1A0 /* Goal.swift in Sources */,
+				A83AA0EF2799857F0006A718 /* SettingView.swift in Sources */,
 				73E33FA92796C35300BF994D /* NameCardViewModel.swift in Sources */,
 				A8A113352793F95F00F9C984 /* Constants.swift in Sources */,
 				A8F8233927929C920000FB08 /* ChallengeCardView.swift in Sources */,
