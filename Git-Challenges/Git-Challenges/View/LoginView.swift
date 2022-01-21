@@ -27,18 +27,30 @@ struct LoginView: View {
         
         return Group {
             if loginViewmodel.isLogin == false && autoLogin == false {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 20)
-                        .frame(width: 211, height: 34)
-                        .foregroundColor(themeColors[3])
-                    Text("Github 게정으로 시작하기")
+                VStack (alignment: .center) {
+                    Image("LoginIcon")
+                    HStack(spacing: 3) {
+                        Text("Let's")
+                        Text("Git")
+                            .fontWeight(.bold)
+                        Text("it!")
+                    }
+                    .font(.system(size: 12))
+                    .padding([.top], -20)
+                    .padding([.bottom], 20)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 20)
+                            .frame(width: 211, height: 34)
+                            .foregroundColor(themeColors[4])
+                        Text("Github 게정으로 시작하기")
+                    }
+                    .onTapGesture {
+                        loginViewmodel.githubLogin()
+                        UserDefaults.standard.set(true, forKey: "autoLogin")
+                    }
+                    .font(.system(size: 14, weight: .bold))
+                    .foregroundColor(.white)
                 }
-                .onTapGesture {
-                    loginViewmodel.githubLogin()
-                    UserDefaults.standard.set(true, forKey: "autoLogin")
-                }
-                .font(.system(size: 14, weight: .bold))
-                .foregroundColor(.white)
             } else {
                 MainView()
                     .environment(\.loginStatus, $loginViewmodel.isLogin)
