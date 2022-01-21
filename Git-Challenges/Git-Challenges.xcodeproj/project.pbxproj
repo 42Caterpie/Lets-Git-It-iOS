@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		731FF2A82796B296001CD5E7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FF2A72796B296001CD5E7 /* Theme.swift */; };
+		73528DF827997183005DF67C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73528DF727997183005DF67C /* LoginView.swift */; };
+		73528DFB27997268005DF67C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 73528DFA27997268005DF67C /* FirebaseAuth */; };
+		73528DFD27997268005DF67C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 73528DFC27997268005DF67C /* FirebaseFirestore */; };
+		73528DFF27997268005DF67C /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 73528DFE27997268005DF67C /* FirebaseFirestoreCombine-Community */; };
 		735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3BD27914950000E4E8C /* ContributionView.swift */; };
 		735AA3C527916A16000E4E8C /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3C427916A16000E4E8C /* GithubService.swift */; };
 		73710D9B279009F3009EBA62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73710D9A279009F3009EBA62 /* GoogleService-Info.plist */; };
@@ -45,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		731FF2A72796B296001CD5E7 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		73528DF727997183005DF67C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		735AA3BD27914950000E4E8C /* ContributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionView.swift; sourceTree = "<group>"; };
 		735AA3C427916A16000E4E8C /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
 		73710D9A279009F3009EBA62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -87,6 +92,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				73F29E6B2791B7850000E5B6 /* SwiftSoup in Frameworks */,
+				73528DFF27997268005DF67C /* FirebaseFirestoreCombine-Community in Frameworks */,
+				73528DFB27997268005DF67C /* FirebaseAuth in Frameworks */,
+				73528DFD27997268005DF67C /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +118,7 @@
 				A8F8233827929C920000FB08 /* ChallengeCardView.swift */,
 				735AA3BD27914950000E4E8C /* ContributionView.swift */,
 				73E1A83E27993C8400E1BDFE /* BadgeView.swift */,
+				73528DF727997183005DF67C /* LoginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -232,6 +241,9 @@
 			name = "Git-Challenges";
 			packageProductDependencies = (
 				73F29E6A2791B7850000E5B6 /* SwiftSoup */,
+				73528DFA27997268005DF67C /* FirebaseAuth */,
+				73528DFC27997268005DF67C /* FirebaseFirestore */,
+				73528DFE27997268005DF67C /* FirebaseFirestoreCombine-Community */,
 			);
 			productName = "Git-Challenges";
 			productReference = 73CF609F27900339005F4BF4 /* Git-Challenges.app */;
@@ -263,6 +275,7 @@
 			mainGroup = 73CF609627900339005F4BF4;
 			packageReferences = (
 				73F29E692791B7850000E5B6 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				73528DF927997268005DF67C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 73CF60A027900339005F4BF4 /* Products */;
 			projectDirPath = "";
@@ -319,6 +332,7 @@
 				A8E51E882795378600B4F08A /* Color+Extensions.swift in Sources */,
 				731FF2A82796B296001CD5E7 /* Theme.swift in Sources */,
 				73E7F07A27927B9D0045AC5F /* String+Extensions.swift in Sources */,
+				73528DF827997183005DF67C /* LoginView.swift in Sources */,
 				A83AA0E527992EA10006A718 /* ProgressBar.swift in Sources */,
 				73CF60A527900339005F4BF4 /* SceneDelegate.swift in Sources */,
 			);
@@ -544,6 +558,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		73528DF927997268005DF67C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		73F29E692791B7850000E5B6 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scinfu/SwiftSoup";
@@ -555,6 +577,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		73528DFA27997268005DF67C /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73528DF927997268005DF67C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		73528DFC27997268005DF67C /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73528DF927997268005DF67C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		73528DFE27997268005DF67C /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73528DF927997268005DF67C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
 		73F29E6A2791B7850000E5B6 /* SwiftSoup */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 73F29E692791B7850000E5B6 /* XCRemoteSwiftPackageReference "SwiftSoup" */;

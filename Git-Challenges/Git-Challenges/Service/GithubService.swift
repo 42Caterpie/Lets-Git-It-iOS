@@ -45,7 +45,7 @@ class GithubService: ObservableObject {
                 })
                 .filter{ $0.0.isEmpty == false }
                 .compactMap({ (dateString, levelString) -> Commit in
-                    let date = dateString.toDate() ?? Date()
+                    let date = dateString.toDate() ?? Date() // 여기서 시간
                     let level = Int(levelString) ?? 0
                     
                     return Commit(date: date, level: level)
