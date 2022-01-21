@@ -16,6 +16,7 @@ class LoginViewModel: ObservableObject {
     func githubLogin() {
         // Request read access to a user's email addresses.
         // This must be preconfigured in the app's API permissions.
+        Auth.auth().languageCode = "ko"
         provider.scopes = ["user:email"]
         provider.getCredentialWith(nil) { credential, err in
             if let err = err {
