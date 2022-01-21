@@ -41,6 +41,7 @@ struct ChallengeCard: View {
                 }
                 .environmentObject(challengeViewModel)
                 .onAppear {
+                    print(githubService.commits.count)
                     self.challengeViewModel.calculatePercentage(with: githubService.currentStreak.count)
                 }
             }
