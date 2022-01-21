@@ -7,9 +7,12 @@
 
 import SwiftUI
 import UserNotifications
+import Firebase
 
 struct SettingView: View {
     @ObservedObject private var notificationManager: NotificationManager = NotificationManager()
+    @Environment(\.loginStatus) var loging
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack {
@@ -43,7 +46,7 @@ struct SettingView: View {
     private var settings: some View {
         VStack(alignment: .leading, spacing: 0) {
             Divider()
-            Text("2unbini")
+            Text(UserDefaults.standard.string(forKey: "userId")!)
                 .modifier(UserNameText())
             Divider()
             HStack {
@@ -64,6 +67,16 @@ struct SettingView: View {
             Divider()
             Button {
                 // TODO: Implement Logout Feature
+                do {
+                    try Auth.auth().signOut()
+                    print("success log out")
+                    UserDefaults.standard.removeObject(forKey: "autoLogin")
+                    self.presentationMode.wrappedValue.dismiss()
+                    self.loging.wrappedValue = false
+                }
+                catch let signOutError as NSError {
+                    print("Error signing out: ", signOutError)
+                }
             } label: {
                 Text("로그아웃")
                     .modifier(LogoutButtonText())

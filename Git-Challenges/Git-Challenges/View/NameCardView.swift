@@ -11,6 +11,7 @@ struct NameCardView: View {
     @EnvironmentObject private var githubService: GithubService
     @ObservedObject var nameCardViewModel = NameCardViewModel()
     
+    let userId = UserDefaults.standard.string(forKey: "userId") ?? ""
     let themeEmojis = getThemeEmojis()
     
     func captionText(_ caption: String) -> some View {
@@ -29,7 +30,7 @@ struct NameCardView: View {
     
     private var userIdView: some View {
         HStack {
-            Text("hekang")
+            Text(userId)
                 .font(.system(size: 18, weight: .bold))
             Spacer()
         }

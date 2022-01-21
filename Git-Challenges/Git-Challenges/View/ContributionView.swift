@@ -32,6 +32,10 @@ struct ContributionView: View {
             ZStack {
                 HStack(){}
                 .modifier(CardModifier(height: 150))
+                .onAppear {
+                    print(githubService.commits[364 + weekday - 1].date)
+                    print("Date", Date())
+                }
                 ScrollView (.horizontal) {
                     HStack (spacing: 3) {
                         ForEach (35..<52, id: \.self) { col in
@@ -42,8 +46,8 @@ struct ContributionView: View {
                             }
                         }
                         VStack (spacing: 3) {
-                            ForEach(0..<weekday, id: \.self) {cell in
-                                ColorView(githubService.commits[364 + cell].level)
+                            ForEach(364..<githubService.commits.count, id: \.self) { cell in
+                                ColorView(githubService.commits[cell].level)
                             }
                             Spacer()
                         }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		731FF2A82796B296001CD5E7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FF2A72796B296001CD5E7 /* Theme.swift */; };
+		73528DF827997183005DF67C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73528DF727997183005DF67C /* LoginView.swift */; };
 		735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3BD27914950000E4E8C /* ContributionView.swift */; };
 		735AA3C527916A16000E4E8C /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3C427916A16000E4E8C /* GithubService.swift */; };
 		73710D9B279009F3009EBA62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73710D9A279009F3009EBA62 /* GoogleService-Info.plist */; };
@@ -26,7 +27,12 @@
 		73E33FAB2796C36F00BF994D /* NameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E33FAA2796C36F00BF994D /* NameCard.swift */; };
 		73E7F07727927A3A0045AC5F /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07627927A3A0045AC5F /* Commit.swift */; };
 		73E7F07A27927B9D0045AC5F /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07927927B9D0045AC5F /* String+Extensions.swift */; };
-		73F29E6B2791B7850000E5B6 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 73F29E6A2791B7850000E5B6 /* SwiftSoup */; };
+		73EDBD67279A6E3300C9B6F0 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 73EDBD66279A6E3300C9B6F0 /* SwiftSoup */; };
+		73EDBD6A279A6E5C00C9B6F0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 73EDBD69279A6E5C00C9B6F0 /* Alamofire */; };
+		73EDBD6D279A6EC200C9B6F0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 73EDBD6C279A6EC200C9B6F0 /* FirebaseAuth */; };
+		73EDBD6F279A6EC200C9B6F0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 73EDBD6E279A6EC200C9B6F0 /* FirebaseFirestore */; };
+		73EDBD71279A815300C9B6F0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EDBD70279A815300C9B6F0 /* LoginViewModel.swift */; };
+		73EDBD73279AA71600C9B6F0 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EDBD72279AA71600C9B6F0 /* ProgressView.swift */; };
 		A83AA0E327992E870006A718 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E227992E870006A718 /* Indicator.swift */; };
 		A83AA0E527992EA10006A718 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E427992EA10006A718 /* ProgressBar.swift */; };
 		A83AA0E7279932890006A718 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E6279932890006A718 /* Date+Extensions.swift */; };
@@ -47,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		731FF2A72796B296001CD5E7 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		73528DF727997183005DF67C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		735AA3BD27914950000E4E8C /* ContributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionView.swift; sourceTree = "<group>"; };
 		735AA3C427916A16000E4E8C /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
 		73710D9A279009F3009EBA62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -67,6 +74,8 @@
 		73E33FAA2796C36F00BF994D /* NameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCard.swift; sourceTree = "<group>"; };
 		73E7F07627927A3A0045AC5F /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		73E7F07927927B9D0045AC5F /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		73EDBD70279A815300C9B6F0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		73EDBD72279AA71600C9B6F0 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		A83AA0E227992E870006A718 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
 		A83AA0E427992EA10006A718 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		A83AA0E6279932890006A718 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
@@ -90,7 +99,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73F29E6B2791B7850000E5B6 /* SwiftSoup in Frameworks */,
+				73EDBD6A279A6E5C00C9B6F0 /* Alamofire in Frameworks */,
+				73EDBD6F279A6EC200C9B6F0 /* FirebaseFirestore in Frameworks */,
+				73EDBD6D279A6EC200C9B6F0 /* FirebaseAuth in Frameworks */,
+				73EDBD67279A6E3300C9B6F0 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +126,7 @@
 				A8F8233827929C920000FB08 /* ChallengeCardView.swift */,
 				735AA3BD27914950000E4E8C /* ContributionView.swift */,
 				73E1A83E27993C8400E1BDFE /* BadgeView.swift */,
+				73528DF727997183005DF67C /* LoginView.swift */,
 				A83AA0EE2799857F0006A718 /* SettingView.swift */,
 			);
 			path = View;
@@ -196,6 +209,7 @@
 				A83E07F02796F68F00BFB1A0 /* ChallengeViewModel.swift */,
 				73E1A84027993CB500E1BDFE /* BadgeViewModel.swift */,
 				73E33FA82796C35300BF994D /* NameCardViewModel.swift */,
+				73EDBD70279A815300C9B6F0 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -216,6 +230,7 @@
 			children = (
 				A83E07F827971B8500BFB1A0 /* Progress.swift */,
 				A83E07FA27971CC200BFB1A0 /* GoalInputField.swift */,
+				73EDBD72279AA71600C9B6F0 /* ProgressView.swift */,
 			);
 			path = Subview;
 			sourceTree = "<group>";
@@ -237,7 +252,10 @@
 			);
 			name = "Git-Challenges";
 			packageProductDependencies = (
-				73F29E6A2791B7850000E5B6 /* SwiftSoup */,
+				73EDBD66279A6E3300C9B6F0 /* SwiftSoup */,
+				73EDBD69279A6E5C00C9B6F0 /* Alamofire */,
+				73EDBD6C279A6EC200C9B6F0 /* FirebaseAuth */,
+				73EDBD6E279A6EC200C9B6F0 /* FirebaseFirestore */,
 			);
 			productName = "Git-Challenges";
 			productReference = 73CF609F27900339005F4BF4 /* Git-Challenges.app */;
@@ -268,7 +286,9 @@
 			);
 			mainGroup = 73CF609627900339005F4BF4;
 			packageReferences = (
-				73F29E692791B7850000E5B6 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				73EDBD65279A6E3300C9B6F0 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				73EDBD68279A6E5C00C9B6F0 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				73EDBD6B279A6EC200C9B6F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 73CF60A027900339005F4BF4 /* Products */;
 			projectDirPath = "";
@@ -300,6 +320,7 @@
 			files = (
 				73E7F07727927A3A0045AC5F /* Commit.swift in Sources */,
 				A83AA0F127998FA80006A718 /* NotificationManager.swift in Sources */,
+				73EDBD71279A815300C9B6F0 /* LoginViewModel.swift in Sources */,
 				73E33FAB2796C36F00BF994D /* NameCard.swift in Sources */,
 				73E1A84127993CB500E1BDFE /* BadgeViewModel.swift in Sources */,
 				73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */,
@@ -320,6 +341,7 @@
 				73CF60A327900339005F4BF4 /* AppDelegate.swift in Sources */,
 				735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */,
 				A83E07F32796F6DC00BFB1A0 /* Goal.swift in Sources */,
+				73EDBD73279AA71600C9B6F0 /* ProgressView.swift in Sources */,
 				A83AA0EF2799857F0006A718 /* SettingView.swift in Sources */,
 				73E33FA92796C35300BF994D /* NameCardViewModel.swift in Sources */,
 				A8A113352793F95F00F9C984 /* Constants.swift in Sources */,
@@ -327,6 +349,7 @@
 				A8E51E882795378600B4F08A /* Color+Extensions.swift in Sources */,
 				731FF2A82796B296001CD5E7 /* Theme.swift in Sources */,
 				73E7F07A27927B9D0045AC5F /* String+Extensions.swift in Sources */,
+				73528DF827997183005DF67C /* LoginView.swift in Sources */,
 				A83AA0E527992EA10006A718 /* ProgressBar.swift in Sources */,
 				73CF60A527900339005F4BF4 /* SceneDelegate.swift in Sources */,
 			);
@@ -552,21 +575,52 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		73F29E692791B7850000E5B6 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+		73EDBD65279A6E3300C9B6F0 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scinfu/SwiftSoup";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				branch = master;
+				kind = branch;
+			};
+		};
+		73EDBD68279A6E5C00C9B6F0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 4.8.2;
+			};
+		};
+		73EDBD6B279A6EC200C9B6F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		73F29E6A2791B7850000E5B6 /* SwiftSoup */ = {
+		73EDBD66279A6E3300C9B6F0 /* SwiftSoup */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 73F29E692791B7850000E5B6 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			package = 73EDBD65279A6E3300C9B6F0 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
 			productName = SwiftSoup;
+		};
+		73EDBD69279A6E5C00C9B6F0 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73EDBD68279A6E5C00C9B6F0 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		73EDBD6C279A6EC200C9B6F0 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73EDBD6B279A6EC200C9B6F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		73EDBD6E279A6EC200C9B6F0 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73EDBD6B279A6EC200C9B6F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
