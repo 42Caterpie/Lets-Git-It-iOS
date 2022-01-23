@@ -42,11 +42,10 @@ struct LoginView: View {
                         RoundedRectangle(cornerRadius: 20)
                             .frame(width: 211, height: 34)
                             .foregroundColor(themeColors[4])
-                        Text("Github 게정으로 시작하기")
+                        Text("Github 계정으로 시작하기")
                     }
                     .onTapGesture {
                         loginViewmodel.githubLogin()
-                        UserDefaults.standard.set(true, forKey: "autoLogin")
                     }
                     .font(.system(size: 14, weight: .bold))
                     .foregroundColor(.white)
