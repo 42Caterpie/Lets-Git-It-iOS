@@ -28,6 +28,7 @@ class NotificationManager: ObservableObject {
                 // If Notification Off, Remove All Notifications
                 UserDefaults.standard.set(false, forKey: "hasUserAgreedAlert")
                 userNotificationCenter.removeAllDeliveredNotifications()
+                userNotificationCenter.removeAllPendingNotificationRequests()
             }
         }
     }
@@ -37,6 +38,7 @@ class NotificationManager: ObservableObject {
         didSet {
             // Before Set Notification, remove All
             userNotificationCenter.removeAllDeliveredNotifications()
+            userNotificationCenter.removeAllPendingNotificationRequests()
             addNotification(with: notiTime)
         }
     }
@@ -50,7 +52,7 @@ class NotificationManager: ObservableObject {
             if settings.authorizationStatus != .authorized {
                 
                 self.userNotificationCenter
-                    .requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+                    .requestAuthorization(options: [.alert, .sound]) { granted, error in
                         if let error = error {
                             print("Error: \(error.localizedDescription)")
                         }
@@ -79,7 +81,7 @@ class NotificationManager: ObservableObject {
         let content = UNMutableNotificationContent()
         
         content.title = "Let's Git It!"
-        content.subtitle = "레쓰깃잇"
+        content.subtitle = "오늘도 커밋 하셨나요?"
         content.sound = UNNotificationSound.default
         
         let dateComponent = Calendar.current.dateComponents([.hour, .minute], from: time)
