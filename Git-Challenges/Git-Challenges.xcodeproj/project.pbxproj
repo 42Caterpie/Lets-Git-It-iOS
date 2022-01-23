@@ -14,6 +14,7 @@
 		73710D9B279009F3009EBA62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73710D9A279009F3009EBA62 /* GoogleService-Info.plist */; };
 		73710DAC279018A6009EBA62 /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73710DAB279018A6009EBA62 /* CardModifier.swift */; };
 		73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73710DAD27902ED2009EBA62 /* NameCardView.swift */; };
+		73751ED6279D6A76006A8F94 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73751ED5279D6A76006A8F94 /* ProgressView.swift */; };
 		73CF60A327900339005F4BF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF60A227900339005F4BF4 /* AppDelegate.swift */; };
 		73CF60A527900339005F4BF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF60A427900339005F4BF4 /* SceneDelegate.swift */; };
 		73CF60A727900339005F4BF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF60A627900339005F4BF4 /* ViewController.swift */; };
@@ -58,6 +59,7 @@
 		73710D9A279009F3009EBA62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		73710DAB279018A6009EBA62 /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
 		73710DAD27902ED2009EBA62 /* NameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCardView.swift; sourceTree = "<group>"; };
+		73751ED5279D6A76006A8F94 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		73CF609F27900339005F4BF4 /* Let's Git it!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let's Git it!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CF60A227900339005F4BF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73CF60A427900339005F4BF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			children = (
 				A83E07F827971B8500BFB1A0 /* Progress.swift */,
 				A83E07FA27971CC200BFB1A0 /* GoalInputField.swift */,
+				73751ED5279D6A76006A8F94 /* ProgressView.swift */,
 			);
 			path = Subview;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				73CF60A327900339005F4BF4 /* AppDelegate.swift in Sources */,
 				735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */,
 				A83E07F32796F6DC00BFB1A0 /* Goal.swift in Sources */,
+				73751ED6279D6A76006A8F94 /* ProgressView.swift in Sources */,
 				A83AA0EF2799857F0006A718 /* SettingView.swift in Sources */,
 				73E33FA92796C35300BF994D /* NameCardViewModel.swift in Sources */,
 				A8A113352793F95F00F9C984 /* Constants.swift in Sources */,
@@ -499,7 +503,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9TH57H8UP9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Git-Challenges/Info.plist";
+				INFOPLIST_FILE = "Let's Git it!/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -528,7 +532,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9TH57H8UP9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Git-Challenges/Info.plist";
+				INFOPLIST_FILE = "Let's Git it!/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
