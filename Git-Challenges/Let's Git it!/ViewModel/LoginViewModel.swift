@@ -62,7 +62,6 @@ class LoginViewModel: ObservableObject {
             case .success(let response):
                 if let requestObject = try? response as? [String: Any] {
                     let id = requestObject["login"] as? String ?? ""
-                    print("response: ", id)
                     completionHandler(id)
                 }
             case .failure(let error):

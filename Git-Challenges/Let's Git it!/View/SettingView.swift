@@ -69,7 +69,6 @@ struct SettingView: View {
                 // TODO: Implement Logout Feature
                 do {
                     try Auth.auth().signOut()
-                    print("success log out")
                     UserDefaults.standard.removeObject(forKey: "autoLogin")
                     self.presentationMode.wrappedValue.dismiss()
                     self.loging.wrappedValue = false
