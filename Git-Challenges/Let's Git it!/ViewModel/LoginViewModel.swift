@@ -12,6 +12,7 @@ import Alamofire
 class LoginViewModel: ObservableObject {
     var provider = OAuthProvider(providerID: "github.com")
     @Published var isLogin: Bool = false
+    @Published var isProgress: Bool = false
     
     func githubLogin() {
         // Request read access to a user's email addresses.
@@ -23,6 +24,7 @@ class LoginViewModel: ObservableObject {
                 print(err)
             }
             if let credential = credential {
+                self.isProgress = true
                 Auth.auth().signIn(with: credential) { authResult, err in
                     if let err = err {
                         fatalError("Login Error 2: \(err.localizedDescription)")
@@ -40,6 +42,7 @@ class LoginViewModel: ObservableObject {
                         if let authResult = authResult {
                             UserDefaults.standard.set(authResult.user.displayName, forKey: "displayName")
                         }
+                        self.isProgress = false
                         self.isLogin = true
                         UserDefaults.standard.set(true, forKey: "autoLogin")
                     }

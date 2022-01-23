@@ -26,7 +26,9 @@ struct LoginView: View {
         @State var autoLogin: Bool = UserDefaults.standard.bool(forKey: "autoLogin") != false
         
         return Group {
-            if loginViewmodel.isLogin == false && autoLogin == false {
+            if loginViewmodel.isProgress {
+                ActivityIndicator(isAnimating: .constant(true), style: .medium)
+            } else if loginViewmodel.isLogin == false && autoLogin == false {
                 VStack (alignment: .center) {
                     Image("LoginIcon")
                     HStack(spacing: 3) {
@@ -50,7 +52,8 @@ struct LoginView: View {
                     .font(.system(size: 14, weight: .bold))
                     .foregroundColor(.white)
                 }
-            } else {
+            }
+            else {
                 MainView()
                     .environment(\.loginStatus, $loginViewmodel.isLogin)
             }
