@@ -19,6 +19,7 @@ struct MainView: View {
                 ChallengeCard()
                 ContributionView()
                 BadgeView()
+                Spacer()
             }
             .environmentObject(githubService)
             .modifier(NavigationBar())

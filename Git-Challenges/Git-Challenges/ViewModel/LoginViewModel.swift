@@ -41,6 +41,7 @@ class LoginViewModel: ObservableObject {
                             UserDefaults.standard.set(authResult.user.displayName, forKey: "displayName")
                         }
                         self.isLogin = true
+                        UserDefaults.standard.set(true, forKey: "autoLogin")
                     }
                 }
             }
