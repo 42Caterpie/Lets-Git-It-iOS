@@ -37,14 +37,11 @@ class LoginViewModel: ObservableObject {
                     // GitHub OAuth ID token can be retrieved by calling:
                     // oauthCredential.idToken
                     
-                    print("isProgress")
-                    
                     self.getUserGithubId(oauthCredential.accessToken!) { id in
                         UserDefaults.standard.set(id, forKey: "userId")
                         if let authResult = authResult {
                             UserDefaults.standard.set(authResult.user.displayName, forKey: "displayName")
                         }
-                        print("isProgress - false ")
                         self.isProgress = false
                         self.isLogin = true
                         UserDefaults.standard.set(true, forKey: "autoLogin")
