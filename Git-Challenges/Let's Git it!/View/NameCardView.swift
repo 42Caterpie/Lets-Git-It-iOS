@@ -32,32 +32,35 @@ struct NameCardView: View {
         HStack {
             Text(userId)
                 .font(.system(size: 18, weight: .bold))
+                .padding([.horizontal])
             Spacer()
         }
     }
     
     private var nameCard: some View {
         HStack {
+            Spacer()
             Image(uiImage: nameCardViewModel.image)
                 .resizable()
                 .clipShape(Circle())
                 .frame(width: 77, height: 77)
             Spacer()
-            VStack {
+            Spacer()
+            VStack (spacing: 0) {
                 Text("\(githubService.currentStreak.count)")
                     .font(.system(size: 36, weight: .bold))
-                    .padding([.bottom], 4)
                 captionText("days\nongoing")
                     .scaledToFill()
             }
             Spacer()
-            VStack {
+            Spacer()
+            VStack (spacing: 0) {
                 Text(themeEmojis[githubService.hasCommitted])
                     .font(.system(size: 36, weight: .bold))
-                    .padding([.bottom], 4)
                 captionText("today\ncommit")
                     .scaledToFill()
             }
+            Spacer()
         }
         .padding([.horizontal])
     }

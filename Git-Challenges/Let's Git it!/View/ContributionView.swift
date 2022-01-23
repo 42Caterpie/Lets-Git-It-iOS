@@ -22,19 +22,14 @@ struct ContributionView: View {
     }
     
     var body: some View {
-        VStack {
-            HStack {
-                Text("Contribution")
-                    .font(.system(size: 18, weight: .bold))
-                    .padding([.leading])
-                Spacer()
-            }
+        VStack(alignment: .leading, spacing: 5) {
+            Text("Contribution")
+                .font(.system(size: 18, weight: .bold))
             ZStack {
                 HStack(){}
                 .modifier(CardModifier(height: 150))
                 .onAppear {
                     print(githubService.commits[364 + weekday - 1].date)
-                    print("Date", Date())
                 }
                 ScrollView (.horizontal) {
                     HStack (spacing: 3) {
