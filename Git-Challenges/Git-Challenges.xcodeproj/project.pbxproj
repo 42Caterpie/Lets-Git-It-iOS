@@ -58,7 +58,7 @@
 		73710D9A279009F3009EBA62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		73710DAB279018A6009EBA62 /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
 		73710DAD27902ED2009EBA62 /* NameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCardView.swift; sourceTree = "<group>"; };
-		73CF609F27900339005F4BF4 /* Git-Challenges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Git-Challenges.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		73CF609F27900339005F4BF4 /* Let's Git it!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let's Git it!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CF60A227900339005F4BF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73CF60A427900339005F4BF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		73CF60A627900339005F4BF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		73CF609627900339005F4BF4 = {
 			isa = PBXGroup;
 			children = (
-				73CF60A127900339005F4BF4 /* Git-Challenges */,
+				73CF60A127900339005F4BF4 /* Let's Git it! */,
 				73CF60A027900339005F4BF4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -150,12 +150,12 @@
 		73CF60A027900339005F4BF4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				73CF609F27900339005F4BF4 /* Git-Challenges.app */,
+				73CF609F27900339005F4BF4 /* Let's Git it!.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		73CF60A127900339005F4BF4 /* Git-Challenges */ = {
+		73CF60A127900339005F4BF4 /* Let's Git it! */ = {
 			isa = PBXGroup;
 			children = (
 				A83E07ED2796938200BFB1A0 /* Subview */,
@@ -175,7 +175,7 @@
 				73CF60B02790033B005F4BF4 /* Info.plist */,
 				73710D9A279009F3009EBA62 /* GoogleService-Info.plist */,
 			);
-			path = "Git-Challenges";
+			path = "Let's Git it!";
 			sourceTree = "<group>";
 		};
 		73E7F07527927A270045AC5F /* Model */ = {
@@ -235,9 +235,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		73CF609E27900339005F4BF4 /* Git-Challenges */ = {
+		73CF609E27900339005F4BF4 /* Let's Git it! */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 73CF60B32790033B005F4BF4 /* Build configuration list for PBXNativeTarget "Git-Challenges" */;
+			buildConfigurationList = 73CF60B32790033B005F4BF4 /* Build configuration list for PBXNativeTarget "Let's Git it!" */;
 			buildPhases = (
 				73CF609B27900339005F4BF4 /* Sources */,
 				73CF609C27900339005F4BF4 /* Frameworks */,
@@ -247,7 +247,7 @@
 			);
 			dependencies = (
 			);
-			name = "Git-Challenges";
+			name = "Let's Git it!";
 			packageProductDependencies = (
 				73EDBD66279A6E3300C9B6F0 /* SwiftSoup */,
 				73EDBD69279A6E5C00C9B6F0 /* Alamofire */,
@@ -255,7 +255,7 @@
 				73EDBD6E279A6EC200C9B6F0 /* FirebaseFirestore */,
 			);
 			productName = "Git-Challenges";
-			productReference = 73CF609F27900339005F4BF4 /* Git-Challenges.app */;
+			productReference = 73CF609F27900339005F4BF4 /* Let's Git it!.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -291,7 +291,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				73CF609E27900339005F4BF4 /* Git-Challenges */,
+				73CF609E27900339005F4BF4 /* Let's Git it! */,
 			);
 		};
 /* End PBXProject section */
@@ -559,7 +559,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		73CF60B32790033B005F4BF4 /* Build configuration list for PBXNativeTarget "Git-Challenges" */ = {
+		73CF60B32790033B005F4BF4 /* Build configuration list for PBXNativeTarget "Let's Git it!" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				73CF60B42790033B005F4BF4 /* Debug */,
