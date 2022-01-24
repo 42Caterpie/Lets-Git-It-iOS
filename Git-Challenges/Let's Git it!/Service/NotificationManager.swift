@@ -27,20 +27,24 @@ class NotificationManager: ObservableObject {
             else {
                 // If Notification Off, Remove All Notifications
                 UserDefaults.standard.set(false, forKey: "hasUserAgreedAlert")
-                userNotificationCenter.removeAllDeliveredNotifications()
-                userNotificationCenter.removeAllPendingNotificationRequests()
+                removeAllNotifications()
             }
         }
     }
 
     // Time to notify
-    @Published var notiTime: Date = Date() {
+    @Published var notiTime: Date = UserDefaults.standard.object(forKey: "userNotiTime") as? Date ?? Date() {
         didSet {
-            // Before Set Notification, remove All
-            userNotificationCenter.removeAllDeliveredNotifications()
-            userNotificationCenter.removeAllPendingNotificationRequests()
+            removeAllNotifications()
             addNotification(with: notiTime)
+            UserDefaults.standard.set(notiTime, forKey: "userNotiTime")
         }
+    }
+    
+    // Remove All Remaining Notifications Before Add New One
+    func removeAllNotifications() {
+        userNotificationCenter.removeAllDeliveredNotifications()
+        userNotificationCenter.removeAllPendingNotificationRequests()
     }
     
     // Request Notification Authorization
