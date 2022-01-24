@@ -10,12 +10,12 @@ import UIKit
 
 struct ContributionView: View {
     @EnvironmentObject private var githubService: GithubService
-    
+    @EnvironmentObject var colorThemeService: ColorThemeService
     let weekday = Calendar.current.component(.weekday, from: Date())
     
     @ViewBuilder
     func ColorView(_ contributionLevel:Int) -> some View {
-        let themeColors = getThemeColors()
+        let themeColors = colorThemeService.themeColors
         RoundedRectangle(cornerRadius: 2)
             .foregroundColor(themeColors[contributionLevel])
             .frame(width:15, height:15)

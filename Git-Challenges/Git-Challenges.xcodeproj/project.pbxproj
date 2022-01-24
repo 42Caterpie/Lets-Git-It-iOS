@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		731FF2A82796B296001CD5E7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FF2A72796B296001CD5E7 /* Theme.swift */; };
+		7320A758279E6FD20021371C /* ColorThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7320A757279E6FD20021371C /* ColorThemeService.swift */; };
 		73528DF827997183005DF67C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73528DF727997183005DF67C /* LoginView.swift */; };
 		735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3BD27914950000E4E8C /* ContributionView.swift */; };
 		735AA3C527916A16000E4E8C /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3C427916A16000E4E8C /* GithubService.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		731FF2A72796B296001CD5E7 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		7320A757279E6FD20021371C /* ColorThemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeService.swift; sourceTree = "<group>"; };
 		73528DF727997183005DF67C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		735AA3BD27914950000E4E8C /* ContributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionView.swift; sourceTree = "<group>"; };
 		735AA3C427916A16000E4E8C /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				A83AA0F027998FA80006A718 /* NotificationManager.swift */,
 				735AA3C427916A16000E4E8C /* GithubService.swift */,
+				7320A757279E6FD20021371C /* ColorThemeService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */,
 				735AA3C527916A16000E4E8C /* GithubService.swift in Sources */,
 				73710DAC279018A6009EBA62 /* CardModifier.swift in Sources */,
+				7320A758279E6FD20021371C /* ColorThemeService.swift in Sources */,
 				A83AA0E9279935BF0006A718 /* Texts.swift in Sources */,
 				A83E07FB27971CC200BFB1A0 /* GoalInputField.swift in Sources */,
 				73CF60A327900339005F4BF4 /* AppDelegate.swift in Sources */,
