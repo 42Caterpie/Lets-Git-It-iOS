@@ -502,7 +502,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 9TH57H8UP9;
+				DEVELOPMENT_TEAM = Caterpie;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Let's Git it!/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -533,7 +533,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 9TH57H8UP9;
+				DEVELOPMENT_TEAM = Caterpie;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Let's Git it!/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

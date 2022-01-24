@@ -49,7 +49,7 @@ struct MainView: View {
     
     private var refreshButton: some View {
         Button {
-            githubService.getCommitData()
+            userInfoService.getCommitData()
         } label: {
             Image(systemName: "arrow.triangle.2.circlepath")
                 .foregroundColor(getThemeColors()[color.defaultGray.rawValue])
