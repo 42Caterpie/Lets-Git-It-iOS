@@ -35,6 +35,7 @@ struct MainView: View {
     private var settings: some View {
         HStack {
             Spacer()
+            refreshButton
             NavigationLink {
                 SettingView()
             } label: {
@@ -45,6 +46,17 @@ struct MainView: View {
             .padding(.trailing, 20)
             .padding([.top, .bottom], 10)
         }
+    }
+    
+    private var refreshButton: some View {
+        Button {
+            githubService.getCommitData()
+        } label: {
+            Image(systemName: "arrow.triangle.2.circlepath")
+                .foregroundColor(getThemeColors()[color.defaultGray.rawValue])
+                .font(.system(size: 20, weight: .bold))
+        }
+        .padding([.horizontal])
     }
 }
 
