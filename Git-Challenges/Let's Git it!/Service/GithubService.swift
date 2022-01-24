@@ -64,8 +64,13 @@ class GithubService: ObservableObject {
     }
     
     func calculateCurrentStreak() -> Streak {
+        let yesterday: Int = commits.count - 2
         var startDate: Date? = nil
         var streakCount: Int = 0
+        
+        if commits[yesterday].level == 0 {
+            return Streak(startDate: Date().formatted, count: 0)
+        }
         
         for day in stride(from: commits.count - 1, to: 0, by: -1) {
             if commits[day].level > 0 {
@@ -78,6 +83,6 @@ class GithubService: ObservableObject {
             }
         }
         
-        return Streak(startDate: startDate ?? Date(), count: streakCount)
+        return Streak(startDate: startDate ?? Date().formatted, count: streakCount)
     }
 }
