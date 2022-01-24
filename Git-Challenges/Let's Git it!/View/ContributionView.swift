@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct ContributionView: View {
-    @EnvironmentObject private var githubService: GithubService
+    @EnvironmentObject private var userInfoService: UserInfoService
     @EnvironmentObject var colorThemeService: ColorThemeService
     let weekday = Calendar.current.component(.weekday, from: Date())
     
@@ -33,13 +33,13 @@ struct ContributionView: View {
                         ForEach (35..<52, id: \.self) { col in
                             VStack (spacing: 3) {
                                 ForEach (0..<7, id: \.self) { row in
-                                    ColorView(githubService.commits[col * 7 + row].level)
+                                    ColorView(userInfoService.commits[col * 7 + row].level)
                                 }
                             }
                         }
                         VStack (spacing: 3) {
-                            ForEach(364..<githubService.commits.count, id: \.self) { cell in
-                                ColorView(githubService.commits[cell].level)
+                            ForEach(364..<userInfoService.commits.count, id: \.self) { cell in
+                                ColorView(userInfoService.commits[cell].level)
                             }
                             Spacer()
                         }

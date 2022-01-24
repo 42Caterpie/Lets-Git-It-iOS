@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    // ObservedObject of Challenge Card View
-    @ObservedObject var githubService: GithubService = GithubService()
+    @ObservedObject var userInfoService: UserInfoService = UserInfoService()
     @ObservedObject var colorThemeService: ColorThemeService = ColorThemeService()
     
     var body: some View {
@@ -26,7 +25,7 @@ struct MainView: View {
                 colorThemeService.getThemeColors()
                 colorThemeService.getThemeEmojis()
             })
-            .environmentObject(githubService)
+            .environmentObject(userInfoService)
             .environmentObject(colorThemeService)
             .modifier(NavigationBar())
         }

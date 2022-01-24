@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct Progress: View {
-    @EnvironmentObject private var challengeViewModel: ChallengeViewModel
-    @EnvironmentObject private var githubService: GithubService
+    @EnvironmentObject private var userInfoService: UserInfoService
+    @EnvironmentObject private var colorThemeService: ColorThemeService
     
     // progress field's full width
     let fullWidth: CGFloat
@@ -19,10 +19,6 @@ struct Progress: View {
     
     // progress bar's width and height
     let progressBarSize: CGSize
-    
-    // Theme Components
-    private let colors: [Color] = getThemeColors()
-    private let emojis: [String] = getThemeEmojis()
     
     init() {
         self.fullWidth = uiSize.width
@@ -35,8 +31,8 @@ struct Progress: View {
             
             // Indicator
             HStack(spacing: 0) {
-                Text(emojis[githubService.hasCommitted])
-                    .modifier(Indicator(position: defaultPadding + progressBarSize.width * challengeViewModel.percentage))
+                Text(colorThemeService.themeEmojis[userInfoService.hasCommitted])
+                    .modifier(Indicator(position: defaultPadding + progressBarSize.width * userInfoService.percentage))
                 Spacer()
             }
             
@@ -48,16 +44,16 @@ struct Progress: View {
                             size: CGSize(
                                 width: progressBarSize.width,
                                 height: progressBarSize.height),
-                            color: colors[color.defaultGray.rawValue]
+                            color: colorThemeService.themeColors[color.defaultGray.rawValue]
                         )
                     )
                 Capsule()
                     .modifier(
                         ProgressBar(
                             size: CGSize(
-                                width: progressBarSize.width * challengeViewModel.percentage,
+                                width: progressBarSize.width * userInfoService.percentage,
                                 height: progressBarSize.height),
-                            color: colors[color.progressBar.rawValue]
+                            color: colorThemeService.themeColors[color.progressBar.rawValue]
                         )
                     )
             }
