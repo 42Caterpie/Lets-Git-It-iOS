@@ -18,4 +18,13 @@ extension Date {
         
         return self == formattedToday
     }
+    
+    var formatted: Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        
+        let formattedString = dateFormatter.string(from: self)
+        return dateFormatter.date(from: formattedString) ?? self
+    }
 }
