@@ -8,15 +8,10 @@
 import SwiftUI
 
 struct ChallengeCard: View {
-    // ObservedObject of Challenge Card View
-    @ObservedObject var challengeViewModel = ChallengeViewModel()
-    @EnvironmentObject private var githubService: GithubService
+    @EnvironmentObject private var colorThemeService: ColorThemeService
     
     // Check if the app has initial value
     @State private var hasInitialValue: Bool = UserDefaults.standard.bool(forKey: "hasInitialValue")
-    
-    // Color Theme
-    private let colors: [Color] = getThemeColors()
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -39,10 +34,6 @@ struct ChallengeCard: View {
                     GoalInputFields()
                     Progress()
                 }
-                .environmentObject(challengeViewModel)
-                .onAppear {
-                    self.challengeViewModel.calculatePercentage(with: githubService.currentStreak.count)
-                }
             }
             else {
                 cover
@@ -60,12 +51,12 @@ struct ChallengeCard: View {
     private var cover: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(.white)
+                .foregroundColor(.primary)
                 .modifier(CardModifier(height: 113))
                 .cornerRadius(20)
             Text("😱 목표가 없어요")
                 .font(.system(size: 18, weight: .bold))
-                .foregroundColor(colors[color.levelOne.rawValue])
+                .foregroundColor(colorThemeService.themeColors[color.levelOne.rawValue])
         }
     }
 }

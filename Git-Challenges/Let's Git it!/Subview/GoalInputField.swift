@@ -9,14 +9,16 @@ import SwiftUI
 import Combine
 
 struct GoalInputFields: View {
-    @EnvironmentObject private var challengeViewModel: ChallengeViewModel
-    @EnvironmentObject private var githubService: GithubService
+    @EnvironmentObject private var userInfoService: UserInfoService
+    
+    @State private var userGoalText: String = UserDefaults.standard.string(forKey: "userGoalTitle") ?? ""
+    @State private var userGoalCount: String = UserDefaults.standard.string(forKey: "userGoalCount") ?? "365"
     
     // Size Of Card
     private let cardSize: CGSize = CGSize(width: uiSize.width * widthRatio.card, height: 113)
     
-    // Theme Components
-    private let colors: [Color] = getThemeColors()
+    // Color Components
+    private let grayColor: Color = getThemeColors()[color.defaultGray.rawValue]
     
     var body: some View {
         HStack(alignment: .bottom, spacing: 10) {
@@ -26,65 +28,72 @@ struct GoalInputFields: View {
     }
     
     private var textField: some View {
-        TextField("Title", text: $challengeViewModel.userGoal.title, onCommit: {
-            challengeViewModel.saveUserGoal()
+        TextField("Title", text: $userGoalText, onCommit: {
+            userInfoService.userGoal.title = userGoalText
+            userInfoService.saveUserGoal()
         })
             .font(.system(size: 18, weight: .bold))
             .frame(width: cardSize.width * 0.65)
+            .padding(.leading, 20)
     }
     
     private var numberField: some View {
         HStack(alignment: .bottom, spacing: 0) {
             
-            Text("\(Int(githubService.currentStreak.count))")
+            Text("\(Int(userInfoService.currentStreak.count))")
                 .font(.system(size: 24, weight: .bold))
             
             HStack(alignment: .bottom, spacing: 0) {
                 Text("/")
-                    .modifier(SlashText(color: colors[color.defaultGray.rawValue]))
-                TextField("365", text: $challengeViewModel.userGoal.count, onCommit: {
-                    let count = Int(challengeViewModel.userGoal.count) ?? 10
+                    .modifier(SlashText(color: grayColor))
+                TextField("365", text: $userGoalCount, onCommit: {
+                    var count = Int(userGoalCount) ?? 0
+                    
                     if count < 10 {
-                        challengeViewModel.userGoal.count = "10"
+                        count = 10
                     }
-                    challengeViewModel.userGoal.count = String(count)
-                    challengeViewModel.calculatePercentage(with: githubService.currentStreak.count)
-                    challengeViewModel.saveUserGoal()
+                    else if count > 365 {
+                        count = 365
+                    }
+                    
+                    userGoalCount = String(count)
+                    userInfoService.userGoal.count = String(count)
+                    
+                    userInfoService.saveUserGoal()
+                    userInfoService.calculatePercentage(with: userInfoService.currentStreak.count)
+                    
                 })
-                    .modifier(NumberFieldModifier(color: colors[color.defaultGray.rawValue]))
+                    .modifier(NumberFieldModifier(color: grayColor, cardSize: cardSize))
             }
         }
-        .frame(width: cardSize.width * 0.2)
+        .frame(width: cardSize.width * 0.3)
     }
 }
 
 struct NumberFieldModifier: ViewModifier {
     
-    @EnvironmentObject private var challengeViewModel: ChallengeViewModel
+    @EnvironmentObject private var userInfoService: UserInfoService
     
     let color: Color
+    let cardSize: CGSize
     
     func body(content: Content) -> some View {
         content
             .keyboardType(.numbersAndPunctuation)
-            .onReceive(Just(challengeViewModel.$userGoal.count), perform: { _ in
-                if challengeViewModel.userGoal.count.count > 3 {
-                    challengeViewModel.userGoal.count.removeLast()
+            .onReceive(Just(userInfoService.$userGoal.count), perform: { _ in
+                if userInfoService.userGoal.count.count > 3 {
+                    userInfoService.userGoal.count.removeLast()
                     return
                 }
                 
-                let filteredCount = challengeViewModel.userGoal.count.filter { $0.isNumber }
+                let filteredCount = userInfoService.userGoal.count.filter { $0.isNumber }
                 
-                if challengeViewModel.userGoal.count != filteredCount {
-                    challengeViewModel.userGoal.count = filteredCount
-                }
-                
-                let number = Int(challengeViewModel.userGoal.count) ?? 0
-                if number > 365 {
-                    challengeViewModel.userGoal.count = "365"
+                if userInfoService.userGoal.count != filteredCount {
+                    userInfoService.userGoal.count = filteredCount
                 }
             })
             .font(.system(size: 14, weight: .bold))
             .foregroundColor(color)
+            .frame(width: cardSize.width * 0.1)
     }
 }

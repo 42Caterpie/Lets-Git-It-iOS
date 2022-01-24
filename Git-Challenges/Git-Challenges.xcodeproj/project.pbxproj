@@ -11,7 +11,7 @@
 		7320A758279E6FD20021371C /* ColorThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7320A757279E6FD20021371C /* ColorThemeService.swift */; };
 		73528DF827997183005DF67C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73528DF727997183005DF67C /* LoginView.swift */; };
 		735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3BD27914950000E4E8C /* ContributionView.swift */; };
-		735AA3C527916A16000E4E8C /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3C427916A16000E4E8C /* GithubService.swift */; };
+		735AA3C527916A16000E4E8C /* UserInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3C427916A16000E4E8C /* UserInfoService.swift */; };
 		73710D9B279009F3009EBA62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73710D9A279009F3009EBA62 /* GoogleService-Info.plist */; };
 		73710DAC279018A6009EBA62 /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73710DAB279018A6009EBA62 /* CardModifier.swift */; };
 		73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73710DAD27902ED2009EBA62 /* NameCardView.swift */; };
@@ -40,7 +40,6 @@
 		A83AA0E9279935BF0006A718 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E8279935BF0006A718 /* Texts.swift */; };
 		A83AA0EF2799857F0006A718 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0EE2799857F0006A718 /* SettingView.swift */; };
 		A83AA0F127998FA80006A718 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0F027998FA80006A718 /* NotificationManager.swift */; };
-		A83E07F12796F69000BFB1A0 /* ChallengeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F02796F68F00BFB1A0 /* ChallengeViewModel.swift */; };
 		A83E07F32796F6DC00BFB1A0 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F22796F6DC00BFB1A0 /* Goal.swift */; };
 		A83E07F52796F85500BFB1A0 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F42796F85500BFB1A0 /* UIApplication+Extensions.swift */; };
 		A83E07F7279707E000BFB1A0 /* Streak.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F6279707DF00BFB1A0 /* Streak.swift */; };
@@ -57,7 +56,7 @@
 		7320A757279E6FD20021371C /* ColorThemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeService.swift; sourceTree = "<group>"; };
 		73528DF727997183005DF67C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		735AA3BD27914950000E4E8C /* ContributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionView.swift; sourceTree = "<group>"; };
-		735AA3C427916A16000E4E8C /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
+		735AA3C427916A16000E4E8C /* UserInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoService.swift; sourceTree = "<group>"; };
 		73710D9A279009F3009EBA62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		73710DAB279018A6009EBA62 /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
 		73710DAD27902ED2009EBA62 /* NameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCardView.swift; sourceTree = "<group>"; };
@@ -84,7 +83,6 @@
 		A83AA0E8279935BF0006A718 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		A83AA0EE2799857F0006A718 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		A83AA0F027998FA80006A718 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		A83E07F02796F68F00BFB1A0 /* ChallengeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewModel.swift; sourceTree = "<group>"; };
 		A83E07F22796F6DC00BFB1A0 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		A83E07F42796F85500BFB1A0 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		A83E07F6279707DF00BFB1A0 /* Streak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Streak.swift; sourceTree = "<group>"; };
@@ -138,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				A83AA0F027998FA80006A718 /* NotificationManager.swift */,
-				735AA3C427916A16000E4E8C /* GithubService.swift */,
+				735AA3C427916A16000E4E8C /* UserInfoService.swift */,
 				7320A757279E6FD20021371C /* ColorThemeService.swift */,
 			);
 			path = Service;
@@ -209,7 +207,6 @@
 		73E7F07B2792F7D20045AC5F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A83E07F02796F68F00BFB1A0 /* ChallengeViewModel.swift */,
 				73E1A84027993CB500E1BDFE /* BadgeViewModel.swift */,
 				73E33FA82796C35300BF994D /* NameCardViewModel.swift */,
 				73EDBD70279A815300C9B6F0 /* LoginViewModel.swift */,
@@ -329,7 +326,6 @@
 				73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */,
 				A83AA0E7279932890006A718 /* Date+Extensions.swift in Sources */,
 				A83E07F52796F85500BFB1A0 /* UIApplication+Extensions.swift in Sources */,
-				A83E07F12796F69000BFB1A0 /* ChallengeViewModel.swift in Sources */,
 				73CF60A727900339005F4BF4 /* ViewController.swift in Sources */,
 				A83E07F927971B8500BFB1A0 /* Progress.swift in Sources */,
 				73E1A84327994DC800E1BDFE /* Badge.swift in Sources */,
@@ -337,7 +333,7 @@
 				73E1A83F27993C8400E1BDFE /* BadgeView.swift in Sources */,
 				A83E07F7279707E000BFB1A0 /* Streak.swift in Sources */,
 				A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */,
-				735AA3C527916A16000E4E8C /* GithubService.swift in Sources */,
+				735AA3C527916A16000E4E8C /* UserInfoService.swift in Sources */,
 				73710DAC279018A6009EBA62 /* CardModifier.swift in Sources */,
 				7320A758279E6FD20021371C /* ColorThemeService.swift in Sources */,
 				A83AA0E9279935BF0006A718 /* Texts.swift in Sources */,

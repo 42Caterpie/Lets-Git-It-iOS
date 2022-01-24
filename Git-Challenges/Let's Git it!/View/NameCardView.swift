@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NameCardView: View {
-    @EnvironmentObject private var githubService: GithubService
+    @EnvironmentObject private var userInfoService: UserInfoService
     @ObservedObject var nameCardViewModel = NameCardViewModel()
     
     let userId = UserDefaults.standard.string(forKey: "userId") ?? ""
@@ -47,7 +47,7 @@ struct NameCardView: View {
             Spacer()
             Spacer()
             VStack (spacing: 0) {
-                Text("\(githubService.currentStreak.count)")
+                Text("\(userInfoService.currentStreak.count)")
                     .font(.system(size: 36, weight: .bold))
                 captionText("days\nongoing")
                     .scaledToFill()
@@ -55,7 +55,7 @@ struct NameCardView: View {
             Spacer()
             Spacer()
             VStack (spacing: 0) {
-                Text(themeEmojis[githubService.hasCommitted])
+                Text(themeEmojis[userInfoService.hasCommitted])
                     .font(.system(size: 36, weight: .bold))
                 captionText("today\ncommit")
                     .scaledToFill()
