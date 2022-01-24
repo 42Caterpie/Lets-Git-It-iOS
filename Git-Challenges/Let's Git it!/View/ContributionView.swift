@@ -28,9 +28,6 @@ struct ContributionView: View {
             ZStack {
                 HStack(){}
                 .modifier(CardModifier(height: 150))
-                .onAppear {
-                    print(githubService.commits[364 + weekday - 1].date)
-                }
                 ScrollView (.horizontal) {
                     HStack (spacing: 3) {
                         ForEach (35..<52, id: \.self) { col in
