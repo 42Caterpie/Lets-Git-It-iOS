@@ -65,6 +65,41 @@ struct SettingView: View {
             .padding([.leading, .trailing], 20)
             .frame(height: 64)
             Divider()
+            HStack {
+                Text("테마 변경")
+                    .font(.system(size: 18, weight: .bold))
+                Spacer()
+                Button {
+                    UIApplication.shared.setAlternateIconName("AppIcon-blue")
+                    UserDefaults.standard.set("blue" ,forKey: "ColorTheme")
+                } label: {
+                    Image("git-challenge-icon-blue")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                }
+                Button {
+                    UIApplication.shared.setAlternateIconName("AppIcon-green")
+                    UserDefaults.standard.set("green" ,forKey: "ColorTheme")
+                } label: {
+                    Image("git-challenge-icon-green")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                }
+                Button {
+                    UIApplication.shared.setAlternateIconName("AppIcon-pink")
+                    UserDefaults.standard.set("pink" ,forKey: "ColorTheme")
+                } label: {
+                    Image("git-challenge-icon-pink")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                }
+            }
+            .padding([.leading, .trailing], 20)
+            .frame(height: 64)
+            
+            
+            Divider()
+            
             Button {
                 // TODO: Implement Logout Feature
                 do {
