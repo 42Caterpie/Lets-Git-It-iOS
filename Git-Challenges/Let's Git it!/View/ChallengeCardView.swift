@@ -51,7 +51,7 @@ struct ChallengeCard: View {
     private var cover: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(.primary)
+                .foregroundColor(.white)
                 .modifier(CardModifier(height: 113))
                 .cornerRadius(20)
             Text("😱 목표가 없어요")

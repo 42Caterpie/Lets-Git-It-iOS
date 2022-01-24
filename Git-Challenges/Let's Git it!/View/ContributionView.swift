@@ -22,12 +22,17 @@ struct ContributionView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text("Contribution")
-                .font(.system(size: 18, weight: .bold))
-            ZStack {
+        ZStack {
+            VStack (alignment: .leading, spacing: 5) {
+                Text("Contribution")
+                    .font(.system(size: 18, weight: .bold))
                 HStack(){}
                 .modifier(CardModifier(height: 150))
+            }
+            VStack (alignment: .leading, spacing: 5) {
+                Text("Hidden")
+                    .font(.system(size: 18, weight: .bold))
+                    .hidden()
                 ScrollView (.horizontal) {
                     HStack (spacing: 3) {
                         ForEach (35..<52, id: \.self) { col in
