@@ -70,4 +70,16 @@ class LoginViewModel: ObservableObject {
             }
         }
     }
+    
+    func getLoginThemeImage() -> String {
+        let themeColor: String = UserDefaults.standard.string(forKey: "ColorTheme") ?? "pink"
+        switch themeColor {
+        case "green":
+            return "LoginIcon-green"
+        case "blue":
+            return "LoginIcon-blue"
+        default :
+            return "LoginIcon-pink"
+        }
+    }
 }

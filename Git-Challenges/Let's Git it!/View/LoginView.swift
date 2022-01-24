@@ -20,7 +20,7 @@ extension EnvironmentValues {
 
 struct LoginView: View {
     @ObservedObject var loginViewmodel = LoginViewModel()
-    let themeColors = getThemeColors()
+    @State var themeColors = getThemeColors()
     
     var body: some View {
         @State var autoLogin: Bool = UserDefaults.standard.bool(forKey: "autoLogin") != false
@@ -30,7 +30,7 @@ struct LoginView: View {
                 ActivityIndicator(isAnimating: .constant(true), style: .medium)
             } else if loginViewmodel.isLogin == false && autoLogin == false {
                 VStack (alignment: .center) {
-                    Image("LoginIcon")
+                    Image("\(loginViewmodel.getLoginThemeImage())")
                     HStack(spacing: 3) {
                         Text("Let's")
                         Text("Git")
@@ -46,6 +46,9 @@ struct LoginView: View {
                             .foregroundColor(themeColors[4])
                         Text("Github 계정으로 시작하기")
                     }
+                    .onAppear(perform: {
+                        themeColors = getThemeColors()
+                    })
                     .onTapGesture {
                         loginViewmodel.githubLogin()
                     }

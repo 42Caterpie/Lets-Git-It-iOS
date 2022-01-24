@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     // ObservedObject of Challenge Card View
     @ObservedObject var githubService: GithubService = GithubService()
+    @ObservedObject var colorThemeService: ColorThemeService = ColorThemeService()
     
     var body: some View {
         NavigationView {
@@ -21,7 +22,12 @@ struct MainView: View {
                 BadgeView()
                 Spacer()
             }
+            .onAppear(perform: {
+                colorThemeService.getThemeColors()
+                colorThemeService.getThemeEmojis()
+            })
             .environmentObject(githubService)
+            .environmentObject(colorThemeService)
             .modifier(NavigationBar())
         }
     }
