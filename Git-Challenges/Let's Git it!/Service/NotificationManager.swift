@@ -85,7 +85,7 @@ class NotificationManager: ObservableObject {
         let content = UNMutableNotificationContent()
         
         content.title = "Let's Git It!"
-        content.subtitle = "오늘도 커밋 하셨나요?"
+        content.subtitle = "Did you Commit Today?"
         content.sound = UNNotificationSound.default
         
         let dateComponent = Calendar.current.dateComponents([.hour, .minute], from: time)

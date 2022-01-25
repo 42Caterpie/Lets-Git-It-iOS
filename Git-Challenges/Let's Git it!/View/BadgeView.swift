@@ -17,7 +17,7 @@ struct BadgeView: View {
             Badges
                 .modifier(CardModifier(height: 130))
         }
-        .padding()
+        .padding(.top, 15)
     }
     
     private var Badges : some View {
@@ -26,13 +26,14 @@ struct BadgeView: View {
         return HStack (spacing: 50) {
             ForEach (Badges, id: \.self) { badge in
                 let assetName: String = badge.done ? "badge0\(badge.index)-on" : "badge0\(badge.index)-off"
-                let caption: String = badge.done ? badge.caption : "???"
+                let caption: String = badge.caption
                 VStack {
                     Image(assetName)
                         .resizable()
                         .frame(width: 77, height: 77)
                     Text(caption)
                         .font(.system(size: 12))
+                        .multilineTextAlignment(.center)
                 }
             }
         }

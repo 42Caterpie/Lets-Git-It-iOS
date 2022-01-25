@@ -28,7 +28,7 @@ struct GoalInputFields: View {
     }
     
     private var textField: some View {
-        TextField("Title", text: $userGoalText, onCommit: {
+        TextField("Enter your Goal", text: $userGoalText, onCommit: {
             userInfoService.userGoal.title = userGoalText
             userInfoService.saveUserGoal()
         })

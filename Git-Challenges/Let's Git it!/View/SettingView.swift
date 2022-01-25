@@ -50,7 +50,7 @@ struct SettingView: View {
                 .modifier(UserNameText())
             Divider()
             HStack {
-                Text("알림 설정")
+                Text("Notification")
                     .font(.system(size: 18, weight: .bold))
                 Spacer()
                 HStack {
@@ -66,7 +66,7 @@ struct SettingView: View {
             .frame(height: 64)
             Divider()
             HStack {
-                Text("테마 변경")
+                Text("Color Theme")
                     .font(.system(size: 18, weight: .bold))
                 Spacer()
                 Button {
@@ -112,7 +112,7 @@ struct SettingView: View {
                     print("Error signing out: ", signOutError)
                 }
             } label: {
-                Text("로그아웃")
+                Text("Log Out")
                     .modifier(LogoutButtonText())
             }
             Divider()

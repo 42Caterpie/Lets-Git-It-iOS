@@ -14,7 +14,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 10) {
-                settings
+                toolBar
                 NameCardView()
                 ChallengeCard()
                 ContributionView()
@@ -31,7 +31,7 @@ struct MainView: View {
         }
     }
     
-    private var settings: some View {
+    private var toolBar: some View {
         HStack {
             Spacer()
             refreshButton
@@ -49,7 +49,7 @@ struct MainView: View {
     
     private var refreshButton: some View {
         Button {
-            userInfoService.getCommitData()
+            userInfoService.update()
         } label: {
             Image(systemName: "arrow.triangle.2.circlepath")
                 .foregroundColor(getThemeColors()[color.defaultGray.rawValue])

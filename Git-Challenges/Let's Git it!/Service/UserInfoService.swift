@@ -28,7 +28,13 @@ class UserInfoService: ObservableObject {
         
         getUserGoal()
         getCommitData()
-        currentStreak = calculateCurrentStreak()
+        calculateCurrentStreak()
+        calculatePercentage(with: self.currentStreak.count)
+    }
+    
+    func update() {
+        getCommitData()
+        calculateCurrentStreak()
         calculatePercentage(with: self.currentStreak.count)
     }
     
@@ -98,13 +104,14 @@ class UserInfoService: ObservableObject {
         }
     }
     
-    func calculateCurrentStreak() -> Streak {
+    func calculateCurrentStreak() {
         let yesterday: Int = commits.count - 2
         var startDate: Date? = nil
         var streakCount: Int = 0
         
         if commits[yesterday].level == 0 {
-            return Streak(startDate: Date().formatted, count: 0)
+            currentStreak = Streak(startDate: Date().formatted, count: 0)
+            return
         }
         
         for day in stride(from: commits.count - 1, to: 0, by: -1) {
@@ -118,6 +125,6 @@ class UserInfoService: ObservableObject {
             }
         }
         
-        return Streak(startDate: startDate ?? Date().formatted, count: streakCount)
+        currentStreak = Streak(startDate: startDate ?? Date().formatted, count: streakCount)
     }
 }

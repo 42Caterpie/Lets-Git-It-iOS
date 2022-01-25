@@ -55,6 +55,7 @@ struct ContributionView: View {
                 .frame(width:353, height: 100)
             }
         }
+        .padding(.top, 15)
     }
 }
 
