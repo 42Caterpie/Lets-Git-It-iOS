@@ -30,14 +30,14 @@ func GoalLog() {
         ], merge: true)
 }
 
-func AlarmLog() {
+func AlarmLog(with time: Date) {
     var db: Firestore
     let uid = UserDefaults.standard.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
     
     db = Firestore.firestore()
-    // TODO: 알람 시간 추가 필요
+
     db.collection("logs").document("Alarm").setData(
         [uid :
-         "\(UserDefaults.standard.bool(forKey: "hasUserAgreedAlert"))"
+            "\(time)"
         ], merge: true)
 }

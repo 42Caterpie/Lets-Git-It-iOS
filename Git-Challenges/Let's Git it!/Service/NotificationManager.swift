@@ -23,13 +23,11 @@ class NotificationManager: ObservableObject {
                 // If Notification On, Request Authorization
                 UserDefaults.standard.set(true, forKey: "hasUserAgreedAlert")
                 requestNotificationAuthorization()
-                AlarmLog()
             }
             else {
                 // If Notification Off, Remove All Notifications
                 UserDefaults.standard.set(false, forKey: "hasUserAgreedAlert")
                 removeAllNotifications()
-                AlarmLog()
             }
         }
     }
@@ -40,7 +38,7 @@ class NotificationManager: ObservableObject {
             removeAllNotifications()
             addNotification(with: notiTime)
             UserDefaults.standard.set(notiTime, forKey: "userNotiTime")
-            AlarmLog()
+            AlarmLog(with: notiTime)
         }
     }
     
