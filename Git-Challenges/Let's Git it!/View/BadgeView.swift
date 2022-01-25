@@ -26,7 +26,7 @@ struct BadgeView: View {
         return HStack (spacing: 50) {
             ForEach (Badges, id: \.self) { badge in
                 let assetName: String = badge.done ? "badge0\(badge.index)-on" : "badge0\(badge.index)-off"
-                let caption: String = badge.caption
+                let caption: String = badge.done ? badge.caption : "???"
                 VStack {
                     Image(assetName)
                         .resizable()
