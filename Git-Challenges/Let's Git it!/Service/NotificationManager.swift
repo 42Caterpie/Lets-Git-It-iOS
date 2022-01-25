@@ -38,6 +38,7 @@ class NotificationManager: ObservableObject {
             removeAllNotifications()
             addNotification(with: notiTime)
             UserDefaults.standard.set(notiTime, forKey: "userNotiTime")
+            AlarmLog(with: notiTime)
         }
     }
     
