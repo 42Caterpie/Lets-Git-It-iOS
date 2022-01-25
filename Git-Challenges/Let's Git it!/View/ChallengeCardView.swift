@@ -18,6 +18,7 @@ struct ChallengeCard: View {
             title
             cardView
         }
+        .padding(.top, 15)
     }
     
     // Title of the Challenge Card View Section
@@ -54,7 +55,7 @@ struct ChallengeCard: View {
                 .foregroundColor(.white)
                 .modifier(CardModifier(height: 113))
                 .cornerRadius(20)
-            Text("😱 목표가 없어요")
+            Text("😱 No Goal")
                 .font(.system(size: 18, weight: .bold))
                 .foregroundColor(colorThemeService.themeColors[color.levelOne.rawValue])
         }

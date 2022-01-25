@@ -12,9 +12,9 @@ class BadgeViewModel: ObservableObject {
     @Published var Badges: [Badge] = []
     
     init() {
-        Badges = [Badge(index: 1, done: false, caption: "승리의 맛"),
-                  Badge(index: 2, done: false, caption: "깃 챌린저"),
-                  Badge(index: 3, done: false, caption: "챌린지 완료")]
+        Badges = [Badge(index: 1, done: false, caption: "Taste of Victory"),
+                  Badge(index: 2, done: false, caption: "Git Challenger"),
+                  Badge(index: 3, done: false, caption: "Challenge Complete")]
         
         CalcBadges()
     }
