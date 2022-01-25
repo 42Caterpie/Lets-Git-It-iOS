@@ -31,6 +31,7 @@ struct GoalInputFields: View {
         TextField("Enter your Goal", text: $userGoalText, onCommit: {
             userInfoService.userGoal.title = userGoalText
             userInfoService.saveUserGoal()
+            GoalLog()
         })
             .font(.system(size: 18, weight: .bold))
             .frame(width: cardSize.width * 0.65)
@@ -61,7 +62,7 @@ struct GoalInputFields: View {
                     
                     userInfoService.saveUserGoal()
                     userInfoService.calculatePercentage(with: userInfoService.currentStreak.count)
-                    
+                    GoalLog()
                 })
                     .modifier(NumberFieldModifier(color: grayColor, cardSize: cardSize))
             }

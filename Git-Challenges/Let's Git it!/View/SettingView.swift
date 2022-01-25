@@ -72,6 +72,7 @@ struct SettingView: View {
                 Button {
                     UIApplication.shared.setAlternateIconName("AppIcon-blue")
                     UserDefaults.standard.set("blue" ,forKey: "ColorTheme")
+                    ThemeLog()
                 } label: {
                     Image("git-challenge-icon-blue")
                         .resizable()
@@ -80,6 +81,7 @@ struct SettingView: View {
                 Button {
                     UIApplication.shared.setAlternateIconName("AppIcon-green")
                     UserDefaults.standard.set("green" ,forKey: "ColorTheme")
+                    ThemeLog()
                 } label: {
                     Image("git-challenge-icon-green")
                         .resizable()
@@ -88,6 +90,7 @@ struct SettingView: View {
                 Button {
                     UIApplication.shared.setAlternateIconName("AppIcon-pink")
                     UserDefaults.standard.set("pink" ,forKey: "ColorTheme")
+                    ThemeLog() 
                 } label: {
                     Image("git-challenge-icon-pink")
                         .resizable()
