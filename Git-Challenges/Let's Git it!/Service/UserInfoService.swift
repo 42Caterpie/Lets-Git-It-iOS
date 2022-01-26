@@ -45,19 +45,20 @@ class UserInfoService: ObservableObject {
     }
     
     func calculatePercentage(with streakCount: Int) {
-        let divisor = Int(self.userGoal.count) ?? 0
-        var percentage: CGFloat
-        
-        if divisor == 0 {
-            self.percentage = 0
-        }
-        
-        percentage = CGFloat(streakCount) / CGFloat(divisor)
-        
-        self.percentage = percentage <= 1 ? percentage : 1
-        
-        if percentage >= 1 {
-            UserDefaults.standard.set(true, forKey: "finishChallengeBadge")
+        if let divisor = Int(self.userGoal.count) {
+            var percentage: CGFloat
+            
+            if divisor == 0 {
+                self.percentage = 0
+            }
+            
+            percentage = CGFloat(streakCount) / CGFloat(divisor)
+            
+            self.percentage = percentage <= 1 ? percentage : 1
+            
+            if percentage >= 1 {
+                UserDefaults.standard.set(true, forKey: "finishChallengeBadge")
+            }
         }
     }
     
