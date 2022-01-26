@@ -104,10 +104,9 @@ struct SettingView: View {
             Divider()
             
             Button {
-                // TODO: Implement Logout Feature
                 do {
                     try Auth.auth().signOut()
-                    UserDefaults.standard.removeObject(forKey: "autoLogin")
+                    UserDefaults.standard.removeObject(forKey: "isLogin")
                     self.presentationMode.wrappedValue.dismiss()
                     self.loging.wrappedValue = false
                 }
