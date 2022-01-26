@@ -106,10 +106,11 @@ class UserInfoService: ObservableObject {
     
     func calculateCurrentStreak() {
         let yesterday: Int = commits.count - 2
+        let today: Int = commits.count - 1
         var startDate: Date? = nil
         var streakCount: Int = 0
         
-        if commits[yesterday].level == 0 {
+        if commits[yesterday].level == 0 && commits[today].level == 0 {
             currentStreak = Streak(startDate: Date().formatted, count: 0)
             return
         }
