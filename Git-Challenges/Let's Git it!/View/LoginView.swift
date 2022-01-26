@@ -23,12 +23,10 @@ struct LoginView: View {
     @State var themeColors = getThemeColors()
     
     var body: some View {
-        @State var autoLogin: Bool = UserDefaults.standard.bool(forKey: "autoLogin") != false
-        
-        return Group {
+        Group {
             if loginViewmodel.isProgress {
                 ActivityIndicator(isAnimating: .constant(true), style: .medium)
-            } else if loginViewmodel.isLogin == false && autoLogin == false {
+            } else if loginViewmodel.isLogin == false {
                 VStack (alignment: .center) {
                     Image("\(loginViewmodel.getLoginThemeImage())")
                     HStack(spacing: 3) {

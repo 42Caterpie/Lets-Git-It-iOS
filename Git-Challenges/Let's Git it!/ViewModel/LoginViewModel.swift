@@ -11,7 +11,7 @@ import Alamofire
 
 class LoginViewModel: ObservableObject {
     var provider = OAuthProvider(providerID: "github.com")
-    @Published var isLogin: Bool = false
+    @Published var isLogin: Bool = UserDefaults.standard.bool(forKey: "isLogin") != false
     @Published var isProgress: Bool = false
     
     func githubLogin() {
@@ -44,7 +44,7 @@ class LoginViewModel: ObservableObject {
                         }
                         self.isProgress = false
                         self.isLogin = true
-                        UserDefaults.standard.set(true, forKey: "autoLogin")
+                        UserDefaults.standard.set(true, forKey: "isLogin")
                     }
                 }
             }
@@ -60,7 +60,7 @@ class LoginViewModel: ObservableObject {
         Alamofire.request(baseURL, headers: header).responseJSON { response in
             switch response.result {
             case .success(let response):
-                if let requestObject = try? response as? [String: Any] {
+                if let requestObject = response as? [String: Any] {
                     let id = requestObject["login"] as? String ?? ""
                     completionHandler(id)
                 }
