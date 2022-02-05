@@ -34,7 +34,7 @@ struct ContributionView: View {
                     .font(.system(size: 18, weight: .bold))
                     .hidden()
                 ScrollView (.horizontal) {
-                    HStack (spacing: 3) {
+                    HStack (alignment: .top, spacing: 3) {
                         ForEach (35..<52, id: \.self) { col in
                             VStack (spacing: 3) {
                                 ForEach (0..<7, id: \.self) { row in
@@ -46,7 +46,6 @@ struct ContributionView: View {
                             ForEach(364..<userInfoService.commits.count, id: \.self) { cell in
                                 ColorView(userInfoService.commits[cell].level)
                             }
-                            Spacer()
                         }
                     }
                     .cornerRadius(4)
