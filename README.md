@@ -15,7 +15,9 @@
 
   <br>
   <br>
-  <h3>매일 커밋하는 습관을 가지고 싶다면? 당신을 위한 커밋 챌린지 어플리케이션 ‘Let’s Git it!’</h3>
+  <h3>Let's Git it! 1일 1커밋에 도전하세요 !<br><br>
+매일 커밋하는 습관을 가지고 싶다면?<br>
+당신을 위한 커밋 챌린지 어플리케이션 ‘Let’s Git it!’</h3>
 <!--   <img width="512px" src="https://user-images.githubusercontent.com/42266439/144413552-4b71df23-44d5-483b-8c7e-c77920843316.png" alt="App Preview" />
 
   <h3> 동네북에서 읽은 것을 기록하고 동네 이웃들과 공유해보세요 ! <br>기능 개선 및 추가를 위한 Issue 언제나 환영합니다.</h3>
