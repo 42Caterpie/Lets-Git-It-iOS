@@ -13,21 +13,23 @@ struct MainView: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 10) {
-                toolBar
-                NameCardView()
-                ChallengeCard()
-                ContributionView()
-                BadgeView()
-                Spacer()
+            ScrollView (showsIndicators: false) {
+                VStack(spacing: 10) {
+                    toolBar
+                    NameCardView()
+                    ChallengeCard()
+                    ContributionView()
+                    BadgeView()
+                    Spacer()
+                }
+                .onAppear(perform: {
+                    colorThemeService.getThemeColors()
+                    colorThemeService.getThemeEmojis()
+                })
+                .environmentObject(userInfoService)
+                .environmentObject(colorThemeService)
+                .modifier(NavigationBar())
             }
-            .onAppear(perform: {
-                colorThemeService.getThemeColors()
-                colorThemeService.getThemeEmojis()
-            })
-            .environmentObject(userInfoService)
-            .environmentObject(colorThemeService)
-            .modifier(NavigationBar())
         }
     }
     
