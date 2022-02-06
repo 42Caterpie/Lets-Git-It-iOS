@@ -107,6 +107,8 @@ struct SettingView: View {
                 do {
                     try Auth.auth().signOut()
                     UserDefaults.standard.removeObject(forKey: "isLogin")
+                    UserDefaults.standard.removeObject(forKey: "userNotiTime")
+                    self.notificationManager.isNotiOn = false
                     self.presentationMode.wrappedValue.dismiss()
                     self.loging.wrappedValue = false
                 }
