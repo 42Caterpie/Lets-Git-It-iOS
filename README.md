@@ -26,7 +26,7 @@
 <hr>
 
  <div>
-   ☕️카카오페이로 커피사기<br>
+   ☕️고생한 개발자에게 카카오페이로 커피사주기<br>
    <a href="https://qr.kakaopay.com/Ej8wI2Eot">
      <br>
      <img src="https://img.shields.io/badge/Kakao%20Pay-f4e44d?style=for-the-badge&logo=Buy%20Me%20A%20Coffee&logoColor=black">
