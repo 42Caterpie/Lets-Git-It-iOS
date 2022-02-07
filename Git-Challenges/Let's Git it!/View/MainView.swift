@@ -23,6 +23,7 @@ struct MainView: View {
                     Spacer()
                 }
                 .onAppear(perform: {
+                    userCountLog()
                     colorThemeService.getThemeColors()
                     colorThemeService.getThemeEmojis()
                 })
