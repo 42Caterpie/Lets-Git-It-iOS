@@ -42,7 +42,7 @@ class NotificationManager: ObservableObject {
         }
     }
     
-    // Remove All Remaining Notifications Before Add New One
+    // Remove All Remaining Notifications
     func removeAllNotifications() {
         userNotificationCenter.removeAllDeliveredNotifications()
         userNotificationCenter.removeAllPendingNotificationRequests()

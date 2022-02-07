@@ -11,7 +11,7 @@ struct Goal {
     var title: String
     var count: String
     
-    init(title: String = "", count: String = "") {
+    init(title: String = "", count: String = "365") {
         self.title = title
         self.count = count
     }
