@@ -22,4 +22,15 @@
 
   <h3> 동네북에서 읽은 것을 기록하고 동네 이웃들과 공유해보세요 ! <br>기능 개선 및 추가를 위한 Issue 언제나 환영합니다.</h3>
  -->
-</div>
+
+<hr>
+
+ <div>
+   ☕️카카오페이로 커피사기<br>
+   <a href="https://qr.kakaopay.com/Ej8wI2Eot">
+     <br>
+     <img src="https://img.shields.io/badge/Kakao%20Pay-f4e44d?style=for-the-badge&logo=Buy%20Me%20A%20Coffee&logoColor=black">
+<!--            <span>☕️카카오페이로 커피사기 ❤️</span> -->
+   </a>
+ </div>
+  </div>
