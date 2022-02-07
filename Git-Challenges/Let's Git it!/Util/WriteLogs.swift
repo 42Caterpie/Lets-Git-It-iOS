@@ -8,7 +8,19 @@
 import Foundation
 import Firebase
 
-func ThemeLog() {
+let dateFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "YYYY-MM-dd"
+    return dateFormatter
+}()
+
+let dateTimeFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"
+    return dateFormatter
+}()
+
+func themeLog() {
     var db: Firestore
     let uid = UserDefaults.standard.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
     
@@ -18,7 +30,7 @@ func ThemeLog() {
         [uid : UserDefaults.standard.string(forKey: "ColorTheme")!], merge: true)
 }
 
-func GoalLog() {
+func goalLog() {
     var db: Firestore
     let uid = UserDefaults.standard.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
     
@@ -30,14 +42,42 @@ func GoalLog() {
         ], merge: true)
 }
 
-func AlarmLog(with time: Date) {
+func alarmLog(with time: Date) {
     var db: Firestore
     let uid = UserDefaults.standard.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
-    
+    let date: String = dateFormatter.string(from: time)
     db = Firestore.firestore()
 
     db.collection("logs").document("Alarm").setData(
-        [uid :
-            "\(time)"
+        [uid: date
         ], merge: true)
+}
+
+func userCountLog() {
+    var db: Firestore
+    let uid = UserDefaults.standard.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
+    let date: String = dateFormatter.string(from: Date())
+    let dateTime: String = dateTimeFormatter.string(from: Date())
+    
+    db = Firestore.firestore()
+    db.collection("UserDayLogs").document(date).updateData(
+        [uid: FieldValue.increment(Int64(1))]) { err in
+            if err != nil {
+                db.collection("UserDayLogs").document(date).setData([uid : 1])
+            }
+        }
+    
+    db.collection("UserTotalLogs").document(uid).updateData(
+        ["count": FieldValue.increment(Int64(1))]) { err in
+            if err != nil {
+                db.collection("UserTotalLogs").document(uid).setData(["count" : 1])
+            }
+        }
+
+    db.collection("UserTotalLogs").document(uid).updateData(
+        [dateTime: FieldValue.increment(Int64(1))]) { err in
+            if err != nil {
+                db.collection("UserTotalLogs").document(uid).setData([dateTime : 1])
+            }
+        }
 }
