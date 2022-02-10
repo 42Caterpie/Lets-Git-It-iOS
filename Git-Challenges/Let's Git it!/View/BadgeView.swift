@@ -23,7 +23,7 @@ struct BadgeView: View {
     private var Badges : some View {
         let Badges: [Badge] = badgeViewModel.Badges
         
-        return HStack (spacing: 50) {
+        return HStack (spacing: uiSize.width / 10) {
             ForEach (Badges, id: \.self) { badge in
                 let assetName: String = badge.done ? "badge0\(badge.index)-on" : "badge0\(badge.index)-off"
                 let caption: String = badge.done ? badge.caption : "???"

@@ -14,7 +14,7 @@ class BadgeViewModel: ObservableObject {
     init() {
         Badges = [Badge(index: 1, done: false, caption: "Taste of Victory"),
                   Badge(index: 2, done: false, caption: "Git Challenger"),
-                  Badge(index: 3, done: false, caption: "Challenge Complete")]
+                  Badge(index: 3, done: false, caption: "Challenge\nComplete")]
         
         CalcBadges()
     }

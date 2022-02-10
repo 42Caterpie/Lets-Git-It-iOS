@@ -11,7 +11,9 @@ import UIKit
 struct ContributionView: View {
     @EnvironmentObject private var userInfoService: UserInfoService
     @EnvironmentObject var colorThemeService: ColorThemeService
-    let weekday = Calendar.current.component(.weekday, from: Date())
+    private let weekday = Calendar.current.component(.weekday, from: Date())
+    private let width: CGFloat = uiSize.width * widthRatio.card - 20
+    @Namespace var end
     
     @ViewBuilder
     func ColorView(_ contributionLevel:Int) -> some View {
@@ -33,25 +35,52 @@ struct ContributionView: View {
                 Text("Hidden")
                     .font(.system(size: 18, weight: .bold))
                     .hidden()
-                ScrollView (.horizontal) {
-                    HStack (alignment: .top, spacing: 3) {
-                        ForEach (35..<52, id: \.self) { col in
+                if #available(iOS 14.0, *) {
+                    ScrollView (.horizontal) {
+                        ScrollViewReader { scroll in
+                            HStack (alignment: .top, spacing: 3) {
+                                ForEach (0..<52, id: \.self) { col in
+                                    VStack (spacing: 3) {
+                                        ForEach (0..<7, id: \.self) { row in
+                                            ColorView(userInfoService.commits[col * 7 + row].level)
+                                        }
+                                    }
+                                }
+                                VStack (spacing: 3) {
+                                    ForEach(364..<userInfoService.commits.count, id: \.self) { cell in
+                                        ColorView(userInfoService.commits[cell].level)
+                                    }
+                                }
+                                .id(end)
+                            }
+                            .onAppear {
+                                scroll.scrollTo(end)
+                            }
+                            .cornerRadius(4)
+                        }
+                    }
+                    .frame(width: width, height: 100)
+                }
+                else {
+                    ScrollView (.horizontal) {
+                        HStack (alignment: .top, spacing: 3) {
+                            ForEach (53 - Int(width / 18)..<52, id: \.self) { col in
+                                VStack (spacing: 3) {
+                                    ForEach (0..<7, id: \.self) { row in
+                                        ColorView(userInfoService.commits[col * 7 + row].level)
+                                    }
+                                }
+                            }
                             VStack (spacing: 3) {
-                                ForEach (0..<7, id: \.self) { row in
-                                    ColorView(userInfoService.commits[col * 7 + row].level)
+                                ForEach(364..<userInfoService.commits.count, id: \.self) { cell in
+                                    ColorView(userInfoService.commits[cell].level)
                                 }
                             }
                         }
-                        VStack (spacing: 3) {
-                            ForEach(364..<userInfoService.commits.count, id: \.self) { cell in
-                                ColorView(userInfoService.commits[cell].level)
-                            }
-                        }
+                        .cornerRadius(4)
                     }
-                    .cornerRadius(4)
-                    .padding()
+                    .frame(width: width, height: 100)
                 }
-                .frame(width:353, height: 100)
             }
         }
         .padding(.top, 15)
