@@ -39,6 +39,7 @@ class LoginViewModel: ObservableObject {
                     
                     self.getUserGithubId(oauthCredential.accessToken!) { id in
                         UserDefaults.standard.set(id, forKey: "userId")
+                        UserDefaults.shared.set(id, forKey: "userId")
                         if let authResult = authResult {
                             UserDefaults.standard.set(authResult.user.displayName, forKey: "displayName")
                         }

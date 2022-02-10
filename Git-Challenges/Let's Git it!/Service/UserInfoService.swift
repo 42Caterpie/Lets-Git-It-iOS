@@ -23,9 +23,9 @@ class UserInfoService: ObservableObject {
     var hasCommitted: Int = emoji.notCommitted.rawValue
     
     init() {
-        self.userID = UserDefaults.standard.string(forKey: "userId") ?? ""
+//        self.userID = UserDefaults.standard.string(forKey: "userId") ?? ""
+        self.userID = UserDefaults.shared.string(forKey: "userId") ?? ""
         self.baseURL = "http://github.com/users/\(userID)/contributions"
-        
         getUserGoal()
         getCommitData()
         calculateCurrentStreak()
