@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		731FF2A82796B296001CD5E7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FF2A72796B296001CD5E7 /* Theme.swift */; };
 		7320A758279E6FD20021371C /* ColorThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7320A757279E6FD20021371C /* ColorThemeService.swift */; };
+		7326007727B1068400650FC6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7326007627B1068400650FC6 /* WidgetKit.framework */; };
+		7326007927B1068400650FC6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7326007827B1068400650FC6 /* SwiftUI.framework */; };
+		7326007C27B1068400650FC6 /* LetsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326007B27B1068400650FC6 /* LetsWidget.swift */; };
+		7326007F27B1068500650FC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7326007E27B1068500650FC6 /* Assets.xcassets */; };
+		7326008127B1068500650FC6 /* LetsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7326007D27B1068400650FC6 /* LetsWidget.intentdefinition */; };
+		7326008227B1068500650FC6 /* LetsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7326007D27B1068400650FC6 /* LetsWidget.intentdefinition */; };
+		7326008527B1068500650FC6 /* LetsWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7326007427B1068400650FC6 /* LetsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		73528DF827997183005DF67C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73528DF727997183005DF67C /* LoginView.swift */; };
 		735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3BD27914950000E4E8C /* ContributionView.swift */; };
 		735AA3C527916A16000E4E8C /* UserInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3C427916A16000E4E8C /* UserInfoService.swift */; };
@@ -52,9 +59,40 @@
 		A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8233C27929DCB0000FB08 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7326008327B1068500650FC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73CF609727900339005F4BF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7326007327B1068400650FC6;
+			remoteInfo = LetsWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7326008627B1068500650FC6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7326008527B1068500650FC6 /* LetsWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		731FF2A72796B296001CD5E7 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		7320A757279E6FD20021371C /* ColorThemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeService.swift; sourceTree = "<group>"; };
+		7326007427B1068400650FC6 /* LetsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LetsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7326007627B1068400650FC6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		7326007827B1068400650FC6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		7326007B27B1068400650FC6 /* LetsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsWidget.swift; sourceTree = "<group>"; };
+		7326007D27B1068400650FC6 /* LetsWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = LetsWidget.intentdefinition; sourceTree = "<group>"; };
+		7326007E27B1068500650FC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7326008027B1068500650FC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73528DF727997183005DF67C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		735AA3BD27914950000E4E8C /* ContributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionView.swift; sourceTree = "<group>"; };
 		735AA3C427916A16000E4E8C /* UserInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoService.swift; sourceTree = "<group>"; };
@@ -97,6 +135,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7326007127B1068400650FC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7326007927B1068400650FC6 /* SwiftUI.framework in Frameworks */,
+				7326007727B1068400650FC6 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73CF609C27900339005F4BF4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -119,6 +166,26 @@
 				731FF2A72796B296001CD5E7 /* Theme.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		7326007527B1068400650FC6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7326007627B1068400650FC6 /* WidgetKit.framework */,
+				7326007827B1068400650FC6 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7326007A27B1068400650FC6 /* LetsWidget */ = {
+			isa = PBXGroup;
+			children = (
+				7326007B27B1068400650FC6 /* LetsWidget.swift */,
+				7326007D27B1068400650FC6 /* LetsWidget.intentdefinition */,
+				7326007E27B1068500650FC6 /* Assets.xcassets */,
+				7326008027B1068500650FC6 /* Info.plist */,
+			);
+			path = LetsWidget;
 			sourceTree = "<group>";
 		};
 		735AA3C227915C94000E4E8C /* View */ = {
@@ -149,6 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				73CF60A127900339005F4BF4 /* Let's Git it! */,
+				7326007A27B1068400650FC6 /* LetsWidget */,
+				7326007527B1068400650FC6 /* Frameworks */,
 				73CF60A027900339005F4BF4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -157,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				73CF609F27900339005F4BF4 /* Let's Git it!.app */,
+				7326007427B1068400650FC6 /* LetsWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -241,6 +311,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7326007327B1068400650FC6 /* LetsWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7326008927B1068500650FC6 /* Build configuration list for PBXNativeTarget "LetsWidgetExtension" */;
+			buildPhases = (
+				7326007027B1068400650FC6 /* Sources */,
+				7326007127B1068400650FC6 /* Frameworks */,
+				7326007227B1068400650FC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LetsWidgetExtension;
+			productName = LetsWidgetExtension;
+			productReference = 7326007427B1068400650FC6 /* LetsWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		73CF609E27900339005F4BF4 /* Let's Git it! */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73CF60B32790033B005F4BF4 /* Build configuration list for PBXNativeTarget "Let's Git it!" */;
@@ -248,10 +335,12 @@
 				73CF609B27900339005F4BF4 /* Sources */,
 				73CF609C27900339005F4BF4 /* Frameworks */,
 				73CF609D27900339005F4BF4 /* Resources */,
+				7326008627B1068500650FC6 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7326008427B1068500650FC6 /* PBXTargetDependency */,
 			);
 			name = "Let's Git it!";
 			packageProductDependencies = (
@@ -274,6 +363,9 @@
 				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
+					7326007327B1068400650FC6 = {
+						CreatedOnToolsVersion = 13.1;
+					};
 					73CF609E27900339005F4BF4 = {
 						CreatedOnToolsVersion = 13.1;
 					};
@@ -298,11 +390,20 @@
 			projectRoot = "";
 			targets = (
 				73CF609E27900339005F4BF4 /* Let's Git it! */,
+				7326007327B1068400650FC6 /* LetsWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7326007227B1068400650FC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7326007F27B1068500650FC6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73CF609D27900339005F4BF4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -317,6 +418,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7326007027B1068400650FC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7326008127B1068500650FC6 /* LetsWidget.intentdefinition in Sources */,
+				7326007C27B1068400650FC6 /* LetsWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73CF609B27900339005F4BF4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -341,6 +451,7 @@
 				7320A758279E6FD20021371C /* ColorThemeService.swift in Sources */,
 				A83AA0E9279935BF0006A718 /* Texts.swift in Sources */,
 				A83E07FB27971CC200BFB1A0 /* GoalInputField.swift in Sources */,
+				7326008227B1068500650FC6 /* LetsWidget.intentdefinition in Sources */,
 				73CF60A327900339005F4BF4 /* AppDelegate.swift in Sources */,
 				735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */,
 				A83E07F32796F6DC00BFB1A0 /* Goal.swift in Sources */,
@@ -360,6 +471,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7326008427B1068500650FC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7326007327B1068400650FC6 /* LetsWidgetExtension */;
+			targetProxy = 7326008327B1068500650FC6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		73CF60A827900339005F4BF4 /* Main.storyboard */ = {
@@ -381,6 +500,62 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7326008727B1068500650FC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9TH57H8UP9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LetsWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LetsWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.Caterpie.LetsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7326008827B1068500650FC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9TH57H8UP9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LetsWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LetsWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.Caterpie.LetsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		73CF60B12790033B005F4BF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -500,6 +675,7 @@
 		73CF60B42790033B005F4BF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
@@ -534,6 +710,7 @@
 		73CF60B52790033B005F4BF4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
@@ -568,6 +745,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7326008927B1068500650FC6 /* Build configuration list for PBXNativeTarget "LetsWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7326008727B1068500650FC6 /* Debug */,
+				7326008827B1068500650FC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		73CF609A27900339005F4BF4 /* Build configuration list for PBXProject "Git-Challenges" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
