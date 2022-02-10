@@ -34,93 +34,18 @@ struct SettingView: View {
         }
     }
     
-    private func openSettings() {
-        if let bundle = Bundle.main.bundleIdentifier,
-           let settings = URL(string: UIApplication.openSettingsURLString + bundle) {
-            if UIApplication.shared.canOpenURL(settings) {
-                UIApplication.shared.open(settings)
-            }
-        }
-    }
-    
     private var settings: some View {
         VStack(alignment: .leading, spacing: 0) {
             Divider()
-            Text(UserDefaults.standard.string(forKey: "userId")!)
-                .modifier(UserNameText())
+            userName()
+            NotificationCell()
+            ThemeChangeCell()
+            VersionCheckCell()
             Divider()
-            HStack {
-                Text("Notification")
-                    .font(.system(size: 18, weight: .bold))
-                Spacer()
-                HStack {
-                    if notificationManager.isNotiOn {
-                        DatePicker("", selection: $notificationManager.notiTime,
-                                   displayedComponents: .hourAndMinute)
-                    }
-                    Toggle("", isOn: $notificationManager.isNotiOn)
-                        .frame(width: 60)
-                }
-            }
-            .padding([.leading, .trailing], 20)
-            .frame(height: 64)
-            Divider()
-            HStack {
-                Text("Color Theme")
-                    .font(.system(size: 18, weight: .bold))
-                Spacer()
-                Button {
-                    UIApplication.shared.setAlternateIconName("AppIcon-blue")
-                    UserDefaults.standard.set("blue" ,forKey: "ColorTheme")
-                    themeLog()
-                } label: {
-                    Image("git-challenge-icon-blue")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                }
-                Button {
-                    UIApplication.shared.setAlternateIconName("AppIcon-green")
-                    UserDefaults.standard.set("green" ,forKey: "ColorTheme")
-                    themeLog()
-                } label: {
-                    Image("git-challenge-icon-green")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                }
-                Button {
-                    UIApplication.shared.setAlternateIconName("AppIcon-pink")
-                    UserDefaults.standard.set("pink" ,forKey: "ColorTheme")
-                    themeLog() 
-                } label: {
-                    Image("git-challenge-icon-pink")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                }
-            }
-            .padding([.leading, .trailing], 20)
-            .frame(height: 64)
-            
-            
-            Divider()
-            
-            Button {
-                do {
-                    try Auth.auth().signOut()
-                    UserDefaults.standard.removeObject(forKey: "isLogin")
-                    UserDefaults.standard.removeObject(forKey: "userNotiTime")
-                    self.notificationManager.isNotiOn = false
-                    self.presentationMode.wrappedValue.dismiss()
-                    self.loging.wrappedValue = false
-                }
-                catch let signOutError as NSError {
-                    print("Error signing out: ", signOutError)
-                }
-            } label: {
-                Text("Log Out")
-                    .modifier(LogoutButtonText())
-            }
+            logoutButton()
             Divider()
         }
+        .environmentObject(notificationManager)
     }
     
     private var footer: some View {
@@ -134,11 +59,48 @@ struct SettingView: View {
         }
         .foregroundColor(getThemeColors()[color.defaultGray.rawValue])
         .onTapGesture {
-            if let url = URL(string: githubRepoURL) {
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url)
-                }
+            openGithubRepo()
+        }
+    }
+    
+    private func openSettings() {
+        if let bundle = Bundle.main.bundleIdentifier,
+           let settings = URL(string: UIApplication.openSettingsURLString + bundle) {
+            if UIApplication.shared.canOpenURL(settings) {
+                UIApplication.shared.open(settings)
             }
+        }
+    }
+    
+    private func openGithubRepo() {
+        if let url = URL(string: githubRepoURL) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url)
+            }
+        }
+    }
+    
+    private func userName() -> some View {
+        Text(UserDefaults.standard.string(forKey: "userId")!)
+            .modifier(UserNameText())
+    }
+    
+    private func logoutButton() -> some View {
+        Button {
+            do {
+                try Auth.auth().signOut()
+                UserDefaults.standard.removeObject(forKey: "isLogin")
+                UserDefaults.standard.removeObject(forKey: "userNotiTime")
+                self.notificationManager.isNotiOn = false
+                self.presentationMode.wrappedValue.dismiss()
+                self.loging.wrappedValue = false
+            }
+            catch let signOutError as NSError {
+                print("Error signing out: ", signOutError)
+            }
+        } label: {
+            Text("Log Out")
+                .modifier(LogoutButtonText())
         }
     }
 }
