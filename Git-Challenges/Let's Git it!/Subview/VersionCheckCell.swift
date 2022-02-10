@@ -32,7 +32,7 @@ struct VersionCheckCell: View {
     
     private func isAppNeedToUpdate() -> Bool {
         guard let installedVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
-              let url = URL(string: appstoreLookupURL),
+              let url = URL(string: URLString.appStoreLookUp),
               let data = try? Data(contentsOf: url),
               let json = try? JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any]
         else { return false }
@@ -51,7 +51,7 @@ struct VersionCheckCell: View {
     }
     
     private func openAppStore() {
-        if let url = URL(string: appstoreURL) {
+        if let url = URL(string: URLString.appStore) {
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url)
             }

@@ -73,7 +73,7 @@ struct SettingView: View {
     }
     
     private func openGithubRepo() {
-        if let url = URL(string: githubRepoURL) {
+        if let url = URL(string: URLString.gitHubRepo) {
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url)
             }
