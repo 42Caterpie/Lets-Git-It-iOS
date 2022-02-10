@@ -69,6 +69,10 @@
 		A83E07F7279707E000BFB1A0 /* Streak.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F6279707DF00BFB1A0 /* Streak.swift */; };
 		A83E07F927971B8500BFB1A0 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F827971B8500BFB1A0 /* Progress.swift */; };
 		A83E07FB27971CC200BFB1A0 /* GoalInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07FA27971CC200BFB1A0 /* GoalInputField.swift */; };
+		A896B0F527B4EC6A005D9669 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A896B0F427B4EC6A005D9669 /* NotificationCell.swift */; };
+		A896B0F727B4EC77005D9669 /* ThemeChangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A896B0F627B4EC77005D9669 /* ThemeChangeCell.swift */; };
+		A896B0F927B4ECDD005D9669 /* VersionCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A896B0F827B4ECDD005D9669 /* VersionCheckCell.swift */; };
+		A896B0FB27B4ECF1005D9669 /* SettingCellModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A896B0FA27B4ECF1005D9669 /* SettingCellModifier.swift */; };
 		A8A113352793F95F00F9C984 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A113342793F95F00F9C984 /* Constants.swift */; };
 		A8E51E882795378600B4F08A /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E51E872795378600B4F08A /* Color+Extensions.swift */; };
 		A8F8233927929C920000FB08 /* ChallengeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8233827929C920000FB08 /* ChallengeCardView.swift */; };
@@ -146,6 +150,10 @@
 		A83E07F6279707DF00BFB1A0 /* Streak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Streak.swift; sourceTree = "<group>"; };
 		A83E07F827971B8500BFB1A0 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
 		A83E07FA27971CC200BFB1A0 /* GoalInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalInputField.swift; sourceTree = "<group>"; };
+		A896B0F427B4EC6A005D9669 /* NotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		A896B0F627B4EC77005D9669 /* ThemeChangeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeChangeCell.swift; sourceTree = "<group>"; };
+		A896B0F827B4ECDD005D9669 /* VersionCheckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionCheckCell.swift; sourceTree = "<group>"; };
+		A896B0FA27B4ECF1005D9669 /* SettingCellModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCellModifier.swift; sourceTree = "<group>"; };
 		A8A113342793F95F00F9C984 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A8E51E872795378600B4F08A /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		A8F8233827929C920000FB08 /* ChallengeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCardView.swift; sourceTree = "<group>"; };
@@ -311,6 +319,7 @@
 		73ECFA6C279531160099C654 /* Modifier */ = {
 			isa = PBXGroup;
 			children = (
+				A896B0FA27B4ECF1005D9669 /* SettingCellModifier.swift */,
 				73710DAB279018A6009EBA62 /* CardModifier.swift */,
 				A83AA0E227992E870006A718 /* Indicator.swift */,
 				A83AA0E427992EA10006A718 /* ProgressBar.swift */,
@@ -322,6 +331,9 @@
 		A83E07ED2796938200BFB1A0 /* Subview */ = {
 			isa = PBXGroup;
 			children = (
+				A896B0F627B4EC77005D9669 /* ThemeChangeCell.swift */,
+				A896B0F827B4ECDD005D9669 /* VersionCheckCell.swift */,
+				A896B0F427B4EC6A005D9669 /* NotificationCell.swift */,
 				A83E07F827971B8500BFB1A0 /* Progress.swift */,
 				A83E07FA27971CC200BFB1A0 /* GoalInputField.swift */,
 				73751ED5279D6A76006A8F94 /* ProgressView.swift */,
@@ -448,12 +460,15 @@
 			files = (
 				73E7F07727927A3A0045AC5F /* Commit.swift in Sources */,
 				A83AA0F127998FA80006A718 /* NotificationManager.swift in Sources */,
+				A896B0FB27B4ECF1005D9669 /* SettingCellModifier.swift in Sources */,
 				73EDBD71279A815300C9B6F0 /* LoginViewModel.swift in Sources */,
 				73E33FAB2796C36F00BF994D /* NameCard.swift in Sources */,
 				73E1A84127993CB500E1BDFE /* BadgeViewModel.swift in Sources */,
+				A896B0F927B4ECDD005D9669 /* VersionCheckCell.swift in Sources */,
 				73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */,
 				A83AA0E7279932890006A718 /* Date+Extensions.swift in Sources */,
 				A83E07F52796F85500BFB1A0 /* UIApplication+Extensions.swift in Sources */,
+				A896B0F727B4EC77005D9669 /* ThemeChangeCell.swift in Sources */,
 				73CF60A727900339005F4BF4 /* ViewController.swift in Sources */,
 				A83E07F927971B8500BFB1A0 /* Progress.swift in Sources */,
 				73E1A84327994DC800E1BDFE /* Badge.swift in Sources */,
@@ -475,6 +490,7 @@
 				73E0EAA027B4F25D0083F408 /* UserDefaults+Extensions.swift in Sources */,
 				A8A113352793F95F00F9C984 /* Constants.swift in Sources */,
 				A8F8233927929C920000FB08 /* ChallengeCardView.swift in Sources */,
+				A896B0F527B4EC6A005D9669 /* NotificationCell.swift in Sources */,
 				73F4691C279FD0A300991E71 /* WriteLogs.swift in Sources */,
 				A8E51E882795378600B4F08A /* Color+Extensions.swift in Sources */,
 				731FF2A82796B296001CD5E7 /* Theme.swift in Sources */,
@@ -666,7 +682,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 9TH57H8UP9;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Let's Git it!/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -702,7 +718,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 9TH57H8UP9;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Let's Git it!/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
