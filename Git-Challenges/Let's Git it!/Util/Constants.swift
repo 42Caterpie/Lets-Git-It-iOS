@@ -10,6 +10,8 @@ import SwiftUI
 
 let uiSize: CGSize = UIScreen.main.bounds.size
 
+let githubRepoURL: String = "https://github.com/42Caterpie/Lets-Git-It-iOS"
+
 enum Message {
     static let notiDeniedInSettingsTitle: String = "Notification has been disabled for this app"
     static let notiDeniedInSettingsMessage: String = "Please go to settings to enable it now"
