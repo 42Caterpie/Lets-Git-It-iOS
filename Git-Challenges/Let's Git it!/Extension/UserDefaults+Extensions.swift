@@ -14,7 +14,7 @@ extension UserDefaults {
         // ✅ 이전까지 사용했던 standard UserDefaults 와 다르다. 공유되는 App Group Container 에 있는 저장소를 사용한다.
         // ✅ suitename : The domain identifier of the search list.
         
-//        let combined = UserDefaults.standard
+//        let combined = UserDefaults.shared
         let appGroupId = "group.LetsWidget"
         return UserDefaults(suiteName: appGroupId)!
 //        combined.addSuite(named: appGroupId)

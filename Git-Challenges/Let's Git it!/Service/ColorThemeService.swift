@@ -19,14 +19,14 @@ class ColorThemeService: ObservableObject {
     }
     
     func getThemeColors() {
-        let themeColor: String = UserDefaults.standard.string(forKey: "ColorTheme") ?? "green"
-        UserDefaults.standard.setValue(themeColor, forKey: "ColorTheme")
+        let themeColor: String = UserDefaults.shared.string(forKey: "ColorTheme") ?? "green"
+        UserDefaults.shared.setValue(themeColor, forKey: "ColorTheme")
         self.themeColors = colorPalette.getColors(themeColor)
     }
     
     func getThemeEmojis() {
-        let themeColor: String = UserDefaults.standard.string(forKey: "ColorTheme") ?? "green"
-        UserDefaults.standard.setValue(themeColor, forKey: "ColorTheme")
+        let themeColor: String = UserDefaults.shared.string(forKey: "ColorTheme") ?? "green"
+        UserDefaults.shared.setValue(themeColor, forKey: "ColorTheme")
         self.themeEmojis = colorPalette.getEmoji(themeColor)
     }
     

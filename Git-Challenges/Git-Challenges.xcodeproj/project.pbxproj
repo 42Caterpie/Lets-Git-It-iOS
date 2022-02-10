@@ -16,6 +16,7 @@
 		73710DAC279018A6009EBA62 /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73710DAB279018A6009EBA62 /* CardModifier.swift */; };
 		73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73710DAD27902ED2009EBA62 /* NameCardView.swift */; };
 		73751ED6279D6A76006A8F94 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73751ED5279D6A76006A8F94 /* ProgressView.swift */; };
+		7390031027B524A9002184AF /* WidgetContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390030F27B524A9002184AF /* WidgetContributionView.swift */; };
 		73B9068627B505DB003725D7 /* ContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3BD27914950000E4E8C /* ContributionView.swift */; };
 		73B9068727B505E3003725D7 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07627927A3A0045AC5F /* Commit.swift */; };
 		73B9068827B505E3003725D7 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F22796F6DC00BFB1A0 /* Goal.swift */; };
@@ -42,9 +43,9 @@
 		73E0EAA027B4F25D0083F408 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0EA9F27B4F25C0083F408 /* UserDefaults+Extensions.swift */; };
 		73E0EABD27B4F5440083F408 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7326007627B1068400650FC6 /* WidgetKit.framework */; };
 		73E0EABE27B4F5440083F408 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7326007827B1068400650FC6 /* SwiftUI.framework */; };
-		73E0EAC127B4F5440083F408 /* StaticWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0EAC027B4F5440083F408 /* StaticWidget.swift */; };
+		73E0EAC127B4F5440083F408 /* LetsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E0EAC027B4F5440083F408 /* LetsWidget.swift */; };
 		73E0EAC327B4F5460083F408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73E0EAC227B4F5460083F408 /* Assets.xcassets */; };
-		73E0EAC727B4F5460083F408 /* StaticWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 73E0EABC27B4F5440083F408 /* StaticWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		73E0EAC727B4F5460083F408 /* LetsWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 73E0EABC27B4F5440083F408 /* LetsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		73E1A83F27993C8400E1BDFE /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1A83E27993C8400E1BDFE /* BadgeView.swift */; };
 		73E1A84127993CB500E1BDFE /* BadgeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1A84027993CB500E1BDFE /* BadgeViewModel.swift */; };
 		73E1A84327994DC800E1BDFE /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E1A84227994DC800E1BDFE /* Badge.swift */; };
@@ -96,7 +97,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				73E0EAC727B4F5460083F408 /* StaticWidgetExtension.appex in Embed App Extensions */,
+				73E0EAC727B4F5460083F408 /* LetsWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +116,7 @@
 		73710DAB279018A6009EBA62 /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
 		73710DAD27902ED2009EBA62 /* NameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCardView.swift; sourceTree = "<group>"; };
 		73751ED5279D6A76006A8F94 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		7390030F27B524A9002184AF /* WidgetContributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContributionView.swift; sourceTree = "<group>"; };
 		73CF609F27900339005F4BF4 /* Let's Git it!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let's Git it!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CF60A227900339005F4BF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73CF60A427900339005F4BF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,8 +127,8 @@
 		73CF60B02790033B005F4BF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73E0EA9D27B4F2170083F408 /* Let's Git it!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Let's Git it!.entitlements"; sourceTree = "<group>"; };
 		73E0EA9F27B4F25C0083F408 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
-		73E0EABC27B4F5440083F408 /* StaticWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StaticWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		73E0EAC027B4F5440083F408 /* StaticWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticWidget.swift; sourceTree = "<group>"; };
+		73E0EABC27B4F5440083F408 /* LetsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LetsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		73E0EAC027B4F5440083F408 /* LetsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsWidget.swift; sourceTree = "<group>"; };
 		73E0EAC227B4F5460083F408 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73E0EAC427B4F5460083F408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73E0EACB27B4F5740083F408 /* StaticWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StaticWidgetExtension.entitlements; sourceTree = "<group>"; };
@@ -233,7 +235,7 @@
 			children = (
 				73E0EACB27B4F5740083F408 /* StaticWidgetExtension.entitlements */,
 				73CF60A127900339005F4BF4 /* Let's Git it! */,
-				73E0EABF27B4F5440083F408 /* StaticWidget */,
+				73E0EABF27B4F5440083F408 /* LetsWidget */,
 				7326007527B1068400650FC6 /* Frameworks */,
 				73CF60A027900339005F4BF4 /* Products */,
 			);
@@ -243,7 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				73CF609F27900339005F4BF4 /* Let's Git it!.app */,
-				73E0EABC27B4F5440083F408 /* StaticWidgetExtension.appex */,
+				73E0EABC27B4F5440083F408 /* LetsWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -272,14 +274,15 @@
 			path = "Let's Git it!";
 			sourceTree = "<group>";
 		};
-		73E0EABF27B4F5440083F408 /* StaticWidget */ = {
+		73E0EABF27B4F5440083F408 /* LetsWidget */ = {
 			isa = PBXGroup;
 			children = (
-				73E0EAC027B4F5440083F408 /* StaticWidget.swift */,
+				73E0EAC027B4F5440083F408 /* LetsWidget.swift */,
 				73E0EAC227B4F5460083F408 /* Assets.xcassets */,
 				73E0EAC427B4F5460083F408 /* Info.plist */,
+				7390030F27B524A9002184AF /* WidgetContributionView.swift */,
 			);
-			path = StaticWidget;
+			path = LetsWidget;
 			sourceTree = "<group>";
 		};
 		73E7F07527927A270045AC5F /* Model */ = {
@@ -369,9 +372,9 @@
 			productReference = 73CF609F27900339005F4BF4 /* Let's Git it!.app */;
 			productType = "com.apple.product-type.application";
 		};
-		73E0EABB27B4F5440083F408 /* StaticWidgetExtension */ = {
+		73E0EABB27B4F5440083F408 /* LetsWidgetExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 73E0EAC827B4F5460083F408 /* Build configuration list for PBXNativeTarget "StaticWidgetExtension" */;
+			buildConfigurationList = 73E0EAC827B4F5460083F408 /* Build configuration list for PBXNativeTarget "LetsWidgetExtension" */;
 			buildPhases = (
 				73E0EAB827B4F5440083F408 /* Sources */,
 				73E0EAB927B4F5440083F408 /* Frameworks */,
@@ -381,12 +384,12 @@
 			);
 			dependencies = (
 			);
-			name = StaticWidgetExtension;
+			name = LetsWidgetExtension;
 			packageProductDependencies = (
 				73B9069927B5065C003725D7 /* SwiftSoup */,
 			);
 			productName = StaticWidgetExtension;
-			productReference = 73E0EABC27B4F5440083F408 /* StaticWidgetExtension.appex */;
+			productReference = 73E0EABC27B4F5440083F408 /* LetsWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -426,7 +429,7 @@
 			projectRoot = "";
 			targets = (
 				73CF609E27900339005F4BF4 /* Let's Git it! */,
-				73E0EABB27B4F5440083F408 /* StaticWidgetExtension */,
+				73E0EABB27B4F5440083F408 /* LetsWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -507,6 +510,7 @@
 			files = (
 				73B9068A27B505E3003725D7 /* Badge.swift in Sources */,
 				73B9068727B505E3003725D7 /* Commit.swift in Sources */,
+				7390031027B524A9002184AF /* WidgetContributionView.swift in Sources */,
 				73B9068927B505E3003725D7 /* Streak.swift in Sources */,
 				73B9068627B505DB003725D7 /* ContributionView.swift in Sources */,
 				73B9068E27B505FC003725D7 /* CardModifier.swift in Sources */,
@@ -521,7 +525,7 @@
 				73B9068F27B50629003725D7 /* Theme.swift in Sources */,
 				73B9069527B50647003725D7 /* Color+Extensions.swift in Sources */,
 				73B9068827B505E3003725D7 /* Goal.swift in Sources */,
-				73E0EAC127B4F5440083F408 /* StaticWidget.swift in Sources */,
+				73E0EAC127B4F5440083F408 /* LetsWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,7 +534,7 @@
 /* Begin PBXTargetDependency section */
 		73E0EAC627B4F5460083F408 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 73E0EABB27B4F5440083F408 /* StaticWidgetExtension */;
+			target = 73E0EABB27B4F5440083F408 /* LetsWidgetExtension */;
 			targetProxy = 73E0EAC527B4F5460083F408 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -753,8 +757,8 @@
 				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = 9TH57H8UP9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = StaticWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = StaticWidget;
+				INFOPLIST_FILE = LetsWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LetsWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -763,7 +767,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.Caterpie.StaticWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.Caterpie.LetsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -782,8 +786,8 @@
 				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = 9TH57H8UP9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = StaticWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = StaticWidget;
+				INFOPLIST_FILE = LetsWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LetsWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -792,7 +796,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.Caterpie.StaticWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.Caterpie.LetsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -822,7 +826,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		73E0EAC827B4F5460083F408 /* Build configuration list for PBXNativeTarget "StaticWidgetExtension" */ = {
+		73E0EAC827B4F5460083F408 /* Build configuration list for PBXNativeTarget "LetsWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				73E0EAC927B4F5460083F408 /* Debug */,

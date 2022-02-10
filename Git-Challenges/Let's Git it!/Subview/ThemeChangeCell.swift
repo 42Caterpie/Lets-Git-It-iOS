@@ -15,7 +15,7 @@ struct ThemeChangeCell: View {
             Spacer()
             Button {
                 UIApplication.shared.setAlternateIconName("AppIcon-blue")
-                UserDefaults.standard.set("blue" ,forKey: "ColorTheme")
+                UserDefaults.shared.set("blue" ,forKey: "ColorTheme")
                 themeLog()
             } label: {
                 Image("git-challenge-icon-blue")
@@ -24,7 +24,7 @@ struct ThemeChangeCell: View {
             }
             Button {
                 UIApplication.shared.setAlternateIconName("AppIcon-green")
-                UserDefaults.standard.set("green" ,forKey: "ColorTheme")
+                UserDefaults.shared.set("green" ,forKey: "ColorTheme")
                 themeLog()
             } label: {
                 Image("git-challenge-icon-green")
@@ -33,7 +33,7 @@ struct ThemeChangeCell: View {
             }
             Button {
                 UIApplication.shared.setAlternateIconName("AppIcon-pink")
-                UserDefaults.standard.set("pink" ,forKey: "ColorTheme")
+                UserDefaults.shared.set("pink" ,forKey: "ColorTheme")
                 themeLog()
             } label: {
                 Image("git-challenge-icon-pink")

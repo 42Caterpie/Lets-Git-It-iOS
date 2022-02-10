@@ -23,7 +23,7 @@ class UserInfoService: ObservableObject {
     var hasCommitted: Int = emoji.notCommitted.rawValue
     
     init() {
-//        self.userID = UserDefaults.standard.string(forKey: "userId") ?? ""
+//        self.userID = UserDefaults.shared.string(forKey: "userId") ?? ""
         self.userID = UserDefaults.shared.string(forKey: "userId") ?? ""
         self.baseURL = "http://github.com/users/\(userID)/contributions"
         getUserGoal()
@@ -39,9 +39,9 @@ class UserInfoService: ObservableObject {
     }
     
     func saveUserGoal() {
-        UserDefaults.standard.set(true, forKey: "hasInitialValue")
-        UserDefaults.standard.set(userGoal.title, forKey: "userGoalTitle")
-        UserDefaults.standard.set(userGoal.count, forKey: "userGoalCount")
+        UserDefaults.shared.set(true, forKey: "hasInitialValue")
+        UserDefaults.shared.set(userGoal.title, forKey: "userGoalTitle")
+        UserDefaults.shared.set(userGoal.count, forKey: "userGoalCount")
     }
     
     func calculatePercentage(with streakCount: Int) {
@@ -57,14 +57,14 @@ class UserInfoService: ObservableObject {
             self.percentage = percentage <= 1 ? percentage : 1
             
             if percentage >= 1 {
-                UserDefaults.standard.set(true, forKey: "finishChallengeBadge")
+                UserDefaults.shared.set(true, forKey: "finishChallengeBadge")
             }
         }
     }
     
     private func getUserGoal() {
-        let title: String = UserDefaults.standard.string(forKey: "userGoalTitle") ?? ""
-        let count: String = UserDefaults.standard.string(forKey: "userGoalCount") ?? "365"
+        let title: String = UserDefaults.shared.string(forKey: "userGoalTitle") ?? ""
+        let count: String = UserDefaults.shared.string(forKey: "userGoalCount") ?? "365"
         
         self.userGoal = Goal(title: title, count: count)
     }

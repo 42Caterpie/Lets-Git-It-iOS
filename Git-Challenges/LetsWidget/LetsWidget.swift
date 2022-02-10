@@ -40,15 +40,25 @@ struct SimpleEntry: TimelineEntry {
 
 struct StaticWidgetEntryView : View {
     var entry: Provider.Entry
-    var userInfoService: UserInfoService = UserInfoService()
+    @ObservedObject var userInfoService: UserInfoService = UserInfoService()
+    @ObservedObject var colorThemeService: ColorThemeService = ColorThemeService()
+    let themeEmojis = getThemeEmojis()
+    let goalCount: String = UserDefaults.shared.string(forKey: "userGoalCount") ?? ""
+    
     var body: some View {
 //        Text(entry.date, style: .time)
         
-        VStack {
-            Text(UserDefaults.shared.string(forKey: "userId") ?? "shared")
-            Text("\(userInfoService.commits.count)")
-            Text("userId")
-        }
+//        VStack {
+//            WidgetContributionView()
+//                .environmentObject(userInfoService)
+//                .environmentObject(colorThemeService)
+        Text("Let's Widget")
+        
+            Text(themeEmojis[userInfoService.hasCommitted])
+//            Text(UserDefaults.shared.string(forKey: "userId") ?? "shared")
+        Text("\(userInfoService.currentStreak.count) / \(goalCount)")
+//            Text("\(userInfoService.commits.count)")
+//        }
     }
 }
 
@@ -57,7 +67,7 @@ struct StaticWidget: Widget {
     let kind: String = "StaticWidget"
     
     init() {
-        UserDefaults.standard.dictionaryRepresentation().forEach { (key, value) in
+        UserDefaults.shared.dictionaryRepresentation().forEach { (key, value) in
             UserDefaults.shared.set(value, forKey: key)
         }
     }

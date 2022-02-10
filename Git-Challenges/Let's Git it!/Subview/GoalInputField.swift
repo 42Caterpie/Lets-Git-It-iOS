@@ -11,8 +11,8 @@ import Combine
 struct GoalInputFields: View {
     @EnvironmentObject private var userInfoService: UserInfoService
     
-    @State private var userGoalText: String = UserDefaults.standard.string(forKey: "userGoalTitle") ?? ""
-    @State private var userGoalCount: String = UserDefaults.standard.string(forKey: "userGoalCount") ?? "365"
+    @State private var userGoalText: String = UserDefaults.shared.string(forKey: "userGoalTitle") ?? ""
+    @State private var userGoalCount: String = UserDefaults.shared.string(forKey: "userGoalCount") ?? "365"
     
     // Size Of Card
     private let cardSize: CGSize = CGSize(width: uiSize.width * widthRatio.card, height: 113)

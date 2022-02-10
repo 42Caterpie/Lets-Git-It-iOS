@@ -11,7 +11,7 @@ import Alamofire
 
 class LoginViewModel: ObservableObject {
     var provider = OAuthProvider(providerID: "github.com")
-    @Published var isLogin: Bool = UserDefaults.standard.bool(forKey: "isLogin") != false
+    @Published var isLogin: Bool = UserDefaults.shared.bool(forKey: "isLogin") != false
     @Published var isProgress: Bool = false
     
     func githubLogin() {
@@ -38,14 +38,14 @@ class LoginViewModel: ObservableObject {
                     // oauthCredential.idToken
                     
                     self.getUserGithubId(oauthCredential.accessToken!) { id in
-                        UserDefaults.standard.set(id, forKey: "userId")
+                        UserDefaults.shared.set(id, forKey: "userId")
                         UserDefaults.shared.set(id, forKey: "userId")
                         if let authResult = authResult {
-                            UserDefaults.standard.set(authResult.user.displayName, forKey: "displayName")
+                            UserDefaults.shared.set(authResult.user.displayName, forKey: "displayName")
                         }
                         self.isProgress = false
                         self.isLogin = true
-                        UserDefaults.standard.set(true, forKey: "isLogin")
+                        UserDefaults.shared.set(true, forKey: "isLogin")
                     }
                 }
             }
@@ -73,7 +73,7 @@ class LoginViewModel: ObservableObject {
     }
     
     func getLoginThemeImage() -> String {
-        let themeColor: String = UserDefaults.standard.string(forKey: "ColorTheme") ?? "pink"
+        let themeColor: String = UserDefaults.shared.string(forKey: "ColorTheme") ?? "pink"
         switch themeColor {
         case "green":
             return "LoginIcon-green"

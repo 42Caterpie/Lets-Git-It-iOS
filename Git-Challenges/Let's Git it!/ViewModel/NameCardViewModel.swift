@@ -23,7 +23,7 @@ class NameCardViewModel: ObservableObject {
     }
     
     func imageCrawling() {
-        let userID = UserDefaults.standard.string(forKey: "userId") ?? ""
+        let userID = UserDefaults.shared.string(forKey: "userId") ?? ""
         if userID != "" {
             let url = URL(string: "https://github.com/\(userID)")!
             let html = try? String(contentsOf: url, encoding: .utf8)
