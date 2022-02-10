@@ -133,5 +133,12 @@ struct SettingView: View {
                 .font(.system(size: 10))
         }
         .foregroundColor(getThemeColors()[color.defaultGray.rawValue])
+        .onTapGesture {
+            if let url = URL(string: githubRepoURL) {
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                }
+            }
+        }
     }
 }
