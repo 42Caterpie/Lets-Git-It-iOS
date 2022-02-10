@@ -11,7 +11,8 @@ import UIKit
 struct ContributionView: View {
     @EnvironmentObject private var userInfoService: UserInfoService
     @EnvironmentObject var colorThemeService: ColorThemeService
-    let weekday = Calendar.current.component(.weekday, from: Date())
+    private let weekday = Calendar.current.component(.weekday, from: Date())
+    private let width: CGFloat = uiSize.width * widthRatio.card - 20
     
     @ViewBuilder
     func ColorView(_ contributionLevel:Int) -> some View {
@@ -35,7 +36,7 @@ struct ContributionView: View {
                     .hidden()
                 ScrollView (.horizontal) {
                     HStack (alignment: .top, spacing: 3) {
-                        ForEach (35..<52, id: \.self) { col in
+                        ForEach (53 - Int(width / 18)..<52, id: \.self) { col in
                             VStack (spacing: 3) {
                                 ForEach (0..<7, id: \.self) { row in
                                     ColorView(userInfoService.commits[col * 7 + row].level)
@@ -49,9 +50,8 @@ struct ContributionView: View {
                         }
                     }
                     .cornerRadius(4)
-                    .padding()
                 }
-                .frame(width:353, height: 100)
+                .frame(width: width, height: 100)
             }
         }
         .padding(.top, 15)
