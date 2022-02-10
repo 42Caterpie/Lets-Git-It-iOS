@@ -51,11 +51,8 @@ struct VersionCheckCell: View {
     }
     
     private func openAppStore() {
-        print("tap")
         if let url = URL(string: appstoreURL) {
-            print("url made")
             if UIApplication.shared.canOpenURL(url) {
-                print("open url")
                 UIApplication.shared.open(url)
             }
         }
