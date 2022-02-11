@@ -9,3 +9,6 @@
 - Fixed the problem of not seeing all the screens of iPhone SE.
 - Added GitHub Repo URL to the Contributor Label.
 - Added Version Check Cell to the Setting View.
+
+### 1.2.1
+- Updated Relase and Bundle Version.
