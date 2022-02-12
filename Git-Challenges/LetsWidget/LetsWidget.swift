@@ -10,25 +10,39 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
+        SimpleEntry(date: Date(), isPreview: false)
     }
-
+    
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date())
+        let entry: SimpleEntry
+        
+        if context.isPreview {
+            switch context.family {
+            case .systemSmall:
+                entry = SimpleEntry(date: Date(), isPreview: true)
+            case .systemMedium:
+                entry = SimpleEntry(date: Date(), isPreview: true)
+            default:
+                entry = SimpleEntry(date: Date(), isPreview: true)
+            }
+        } else {
+            entry = SimpleEntry(date: Date(), isPreview: false)
+        }
+        
         completion(entry)
     }
-
+    
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
-
+        
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate)
+            let entry = SimpleEntry(date: entryDate, isPreview: false)
             entries.append(entry)
         }
-
+        
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
@@ -36,29 +50,42 @@ struct Provider: TimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
+    let isPreview: Bool
 }
 
 struct StaticWidgetEntryView : View {
+    @Environment(\.widgetFamily) private var widgetFamily
     var entry: Provider.Entry
     @ObservedObject var userInfoService: UserInfoService = UserInfoService()
     @ObservedObject var colorThemeService: ColorThemeService = ColorThemeService()
-    let themeEmojis = getThemeEmojis()
-    let goalCount: String = UserDefaults.shared.string(forKey: "userGoalCount") ?? ""
     
     var body: some View {
-//        Text(entry.date, style: .time)
-        
-//        VStack {
-//            WidgetContributionView()
-//                .environmentObject(userInfoService)
-//                .environmentObject(colorThemeService)
-        Text("Let's Widget")
-        
-            Text(themeEmojis[userInfoService.hasCommitted])
-//            Text(UserDefaults.shared.string(forKey: "userId") ?? "shared")
-        Text("\(userInfoService.currentStreak.count) / \(goalCount)")
-//            Text("\(userInfoService.commits.count)")
-//        }
+        switch widgetFamily {
+        case .systemSmall:
+            Text("Small")
+        case .systemMedium:
+            WidgetContributionView()
+                .environmentObject(userInfoService)
+                .environmentObject(colorThemeService)
+        default:
+            Text("unknow")
+        }
+    }
+}
+
+struct StaticWidgetEntryPreview : View {
+    @Environment(\.widgetFamily) private var widgetFamily
+    var entry: Provider.Entry
+    
+    var body: some View {
+        switch widgetFamily {
+        case .systemSmall:
+            Text("Small")
+        case .systemMedium:
+            WidgetContributionPreview()
+        default:
+            Text("unknow")
+        }
     }
 }
 
@@ -71,19 +98,26 @@ struct StaticWidget: Widget {
             UserDefaults.shared.set(value, forKey: key)
         }
     }
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            StaticWidgetEntryView(entry: entry)
+            Group {
+                if entry.isPreview {
+                    StaticWidgetEntryPreview(entry: entry)
+                } else {
+                    StaticWidgetEntryView(entry: entry)
+                }
+            }
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Let's Git it !")
+        .description("Check your commits")
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 
-struct StaticWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        StaticWidgetEntryView(entry: SimpleEntry(date: Date()))
-            .previewContext(WidgetPreviewContext(family: .systemMedium))
-    }
-}
+//struct StaticWidget_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StaticWidgetEntryView(entry: SimpleEntry(date: Date()), isPreview: true)
+//            .previewContext(WidgetPreviewContext(family: .systemSmall))
+//    }
+//}

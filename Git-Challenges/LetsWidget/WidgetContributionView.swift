@@ -9,54 +9,89 @@ import SwiftUI
 import UIKit
 
 struct WidgetContributionView: View {
-    @EnvironmentObject private var userInfoService: UserInfoService
+    @EnvironmentObject var userInfoService: UserInfoService
     @EnvironmentObject var colorThemeService: ColorThemeService
-    private let weekday = Calendar.current.component(.weekday, from: Date())
-    private let width: CGFloat = uiSize.width * widthRatio.card - 20
-    @Namespace var end
+    let goalTitle: String = UserDefaults.shared.string(forKey: "userGoalTitle") ?? ""
+    let cols: Int = 53 - Int(uiSize.width * widthRatio.card - 20) / 16
     
     @ViewBuilder
     func ColorView(_ contributionLevel:Int) -> some View {
         let themeColors = colorThemeService.themeColors
         RoundedRectangle(cornerRadius: 2)
             .foregroundColor(themeColors[contributionLevel])
-            .frame(width:15, height:15)
+            .frame(width:13, height:13)
     }
     
     var body: some View {
-        ZStack {
-            VStack (alignment: .leading, spacing: 5) {
-                Text("Contribution")
-                    .font(.system(size: 18, weight: .bold))
-                HStack(){}
-                .modifier(CardModifier(height: 150))
-            }
-            VStack (alignment: .leading, spacing: 5) {
-                Text("Hidden")
-                    .font(.system(size: 18, weight: .bold))
-                    .hidden()
-                
-                ScrollView (.horizontal) {
-                    HStack (alignment: .top, spacing: 3) {
-                        ForEach (53 - Int(width / 18)..<52, id: \.self) { col in
-                            VStack (spacing: 3) {
-                                ForEach (0..<7, id: \.self) { row in
-                                    ColorView(userInfoService.commits[col * 7 + row].level)
-                                }
-                            }
-                        }
-                        VStack (spacing: 3) {
-                            ForEach(364..<userInfoService.commits.count, id: \.self) { cell in
-                                ColorView(userInfoService.commits[cell].level)
-                            }
+        VStack {
+            HStack (alignment: .top, spacing: 3) {
+                ForEach (cols..<52, id: \.self) { col in
+                    VStack (spacing: 3) {
+                        ForEach (0..<7, id: \.self) { row in
+                            ColorView(userInfoService.commits[col * 7 + row].level)
                         }
                     }
-                    .cornerRadius(4)
                 }
-                .frame(width: width, height: 100)
+                VStack (spacing: 3) {
+                    ForEach(364..<userInfoService.commits.count, id: \.self) { cell in
+                        ColorView(userInfoService.commits[cell].level)
+                    }
+                }
             }
+            .cornerRadius(4)
+            HStack {
+                Text(userInfoService.userGoal.title)
+                Spacer()
+                Text("Streaks \(userInfoService.currentStreak.count)")
+            }
+            .font(.system(size: 12, weight: .bold))
+            .foregroundColor(ColorPalette.green.0[0])
+            .padding([.horizontal], 10)
         }
-        .padding(.top, 15)
+    }
+}
+
+struct WidgetContributionPreview: View {
+    var colorThemeService: ColorThemeService = ColorThemeService()
+    var commits: [Int] = (0..<370).map{ _ in Int.random(in: 1...4) }
+    
+    let goalTitle: String = "GoalTitle"
+    let cols: Int = 53 - Int(uiSize.width * widthRatio.card - 20) / 16
+    
+    @ViewBuilder
+    func ColorView(_ contributionLevel:Int) -> some View {
+        let themeColors = colorThemeService.themeColors
+        RoundedRectangle(cornerRadius: 2)
+            .foregroundColor(themeColors[contributionLevel])
+            .frame(width:13, height:13)
+    }
+    
+    var body: some View {
+        VStack {
+            HStack (alignment: .top, spacing: 3) {
+                ForEach (cols..<52, id: \.self) { col in
+                    VStack (spacing: 3) {
+                        ForEach (0..<7, id: \.self) { row in
+                            ColorView(commits[col * 7 + row])
+                        }
+                    }
+                }
+                VStack (spacing: 3) {
+                    ForEach(364..<commits.count, id: \.self) { cell in
+                        ColorView(commits[cell])
+                    }
+                }
+            }
+            .cornerRadius(4)
+            HStack {
+                Text(goalTitle)
+                Spacer()
+                Text("Streaks \(20)")
+            }
+            .font(.system(size: 12, weight: .bold))
+            .foregroundColor(ColorPalette.green.0[0])
+            .padding([.horizontal], 10)
+        }
     }
 }
 
