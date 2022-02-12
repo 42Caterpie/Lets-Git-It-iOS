@@ -23,7 +23,6 @@ class UserInfoService: ObservableObject {
     var hasCommitted: Int = emoji.notCommitted.rawValue
     
     init() {
-//        self.userID = UserDefaults.shared.string(forKey: "userId") ?? ""
         self.userID = UserDefaults.shared.string(forKey: "userId") ?? ""
         self.baseURL = "http://github.com/users/\(userID)/contributions"
         getUserGoal()
@@ -110,6 +109,11 @@ class UserInfoService: ObservableObject {
         let today: Int = commits.count - 1
         var startDate: Date? = nil
         var streakCount: Int = 0
+        
+        if yesterday < 1 {
+            currentStreak = Streak(startDate: Date().formatted, count: 0)
+            return
+        }
         
         if commits[yesterday].level == 0 && commits[today].level == 0 {
             currentStreak = Streak(startDate: Date().formatted, count: 0)

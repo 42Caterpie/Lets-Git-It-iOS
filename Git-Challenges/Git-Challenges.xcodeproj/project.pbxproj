@@ -16,6 +16,7 @@
 		73710DAC279018A6009EBA62 /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73710DAB279018A6009EBA62 /* CardModifier.swift */; };
 		73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73710DAD27902ED2009EBA62 /* NameCardView.swift */; };
 		73751ED6279D6A76006A8F94 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73751ED5279D6A76006A8F94 /* ProgressView.swift */; };
+		738900ED27B755CC00E9A696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73CF60AB2790033B005F4BF4 /* Assets.xcassets */; };
 		7390031027B524A9002184AF /* WidgetContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390030F27B524A9002184AF /* WidgetContributionView.swift */; };
 		73B9068627B505DB003725D7 /* ContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3BD27914950000E4E8C /* ContributionView.swift */; };
 		73B9068727B505E3003725D7 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07627927A3A0045AC5F /* Commit.swift */; };
@@ -450,6 +451,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				738900ED27B755CC00E9A696 /* Assets.xcassets in Resources */,
 				73E0EAC327B4F5460083F408 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

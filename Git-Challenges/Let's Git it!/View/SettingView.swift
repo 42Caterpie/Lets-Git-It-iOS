@@ -81,7 +81,7 @@ struct SettingView: View {
     }
     
     private func userName() -> some View {
-        Text(UserDefaults.shared.string(forKey: "userId")!)
+        Text(UserDefaults.shared.string(forKey: "userId") ?? "")
             .modifier(UserNameText())
     }
     
@@ -90,6 +90,7 @@ struct SettingView: View {
             do {
                 try Auth.auth().signOut()
                 UserDefaults.shared.removeObject(forKey: "isLogin")
+                UserDefaults.shared.removeObject(forKey: "userId")
                 UserDefaults.shared.removeObject(forKey: "userNotiTime")
                 self.notificationManager.isNotiOn = false
                 self.presentationMode.wrappedValue.dismiss()
