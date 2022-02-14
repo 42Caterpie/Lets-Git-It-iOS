@@ -16,3 +16,4 @@
 ### 2.0
 - Widget appeared!
 - Now you can add small and medium sized widget to the home screen
+- Also can check the current version in setting view.
