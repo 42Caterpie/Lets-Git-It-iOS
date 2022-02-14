@@ -37,7 +37,7 @@ class UserInfoService: ObservableObject {
         calculateCurrentStreak()
         calculatePercentage(with: self.currentStreak.count)
         
-        // MARK: Reload Widget Data123
+        // MARK: Reload Widget Data
         if #available(iOS 14.0, *) {
             WidgetCenter.shared.reloadAllTimelines()
         }
