@@ -20,7 +20,7 @@
 		7390031027B524A9002184AF /* WidgetContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390030F27B524A9002184AF /* WidgetContributionView.swift */; };
 		73B7CBE927BA6DEB006FB99C /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B7CBE827BA6DEB006FB99C /* MainTabView.swift */; };
 		73B7CBEB27BA7138006FB99C /* CompetitionMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B7CBEA27BA7138006FB99C /* CompetitionMainView.swift */; };
-		73B7CBED27BA74B1006FB99C /* RoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B7CBEC27BA74B1006FB99C /* RoomData.swift */; };
+		73B7CBEF27BA8CCD006FB99C /* RoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B7CBEE27BA8CCD006FB99C /* RoomData.swift */; };
 		73B9068627B505DB003725D7 /* ContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3BD27914950000E4E8C /* ContributionView.swift */; };
 		73B9068727B505E3003725D7 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07627927A3A0045AC5F /* Commit.swift */; };
 		73B9068827B505E3003725D7 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F22796F6DC00BFB1A0 /* Goal.swift */; };
@@ -124,7 +124,7 @@
 		7390030F27B524A9002184AF /* WidgetContributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContributionView.swift; sourceTree = "<group>"; };
 		73B7CBE827BA6DEB006FB99C /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		73B7CBEA27BA7138006FB99C /* CompetitionMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionMainView.swift; sourceTree = "<group>"; };
-		73B7CBEC27BA74B1006FB99C /* RoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomData.swift; sourceTree = "<group>"; };
+		73B7CBEE27BA8CCD006FB99C /* RoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomData.swift; sourceTree = "<group>"; };
 		73CF609F27900339005F4BF4 /* Let's Git it!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let's Git it!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CF60A227900339005F4BF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73CF60A427900339005F4BF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -305,7 +305,7 @@
 				A83E07F6279707DF00BFB1A0 /* Streak.swift */,
 				73E33FAA2796C36F00BF994D /* NameCard.swift */,
 				73E1A84227994DC800E1BDFE /* Badge.swift */,
-				73B7CBEC27BA74B1006FB99C /* RoomData.swift */,
+				73B7CBEE27BA8CCD006FB99C /* RoomData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -483,7 +483,6 @@
 				73E1A84127993CB500E1BDFE /* BadgeViewModel.swift in Sources */,
 				A896B0F927B4ECDD005D9669 /* VersionCheckCell.swift in Sources */,
 				73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */,
-				73B7CBED27BA74B1006FB99C /* RoomData.swift in Sources */,
 				A83AA0E7279932890006A718 /* Date+Extensions.swift in Sources */,
 				A83E07F52796F85500BFB1A0 /* UIApplication+Extensions.swift in Sources */,
 				A896B0F727B4EC77005D9669 /* ThemeChangeCell.swift in Sources */,
@@ -507,6 +506,7 @@
 				73E33FA92796C35300BF994D /* NameCardViewModel.swift in Sources */,
 				73E0EAA027B4F25D0083F408 /* UserDefaults+Extensions.swift in Sources */,
 				A8A113352793F95F00F9C984 /* Constants.swift in Sources */,
+				73B7CBEF27BA8CCD006FB99C /* RoomData.swift in Sources */,
 				A8F8233927929C920000FB08 /* ChallengeCardView.swift in Sources */,
 				A896B0F527B4EC6A005D9669 /* NotificationCell.swift in Sources */,
 				73F4691C279FD0A300991E71 /* WriteLogs.swift in Sources */,
