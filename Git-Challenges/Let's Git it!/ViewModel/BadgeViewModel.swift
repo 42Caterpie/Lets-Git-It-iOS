@@ -20,10 +20,10 @@ class BadgeViewModel: ObservableObject {
     }
     
     private func CalcBadges() {
-        if UserDefaults.standard.bool(forKey: "hasInitialValue") {
+        if UserDefaults.shared.bool(forKey: "hasInitialValue") {
             Badges[1].done = true
         }
-        if UserDefaults.standard.bool(forKey: "finishChallengeBadge") {
+        if UserDefaults.shared.bool(forKey: "finishChallengeBadge") {
             Badges[2].done = true
         }
     }

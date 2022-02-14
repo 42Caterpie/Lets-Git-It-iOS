@@ -22,29 +22,29 @@ let dateTimeFormatter: DateFormatter = {
 
 func themeLog() {
     var db: Firestore
-    let uid = UserDefaults.standard.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
+    let uid = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
     
     db = Firestore.firestore()
     
     db.collection("logs").document("Theme").setData(
-        [uid : UserDefaults.standard.string(forKey: "ColorTheme")!], merge: true)
+        [uid : UserDefaults.shared.string(forKey: "ColorTheme")!], merge: true)
 }
 
 func goalLog() {
     var db: Firestore
-    let uid = UserDefaults.standard.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
+    let uid = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
     
     db = Firestore.firestore()
     
     db.collection("logs").document("Goal").setData(
         [uid :
-            (UserDefaults.standard.string(forKey: "userGoalTitle") ?? "") + " / " + (UserDefaults.standard.string(forKey: "userGoalCount") ?? "")
+            (UserDefaults.shared.string(forKey: "userGoalTitle") ?? "") + " / " + (UserDefaults.shared.string(forKey: "userGoalCount") ?? "")
         ], merge: true)
 }
 
 func alarmLog(with time: Date) {
     var db: Firestore
-    let uid = UserDefaults.standard.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
+    let uid = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
     let date: String = dateFormatter.string(from: time)
     db = Firestore.firestore()
 
@@ -55,7 +55,7 @@ func alarmLog(with time: Date) {
 
 func userCountLog() {
     var db: Firestore
-    let uid = UserDefaults.standard.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
+    let uid = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
     let date: String = dateFormatter.string(from: Date())
     let dateTime: String = dateTimeFormatter.string(from: Date())
     

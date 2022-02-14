@@ -6,8 +6,16 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct ThemeChangeCell: View {
+    func reloadWidget() {
+        // MARK: Reload Widget Data
+        if #available(iOS 14.0, *) {
+            WidgetCenter.shared.reloadAllTimelines()
+        }
+    }
+    
     var body: some View {
         HStack {
             Text("Color Theme")
@@ -15,8 +23,9 @@ struct ThemeChangeCell: View {
             Spacer()
             Button {
                 UIApplication.shared.setAlternateIconName("AppIcon-blue")
-                UserDefaults.standard.set("blue" ,forKey: "ColorTheme")
+                UserDefaults.shared.set("blue" ,forKey: "ColorTheme")
                 themeLog()
+                reloadWidget()
             } label: {
                 Image("git-challenge-icon-blue")
                     .resizable()
@@ -24,8 +33,9 @@ struct ThemeChangeCell: View {
             }
             Button {
                 UIApplication.shared.setAlternateIconName("AppIcon-green")
-                UserDefaults.standard.set("green" ,forKey: "ColorTheme")
+                UserDefaults.shared.set("green" ,forKey: "ColorTheme")
                 themeLog()
+                reloadWidget()
             } label: {
                 Image("git-challenge-icon-green")
                     .resizable()
@@ -33,8 +43,9 @@ struct ThemeChangeCell: View {
             }
             Button {
                 UIApplication.shared.setAlternateIconName("AppIcon-pink")
-                UserDefaults.standard.set("pink" ,forKey: "ColorTheme")
+                UserDefaults.shared.set("pink" ,forKey: "ColorTheme")
                 themeLog()
+                reloadWidget()
             } label: {
                 Image("git-challenge-icon-pink")
                     .resizable()

@@ -11,7 +11,7 @@ struct ChallengeCard: View {
     @EnvironmentObject private var colorThemeService: ColorThemeService
     
     // Check if the app has initial value
-    @State private var hasInitialValue: Bool = UserDefaults.standard.bool(forKey: "hasInitialValue")
+    @State private var hasInitialValue: Bool = UserDefaults.shared.bool(forKey: "hasInitialValue")
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {

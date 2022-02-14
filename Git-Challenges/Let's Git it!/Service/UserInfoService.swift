@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import SwiftSoup
+import WidgetKit
 
 class UserInfoService: ObservableObject {
     @Published var commits: [Commit] = []
@@ -23,9 +24,8 @@ class UserInfoService: ObservableObject {
     var hasCommitted: Int = emoji.notCommitted.rawValue
     
     init() {
-        self.userID = UserDefaults.standard.string(forKey: "userId") ?? ""
+        self.userID = UserDefaults.shared.string(forKey: "userId") ?? ""
         self.baseURL = "http://github.com/users/\(userID)/contributions"
-        
         getUserGoal()
         getCommitData()
         calculateCurrentStreak()
@@ -36,12 +36,17 @@ class UserInfoService: ObservableObject {
         getCommitData()
         calculateCurrentStreak()
         calculatePercentage(with: self.currentStreak.count)
+        
+        // MARK: Reload Widget Data
+        if #available(iOS 14.0, *) {
+            WidgetCenter.shared.reloadAllTimelines()
+        }
     }
     
     func saveUserGoal() {
-        UserDefaults.standard.set(true, forKey: "hasInitialValue")
-        UserDefaults.standard.set(userGoal.title, forKey: "userGoalTitle")
-        UserDefaults.standard.set(userGoal.count, forKey: "userGoalCount")
+        UserDefaults.shared.set(true, forKey: "hasInitialValue")
+        UserDefaults.shared.set(userGoal.title, forKey: "userGoalTitle")
+        UserDefaults.shared.set(userGoal.count, forKey: "userGoalCount")
     }
     
     func calculatePercentage(with streakCount: Int) {
@@ -57,14 +62,14 @@ class UserInfoService: ObservableObject {
             self.percentage = percentage <= 1 ? percentage : 1
             
             if percentage >= 1 {
-                UserDefaults.standard.set(true, forKey: "finishChallengeBadge")
+                UserDefaults.shared.set(true, forKey: "finishChallengeBadge")
             }
         }
     }
     
     private func getUserGoal() {
-        let title: String = UserDefaults.standard.string(forKey: "userGoalTitle") ?? ""
-        let count: String = UserDefaults.standard.string(forKey: "userGoalCount") ?? "365"
+        let title: String = UserDefaults.shared.string(forKey: "userGoalTitle") ?? ""
+        let count: String = UserDefaults.shared.string(forKey: "userGoalCount") ?? "365"
         
         self.userGoal = Goal(title: title, count: count)
     }
@@ -110,6 +115,11 @@ class UserInfoService: ObservableObject {
         let today: Int = commits.count - 1
         var startDate: Date? = nil
         var streakCount: Int = 0
+        
+        if yesterday < 1 {
+            currentStreak = Streak(startDate: Date().formatted, count: 0)
+            return
+        }
         
         if commits[yesterday].level == 0 && commits[today].level == 0 {
             currentStreak = Streak(startDate: Date().formatted, count: 0)

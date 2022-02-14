@@ -17,27 +17,27 @@ class NotificationManager: ObservableObject {
     @Published var isAlertOccurred: Bool = false
 
     // Check If Toggle clicked
-    @Published var isNotiOn: Bool = UserDefaults.standard.bool(forKey: "hasUserAgreedAlert") {
+    @Published var isNotiOn: Bool = UserDefaults.shared.bool(forKey: "hasUserAgreedAlert") {
         didSet {
             if isNotiOn {
                 // If Notification On, Request Authorization
-                UserDefaults.standard.set(true, forKey: "hasUserAgreedAlert")
+                UserDefaults.shared.set(true, forKey: "hasUserAgreedAlert")
                 requestNotificationAuthorization()
             }
             else {
                 // If Notification Off, Remove All Notifications
-                UserDefaults.standard.set(false, forKey: "hasUserAgreedAlert")
+                UserDefaults.shared.set(false, forKey: "hasUserAgreedAlert")
                 removeAllNotifications()
             }
         }
     }
 
     // Time to notify
-    @Published var notiTime: Date = UserDefaults.standard.object(forKey: "userNotiTime") as? Date ?? Date() {
+    @Published var notiTime: Date = UserDefaults.shared.object(forKey: "userNotiTime") as? Date ?? Date() {
         didSet {
             removeAllNotifications()
             addNotification(with: notiTime)
-            UserDefaults.standard.set(notiTime, forKey: "userNotiTime")
+            UserDefaults.shared.set(notiTime, forKey: "userNotiTime")
             alarmLog(with: notiTime)
         }
     }
