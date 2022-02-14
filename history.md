@@ -12,3 +12,7 @@
 
 ### 1.2.1
 - Updated Relase and Bundle Version.
+
+### 2.0
+- Widget appeared!
+- Now you can add small and medium sized widget to the home screen
