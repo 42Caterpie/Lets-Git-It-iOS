@@ -71,6 +71,7 @@
 		A83E07F7279707E000BFB1A0 /* Streak.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F6279707DF00BFB1A0 /* Streak.swift */; };
 		A83E07F927971B8500BFB1A0 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F827971B8500BFB1A0 /* Progress.swift */; };
 		A83E07FB27971CC200BFB1A0 /* GoalInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07FA27971CC200BFB1A0 /* GoalInputField.swift */; };
+		A886E56527B6654300A0522D /* StreakProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A886E56427B6654300A0522D /* StreakProgressView.swift */; };
 		A896B0F527B4EC6A005D9669 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A896B0F427B4EC6A005D9669 /* NotificationCell.swift */; };
 		A896B0F727B4EC77005D9669 /* ThemeChangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A896B0F627B4EC77005D9669 /* ThemeChangeCell.swift */; };
 		A896B0F927B4ECDD005D9669 /* VersionCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A896B0F827B4ECDD005D9669 /* VersionCheckCell.swift */; };
@@ -153,6 +154,7 @@
 		A83E07F6279707DF00BFB1A0 /* Streak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Streak.swift; sourceTree = "<group>"; };
 		A83E07F827971B8500BFB1A0 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
 		A83E07FA27971CC200BFB1A0 /* GoalInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalInputField.swift; sourceTree = "<group>"; };
+		A886E56427B6654300A0522D /* StreakProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakProgressView.swift; sourceTree = "<group>"; };
 		A896B0F427B4EC6A005D9669 /* NotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		A896B0F627B4EC77005D9669 /* ThemeChangeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeChangeCell.swift; sourceTree = "<group>"; };
 		A896B0F827B4ECDD005D9669 /* VersionCheckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionCheckCell.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				73E0EAC227B4F5460083F408 /* Assets.xcassets */,
 				73E0EAC427B4F5460083F408 /* Info.plist */,
 				7390030F27B524A9002184AF /* WidgetContributionView.swift */,
+				A886E56427B6654300A0522D /* StreakProgressView.swift */,
 			);
 			path = LetsWidget;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				73B9069127B50640003725D7 /* String+Extensions.swift in Sources */,
 				73B9069727B50647003725D7 /* UserDefaults+Extensions.swift in Sources */,
 				73B9068D27B505F1003725D7 /* UserInfoService.swift in Sources */,
+				A886E56527B6654300A0522D /* StreakProgressView.swift in Sources */,
 				73B9068F27B50629003725D7 /* Theme.swift in Sources */,
 				73B9069527B50647003725D7 /* Color+Extensions.swift in Sources */,
 				73B9068827B505E3003725D7 /* Goal.swift in Sources */,
@@ -757,7 +761,7 @@
 				CODE_SIGN_ENTITLEMENTS = StaticWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.1;
-				DEVELOPMENT_TEAM = 9TH57H8UP9;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LetsWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LetsWidget;
@@ -786,7 +790,7 @@
 				CODE_SIGN_ENTITLEMENTS = StaticWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.1;
-				DEVELOPMENT_TEAM = 9TH57H8UP9;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LetsWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LetsWidget;
