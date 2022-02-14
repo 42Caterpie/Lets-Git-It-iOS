@@ -55,7 +55,8 @@ struct LoginView: View {
                 }
             }
             else {
-                MainView()
+//                MainView()
+                MainTabView()
                     .environment(\.loginStatus, $loginViewmodel.isLogin)
             }
         }

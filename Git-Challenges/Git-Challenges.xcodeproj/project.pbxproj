@@ -18,6 +18,9 @@
 		73751ED6279D6A76006A8F94 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73751ED5279D6A76006A8F94 /* ProgressView.swift */; };
 		738900ED27B755CC00E9A696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73CF60AB2790033B005F4BF4 /* Assets.xcassets */; };
 		7390031027B524A9002184AF /* WidgetContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390030F27B524A9002184AF /* WidgetContributionView.swift */; };
+		73B7CBE927BA6DEB006FB99C /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B7CBE827BA6DEB006FB99C /* MainTabView.swift */; };
+		73B7CBEB27BA7138006FB99C /* CompetitionMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B7CBEA27BA7138006FB99C /* CompetitionMainView.swift */; };
+		73B7CBED27BA74B1006FB99C /* RoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B7CBEC27BA74B1006FB99C /* RoomData.swift */; };
 		73B9068627B505DB003725D7 /* ContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3BD27914950000E4E8C /* ContributionView.swift */; };
 		73B9068727B505E3003725D7 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7F07627927A3A0045AC5F /* Commit.swift */; };
 		73B9068827B505E3003725D7 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E07F22796F6DC00BFB1A0 /* Goal.swift */; };
@@ -119,6 +122,9 @@
 		73710DAD27902ED2009EBA62 /* NameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCardView.swift; sourceTree = "<group>"; };
 		73751ED5279D6A76006A8F94 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		7390030F27B524A9002184AF /* WidgetContributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContributionView.swift; sourceTree = "<group>"; };
+		73B7CBE827BA6DEB006FB99C /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		73B7CBEA27BA7138006FB99C /* CompetitionMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionMainView.swift; sourceTree = "<group>"; };
+		73B7CBEC27BA74B1006FB99C /* RoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomData.swift; sourceTree = "<group>"; };
 		73CF609F27900339005F4BF4 /* Let's Git it!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let's Git it!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CF60A227900339005F4BF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73CF60A427900339005F4BF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				A8F8233C27929DCB0000FB08 /* MainView.swift */,
+				73B7CBEA27BA7138006FB99C /* CompetitionMainView.swift */,
+				73B7CBE827BA6DEB006FB99C /* MainTabView.swift */,
 				73710DAD27902ED2009EBA62 /* NameCardView.swift */,
 				A8F8233827929C920000FB08 /* ChallengeCardView.swift */,
 				735AA3BD27914950000E4E8C /* ContributionView.swift */,
@@ -297,6 +305,7 @@
 				A83E07F6279707DF00BFB1A0 /* Streak.swift */,
 				73E33FAA2796C36F00BF994D /* NameCard.swift */,
 				73E1A84227994DC800E1BDFE /* Badge.swift */,
+				73B7CBEC27BA74B1006FB99C /* RoomData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -474,6 +483,7 @@
 				73E1A84127993CB500E1BDFE /* BadgeViewModel.swift in Sources */,
 				A896B0F927B4ECDD005D9669 /* VersionCheckCell.swift in Sources */,
 				73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */,
+				73B7CBED27BA74B1006FB99C /* RoomData.swift in Sources */,
 				A83AA0E7279932890006A718 /* Date+Extensions.swift in Sources */,
 				A83E07F52796F85500BFB1A0 /* UIApplication+Extensions.swift in Sources */,
 				A896B0F727B4EC77005D9669 /* ThemeChangeCell.swift in Sources */,
@@ -501,7 +511,9 @@
 				A896B0F527B4EC6A005D9669 /* NotificationCell.swift in Sources */,
 				73F4691C279FD0A300991E71 /* WriteLogs.swift in Sources */,
 				A8E51E882795378600B4F08A /* Color+Extensions.swift in Sources */,
+				73B7CBEB27BA7138006FB99C /* CompetitionMainView.swift in Sources */,
 				731FF2A82796B296001CD5E7 /* Theme.swift in Sources */,
+				73B7CBE927BA6DEB006FB99C /* MainTabView.swift in Sources */,
 				73E7F07A27927B9D0045AC5F /* String+Extensions.swift in Sources */,
 				73528DF827997183005DF67C /* LoginView.swift in Sources */,
 				A83AA0E527992EA10006A718 /* ProgressBar.swift in Sources */,
@@ -690,9 +702,9 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Let's Git it!/Let's Git it!.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 2.0;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9TH57H8UP9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Let's Git it!/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -708,7 +720,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.Caterpie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -726,9 +738,9 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Let's Git it!/Let's Git it!.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 2.0;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9TH57H8UP9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Let's Git it!/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -744,7 +756,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.Caterpie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -760,8 +772,8 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = StaticWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 2.0;
+				DEVELOPMENT_TEAM = 9TH57H8UP9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LetsWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LetsWidget;
@@ -772,7 +784,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.Caterpie.LetsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -789,8 +801,8 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = StaticWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 2.0;
+				DEVELOPMENT_TEAM = 9TH57H8UP9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LetsWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LetsWidget;
@@ -801,7 +813,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.Caterpie.LetsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

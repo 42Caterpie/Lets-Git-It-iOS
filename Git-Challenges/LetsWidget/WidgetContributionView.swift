@@ -12,7 +12,7 @@ struct WidgetContributionView: View {
     @EnvironmentObject var userInfoService: UserInfoService
     @EnvironmentObject var colorThemeService: ColorThemeService
     let goalTitle: String = UserDefaults.shared.string(forKey: "userGoalTitle") ?? ""
-    let cols: Int = 53 - Int(uiSize.width * widthRatio.card - 20) / 16
+    let cols: Int = 54 - Int(uiSize.width * widthRatio.card - 20) / 16
     
     @ViewBuilder
     func ColorView(_ contributionLevel:Int) -> some View {
@@ -46,7 +46,7 @@ struct WidgetContributionView: View {
             }
             .font(.system(size: 12, weight: .bold))
             .foregroundColor(ColorPalette.green.0[0])
-            .padding([.horizontal], 10)
+            .padding([.horizontal], 15)
         }
     }
 }
@@ -56,7 +56,7 @@ struct WidgetContributionPreview: View {
     var commits: [Int] = (0..<370).map{ _ in Int.random(in: 1...4) }
     
     let goalTitle: String = "GoalTitle"
-    let cols: Int = 53 - Int(uiSize.width * widthRatio.card - 20) / 16
+    let cols: Int = 54 - Int(uiSize.width * widthRatio.card - 20) / 16
     
     @ViewBuilder
     func ColorView(_ contributionLevel:Int) -> some View {
