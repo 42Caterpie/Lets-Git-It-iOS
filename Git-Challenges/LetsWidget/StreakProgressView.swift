@@ -21,7 +21,7 @@ struct StreakProgressView: View {
     }
 }
 
-struct StreakProgessPreview: View {
+struct StreakProgressPreview: View {
     let mockData: [String: CGFloat] = ["progress": 0.3, "hasCommitted": 1, "streak": 100]
     
     var body: some View {

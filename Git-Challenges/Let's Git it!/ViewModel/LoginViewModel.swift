@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseAuth
 import Alamofire
+import WidgetKit
 
 class LoginViewModel: ObservableObject {
     var provider = OAuthProvider(providerID: "github.com")
@@ -39,7 +40,12 @@ class LoginViewModel: ObservableObject {
                     
                     self.getUserGithubId(oauthCredential.accessToken!) { id in
                         UserDefaults.shared.set(id, forKey: "userId")
-                        UserDefaults.shared.set(id, forKey: "userId")
+                        
+                        // MARK: Reload Widget Data
+                        if #available(iOS 14.0, *) {
+                            WidgetCenter.shared.reloadAllTimelines()
+                        }
+                        
                         if let authResult = authResult {
                             UserDefaults.shared.set(authResult.user.displayName, forKey: "displayName")
                         }

@@ -37,8 +37,8 @@ struct Provider: TimelineProvider {
         
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
-        for hourOffset in 0 ..< 2 {
-            let entryDate = Calendar.current.date(byAdding: .minute, value: hourOffset, to: currentDate)!
+        for hourOffset in 0 ..< 5 {
+            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
             let entry = SimpleEntry(date: entryDate, isPreview: false)
             entries.append(entry)
         }
@@ -63,7 +63,9 @@ struct StaticWidgetEntryView : View {
         if userInfoService.commits.count > 1 {
             switch widgetFamily {
             case .systemSmall:
-                Text("Small")
+                StreakProgressView()
+                    .environmentObject(userInfoService)
+                    .environmentObject(colorThemeService)
             case .systemMedium:
                 WidgetContributionView()
                     .environmentObject(userInfoService)
@@ -90,11 +92,11 @@ struct StaticWidgetEntryPreview : View {
     var body: some View {
         switch widgetFamily {
         case .systemSmall:
-            Text("Small")
+            StreakProgressPreview()
         case .systemMedium:
             WidgetContributionPreview()
         default:
-            Text("unknow")
+            Text("unknown")
         }
     }
 }

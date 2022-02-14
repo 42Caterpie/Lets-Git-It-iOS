@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import SwiftSoup
+import WidgetKit
 
 class UserInfoService: ObservableObject {
     @Published var commits: [Commit] = []
@@ -35,6 +36,11 @@ class UserInfoService: ObservableObject {
         getCommitData()
         calculateCurrentStreak()
         calculatePercentage(with: self.currentStreak.count)
+        
+        // MARK: Reload Widget Data123
+        if #available(iOS 14.0, *) {
+            WidgetCenter.shared.reloadAllTimelines()
+        }
     }
     
     func saveUserGoal() {
