@@ -11,7 +11,7 @@
 - Added Version Check Cell to the Setting View.
 
 ### 1.2.1
-- Updated Relase and Bundle Version.
+- Updated Release and Bundle Version.
 
 ### 2.0
 - Widget appeared!
