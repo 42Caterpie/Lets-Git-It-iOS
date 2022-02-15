@@ -13,7 +13,7 @@ let uiSize: CGSize = UIScreen.main.bounds.size
 enum URLString {
     static let gitHubRepo: String = "https://github.com/42Caterpie/Lets-Git-It-iOS"
     static let appStore: String = "itms-apps://itunes.apple.com/app/1606646308"
-    static let appStoreLookUp: String = "http://itunes.apple.com/lookup?bundleId=com.github.Caterpie"
+    static let appStoreLookUp: String = "https://itunes.apple.com/lookup?bundleId=com.github.Caterpie"
 }
 enum Message {
     static let notiDeniedInSettingsTitle: String = "Notification has been disabled for this app"
