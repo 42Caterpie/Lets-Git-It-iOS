@@ -23,7 +23,7 @@ struct ThemeChangeCell: View {
             Spacer()
             Button {
                 UIApplication.shared.setAlternateIconName("AppIcon-blue")
-                UserDefaults.shared.set("blue" ,forKey: "ColorTheme")
+                UserDefaults.shared.set("blue", forKey: "ColorTheme")
                 themeLog()
                 reloadWidget()
             } label: {
@@ -33,7 +33,7 @@ struct ThemeChangeCell: View {
             }
             Button {
                 UIApplication.shared.setAlternateIconName("AppIcon-green")
-                UserDefaults.shared.set("green" ,forKey: "ColorTheme")
+                UserDefaults.shared.set("green", forKey: "ColorTheme")
                 themeLog()
                 reloadWidget()
             } label: {
@@ -43,7 +43,7 @@ struct ThemeChangeCell: View {
             }
             Button {
                 UIApplication.shared.setAlternateIconName("AppIcon-pink")
-                UserDefaults.shared.set("pink" ,forKey: "ColorTheme")
+                UserDefaults.shared.set("pink", forKey: "ColorTheme")
                 themeLog()
                 reloadWidget()
             } label: {
