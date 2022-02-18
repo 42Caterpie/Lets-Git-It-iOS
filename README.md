@@ -65,6 +65,14 @@ Ver 2.1이 나온 시점에 코드 컨벤션을 정의합니다. -->
   9. getter/setter를 구현하지 않습니다
 ```
 
+</div>
+</details>
+
+<details>
+<summary> 🍦 Version History </summary>
+<div markdown="1">
+
+- [HISTORY.md](./HISTORY.md)
 
 </div>
 </details>
