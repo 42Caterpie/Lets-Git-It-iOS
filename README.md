@@ -24,7 +24,7 @@
  -->
 
 <hr>
-
+<br>
  <div>
    ☕️고생한 개발자에게 카카오페이로 커피사주기<br>
    <a href="https://qr.kakaopay.com/Ej8wI2Eot">
@@ -33,4 +33,39 @@
 <!--            <span>☕️카카오페이로 커피사기 ❤️</span> -->
    </a>
  </div>
-  </div>
+</div>
+
+<br>
+<hr>
+<br>
+
+<details>
+
+<summary> 🍦 Code Convention </summary>
+<div markdown="1">
+
+
+<!-- 늦었다고 생각할때가 가장 빠를때다.
+Ver 2.1이 나온 시점에 코드 컨벤션을 정의합니다. -->
+
+- [Swift API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/)
+
+- [StyleShare - Swift Style guide](https://github.com/StyleShare/swift-style-guide)
+
+- 객체지향 생활 체조 원칙 9가지
+```
+  1. 한 메서드에 오직 한 단계의 들여쓰기만 합니다
+  2. else 표현을 사용하지 않습니다
+  3. 모든 원시 값과 문자열을 포장합니다
+  4. 한 줄에 점을 하나만 사용합니다
+  5. 이름을 줄여 쓰지 않습니다(축약 금지).
+  6. 모든 엔티티를 작게 유지합니다
+  7. 3개 이상의 스위프트 기본 데이터타입(Int, String, Double 등) 프로퍼티를 가진 타입을 구현하지 않습니다
+  8. 일급 콜렉션을 사용합니다
+  9. getter/setter를 구현하지 않습니다
+```
+
+
+</div>
+</details>
+
