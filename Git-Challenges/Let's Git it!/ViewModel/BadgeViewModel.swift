@@ -9,22 +9,18 @@ import Foundation
 
 
 class BadgeViewModel: ObservableObject {
-    @Published var Badges: [Badge] = []
+    @Published var badges: [Badge] = []
     
     init() {
-        Badges = [Badge(index: 1, done: false, caption: "Taste of Victory"),
-                  Badge(index: 2, done: false, caption: "Git Challenger"),
-                  Badge(index: 3, done: false, caption: "Challenge\nComplete")]
-        
-        CalcBadges()
+        initBadges()
     }
     
-    private func CalcBadges() {
-        if UserDefaults.shared.bool(forKey: "hasInitialValue") {
-            Badges[1].done = true
-        }
-        if UserDefaults.shared.bool(forKey: "finishChallengeBadge") {
-            Badges[2].done = true
-        }
+    private func initBadges() {
+        let isSecondBadge: Bool = UserDefaults.shared.bool(forKey: "hasInitialValue")
+        let isThirdBadge: Bool = UserDefaults.shared.bool(forKey: "finishChallengeBadge")
+        
+        badges = [Badge(index: 1, done: false, caption: "Taste of Victory"),
+                  Badge(index: 2, done: isSecondBadge, caption: "Git Challenger"),
+                  Badge(index: 3, done: isThirdBadge, caption: "Challenge\nComplete")]
     }
 }
