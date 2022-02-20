@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class BadgeViewModel: ObservableObject {
     @Published var badges: [Badge] = []
     
