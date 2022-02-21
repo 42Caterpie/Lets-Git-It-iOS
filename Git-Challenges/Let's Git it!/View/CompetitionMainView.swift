@@ -8,19 +8,24 @@
 import SwiftUI
 
 struct CompetitionMainView: View {
-//    var roomDatas: [RoomData] = [RoomData(title: "치킨내기", startDate: "2022-02-14", goal: 100, participants: ["hekang42"]),
-//                                 RoomData(title: "탕수육내기", startDate: "2022-02-14", goal: 200, participants: ["hekang42"])]
-    @State private var showModal: Bool = false
+    //    var roomDatas: [RoomData] = [RoomData(title: "치킨내기", startDate: "2022-02-14", goal: 100, participants: ["hekang42"]),
+    //                                 RoomData(title: "탕수육내기", startDate: "2022-02-14", goal: 200, participants: ["hekang42"])]
+    @State private var showCreateRoomModal: Bool = false
+    @State private var showJoinRoomModal: Bool = false
     @ObservedObject var competitionMainViewModel = CompetitionMainViewModel()
     
     var body: some View {
         let roomDatas = competitionMainViewModel.roomDatas
-
+        
         VStack {
             HStack () {
                 Spacer()
-                Text("참석")
-                    .padding()
+                Button  {
+                    showJoinRoomModal = true
+                } label: {
+                    Text("Join")
+                        .padding()
+                }
             }
             ScrollView {
                 VStack {
@@ -59,7 +64,7 @@ struct CompetitionMainView: View {
                         Text("방 만들기")
                     }
                     .onTapGesture {
-                        showModal = true
+                        showCreateRoomModal = true
                     }
                     .modifier(CardModifier(height: 140))
                     .background(
@@ -68,14 +73,14 @@ struct CompetitionMainView: View {
                             .opacity(0.8)
                     )
                     .padding([.vertical], 5)
-                    .onAppear {
-                        print(competitionMainViewModel.roomDatas)
-                    }
                 }
                 Spacer()
             }
-            .sheet(isPresented: self.$showModal) {
+            .sheet(isPresented: self.$showCreateRoomModal) {
                 CreateRoomModalView()
+            }
+            .sheet(isPresented: self.$showJoinRoomModal) {
+                JoinRoomModalView()
             }
         }
     }
@@ -90,21 +95,68 @@ struct CompetitionMainView_Previews: PreviewProvider {
 struct CreateRoomModalView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var title: String = ""
+    @State var startDate: Date = Date()
+    @State var participants: Int = 2
     
     var body: some View {
         Group {
             TextField("Set room Title", text: $title)
-            Button {
-                self.presentationMode.wrappedValue.dismiss()
-            } label: {
-                Text("Save")
+            HStack {
+                Text("Start Date")
+                DatePicker("",
+                           selection: $startDate,
+                           in: Date()..., displayedComponents: .date)
             }
-            Button {
-                self.presentationMode.wrappedValue.dismiss()
-            } label: {
-                Text("Dismiss")
+            HStack {
+                Text("Participants")
+                Spacer()
+                Button {
+                    participants = max(2, participants - 1)
+                } label: {
+                    Image(systemName: "minus.circle")
+                }
+                Text("\(participants)")
+                Button {
+                    participants = min(6, participants + 1)
+                } label: {
+                    Image(systemName: "plus.circle")
+                }
             }
+            HStack {
+                Button {
+                    CreateRoom(title, startDate, participants)
+                    self.presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Save")
+                }
+                Spacer()
+                Button {
+                    self.presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Dismiss")
+                }
+            }
+        }
+        .padding()
+    }
+}
 
+func CreateRoom(_ title: String, _ startDate: Date, _ participants: Int) {
+    
+}
+
+struct JoinRoomModalView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State var roomNumber: String = ""
+    
+    var body: some View {
+        HStack {
+            Text("Room Number")
+            Spacer()
+            TextField("", text: $roomNumber)
+                .textContentType(.telephoneNumber)
+                .frame(width: 100)
+                .background(Color.gray)
         }
     }
 }

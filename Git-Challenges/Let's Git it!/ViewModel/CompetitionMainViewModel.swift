@@ -36,6 +36,18 @@ class CompetitionMainViewModel: ObservableObject {
             }
         }
     }
+    
+    func makeRoom(title: String, startDate: String, goal: Int) {
+        let db = Firestore.firestore()
+        let userID = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
+        
+        let roomData = RoomData(title: title,
+                                startDate: startDate,
+                                goal: goal,
+                                participants: [userID]).asDictionary!
+        
+        db.collection("RoomData").document("\(UUID())").setData(roomData)
+    }
 }
 
 extension Encodable {
