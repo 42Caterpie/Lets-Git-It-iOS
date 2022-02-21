@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-
 struct CompetitionMainView: View {
-    var roomDatas: [RoomData] = [RoomData(id: 1, title: "치킨내기", startDate: "2022-02-14", goal: 100),
-                                 RoomData(id: 2, title: "탕수육내기", startDate: "2022-02-14", goal: 200)]
+//    var roomDatas: [RoomData] = [RoomData(title: "치킨내기", startDate: "2022-02-14", goal: 100, participants: ["hekang42"]),
+//                                 RoomData(title: "탕수육내기", startDate: "2022-02-14", goal: 200, participants: ["hekang42"])]
     @State private var showModal: Bool = false
-    
+    @ObservedObject var competitionMainViewModel = CompetitionMainViewModel()
     
     var body: some View {
+        let roomDatas = competitionMainViewModel.roomDatas
+
         VStack {
             HStack () {
                 Spacer()
@@ -23,7 +24,7 @@ struct CompetitionMainView: View {
             }
             ScrollView {
                 VStack {
-                    ForEach (roomDatas, id: \.self.id) { room in
+                    ForEach (roomDatas, id: \.self.startDate) { room in
                         VStack {
                             Text("Title: \(room.title)")
                             Text("Start Date: \(room.startDate)")
@@ -67,6 +68,9 @@ struct CompetitionMainView: View {
                             .opacity(0.8)
                     )
                     .padding([.vertical], 5)
+                    .onAppear {
+                        print(competitionMainViewModel.roomDatas)
+                    }
                 }
                 Spacer()
             }
