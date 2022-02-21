@@ -5,15 +5,14 @@
 //  Created by 강희영 on 2022/01/21.
 //
 
-import Foundation
-import FirebaseAuth
-import Alamofire
 import WidgetKit
+import Alamofire
+import FirebaseAuth
 
 class LoginViewModel: ObservableObject {
-    var provider = OAuthProvider(providerID: "github.com")
     @Published var isLogin: Bool = UserDefaults.shared.bool(forKey: "isLogin") != false
     @Published var isProgress: Bool = false
+    var provider = OAuthProvider(providerID: "github.com")
     
     func githubLogin() {
         // Request read access to a user's email addresses.
@@ -31,7 +30,8 @@ class LoginViewModel: ObservableObject {
                         fatalError("Login Error 2: \(err.localizedDescription)")
                     }
                     // User is signed in
-                    guard let oauthCredential = authResult?.credential as? OAuthCredential else { return }
+                    guard let oauthCredential = authResult?.credential as? OAuthCredential
+                    else { return }
                     
                     // GitHub OAuth access token can also be retrieved by:
                     // oauthCredential.accessToken
@@ -42,12 +42,14 @@ class LoginViewModel: ObservableObject {
                         UserDefaults.shared.set(id, forKey: "userId")
                         
                         // MARK: Reload Widget Data
+                        
                         if #available(iOS 14.0, *) {
                             WidgetCenter.shared.reloadAllTimelines()
                         }
                         
                         if let authResult = authResult {
-                            UserDefaults.shared.set(authResult.user.displayName, forKey: "displayName")
+                            UserDefaults.shared.set(authResult.user.displayName,
+                                                    forKey: "displayName")
                         }
                         self.isProgress = false
                         self.isLogin = true
