@@ -36,19 +36,46 @@ class CompetitionMainViewModel: ObservableObject {
             }
         }
     }
-    
-    func makeRoom(title: String, startDate: String, goal: Int) {
+}
+
+func makeRoom(_ title: String, _ goal: Int, _ startDate: Date) {
+    validRoomID() { roomID in
         let db = Firestore.firestore()
         let userID = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
-        
-        let roomData = RoomData(title: title,
-                                startDate: startDate,
+        let roomData = RoomData(id: roomID,
+                                title: title,
+                                startDate: startDate.toString,
                                 goal: goal,
-                                participants: [userID]).asDictionary!
-        
-        db.collection("RoomData").document("\(UUID())").setData(roomData)
+                                participants: [userID],
+                                maxParticipants: 0).asDictionary!
+        db.collection("RoomData").document(roomID).setData(roomData)
     }
 }
+
+func validRoomID(completionHandler: @escaping (String)-> Void) {
+    let id: String = randomSixDigitCode()
+    
+    // MARK: Random Room ID Generate with Completion for async
+    
+    let db = Firestore.firestore()
+    let docRef = db.collection("RoomData").document(id)
+    docRef.getDocument { document, err in
+        if let document = document, document.exists == true {
+            validRoomID(completionHandler: completionHandler)
+        } else {
+            completionHandler(id)
+        }
+    }
+}
+
+func randomSixDigitCode() -> String {
+    var number = String()
+    for _ in 1...6 {
+        number += "\(Int.random(in: 1...9))"
+    }
+    return number
+}
+
 
 extension Encodable {
     /// Object to Dictionary

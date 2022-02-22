@@ -29,7 +29,7 @@ struct CompetitionMainView: View {
             }
             ScrollView {
                 VStack {
-                    ForEach (roomDatas, id: \.self.startDate) { room in
+                    ForEach (roomDatas, id: \.self.id) { room in
                         VStack {
                             Text("Title: \(room.title)")
                             Text("Start Date: \(room.startDate)")
@@ -78,6 +78,7 @@ struct CompetitionMainView: View {
             }
             .sheet(isPresented: self.$showCreateRoomModal) {
                 CreateRoomModalView()
+                    .environmentObject(competitionMainViewModel)
             }
             .sheet(isPresented: self.$showJoinRoomModal) {
                 JoinRoomModalView()
@@ -94,6 +95,7 @@ struct CompetitionMainView_Previews: PreviewProvider {
 
 struct CreateRoomModalView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var competitionMainViewModel: CompetitionMainViewModel
     @State var title: String = ""
     @State var startDate: Date = Date()
     @State var participants: Int = 2
@@ -107,6 +109,8 @@ struct CreateRoomModalView: View {
                            selection: $startDate,
                            in: Date()..., displayedComponents: .date)
             }
+            // MARK: GOAL Participants Mixxxxx
+            
             HStack {
                 Text("Participants")
                 Spacer()
@@ -124,7 +128,8 @@ struct CreateRoomModalView: View {
             }
             HStack {
                 Button {
-                    CreateRoom(title, startDate, participants)
+                    makeRoom(title, participants, startDate)
+                    competitionMainViewModel.getRoomDatas()
                     self.presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Save")
@@ -139,10 +144,6 @@ struct CreateRoomModalView: View {
         }
         .padding()
     }
-}
-
-func CreateRoom(_ title: String, _ startDate: Date, _ participants: Int) {
-    
 }
 
 struct JoinRoomModalView: View {
