@@ -14,27 +14,35 @@ struct BadgeView: View {
         VStack(alignment: .leading, spacing: 5) {
             Text("Badge")
                 .font(.system(size: 18, weight: .bold))
-            Badges
+            badgeGroup
                 .modifier(CardModifier(height: 130))
         }
         .padding(.top, 15)
     }
     
-    private var Badges : some View {
-        let Badges: [Badge] = badgeViewModel.Badges
+    private func badgeImageCaptionView(with badgeData: Badge) -> some View {
+        let badgeSize = CGSize(width: 77, height: 77)
+        let assetName: String =
+        badgeData.done ?
+                "badge0\(badgeData.index)-on":
+                "badge0\(badgeData.index)-off"
+        let caption: String = badgeData.done ? badgeData.caption : "???"
+        return VStack {
+            Image(assetName)
+                .resizable()
+                .frame(width: badgeSize.width, height: badgeSize.height)
+            Text(caption)
+                .font(.system(size: 12))
+                .multilineTextAlignment(.center)
+        }
+    }
+    
+    private var badgeGroup: some View {
+        let Badges: [Badge] = badgeViewModel.badges
         
         return HStack (spacing: uiSize.width / 10) {
             ForEach (Badges, id: \.self) { badge in
-                let assetName: String = badge.done ? "badge0\(badge.index)-on" : "badge0\(badge.index)-off"
-                let caption: String = badge.done ? badge.caption : "???"
-                VStack {
-                    Image(assetName)
-                        .resizable()
-                        .frame(width: 77, height: 77)
-                    Text(caption)
-                        .font(.system(size: 12))
-                        .multilineTextAlignment(.center)
-                }
+                badgeImageCaptionView(with: badge)
             }
         }
     }

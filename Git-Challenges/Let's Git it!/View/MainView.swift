@@ -32,6 +32,7 @@ struct MainView: View {
                 .modifier(NavigationBar())
             }
         }
+        .navigationViewStyle(.stack)
     }
     
     private var toolBar: some View {

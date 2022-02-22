@@ -27,7 +27,7 @@ struct StreakProgressPreview: View {
     var body: some View {
         ZStack {
             VStack {
-                ProgressCircle(mockData["progress"]!, Int(mockData["hasCommitted"]!), isPreview: true)
+                ProgressCircle(mockData["progress"]!, Int(mockData["hasCommitted"]!))
                 StreakGoalText(streak: Int(mockData["streak"]!), isPreview: true)
             }
         }
@@ -35,23 +35,24 @@ struct StreakProgressPreview: View {
 }
 
 struct ProgressCircle: View {
-    @EnvironmentObject var colorThemeService: ColorThemeService
-    
     let progress: CGFloat
     let hasCommitted: Bool
-    let isPreview: Bool
     
-    init(_ progress: CGFloat, _ hasCommitted: Int, isPreview: Bool = false) {
+    let themeColor: [Color]
+    let themeEmoji: [String]
+    
+    init(_ progress: CGFloat, _ hasCommitted: Int) {
         self.progress = progress
         self.hasCommitted = hasCommitted == 1 ? true : false
-        self.isPreview = isPreview
+        
+        let colorPalette: ColorPalette = ColorPalette()
+        let colorTheme: String = UserDefaults.shared.string(forKey: "ColorTheme") ?? "green"
+        self.themeColor = colorPalette.getColors(colorTheme)
+        self.themeEmoji = colorPalette.getEmoji(colorTheme)
     }
     
     var body: some View {
-        let themeColor = isPreview ? ColorPalette.green.0 : colorThemeService.themeColors
-        let themeEmoji = isPreview ? ColorPalette.green.1 : colorThemeService.themeEmojis
-
-        return ZStack {
+        ZStack {
             Text(themeEmoji[hasCommitted ? emoji.committed.rawValue : emoji.notCommitted.rawValue])
                 .font(.system(size: 40))
                 .padding(.top, 10)

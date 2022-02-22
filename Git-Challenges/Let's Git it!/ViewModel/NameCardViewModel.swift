@@ -5,11 +5,8 @@
 //  Created by 강희영 on 2022/01/18.
 //
 
-import Foundation
-import Combine
-import SwiftSoup
-import UIKit
 import SwiftUI
+import SwiftSoup
 
 class NameCardViewModel: ObservableObject {
     @Published var image: UIImage = UIImage(systemName: "person.circle") ?? UIImage()
@@ -28,7 +25,10 @@ class NameCardViewModel: ObservableObject {
             let url = URL(string: "https://github.com/\(userID)")!
             let html = try? String(contentsOf: url, encoding: .utf8)
             let doc = try? SwiftSoup.parse(html ?? "")
-            let stringImage = try? doc?.select(".js-profile-editable-replace").select("img").attr("src").description
+            let stringImage = try? doc?.select(".js-profile-editable-replace")
+                .select("img")
+                .attr("src")
+                .description
             let urlImage = URL(string: stringImage!)
             let data = try? Data(contentsOf: urlImage!)
             self.image = UIImage(data: data!)!

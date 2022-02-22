@@ -90,7 +90,7 @@ struct WidgetContributionPreview: View {
             }
             .font(.system(size: 12, weight: .bold))
             .foregroundColor(ColorPalette.green.0[0])
-            .padding([.horizontal], 10)
+            .padding([.horizontal], 15)
         }
     }
 }

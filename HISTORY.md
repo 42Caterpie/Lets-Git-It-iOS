@@ -9,3 +9,14 @@
 - Fixed the problem of not seeing all the screens of iPhone SE.
 - Added GitHub Repo URL to the Contributor Label.
 - Added Version Check Cell to the Setting View.
+
+### 1.2.1
+- Updated Release and Bundle Version.
+
+### 2.0
+- Widget appeared!
+- Now you can add small and medium sized widget to the home screen
+- Also can check the current version in setting view.
+
+### 2.1
+- Fix small widget preview
