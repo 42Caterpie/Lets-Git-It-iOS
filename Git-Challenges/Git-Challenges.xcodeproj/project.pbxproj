@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		730952BD27C47466007A1155 /* RoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730952BC27C47466007A1155 /* RoomData.swift */; };
+		730952C027C4BE82007A1155 /* JoinRoomModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730952BF27C4BE82007A1155 /* JoinRoomModalView.swift */; };
+		730952C227C4BEAC007A1155 /* CreateRoomModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730952C127C4BEAC007A1155 /* CreateRoomModalView.swift */; };
+		730952C427C4BF66007A1155 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730952C327C4BF66007A1155 /* Encodable+Extension.swift */; };
+		730952C627C4BFA6007A1155 /* RandomNumberGenarator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730952C527C4BFA6007A1155 /* RandomNumberGenarator.swift */; };
+		730952C827C4BFC7007A1155 /* ValidRoomID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730952C727C4BFC7007A1155 /* ValidRoomID.swift */; };
 		731FF2A82796B296001CD5E7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FF2A72796B296001CD5E7 /* Theme.swift */; };
 		7320A758279E6FD20021371C /* ColorThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7320A757279E6FD20021371C /* ColorThemeService.swift */; };
 		73528DF827997183005DF67C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73528DF727997183005DF67C /* LoginView.swift */; };
@@ -112,6 +117,11 @@
 
 /* Begin PBXFileReference section */
 		730952BC27C47466007A1155 /* RoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomData.swift; sourceTree = "<group>"; };
+		730952BF27C4BE82007A1155 /* JoinRoomModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRoomModalView.swift; sourceTree = "<group>"; };
+		730952C127C4BEAC007A1155 /* CreateRoomModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomModalView.swift; sourceTree = "<group>"; };
+		730952C327C4BF66007A1155 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		730952C527C4BFA6007A1155 /* RandomNumberGenarator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberGenarator.swift; sourceTree = "<group>"; };
+		730952C727C4BFC7007A1155 /* ValidRoomID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidRoomID.swift; sourceTree = "<group>"; };
 		731FF2A72796B296001CD5E7 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		7320A757279E6FD20021371C /* ColorThemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeService.swift; sourceTree = "<group>"; };
 		7326007627B1068400650FC6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -198,12 +208,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		730952BE27C4BE73007A1155 /* ModalView */ = {
+			isa = PBXGroup;
+			children = (
+				730952BF27C4BE82007A1155 /* JoinRoomModalView.swift */,
+				730952C127C4BEAC007A1155 /* CreateRoomModalView.swift */,
+			);
+			path = ModalView;
+			sourceTree = "<group>";
+		};
 		731FF2A62796B281001CD5E7 /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				73F4691B279FD0A300991E71 /* WriteLogs.swift */,
+				730952C527C4BFA6007A1155 /* RandomNumberGenarator.swift */,
 				A8A113342793F95F00F9C984 /* Constants.swift */,
 				731FF2A72796B296001CD5E7 /* Theme.swift */,
+				730952C727C4BFC7007A1155 /* ValidRoomID.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -267,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				73E0EA9D27B4F2170083F408 /* Let's Git it!.entitlements */,
+				730952BE27C4BE73007A1155 /* ModalView */,
 				A83E07ED2796938200BFB1A0 /* Subview */,
 				73E7F07827927B820045AC5F /* Extension */,
 				73E7F07527927A270045AC5F /* Model */,
@@ -317,6 +339,7 @@
 			children = (
 				73E7F07927927B9D0045AC5F /* String+Extensions.swift */,
 				A8E51E872795378600B4F08A /* Color+Extensions.swift */,
+				730952C327C4BF66007A1155 /* Encodable+Extension.swift */,
 				A83E07F42796F85500BFB1A0 /* UIApplication+Extensions.swift */,
 				A83AA0E6279932890006A718 /* Date+Extensions.swift */,
 				73E0EA9F27B4F25C0083F408 /* UserDefaults+Extensions.swift */,
@@ -503,22 +526,27 @@
 				A83AA0E9279935BF0006A718 /* Texts.swift in Sources */,
 				A83E07FB27971CC200BFB1A0 /* GoalInputField.swift in Sources */,
 				73CF60A327900339005F4BF4 /* AppDelegate.swift in Sources */,
+				730952C227C4BEAC007A1155 /* CreateRoomModalView.swift in Sources */,
 				735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */,
 				A83E07F32796F6DC00BFB1A0 /* Goal.swift in Sources */,
 				73751ED6279D6A76006A8F94 /* ProgressView.swift in Sources */,
 				A83AA0EF2799857F0006A718 /* SettingView.swift in Sources */,
 				73E33FA92796C35300BF994D /* NameCardViewModel.swift in Sources */,
+				730952C827C4BFC7007A1155 /* ValidRoomID.swift in Sources */,
 				73E0EAA027B4F25D0083F408 /* UserDefaults+Extensions.swift in Sources */,
 				A8A113352793F95F00F9C984 /* Constants.swift in Sources */,
 				A8F8233927929C920000FB08 /* ChallengeCardView.swift in Sources */,
 				A896B0F527B4EC6A005D9669 /* NotificationCell.swift in Sources */,
+				730952C627C4BFA6007A1155 /* RandomNumberGenarator.swift in Sources */,
 				73F4691C279FD0A300991E71 /* WriteLogs.swift in Sources */,
+				730952C027C4BE82007A1155 /* JoinRoomModalView.swift in Sources */,
 				A8E51E882795378600B4F08A /* Color+Extensions.swift in Sources */,
 				73B7CBEB27BA7138006FB99C /* CompetitionMainView.swift in Sources */,
 				731FF2A82796B296001CD5E7 /* Theme.swift in Sources */,
 				73B7CBE927BA6DEB006FB99C /* MainTabView.swift in Sources */,
 				73E7F07A27927B9D0045AC5F /* String+Extensions.swift in Sources */,
 				730952BD27C47466007A1155 /* RoomData.swift in Sources */,
+				730952C427C4BF66007A1155 /* Encodable+Extension.swift in Sources */,
 				73528DF827997183005DF67C /* LoginView.swift in Sources */,
 				A83AA0E527992EA10006A718 /* ProgressBar.swift in Sources */,
 				73CF60A527900339005F4BF4 /* SceneDelegate.swift in Sources */,
