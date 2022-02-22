@@ -20,7 +20,8 @@ struct BadgeView: View {
         .padding(.top, 15)
     }
     
-    private func badgeImageCaptionView(_ badgeData: Badge) -> some View {
+    private func badgeImageCaptionView(with badgeData: Badge) -> some View {
+        let badgeSize = CGSize(width: 77, height: 77)
         let assetName: String =
         badgeData.done ?
                 "badge0\(badgeData.index)-on":
@@ -29,7 +30,7 @@ struct BadgeView: View {
         return VStack {
             Image(assetName)
                 .resizable()
-                .frame(width: 77, height: 77)
+                .frame(width: badgeSize.width, height: badgeSize.height)
             Text(caption)
                 .font(.system(size: 12))
                 .multilineTextAlignment(.center)
@@ -41,7 +42,7 @@ struct BadgeView: View {
         
         return HStack (spacing: uiSize.width / 10) {
             ForEach (Badges, id: \.self) { badge in
-                badgeImageCaptionView(badge)
+                badgeImageCaptionView(with: badge)
             }
         }
     }

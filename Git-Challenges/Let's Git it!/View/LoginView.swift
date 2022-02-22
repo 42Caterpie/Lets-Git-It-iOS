@@ -67,12 +67,13 @@ struct LoginView: View {
         Group {
             if loginViewmodel.isProgress {
                 ActivityIndicator(isAnimating: .constant(true), style: .medium)
-            } else if loginViewmodel.isLogin == false {
-                loginView
-            }
-            else {
-                MainView()
-                    .environment(\.loginStatus, $loginViewmodel.isLogin)
+            } else {
+                if loginViewmodel.isLogin == false {
+                    loginView
+                } else {
+                    MainView()
+                        .environment(\.loginStatus, $loginViewmodel.isLogin)
+                }
             }
         }
     }

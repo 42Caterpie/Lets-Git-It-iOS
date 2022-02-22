@@ -48,8 +48,9 @@ class LoginViewModel: ObservableObject {
                         }
                         
                         if let authResult = authResult {
-                            UserDefaults.shared.set(authResult.user.displayName,
-                                                    forKey: "displayName")
+                            UserDefaults.shared.set(
+                                authResult.user.displayName,
+                                forKey: "displayName")
                         }
                         self.isProgress = false
                         self.isLogin = true
