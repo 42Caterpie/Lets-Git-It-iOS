@@ -10,6 +10,8 @@ import Firebase
 
 class CompetitionMainViewModel: ObservableObject {
     @Published var roomDatas: [RoomData] = []
+    @Published var joinError: String = " "
+    @Published var isJoinable: Bool = false
     
     init () {
         getRoomDatas()
@@ -18,7 +20,7 @@ class CompetitionMainViewModel: ObservableObject {
     func getRoomDatas() {
         let db = Firestore.firestore()
         let userID = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
-        
+        self.roomDatas = []
         db.collection("RoomData").whereField("participants", arrayContains: userID).getDocuments() { querySnapshot, error in
             if let error = error {
                 print (error)
@@ -36,23 +38,64 @@ class CompetitionMainViewModel: ObservableObject {
             }
         }
     }
-}
+    
+    func makeRoom(title: String, goal: Int, maxParticipants: Int, startDate: Date) {
+        validRoomIDtoMake() { roomID in
+            let db = Firestore.firestore()
+            let userID = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
+            let roomData = RoomData(id: roomID,
+                                    title: title,
+                                    startDate: startDate.toString,
+                                    goal: goal,
+                                    participants: [userID],
+                                    maxParticipants: maxParticipants).asDictionary!
+            db.collection("RoomData").document(roomID).setData(roomData)
+            self.getRoomDatas()
+        }
+    }
+    func joinRoom(_ roomNumber: String) {
+        validRoomIDtoJoin(id: roomNumber) { isDone, errString in
+            if isDone == false {
+                self.joinError = errString
+                self.isJoinable = false
+            } else {
+                self.joinError = " "
+                self.isJoinable = true
+            }
+        }
+    }
 
-func makeRoom(_ title: String, _ goal: Int, _ startDate: Date) {
-    validRoomID() { roomID in
+    func validRoomIDtoJoin(id: String, completionHandler: @escaping (Bool, String)-> Void) {
+        
+        // MARK: Check Room ID  with Completion for async
+        
         let db = Firestore.firestore()
+        let docRef = db.collection("RoomData").document(id)
         let userID = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
-        let roomData = RoomData(id: roomID,
-                                title: title,
-                                startDate: startDate.toString,
-                                goal: goal,
-                                participants: [userID],
-                                maxParticipants: 0).asDictionary!
-        db.collection("RoomData").document(roomID).setData(roomData)
+        
+        docRef.getDocument { document, err in
+            if let document = document, document.exists == true {
+                let maxParticipants = document.get("maxParticipants") as! Int
+                let currentParticipants = document.get("participants") as! [String]
+                let numberParticipants = currentParticipants.count
+                let isAlreadyJoined = currentParticipants.contains(userID)
+                
+                if numberParticipants >= maxParticipants {
+                    completionHandler(false, "Room is full.")
+                } else if isAlreadyJoined {
+                    completionHandler(false, "Already in The Room.")
+                } else {
+                    docRef.updateData(["participants": FieldValue.arrayUnion([userID])])
+                    completionHandler(true, " ")
+                }
+            } else {
+                completionHandler(false, "Room doesn't exist.")
+            }
+        }
     }
 }
 
-func validRoomID(completionHandler: @escaping (String)-> Void) {
+func validRoomIDtoMake(completionHandler: @escaping (String)-> Void) {
     let id: String = randomSixDigitCode()
     
     // MARK: Random Room ID Generate with Completion for async
@@ -61,7 +104,7 @@ func validRoomID(completionHandler: @escaping (String)-> Void) {
     let docRef = db.collection("RoomData").document(id)
     docRef.getDocument { document, err in
         if let document = document, document.exists == true {
-            validRoomID(completionHandler: completionHandler)
+            validRoomIDtoMake(completionHandler: completionHandler)
         } else {
             completionHandler(id)
         }
@@ -76,13 +119,13 @@ func randomSixDigitCode() -> String {
     return number
 }
 
-
 extension Encodable {
     /// Object to Dictionary
     /// cf) Dictionary to Object: JSONDecoder().decode(Object.self, from: dictionary)
     var asDictionary: [String: Any]? {
         guard let object = try? JSONEncoder().encode(self),
-              let dictinoary = try? JSONSerialization.jsonObject(with: object, options: []) as? [String: Any] else { return nil }
+              let dictinoary = try? JSONSerialization.jsonObject(with: object, options: [])
+                as? [String: Any] else { return nil }
         return dictinoary
     }
 }

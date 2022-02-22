@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct CompetitionMainView: View {
-    //    var roomDatas: [RoomData] = [RoomData(title: "치킨내기", startDate: "2022-02-14", goal: 100, participants: ["hekang42"]),
-    //                                 RoomData(title: "탕수육내기", startDate: "2022-02-14", goal: 200, participants: ["hekang42"])]
     @State private var showCreateRoomModal: Bool = false
     @State private var showJoinRoomModal: Bool = false
     @ObservedObject var competitionMainViewModel = CompetitionMainViewModel()
@@ -82,14 +80,9 @@ struct CompetitionMainView: View {
             }
             .sheet(isPresented: self.$showJoinRoomModal) {
                 JoinRoomModalView()
+                    .environmentObject(competitionMainViewModel)
             }
         }
-    }
-}
-
-struct CompetitionMainView_Previews: PreviewProvider {
-    static var previews: some View {
-        CompetitionMainView()
     }
 }
 
@@ -99,6 +92,7 @@ struct CreateRoomModalView: View {
     @State var title: String = ""
     @State var startDate: Date = Date()
     @State var participants: Int = 2
+    @State var goal: String = "7"
     
     var body: some View {
         Group {
@@ -109,7 +103,13 @@ struct CreateRoomModalView: View {
                            selection: $startDate,
                            in: Date()..., displayedComponents: .date)
             }
-            // MARK: GOAL Participants Mixxxxx
+            HStack {
+                Text("Goal")
+                TextField("", text: $goal)
+                    .textContentType(.telephoneNumber)
+                    .frame(width: 100)
+                    .background(Color.gray)
+            }
             
             HStack {
                 Text("Participants")
@@ -128,9 +128,10 @@ struct CreateRoomModalView: View {
             }
             HStack {
                 Button {
-                    makeRoom(title, participants, startDate)
-                    competitionMainViewModel.getRoomDatas()
-                    self.presentationMode.wrappedValue.dismiss()
+                    competitionMainViewModel.makeRoom(title: title,
+                                                      goal: Int(goal) ?? 0,
+                                                      maxParticipants: participants,
+                                                      startDate: startDate)
                 } label: {
                     Text("Save")
                 }
@@ -148,16 +149,29 @@ struct CreateRoomModalView: View {
 
 struct JoinRoomModalView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var competitionMainViewModel: CompetitionMainViewModel
     @State var roomNumber: String = ""
     
     var body: some View {
-        HStack {
-            Text("Room Number")
-            Spacer()
-            TextField("", text: $roomNumber)
-                .textContentType(.telephoneNumber)
-                .frame(width: 100)
-                .background(Color.gray)
+        VStack {
+            HStack {
+                Text("Room Number")
+                Spacer()
+                TextField("", text: $roomNumber)
+                    .textContentType(.telephoneNumber)
+                    .frame(width: 100)
+                    .background(Color.gray)
+            }
+            Button {
+                competitionMainViewModel.joinRoom(roomNumber)
+                if competitionMainViewModel.isJoinable {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+            } label: {
+                Text("Join")
+            }
+            Text(competitionMainViewModel.joinError)
+                .foregroundColor(.red)
         }
     }
 }
