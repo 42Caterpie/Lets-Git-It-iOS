@@ -71,7 +71,7 @@ struct LoginView: View {
                 if loginViewmodel.isLogin == false {
                     loginView
                 } else {
-                    MainView()
+                    MainTabView()
                         .environment(\.loginStatus, $loginViewmodel.isLogin)
                 }
             }
