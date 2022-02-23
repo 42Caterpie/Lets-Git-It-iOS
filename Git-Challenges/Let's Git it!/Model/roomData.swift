@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct RoomData: Codable {
+struct RoomData: Codable, Equatable {
     var id: String
     var title: String
     var startDate: String

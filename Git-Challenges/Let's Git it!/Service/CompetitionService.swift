@@ -57,6 +57,7 @@ class CompetitionService: ObservableObject {
     }
     
     // TODO: kickedUsers에서 userName 탐색 로직 추가
+    // MARK: roomNumber 입력 않고 join 버튼 누르면 'Document path cannot be empty" 런타임 에러 발생
     func joinRoom(_ roomNumber: String) {
         isValidRoomIDtoJoin(id: roomNumber) { isDone, errString in
             if isDone == false {
@@ -104,6 +105,7 @@ class CompetitionService: ObservableObject {
     
     func update() {
         var updatedRoomDatas: [RoomData] = [RoomData]()
+        roomDatas.removeAll()
         
         db.collection("RoomData").whereField("participants", arrayContains: userID)
             .addSnapshotListener { querySnapshot, error in
@@ -125,6 +127,7 @@ class CompetitionService: ObservableObject {
                     }
                     updatedRoomDatas.append(roomData)
                 }
+
                 self.roomDatas = updatedRoomDatas
             }
     }
