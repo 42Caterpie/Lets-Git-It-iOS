@@ -9,7 +9,7 @@ import SwiftUI
 
 struct JoinRoomModalView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @EnvironmentObject var competitionMainViewModel: CompetitionMainViewModel
+    @EnvironmentObject var competitionMainViewModel: CompetitionService
     @State var roomNumber: String = ""
     
     var body: some View {

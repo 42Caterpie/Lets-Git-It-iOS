@@ -9,11 +9,12 @@ import SwiftUI
 
 struct CreateRoomModalView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @EnvironmentObject var competitionMainViewModel: CompetitionMainViewModel
+    @EnvironmentObject var competitionMainViewModel: CompetitionService
     @State var title: String = ""
     @State var startDate: Date = Date()
-    @State var participants: Int = 2
-    @State var goal: String = "7"
+    @State var maxParticipants: Int = 2
+    @State var goal: String = "10"
+    let minimumGoal: Int = 10
     
     var body: some View {
         Group {
@@ -29,8 +30,8 @@ struct CreateRoomModalView: View {
                 Spacer()
                 TextField("365", text: $goal, onCommit: {
                     var count = Int(goal) ?? 0
-                    if count < 7 {
-                        count = 7
+                    if count < minimumGoal {
+                        count = minimumGoal
                     }
                     else if count > 365 {
                         count = 365
@@ -44,23 +45,24 @@ struct CreateRoomModalView: View {
                 Text("Participants")
                 Spacer()
                 Button {
-                    participants = max(2, participants - 1)
+                    maxParticipants = max(2, maxParticipants - 1)
                 } label: {
                     Image(systemName: "minus.circle")
                 }
-                Text("\(participants)")
+                Text("\(maxParticipants)")
                 Button {
-                    participants = min(6, participants + 1)
+                    maxParticipants = min(6, maxParticipants + 1)
                 } label: {
                     Image(systemName: "plus.circle")
                 }
             }
             HStack {
                 Button {
-                    competitionMainViewModel.createRoom(title: title,
-                                                        goal: Int(goal) ?? 0,
-                                                        maxParticipants: participants,
-                                                        startDate: startDate)
+                    let roomData: RoomData = RoomData(title: title,
+                                                      startDate: startDate,
+                                                      goal: goal,
+                                                      maxParticipants: maxParticipants)
+                    competitionMainViewModel.createRoom(with: roomData)
                     self.presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Save")

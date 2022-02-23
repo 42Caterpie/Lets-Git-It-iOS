@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-class CompetitionMainViewModel: ObservableObject {
+class CompetitionService: ObservableObject {
     @Published var roomDatas: [RoomData] = []
     @Published var joinError: String = " "
     @Published var isJoinable: Bool = false
@@ -39,16 +39,16 @@ class CompetitionMainViewModel: ObservableObject {
         }
     }
     
-    func createRoom(title: String, goal: Int, maxParticipants: Int, startDate: Date) {
+    func createRoom(with roomData: RoomData) {
         validRoomIDtoMake() { roomID in
             let db = Firestore.firestore()
             let userID = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
             let roomData = RoomData(id: roomID,
-                                    title: title,
-                                    startDate: startDate.toString,
-                                    goal: goal,
+                                    title: roomData.title,
+                                    startDate: roomData.startDate,
+                                    goal: roomData.goal,
                                     participants: [userID],
-                                    maxParticipants: maxParticipants).asDictionary!
+                                    maxParticipants: roomData.maxParticipants).asDictionary!
             db.collection("RoomData").document(roomID).setData(roomData)
             
             // MARK: Reload Room Dats
@@ -58,7 +58,7 @@ class CompetitionMainViewModel: ObservableObject {
     }
     
     func joinRoom(_ roomNumber: String) {
-        validRoomIDtoJoin(id: roomNumber) { isDone, errString in
+        isValidRoomIDtoJoin(id: roomNumber) { isDone, errString in
             if isDone == false {
                 self.joinError = errString
                 self.isJoinable = false

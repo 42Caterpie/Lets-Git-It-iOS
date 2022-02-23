@@ -10,7 +10,7 @@ import SwiftUI
 struct CompetitionMainView: View {
     @State private var showCreateRoomModal: Bool = false
     @State private var showJoinRoomModal: Bool = false
-    @ObservedObject var competitionMainViewModel = CompetitionMainViewModel()
+    @ObservedObject var competitionMainViewModel = CompetitionService()
     
     var body: some View {
         let roomDatas = competitionMainViewModel.roomDatas

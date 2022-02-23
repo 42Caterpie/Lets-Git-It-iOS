@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-func validRoomIDtoJoin(id: String, completionHandler: @escaping (Bool, String)-> Void) {
+func isValidRoomIDtoJoin(id: String, completionHandler: @escaping (Bool, String)-> Void) {
     
     // MARK: Check Room ID  with Completion for async
     
