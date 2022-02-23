@@ -26,8 +26,7 @@ struct CompetitionMainView: View {
                 }
                 ScrollView {
                     VStack {
-                        ForEach (0..<competitionService.roomDatas.count, id: \.self) { index in
-                            let room = competitionService.roomDatas[index]
+                        ForEach (competitionService.roomDatas, id: \.self.id) { room in
                             NavigationLink {
                                 CompetitionRoomView(of: room.id)
                                     .environmentObject(competitionService)
