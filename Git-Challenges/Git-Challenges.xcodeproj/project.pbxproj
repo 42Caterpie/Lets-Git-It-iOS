@@ -70,7 +70,7 @@
 		73EDBD71279A815300C9B6F0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EDBD70279A815300C9B6F0 /* LoginViewModel.swift */; };
 		73F4691C279FD0A300991E71 /* WriteLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F4691B279FD0A300991E71 /* WriteLogs.swift */; };
 		A83AA0E327992E870006A718 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E227992E870006A718 /* Indicator.swift */; };
-		A83AA0E527992EA10006A718 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E427992EA10006A718 /* ProgressBar.swift */; };
+		A83AA0E527992EA10006A718 /* ProgressBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E427992EA10006A718 /* ProgressBarModifier.swift */; };
 		A83AA0E7279932890006A718 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E6279932890006A718 /* Date+Extensions.swift */; };
 		A83AA0E9279935BF0006A718 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0E8279935BF0006A718 /* Texts.swift */; };
 		A83AA0EF2799857F0006A718 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83AA0EE2799857F0006A718 /* SettingView.swift */; };
@@ -87,6 +87,9 @@
 		A896B0FB27B4ECF1005D9669 /* SettingCellModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A896B0FA27B4ECF1005D9669 /* SettingCellModifier.swift */; };
 		A8A113352793F95F00F9C984 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A113342793F95F00F9C984 /* Constants.swift */; };
 		A8E51E882795378600B4F08A /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E51E872795378600B4F08A /* Color+Extensions.swift */; };
+		A8E9B2AC27C612EF006403E2 /* CompetitionRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E9B2AB27C612EF006403E2 /* CompetitionRoomView.swift */; };
+		A8E9B2AE27C620B5006403E2 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E9B2AD27C620B5006403E2 /* NavigationBarModifier.swift */; };
+		A8E9B2B027C657B8006403E2 /* CompetitionRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E9B2AF27C657B8006403E2 /* CompetitionRoomViewModel.swift */; };
 		A8F8233927929C920000FB08 /* ChallengeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8233827929C920000FB08 /* ChallengeCardView.swift */; };
 		A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8233C27929DCB0000FB08 /* MainView.swift */; };
 /* End PBXBuildFile section */
@@ -162,7 +165,7 @@
 		73EDBD70279A815300C9B6F0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		73F4691B279FD0A300991E71 /* WriteLogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteLogs.swift; sourceTree = "<group>"; };
 		A83AA0E227992E870006A718 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
-		A83AA0E427992EA10006A718 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		A83AA0E427992EA10006A718 /* ProgressBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarModifier.swift; sourceTree = "<group>"; };
 		A83AA0E6279932890006A718 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		A83AA0E8279935BF0006A718 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		A83AA0EE2799857F0006A718 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -179,6 +182,9 @@
 		A896B0FA27B4ECF1005D9669 /* SettingCellModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCellModifier.swift; sourceTree = "<group>"; };
 		A8A113342793F95F00F9C984 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A8E51E872795378600B4F08A /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		A8E9B2AB27C612EF006403E2 /* CompetitionRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionRoomView.swift; sourceTree = "<group>"; };
+		A8E9B2AD27C620B5006403E2 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
+		A8E9B2AF27C657B8006403E2 /* CompetitionRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionRoomViewModel.swift; sourceTree = "<group>"; };
 		A8F8233827929C920000FB08 /* ChallengeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCardView.swift; sourceTree = "<group>"; };
 		A8F8233C27929DCB0000FB08 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -250,6 +256,7 @@
 				73E1A83E27993C8400E1BDFE /* BadgeView.swift */,
 				73528DF727997183005DF67C /* LoginView.swift */,
 				A83AA0EE2799857F0006A718 /* SettingView.swift */,
+				A8E9B2AB27C612EF006403E2 /* CompetitionRoomView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -354,6 +361,7 @@
 				73E1A84027993CB500E1BDFE /* BadgeViewModel.swift */,
 				73E33FA82796C35300BF994D /* NameCardViewModel.swift */,
 				73EDBD70279A815300C9B6F0 /* LoginViewModel.swift */,
+				A8E9B2AF27C657B8006403E2 /* CompetitionRoomViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -364,8 +372,9 @@
 				A896B0FA27B4ECF1005D9669 /* SettingCellModifier.swift */,
 				73710DAB279018A6009EBA62 /* CardModifier.swift */,
 				A83AA0E227992E870006A718 /* Indicator.swift */,
-				A83AA0E427992EA10006A718 /* ProgressBar.swift */,
+				A83AA0E427992EA10006A718 /* ProgressBarModifier.swift */,
 				A83AA0E8279935BF0006A718 /* Texts.swift */,
+				A8E9B2AD27C620B5006403E2 /* NavigationBarModifier.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -515,6 +524,7 @@
 				73CF60A727900339005F4BF4 /* ViewController.swift in Sources */,
 				A83E07F927971B8500BFB1A0 /* Progress.swift in Sources */,
 				73ED634627C35EA7002CAD9C /* CompetitionService.swift in Sources */,
+				A8E9B2AE27C620B5006403E2 /* NavigationBarModifier.swift in Sources */,
 				73E1A84327994DC800E1BDFE /* Badge.swift in Sources */,
 				A83AA0E327992E870006A718 /* Indicator.swift in Sources */,
 				73E1A83F27993C8400E1BDFE /* BadgeView.swift in Sources */,
@@ -537,6 +547,7 @@
 				A8A113352793F95F00F9C984 /* Constants.swift in Sources */,
 				A8F8233927929C920000FB08 /* ChallengeCardView.swift in Sources */,
 				A896B0F527B4EC6A005D9669 /* NotificationCell.swift in Sources */,
+				A8E9B2B027C657B8006403E2 /* CompetitionRoomViewModel.swift in Sources */,
 				730952C627C4BFA6007A1155 /* RandomNumberGenarator.swift in Sources */,
 				73F4691C279FD0A300991E71 /* WriteLogs.swift in Sources */,
 				730952C027C4BE82007A1155 /* JoinRoomModalView.swift in Sources */,
@@ -544,11 +555,12 @@
 				73B7CBEB27BA7138006FB99C /* CompetitionMainView.swift in Sources */,
 				731FF2A82796B296001CD5E7 /* Theme.swift in Sources */,
 				73B7CBE927BA6DEB006FB99C /* MainTabView.swift in Sources */,
+				A8E9B2AC27C612EF006403E2 /* CompetitionRoomView.swift in Sources */,
 				73E7F07A27927B9D0045AC5F /* String+Extensions.swift in Sources */,
 				730952BD27C47466007A1155 /* RoomData.swift in Sources */,
 				730952C427C4BF66007A1155 /* Encodable+Extension.swift in Sources */,
 				73528DF827997183005DF67C /* LoginView.swift in Sources */,
-				A83AA0E527992EA10006A718 /* ProgressBar.swift in Sources */,
+				A83AA0E527992EA10006A718 /* ProgressBarModifier.swift in Sources */,
 				73CF60A527900339005F4BF4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

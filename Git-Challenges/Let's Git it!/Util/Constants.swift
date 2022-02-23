@@ -15,9 +15,20 @@ enum URLString {
     static let appStore: String = "itms-apps://itunes.apple.com/app/1606646308"
     static let appStoreLookUp: String = "https://itunes.apple.com/lookup?bundleId=com.github.Caterpie"
 }
+
 enum Message {
     static let notiDeniedInSettingsTitle: String = "Notification has been disabled for this app"
     static let notiDeniedInSettingsMessage: String = "Please go to settings to enable it now"
+    static let kickUserFromRoomTitle: String = "Kick the user out of this room"
+    static let kickUserFromRoomMessage: String = "This cannot be restored.\nReally want to kick the user?"
+    static let deleteRoomTitle: String = "Delete this room"
+    static let deleteRoomMessage: String = "This cannot be restored.\nReally want to delete the room?"
+}
+
+enum RoomModificationAlertType {
+    case kickUserFromRoom
+    case deleteRoom
+    case noAction
 }
 
 enum widthRatio {

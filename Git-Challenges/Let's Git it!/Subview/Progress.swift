@@ -40,7 +40,7 @@ struct Progress: View {
             ZStack(alignment: .leading) {
                 Capsule()
                     .modifier(
-                        ProgressBar(
+                        ProgressBarModifier(
                             size: CGSize(
                                 width: progressBarSize.width,
                                 height: progressBarSize.height),
@@ -49,7 +49,7 @@ struct Progress: View {
                     )
                 Capsule()
                     .modifier(
-                        ProgressBar(
+                        ProgressBarModifier(
                             size: CGSize(
                                 width: progressBarSize.width * userInfoService.percentage,
                                 height: progressBarSize.height),

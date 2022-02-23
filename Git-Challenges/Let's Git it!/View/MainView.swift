@@ -29,7 +29,7 @@ struct MainView: View {
                 })
                 .environmentObject(userInfoService)
                 .environmentObject(colorThemeService)
-                .modifier(NavigationBar())
+                .modifier(NavigationBarModifier())
             }
         }
         .navigationViewStyle(.stack)
@@ -60,22 +60,5 @@ struct MainView: View {
                 .font(.system(size: 20, weight: .bold))
         }
         .padding([.horizontal])
-    }
-}
-
-struct NavigationBar: ViewModifier {
-    func body(content: Content) -> some View {
-        if #available(iOS 14.0, *) {
-            content
-                .navigationTitle("")
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarHidden(true)
-                .ignoresSafeArea(.keyboard)
-        }
-        else {
-            content
-                .navigationBarHidden(true)
-                .navigationBarTitle("")
-        }
     }
 }
