@@ -75,8 +75,9 @@ struct CompetitionRoomView: View {
                     title: Text(Message.deleteRoomTitle),
                     message: Text(Message.deleteRoomMessage),
                     primaryButton: .cancel(Text("Delete")) {
-                        competitionService.deleteRoom(roomID: roomData.id)
-                        presentationMode.wrappedValue.dismiss()
+                        competitionService.deleteRoom(roomID: roomData.id) {
+                            presentationMode.wrappedValue.dismiss()
+                        }
                     },
                     secondaryButton: .default(Text("Cancel"))
                 )

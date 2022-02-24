@@ -16,10 +16,10 @@ class CompetitionService: ObservableObject {
     let userID = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
     
     init () {
-        initRoomDatas()
+        requestRoomDatas()
     }
     
-    func initRoomDatas() {
+    func requestRoomDatas() {
         self.roomDatas = []
         db.collection("RoomData").whereField("participants", arrayContains: userID).getDocuments() { querySnapshot, error in
             if let error = error {
@@ -33,7 +33,6 @@ class CompetitionService: ObservableObject {
                     let roomInfo = try? decoder.decode(RoomData.self, from: jsonData!)
                     guard let roomInfo = roomInfo else { return }
                     self.roomDatas.append(roomInfo)
-                    print(roomInfo)
                 }
             }
         }
@@ -50,9 +49,8 @@ class CompetitionService: ObservableObject {
                                     maxParticipants: roomData.maxParticipants).asDictionary!
             self.db.collection("RoomData").document(roomID).setData(roomData)
             
-            // MARK: Reload Room Dats
-            
-            self.update()
+            // MARK: Reload Room Datas
+            self.requestRoomDatas()
         }
     }
     
@@ -70,7 +68,7 @@ class CompetitionService: ObservableObject {
         }
     }
     
-    func deleteRoom(roomID: String) {
+    func deleteRoom(roomID: String, completionHandler: @escaping () -> Void) {
         db.collection("RoomData").document(roomID).delete() { error in
             if let error = error {
                 // TODO: Alert Error to user
@@ -79,7 +77,7 @@ class CompetitionService: ObservableObject {
             else {
                 // TODO: Alert Success to user
                 print("Successfully Removed Document")
-                self.update()
+                self.requestRoomDatas()
             }
         }
     }
@@ -98,38 +96,8 @@ class CompetitionService: ObservableObject {
             else {
                 // TODO: Alert Success to user
                 print("Successfully Kicked User")
-                self.update()
             }
         }
-    }
-    
-    func update() {
-        var updatedRoomDatas: [RoomData] = [RoomData]()
-        roomDatas.removeAll()
-        
-        db.collection("RoomData").whereField("participants", arrayContains: userID)
-            .addSnapshotListener { querySnapshot, error in
-                guard let documents = querySnapshot?.documents else {
-                    // TODO: Alert Error to user
-                    print("Error Fetching Documents: \(error!)")
-                    return
-                }
-                
-                let decoder = JSONDecoder()
-                for document in documents {
-                    let data = document.data()
-                    guard let jsonData = try? JSONSerialization.data(withJSONObject: data),
-                          let roomData = try? decoder.decode(RoomData.self, from: jsonData)
-                    else {
-                        // TODO: Alert Error to user
-                        print("Cannot Decode")
-                        return
-                    }
-                    updatedRoomDatas.append(roomData)
-                }
-
-                self.roomDatas = updatedRoomDatas
-            }
     }
     
     class func roomData(with roomID: String, completionHandler: @escaping (RoomData) -> Void) {
