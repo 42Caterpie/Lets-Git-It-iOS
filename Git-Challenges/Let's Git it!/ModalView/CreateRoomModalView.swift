@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CreateRoomModalView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @EnvironmentObject var competitionMainViewModel: CompetitionService
+    @EnvironmentObject var competitionService: CompetitionService
     @State var title: String = ""
     @State var startDate: Date = Date()
     @State var maxParticipants: Int = 2
@@ -62,7 +62,7 @@ struct CreateRoomModalView: View {
                                                       startDate: startDate,
                                                       goal: goal,
                                                       maxParticipants: maxParticipants)
-                    competitionMainViewModel.createRoom(with: roomData)
+                    competitionService.createRoom(with: roomData)
                     self.presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Save")

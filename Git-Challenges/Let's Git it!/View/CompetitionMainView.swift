@@ -10,41 +10,64 @@ import SwiftUI
 struct CompetitionMainView: View {
     @State private var showCreateRoomModal: Bool = false
     @State private var showJoinRoomModal: Bool = false
-    @ObservedObject var competitionMainViewModel = CompetitionService()
+    @ObservedObject var competitionService = CompetitionService()
     
     var body: some View {
-        let roomDatas = competitionMainViewModel.roomDatas
-        
-        VStack {
-            HStack () {
-                Spacer()
-                Button  {
-                    showJoinRoomModal = true
-                } label: {
-                    Text("Join")
-                        .padding()
+        NavigationView {
+            VStack {
+                HStack () {
+                    Spacer()
+                    Button  {
+                        showJoinRoomModal = true
+                    } label: {
+                        Text("Join")
+                            .padding()
+                    }
                 }
-            }
-            ScrollView {
-                VStack {
-                    ForEach (roomDatas, id: \.self.id) { room in
-                        VStack {
-                            Text("Title: \(room.title)")
-                            Text("Start Date: \(room.startDate)")
-                            Text("Goal: \(room.goal)")
-                            
-                            HStack {
-                                Image(systemName: "person.circle.fill")
-                                    .padding([.trailing], -7)
-                                Image(systemName: "person.circle.fill")
-                                    .padding([.horizontal], -7)
-                                Image(systemName: "person.circle.fill")
-                                    .padding([.horizontal], -7)
-                                Image(systemName: "person.circle.fill")
-                                    .padding([.horizontal], -7)
-                                Spacer()
+                ScrollView {
+                    VStack {
+                        ForEach (competitionService.roomDatas, id: \.self.id) { room in
+                            NavigationLink {
+                                CompetitionRoomView(of: room.id)
+                                    .environmentObject(competitionService)
+                            } label: {
+                                VStack {
+                                    Text("Title: \(room.title)")
+                                    Text("Start Date: \(room.startDate)")
+                                    Text("Goal: \(room.goal)")
+                                    
+                                    HStack {
+                                        Image(systemName: "person.circle.fill")
+                                            .padding([.trailing], -7)
+                                        Image(systemName: "person.circle.fill")
+                                            .padding([.horizontal], -7)
+                                        Image(systemName: "person.circle.fill")
+                                            .padding([.horizontal], -7)
+                                        Image(systemName: "person.circle.fill")
+                                            .padding([.horizontal], -7)
+                                        Spacer()
+                                    }
+                                    .padding([.horizontal])
+                                }
+                                .modifier(CardModifier(height: 140))
+                                .background(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .foregroundColor(ColorPalette.green.0[1])
+                                        .opacity(0.8)
+                                )
+                                .padding([.vertical], 5)
                             }
-                            .padding([.horizontal])
+                        }
+                        .buttonStyle(.plain)
+                        
+                        VStack {
+                            Image(systemName: "plus.circle")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                            Text("방 만들기")
+                        }
+                        .onTapGesture {
+                            showCreateRoomModal = true
                         }
                         .modifier(CardModifier(height: 140))
                         .background(
@@ -54,34 +77,18 @@ struct CompetitionMainView: View {
                         )
                         .padding([.vertical], 5)
                     }
-                    
-                    VStack {
-                        Image(systemName: "plus.circle")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                        Text("방 만들기")
-                    }
-                    .onTapGesture {
-                        showCreateRoomModal = true
-                    }
-                    .modifier(CardModifier(height: 140))
-                    .background(
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(ColorPalette.green.0[1])
-                            .opacity(0.8)
-                    )
-                    .padding([.vertical], 5)
+                    Spacer()
                 }
-                Spacer()
+                .sheet(isPresented: self.$showCreateRoomModal) {
+                    CreateRoomModalView()
+                        .environmentObject(competitionService)
+                }
+                .sheet(isPresented: self.$showJoinRoomModal) {
+                    JoinRoomModalView()
+                        .environmentObject(competitionService)
+                }
             }
-            .sheet(isPresented: self.$showCreateRoomModal) {
-                CreateRoomModalView()
-                    .environmentObject(competitionMainViewModel)
-            }
-            .sheet(isPresented: self.$showJoinRoomModal) {
-                JoinRoomModalView()
-                    .environmentObject(competitionMainViewModel)
-            }
+            .modifier(NavigationBarModifier())
         }
     }
 }

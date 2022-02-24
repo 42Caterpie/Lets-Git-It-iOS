@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProgressBar: ViewModifier {
+struct ProgressBarModifier: ViewModifier {
     
     let size: CGSize
     let color: Color
