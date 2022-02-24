@@ -40,12 +40,11 @@ class CompetitionService: ObservableObject {
     
     func createRoom(with roomData: RoomData) {
         validRoomIDtoMake() { roomID in
-            let userID = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
             let roomData = RoomData(id: roomID,
                                     title: roomData.title,
                                     startDate: roomData.startDate,
                                     goal: roomData.goal,
-                                    participants: [userID],
+                                    participants: [self.userID],
                                     maxParticipants: roomData.maxParticipants).asDictionary!
             self.db.collection("RoomData").document(roomID).setData(roomData)
             
