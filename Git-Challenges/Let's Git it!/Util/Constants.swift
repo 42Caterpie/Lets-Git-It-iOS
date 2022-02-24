@@ -25,6 +25,14 @@ enum Message {
     static let deleteRoomMessage: String = "This cannot be restored.\nReally want to delete the room?"
 }
 
+enum JoinErrorMessage {
+    static let roomIsFull = "Room is full."
+    static let alreadyInRoom = "Already in The Room."
+    static let cantFindRoom = "Room doesn't exist."
+    static let noRoomID = "Please enter your room number."
+    static let kickedID = "Cannot access the room."
+}
+
 enum RoomModificationAlertType {
     case kickUserFromRoom
     case deleteRoom
