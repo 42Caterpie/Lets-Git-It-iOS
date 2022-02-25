@@ -12,6 +12,7 @@ struct MainView: View {
     @ObservedObject var colorThemeService: ColorThemeService = ColorThemeService()
     
     var body: some View {
+        this is error
         NavigationView {
             ScrollView (showsIndicators: false) {
                 VStack(spacing: 10) {
