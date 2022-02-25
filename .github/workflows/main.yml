@@ -28,4 +28,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Start xcode build 🛠
         run: |
-          xcodebuild clean test -project Git-Challenges/Git-Challenges.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 12 Pro,OS=13.0'
+          xcodebuild clean -project Git-Challenges/Git-Challenges.xcodeproj -scheme Let\'s\ Git\ it\!
