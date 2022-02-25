@@ -18,8 +18,10 @@ jobs:
         uses: actions/checkout@v2
       - name: Set Default Scheme
         run: |
-          default=Let\'s\ Git\ it\!
+          scheme_list=$(xcodebuild -project Git-Challenges/Git-Challenges.xcodeproj -list -json | tr -d "\n")
+          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
           echo $default | cat >default
+          echo Using default scheme: $default
       - name: Start xcode build 🛠
         env:
           scheme: ${{ 'default' }}
