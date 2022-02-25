@@ -28,4 +28,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Start xcode build 🛠
         run: |
-          xcodebuild build-for-testing -project Git-Challenges/Git-Challenges.xcodeproj -scheme Let\'s\ Git\ it\!
+          xcodebuild build-for-testing -allowProvisioningUpdates -project Git-Challenges/Git-Challenges.xcodeproj -scheme Let\'s\ Git\ it\!
