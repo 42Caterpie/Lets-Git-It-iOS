@@ -29,3 +29,4 @@ jobs:
       - name: Start xcode build 🛠
         run: |
           xcodebuild clean -project Git-Challenges/Git-Challenges.xcodeproj -scheme Let\'s\ Git\ it\!
+          xcodebuild -project Git-Challenges/Git-Challenges.xcodeproj -scheme Let\'s\ Git\ it\!
