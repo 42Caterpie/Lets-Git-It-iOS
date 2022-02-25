@@ -19,6 +19,7 @@ jobs:
       - name: Set Default Scheme
         run: |
           default=Let\'s\ Git\ it\!
+          echo $default | cat >default
       - name: Start xcode build 🛠
         env:
           scheme: ${{ 'default' }}
