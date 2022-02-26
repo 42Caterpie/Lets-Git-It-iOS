@@ -35,7 +35,7 @@ struct RoomData: Codable {
         self.maxParticipants = maxParticipants
     }
     
-    init (id: String, title: String, startDate: String, goal: Int, participants: [String] ,maxParticipants: Int) {
+    init (id: String, title: String, startDate: String, goal: Int, participants: [String], maxParticipants: Int) {
         self.id = id
         self.title = title
         self.startDate = startDate
