@@ -81,7 +81,8 @@ class CompetitionService: ObservableObject {
         }
     }
     
-    func kickUserFromRoom(roomID: String, userName: String) {
+    class func kickUserFromRoom(roomID: String, userName: String) {
+        let db = Firestore.firestore()
         let roomDataRef = db.collection("RoomData").document(roomID)
         
         roomDataRef.updateData([

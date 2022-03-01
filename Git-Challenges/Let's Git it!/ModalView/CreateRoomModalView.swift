@@ -58,10 +58,12 @@ struct CreateRoomModalView: View {
             }
             HStack {
                 Button {
-                    let roomData: RoomData = RoomData(title: title,
-                                                      startDate: startDate,
-                                                      goal: goal,
-                                                      maxParticipants: maxParticipants)
+                    let roomData: RoomData = RoomData(
+                        title: title,
+                        startDate: startDate,
+                        goal: goal,
+                        maxParticipants: maxParticipants
+                    )
                     competitionService.createRoom(with: roomData)
                     self.presentationMode.wrappedValue.dismiss()
                 } label: {
