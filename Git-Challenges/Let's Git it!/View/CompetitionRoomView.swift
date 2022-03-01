@@ -87,6 +87,16 @@ struct CompetitionRoomView: View {
                     },
                     secondaryButton: .default(Text("Cancel"))
                 )
+            case .leaveRoom:
+                return Alert(
+                    title: Text(Message.leaveRoomTitle),
+                    message: Text(Message.leaveRoomMessage),
+                    primaryButton: .cancel(Text("Leave")) {
+                        competitionService.leaveRoom(roomID: competitionRoomViewModel.roomID) {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    },
+                    secondaryButton: .default(Text("Cancel")))
             case .noAction:
                 break
             }
@@ -115,9 +125,13 @@ struct CompetitionRoomView: View {
                     alertType = .deleteRoom
                     showAlert.toggle()
                 }
+                else {
+                    alertType = .leaveRoom
+                    showAlert.toggle()
+                }
             } label: {
-                Text("Delete")
-                    .foregroundColor(isUserHost() ? .red : .clear)
+                Text(isUserHost() ? "Delete" : "Leave")
+                    .foregroundColor(.red)
             }
         }
         .padding()

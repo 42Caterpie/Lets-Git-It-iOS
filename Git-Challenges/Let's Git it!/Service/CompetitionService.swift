@@ -81,6 +81,19 @@ class CompetitionService: ObservableObject {
         }
     }
     
+    func leaveRoom(roomID: String, completionHandler: @escaping () -> Void) {
+        db.collection("RoomData").document(roomID).updateData([
+            "participants": FieldValue.arrayRemove([userID])
+        ]) { error in
+            if let error = error {
+                print("Cannot Remove Value: \(error)")
+            }
+            else {
+                self.requestRoomDatas()
+            }
+        }
+    }
+    
     class func kickUserFromRoom(roomID: String, userName: String) {
         let db = Firestore.firestore()
         let roomDataRef = db.collection("RoomData").document(roomID)
