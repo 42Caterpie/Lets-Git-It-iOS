@@ -17,14 +17,6 @@ class CompetitionRoomViewModel: ObservableObject {
     var roomID: String = ""
     var host: String = ""
     
-    func configureRoomData() {
-        CompetitionService.roomData(
-            with: roomID, completionHandler: { roomData in
-                self.roomData = roomData
-                self.host = roomData.participants.first ?? ""
-            })
-    }
-    
     func kickUserFromRoom(_ userNameToKick: String) {
         CompetitionService.kickUserFromRoom(
             roomID: self.roomData.id,

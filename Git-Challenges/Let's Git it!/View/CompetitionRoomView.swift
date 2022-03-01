@@ -13,6 +13,7 @@ struct CompetitionRoomView: View {
     @Environment(\.presentationMode) private var presentationMode
     @EnvironmentObject var competitionService: CompetitionService
     @ObservedObject var competitionRoomViewModel: CompetitionRoomViewModel = CompetitionRoomViewModel()
+    @State private var isConfiguring: Bool = true
     @State private var showAlert: Bool = false
     @State private var alertType: RoomModificationAlertType = .noAction
     @State private var userNameToKick: String = ""
@@ -52,9 +53,17 @@ struct CompetitionRoomView: View {
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
+        .overlay (
+            ActivityIndicator(isAnimating: $isConfiguring, style: .medium)
+        )
         .onAppear {
-            competitionRoomViewModel.configureRoomData()
-            competitionRoomViewModel.calculateParticipantStreak()
+            CompetitionService.roomData(
+                with: competitionRoomViewModel.roomID, completionHandler: { roomData in
+                    competitionRoomViewModel.roomData = roomData
+                    competitionRoomViewModel.host = roomData.participants.first ?? ""
+                    competitionRoomViewModel.calculateParticipantStreak()
+                    self.isConfiguring = false
+                })
         }
         .alert(isPresented: $showAlert) {
             switch alertType {
