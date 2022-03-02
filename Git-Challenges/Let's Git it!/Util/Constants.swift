@@ -23,6 +23,8 @@ enum Message {
     static let kickUserFromRoomMessage: String = "This cannot be restored.\nReally want to kick the user?"
     static let deleteRoomTitle: String = "Delete this room"
     static let deleteRoomMessage: String = "This cannot be restored.\nReally want to delete the room?"
+    static let leaveRoomTitle: String = "Leave this room"
+    static let leaveRoomMessage: String = "This cannot be restored.\nReally want to leave the room?"
 }
 
 enum JoinErrorMessage {
@@ -37,6 +39,7 @@ enum RoomModificationAlertType {
     case kickUserFromRoom
     case deleteRoom
     case noAction
+    case leaveRoom
 }
 
 enum widthRatio {

@@ -7,40 +7,45 @@
 
 import SwiftUI
 
+import Firebase
+
 struct CompetitionRoomView: View {
     @Environment(\.presentationMode) private var presentationMode
     @EnvironmentObject var competitionService: CompetitionService
+    @ObservedObject var competitionRoomViewModel: CompetitionRoomViewModel = CompetitionRoomViewModel()
+    @State private var isConfiguring: Bool = true
     @State private var showAlert: Bool = false
     @State private var alertType: RoomModificationAlertType = .noAction
     @State private var userNameToKick: String = ""
-    @State private var roomData: RoomData = RoomData()
-    var roomID: String
     
     init(of roomID: String) {
-        self.roomID = roomID
+        competitionRoomViewModel.roomID = roomID
     }
     
     var body: some View {
         VStack {
             navigationBar
             List {
-                ForEach(roomData.participants, id: \.self) { participant in
+                ForEach(competitionRoomViewModel.roomData.participants, id: \.self) { participant in
+                    let percent = competitionRoomViewModel.calculatePercentage(of: participant)
                     VStack {
                         HStack {
                             Text(participant)
                             Spacer()
                             Button {
-                                alertType = .kickUserFromRoom
-                                userNameToKick = participant
-                                showAlert.toggle()
+                                if isUserHost() {
+                                    alertType = .kickUserFromRoom
+                                    userNameToKick = participant
+                                    showAlert.toggle()
+                                }
                             } label: {
                                 Text("Kick")
-                                    .foregroundColor(.red)
+                                    .foregroundColor(isUserHost() && !isUser(participant) ? .red : .clear)
                             }
                         }
                         .padding()
                         .buttonStyle(PlainButtonStyle())
-                        progressBar(width: uiSize.width * 0.7, height: 10, percent: 0.5)
+                        progressBar(width: uiSize.width * 0.7, height: 10, percent: percent)
                             .padding()
                     }
                 }
@@ -48,10 +53,17 @@ struct CompetitionRoomView: View {
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
+        .overlay (
+            ActivityIndicator(isAnimating: $isConfiguring, style: .medium)
+        )
         .onAppear {
-            CompetitionService.roomData(with: roomID) { roomData in
-                self.roomData = roomData
-            }
+            CompetitionService.roomData(
+                with: competitionRoomViewModel.roomID, completionHandler: { roomData in
+                    competitionRoomViewModel.roomData = roomData
+                    competitionRoomViewModel.host = roomData.participants.first ?? ""
+                    competitionRoomViewModel.calculateParticipantStreak()
+                    self.isConfiguring = false
+                })
         }
         .alert(isPresented: $showAlert) {
             switch alertType {
@@ -60,13 +72,7 @@ struct CompetitionRoomView: View {
                     title: Text(Message.kickUserFromRoomTitle),
                     message: Text(Message.kickUserFromRoomMessage),
                     primaryButton: .cancel(Text("Kick")) {
-                        competitionService.kickUserFromRoom(
-                            roomID: roomData.id,
-                            userName: userNameToKick
-                        )
-                        CompetitionService.roomData(with: roomData.id) { roomData in
-                            self.roomData = roomData
-                        }
+                        competitionRoomViewModel.kickUserFromRoom(userNameToKick)
                     },
                     secondaryButton: .default(Text("Cancel"))
                 )
@@ -75,12 +81,22 @@ struct CompetitionRoomView: View {
                     title: Text(Message.deleteRoomTitle),
                     message: Text(Message.deleteRoomMessage),
                     primaryButton: .cancel(Text("Delete")) {
-                        competitionService.deleteRoom(roomID: roomData.id) {
+                        competitionService.deleteRoom(roomID: competitionRoomViewModel.roomID) {
                             presentationMode.wrappedValue.dismiss()
                         }
                     },
                     secondaryButton: .default(Text("Cancel"))
                 )
+            case .leaveRoom:
+                return Alert(
+                    title: Text(Message.leaveRoomTitle),
+                    message: Text(Message.leaveRoomMessage),
+                    primaryButton: .cancel(Text("Leave")) {
+                        competitionService.leaveRoom(roomID: competitionRoomViewModel.roomID) {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    },
+                    secondaryButton: .default(Text("Cancel")))
             case .noAction:
                 break
             }
@@ -89,7 +105,9 @@ struct CompetitionRoomView: View {
     }
     
     private var navigationBar: some View {
-        HStack {
+        @State var roomData = competitionRoomViewModel.roomData
+        
+        return HStack {
             Button {
                 presentationMode.wrappedValue.dismiss()
             } label: {
@@ -103,10 +121,16 @@ struct CompetitionRoomView: View {
             Text(roomData.title)
             Spacer(minLength: 0)
             Button {
-                alertType = .deleteRoom
-                showAlert.toggle()
+                if isUserHost() {
+                    alertType = .deleteRoom
+                    showAlert.toggle()
+                }
+                else {
+                    alertType = .leaveRoom
+                    showAlert.toggle()
+                }
             } label: {
-                 Text("Delete")
+                Text(isUserHost() ? "Delete" : "Leave")
                     .foregroundColor(.red)
             }
         }
@@ -134,6 +158,16 @@ struct CompetitionRoomView: View {
                     )
                 )
         }
+    }
+    
+    private func isUserHost() -> Bool {
+        let userID = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
+        return userID == competitionRoomViewModel.host
+    }
+    
+    private func isUser(_ participant: String) -> Bool {
+        let userID = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
+        return userID == participant
     }
 }
 
