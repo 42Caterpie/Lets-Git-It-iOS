@@ -10,10 +10,7 @@ import WidgetKit
 
 struct ThemeChangeCell: View {
     func reloadWidget() {
-        // MARK: Reload Widget Data
-        if #available(iOS 14.0, *) {
-            WidgetCenter.shared.reloadAllTimelines()
-        }
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     var body: some View {

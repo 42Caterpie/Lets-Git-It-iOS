@@ -42,7 +42,7 @@ struct MainView: View {
             NavigationLink {
                 SettingView()
             } label: {
-                Image(systemName: "gear")
+                Image(systemName: "gearshape")
                     .foregroundColor(getThemeColors()[color.defaultGray.rawValue])
                     .font(.system(size: 20, weight: .bold))
             }

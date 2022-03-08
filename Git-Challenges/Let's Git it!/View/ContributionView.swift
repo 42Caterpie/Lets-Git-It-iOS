@@ -35,36 +35,10 @@ struct ContributionView: View {
                 Text("Hidden")
                     .font(.system(size: 18, weight: .bold))
                     .hidden()
-                if #available(iOS 14.0, *) {
-                    ScrollView (.horizontal) {
-                        ScrollViewReader { scroll in
-                            HStack (alignment: .top, spacing: 3) {
-                                ForEach (0..<52, id: \.self) { col in
-                                    VStack (spacing: 3) {
-                                        ForEach (0..<7, id: \.self) { row in
-                                            ColorView(userInfoService.commits[col * 7 + row].level)
-                                        }
-                                    }
-                                }
-                                VStack (spacing: 3) {
-                                    ForEach(364..<userInfoService.commits.count, id: \.self) { cell in
-                                        ColorView(userInfoService.commits[cell].level)
-                                    }
-                                }
-                                .id(end)
-                            }
-                            .onAppear {
-                                scroll.scrollTo(end)
-                            }
-                            .cornerRadius(4)
-                        }
-                    }
-                    .frame(width: width, height: 100)
-                }
-                else {
-                    ScrollView (.horizontal) {
+                ScrollView (.horizontal) {
+                    ScrollViewReader { scroll in
                         HStack (alignment: .top, spacing: 3) {
-                            ForEach (53 - Int(width / 18)..<52, id: \.self) { col in
+                            ForEach (0..<52, id: \.self) { col in
                                 VStack (spacing: 3) {
                                     ForEach (0..<7, id: \.self) { row in
                                         ColorView(userInfoService.commits[col * 7 + row].level)
@@ -76,11 +50,15 @@ struct ContributionView: View {
                                     ColorView(userInfoService.commits[cell].level)
                                 }
                             }
+                            .id(end)
+                        }
+                        .onAppear {
+                            scroll.scrollTo(end)
                         }
                         .cornerRadius(4)
                     }
-                    .frame(width: width, height: 100)
                 }
+                .frame(width: width, height: 100)
             }
         }
         .padding(.top, 15)
