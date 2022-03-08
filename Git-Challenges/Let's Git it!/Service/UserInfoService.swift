@@ -36,11 +36,7 @@ class UserInfoService: ObservableObject {
         getCommitData()
         calculateCurrentStreak()
         calculatePercentage(with: self.currentStreak.count)
-        
-        // MARK: Reload Widget Data
-        if #available(iOS 14.0, *) {
-            WidgetCenter.shared.reloadAllTimelines()
-        }
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func saveUserGoal() {
