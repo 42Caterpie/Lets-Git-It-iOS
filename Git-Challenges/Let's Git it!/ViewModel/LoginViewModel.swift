@@ -47,7 +47,10 @@ class LoginViewModel: ObservableObject {
                             WidgetCenter.shared.reloadAllTimelines()
                         }
                         
+                        
+                        
                         if let authResult = authResult {
+                            self.getDataWithGraphQL(token: oauthCredential.accessToken!, id: id)
                             UserDefaults.shared.set(
                                 authResult.user.displayName,
                                 forKey: "displayName")
@@ -59,6 +62,35 @@ class LoginViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    //MARK: Alamofire와 github GraphQL을 이용하여 깃 데이터 가져오기
+    
+    private func getDataWithGraphQL(token: String, id: String) {
+        let query =
+        """
+        {
+        \"query\": \"query { user(login: \\\"\(id)\\\"){ contributionsCollection { contributionCalendar { totalContributions weeks { contributionDays { contributionCount date } } } } } }\"
+        }
+        """
+        let graphQLURL: URL = URL(string: "https://api.github.com/graphql")!
+        var request:URLRequest = URLRequest(url: graphQLURL)
+        let data = query.data(using: .utf8)
+        
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("bearer " + token, forHTTPHeaderField: "Authorization")
+        request.httpBody = data
+        Alamofire.request(request).responseJSON { response in
+            switch response.result {
+            case .success(let response) :
+                if let res = response as? [String: Any] {
+                    print(res)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
     }
     
     
