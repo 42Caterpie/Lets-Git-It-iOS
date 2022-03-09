@@ -14,6 +14,7 @@ class CompetitionRoomViewModel: ObservableObject {
     
     @Published var roomData: RoomData = RoomData()
     @Published var participantStreak: [String: Int] = [:]
+    @Published var ranks: [String: Int] = [:]
     var roomID: String = ""
     var host: String = ""
     
@@ -57,6 +58,51 @@ class CompetitionRoomViewModel: ObservableObject {
         return CGFloat(streak) / CGFloat(goal) < 1 ? CGFloat(streak) / CGFloat(goal) : 1
     }
     
+    func maxStreak() -> Int {
+        let startDate = roomData.startDate.toDate() ?? Date()
+        let today = Date()
+        guard let currentStreak = Calendar.current.dateComponents(
+            [.day],
+            from: startDate, to: today
+        ).day
+        else { return 0 }
+        
+        return currentStreak + 1
+    }
+    
+    func isExpired() -> Bool {
+        return roomData.goal < maxStreak()
+    }
+    
+    func calculateRanking() {
+        let sortedStreak = Set(participantStreak.values).sorted { $0 > $1 }
+        var ranks = [String: Int]()
+        var rank = 0
+        var sameRankCount = 0
+        
+        for streak in sortedStreak {
+            for (participant, participantStreak) in participantStreak {
+                if streak == participantStreak {
+                    ranks[participant] = rank
+                    sameRankCount += 1
+                }
+            }
+            rank += sameRankCount
+            sameRankCount = 0
+        }
+        
+        self.ranks = ranks
+    }
+    
+    func ranking(of participant: String) -> String {
+        let rankEmoji: [String] = ["🥇", "🥈", "🥉"]
+        
+        guard let participantRank = ranks[participant]
+        else { return "" }
+        
+        return participantRank <= 2 ? rankEmoji[participantRank] : ""
+    }
+    
     private func getCommitData(of userID: String) -> [Commit] {
         var commits: [Commit] = [Commit]()
         
@@ -98,7 +144,6 @@ class CompetitionRoomViewModel: ObservableObject {
     private func calculateStreak(with commits: [Commit]) -> Int {
         let today = commits.count - 1
         let yesterday = commits.count - 2
-        let competitionStartDate = roomData.startDate.toDate()
         var streakStartDate: Date? = nil
         var streak = 0
         
@@ -110,13 +155,12 @@ class CompetitionRoomViewModel: ObservableObject {
             return 0
         }
         
-        for day in stride(from: today, to: 0, by: -1) {
+        for day in stride(from: today, to: today - maxStreak(), by: -1) {
             if commits[day].level > 0 {
                 streakStartDate = commits[day].date
                 streak += 1
             }
-            if (streakStartDate != nil && commits[day].level == 0) ||
-                commits[day].date.formatted == competitionStartDate {
+            if (streakStartDate != nil && commits[day].level == 0) {
                 break
             }
         }

@@ -21,7 +21,7 @@
 		73710D9B279009F3009EBA62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73710D9A279009F3009EBA62 /* GoogleService-Info.plist */; };
 		73710DAC279018A6009EBA62 /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73710DAB279018A6009EBA62 /* CardModifier.swift */; };
 		73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73710DAD27902ED2009EBA62 /* NameCardView.swift */; };
-		73751ED6279D6A76006A8F94 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73751ED5279D6A76006A8F94 /* ProgressView.swift */; };
+		73751ED6279D6A76006A8F94 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73751ED5279D6A76006A8F94 /* ActivityIndicator.swift */; };
 		738900ED27B755CC00E9A696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73CF60AB2790033B005F4BF4 /* Assets.xcassets */; };
 		7390031027B524A9002184AF /* WidgetContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390030F27B524A9002184AF /* WidgetContributionView.swift */; };
 		73B7CBE927BA6DEB006FB99C /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B7CBE827BA6DEB006FB99C /* MainTabView.swift */; };
@@ -90,6 +90,7 @@
 		A8E9B2AC27C612EF006403E2 /* CompetitionRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E9B2AB27C612EF006403E2 /* CompetitionRoomView.swift */; };
 		A8E9B2AE27C620B5006403E2 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E9B2AD27C620B5006403E2 /* NavigationBarModifier.swift */; };
 		A8E9B2B027C657B8006403E2 /* CompetitionRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E9B2AF27C657B8006403E2 /* CompetitionRoomViewModel.swift */; };
+		A8E9B45D27D7804B00FA208B /* ParticipantCardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E9B45C27D7804B00FA208B /* ParticipantCardModifier.swift */; };
 		A8F8233927929C920000FB08 /* ChallengeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8233827929C920000FB08 /* ChallengeCardView.swift */; };
 		A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8233C27929DCB0000FB08 /* MainView.swift */; };
 /* End PBXBuildFile section */
@@ -135,7 +136,7 @@
 		73710D9A279009F3009EBA62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		73710DAB279018A6009EBA62 /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
 		73710DAD27902ED2009EBA62 /* NameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCardView.swift; sourceTree = "<group>"; };
-		73751ED5279D6A76006A8F94 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		73751ED5279D6A76006A8F94 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		7390030F27B524A9002184AF /* WidgetContributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContributionView.swift; sourceTree = "<group>"; };
 		73B7CBE827BA6DEB006FB99C /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		73B7CBEA27BA7138006FB99C /* CompetitionMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionMainView.swift; sourceTree = "<group>"; };
@@ -185,6 +186,7 @@
 		A8E9B2AB27C612EF006403E2 /* CompetitionRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionRoomView.swift; sourceTree = "<group>"; };
 		A8E9B2AD27C620B5006403E2 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		A8E9B2AF27C657B8006403E2 /* CompetitionRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionRoomViewModel.swift; sourceTree = "<group>"; };
+		A8E9B45C27D7804B00FA208B /* ParticipantCardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantCardModifier.swift; sourceTree = "<group>"; };
 		A8F8233827929C920000FB08 /* ChallengeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCardView.swift; sourceTree = "<group>"; };
 		A8F8233C27929DCB0000FB08 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -375,6 +377,7 @@
 				A83AA0E427992EA10006A718 /* ProgressBarModifier.swift */,
 				A83AA0E8279935BF0006A718 /* Texts.swift */,
 				A8E9B2AD27C620B5006403E2 /* NavigationBarModifier.swift */,
+				A8E9B45C27D7804B00FA208B /* ParticipantCardModifier.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -387,7 +390,7 @@
 				A896B0F427B4EC6A005D9669 /* NotificationCell.swift */,
 				A83E07F827971B8500BFB1A0 /* Progress.swift */,
 				A83E07FA27971CC200BFB1A0 /* GoalInputField.swift */,
-				73751ED5279D6A76006A8F94 /* ProgressView.swift */,
+				73751ED5279D6A76006A8F94 /* ActivityIndicator.swift */,
 			);
 			path = Subview;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				73E1A84327994DC800E1BDFE /* Badge.swift in Sources */,
 				A83AA0E327992E870006A718 /* Indicator.swift in Sources */,
 				73E1A83F27993C8400E1BDFE /* BadgeView.swift in Sources */,
+				A8E9B45D27D7804B00FA208B /* ParticipantCardModifier.swift in Sources */,
 				A83E07F7279707E000BFB1A0 /* Streak.swift in Sources */,
 				A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */,
 				735AA3C527916A16000E4E8C /* UserInfoService.swift in Sources */,
@@ -539,7 +543,7 @@
 				730952C227C4BEAC007A1155 /* CreateRoomModalView.swift in Sources */,
 				735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */,
 				A83E07F32796F6DC00BFB1A0 /* Goal.swift in Sources */,
-				73751ED6279D6A76006A8F94 /* ProgressView.swift in Sources */,
+				73751ED6279D6A76006A8F94 /* ActivityIndicator.swift in Sources */,
 				A83AA0EF2799857F0006A718 /* SettingView.swift in Sources */,
 				73E33FA92796C35300BF994D /* NameCardViewModel.swift in Sources */,
 				730952C827C4BFC7007A1155 /* ValidRoomID.swift in Sources */,
@@ -748,7 +752,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3.0;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 9TH57H8UP9;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Let's Git it!/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -784,7 +788,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3.0;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 9TH57H8UP9;
+				DEVELOPMENT_TEAM = 4L7K3ZV8H2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Let's Git it!/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
