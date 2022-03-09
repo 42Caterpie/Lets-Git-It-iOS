@@ -11,17 +11,10 @@ import SwiftUI
 
 struct NavigationBarModifier: ViewModifier {
     func body(content: Content) -> some View {
-        if #available(iOS 14.0, *) {
-            content
-                .navigationTitle("")
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarHidden(true)
-                .ignoresSafeArea(.keyboard)
-        }
-        else {
-            content
-                .navigationBarHidden(true)
-                .navigationBarTitle("")
-        }
+        content
+            .navigationTitle("")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarHidden(true)
+            .ignoresSafeArea(.keyboard)
     }
 }

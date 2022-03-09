@@ -14,7 +14,7 @@ struct VersionCheckCell: View {
                 .font(.system(size: 18, weight: .bold))
             Spacer()
             if isAppNeedToUpdate() {
-                Text("Update Needed")
+                Text("Update Needed >")
                     .font(.system(size: 15))
                     .foregroundColor(.gray)
                     .onTapGesture {

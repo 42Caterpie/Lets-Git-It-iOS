@@ -1,5 +1,5 @@
 //
-//  ProgressView.swift
+//  ActivityIndicator.swift
 //  Git-Challenges
 //
 //  Created by 강희영 on 2022/01/21.

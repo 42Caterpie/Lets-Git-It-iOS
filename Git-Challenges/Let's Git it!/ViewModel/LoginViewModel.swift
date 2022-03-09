@@ -40,12 +40,7 @@ class LoginViewModel: ObservableObject {
                     
                     self.getUserGithubId(oauthCredential.accessToken!) { id in
                         UserDefaults.shared.set(id, forKey: "userId")
-                        
-                        // MARK: Reload Widget Data
-                        
-                        if #available(iOS 14.0, *) {
-                            WidgetCenter.shared.reloadAllTimelines()
-                        }
+                        WidgetCenter.shared.reloadAllTimelines()
                         
                         
                         
