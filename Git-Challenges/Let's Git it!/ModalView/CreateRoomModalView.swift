@@ -16,68 +16,92 @@ struct CreateRoomModalView: View {
     @State var goal: String = "10"
     let minimumGoal: Int = 10
     
-    var body: some View {
-        Group {
-            TextField("Set room Title", text: $title)
-            HStack {
-                Text("Start Date")
-                DatePicker("",
-                           selection: $startDate,
-                           in: Date()..., displayedComponents: .date)
-            }
-            HStack {
-                Text("Goal")
-                Spacer()
-                TextField("365", text: $goal, onCommit: {
-                    var count = Int(goal) ?? 0
-                    if count < minimumGoal {
-                        count = minimumGoal
-                    }
-                    else if count > 365 {
-                        count = 365
-                    }
-                    goal = String(count)
-                })
+    func goalTextField() -> some View {
+        HStack {
+            Text("Goal")
+                .bold()
+            Spacer()
+            TextField("365", text: $goal, onCommit: {
+                var count = Int(goal) ?? 0
+                if count < minimumGoal {
+                    count = minimumGoal
+                }
+                else if count > 365 {
+                    count = 365
+                }
+                goal = String(count)
+            })
+                .textFieldStyle(.roundedBorder)
+                .multilineTextAlignment(.center)
+                .frame(width: 50)
                 .keyboardType(.numbersAndPunctuation)
-            }
-            
+        }
+    }
+    
+    private func titleTextField() -> some View {
+        TextField("Set room title", text: $title)
+            .font(.system(size: 24, weight: .bold))
+    }
+    
+    private func startDatePicker() -> some View {
+        HStack {
+            Text("Start Date")
+                .bold()
+            DatePicker("",
+                       selection: $startDate,
+                       in: Date()..., displayedComponents: .date)
+        }
+    }
+    
+    private func participantsPicker() -> some View {
+        ZStack {
             HStack {
-                Text("Participants")
-                Spacer()
-                Button {
-                    maxParticipants = max(2, maxParticipants - 1)
-                } label: {
-                    Image(systemName: "minus.circle")
-                }
-                Text("\(maxParticipants)")
-                Button {
-                    maxParticipants = min(6, maxParticipants + 1)
-                } label: {
-                    Image(systemName: "plus.circle")
-                }
-            }
-            HStack {
-                Button {
-                    let roomData: RoomData = RoomData(
-                        title: title,
-                        startDate: startDate,
-                        goal: goal,
-                        maxParticipants: maxParticipants
-                    )
-                    competitionService.createRoom(with: roomData)
-                    self.presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Text("Save")
-                }
-                Spacer()
-                Button {
-                    self.presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Text("Dismiss")
+                Stepper(value: $maxParticipants, in: 2...6) {
+                    HStack {
+                        Text("Participants")
+                            .bold()
+                        Spacer()
+                        Text("\(maxParticipants)")
+                            .padding(.trailing)
+                    }
                 }
             }
         }
+        .padding(.bottom, 30)
+    }
+    
+    private func makeRoomButton() -> some View {
+        return Button {
+            let roomData: RoomData = RoomData(
+                title: title,
+                startDate: startDate,
+                goal: goal,
+                maxParticipants: maxParticipants
+            )
+            competitionService.createRoom(with: roomData)
+            self.presentationMode.wrappedValue.dismiss()
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.blue)
+                    .frame(height: 50)
+                Text("Make")
+                    .foregroundColor(.white)
+            }
+            .padding(.horizontal)
+        }
+    }
+    
+    var body: some View {
+        VStack {
+            titleTextField()
+            startDatePicker()
+            goalTextField()
+            participantsPicker()
+            makeRoomButton()
+        }
         .padding()
+        .font(.system(size: 18))
     }
 }
 
