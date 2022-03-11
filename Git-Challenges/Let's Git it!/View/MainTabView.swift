@@ -8,25 +8,25 @@
 import SwiftUI
 
 struct MainTabView: View {
-    var body: some View {
-        TabView {
-            MainView()
-                .tabItem {
-                    Image(systemName: "list.dash")
-                    Text("Menu")
-                }
-            
-            CompetitionMainView()
-                .tabItem {
-                    Image(systemName: "list.dash")
-                    Text("Menu")
-                }
-        }
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.systemBackground
     }
-}
-
-struct MainTabView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainTabView()
+    
+    var body: some View {
+        NavigationView {
+            TabView {
+                MainView()
+                    .tabItem {
+                        Image(systemName: "house")
+                    }
+                
+                CompetitionMainView()
+                    .tabItem {
+                        Image(systemName: "gamecontroller.fill")
+                    }
+            }
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
+        }
     }
 }

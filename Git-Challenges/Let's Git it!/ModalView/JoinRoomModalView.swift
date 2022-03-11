@@ -14,24 +14,48 @@ struct JoinRoomModalView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text("Room Number")
-                Spacer()
-                TextField("", text: $roomNumber)
-                    .textContentType(.telephoneNumber)
-                    .frame(width: 100)
-                    .background(Color.gray)
-            }
-            Button {
-                competitionMainViewModel.joinRoom(roomNumber)
-                if competitionMainViewModel.isJoinable {
-                    self.presentationMode.wrappedValue.dismiss()
-                }
-            } label: {
-                Text("Join")
-            }
-            Text(competitionMainViewModel.joinError)
-                .foregroundColor(.red)
+            Spacer()
+            roomNumberTextField()
+            Spacer()
+            joinButton()
+            errorText()
         }
+        .padding(.vertical)
+    }
+    
+    private func roomNumberTextField() -> some View {
+        HStack {
+            Text("Room Number")
+                .bold()
+            Spacer()
+            TextField("", text: $roomNumber)
+                .textContentType(.telephoneNumber)
+                .frame(width: 100)
+                .textFieldStyle(.roundedBorder)
+        }
+        .padding(.horizontal)
+    }
+    
+    private func joinButton() -> some View {
+        Button {
+            competitionMainViewModel.joinRoom(roomNumber)
+            if competitionMainViewModel.isJoinable {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.blue)
+                    .frame(height: 50)
+                Text("Join")
+                    .foregroundColor(.white)
+            }
+            .padding(.horizontal)
+        }
+    }
+    
+    private func errorText() -> some View {
+        Text(competitionMainViewModel.joinError)
+            .foregroundColor(.red)
     }
 }

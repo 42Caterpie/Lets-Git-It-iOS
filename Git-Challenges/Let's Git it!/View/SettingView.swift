@@ -20,6 +20,7 @@ struct SettingView: View {
             Spacer()
             footer
         }
+        .navigationBarTitle("", displayMode: .inline)
         .alert(isPresented: $notificationManager.isAlertOccurred) {
             Alert(
                 title: Text(Message.notiDeniedInSettingsTitle),

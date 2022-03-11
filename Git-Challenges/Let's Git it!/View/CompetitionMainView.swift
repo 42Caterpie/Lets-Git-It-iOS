@@ -8,87 +8,129 @@
 import SwiftUI
 
 struct CompetitionMainView: View {
+    @State private var backgroundBlur: CGFloat = 0
+    @State private var halfModalOffset = uiSize.height - 500
+    @State private var showActionSheet: Bool = false
     @State private var showCreateRoomModal: Bool = false
     @State private var showJoinRoomModal: Bool = false
+    @ObservedObject var keyboard: KeyboardObserver = KeyboardObserver()
     @ObservedObject var competitionService = CompetitionService()
     
-    var body: some View {
-        NavigationView {
+    private func toolbar() -> some View {
+        HStack {
+            Spacer()
+            Button  {
+                if (!(showActionSheet || showJoinRoomModal || showCreateRoomModal)) {
+                    showActionSheet = true
+                }
+            } label: {
+                Image(systemName: "plus")
+                    .resizable()
+                    .frame(width: 23, height: 23)
+                    .foregroundColor(.black)
+                    .padding()
+            }
+        }
+    }
+    
+    private func halfModalView() -> some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 30)
+                .foregroundColor(.white)
+                .shadow(radius: 10)
             VStack {
-                HStack () {
-                    Spacer()
-                    Button  {
-                        showJoinRoomModal = true
-                    } label: {
-                        Text("Join")
-                            .padding()
-                    }
-                }
-                ScrollView {
-                    VStack {
-                        ForEach (competitionService.roomDatas, id: \.self.id) { room in
-                            NavigationLink {
-                                CompetitionRoomView(of: room.id)
-                                    .environmentObject(competitionService)
-                            } label: {
-                                VStack {
-                                    Text("Title: \(room.title)")
-                                    Text("Start Date: \(room.startDate)")
-                                    Text("Goal: \(room.goal)")
-                                    
-                                    HStack {
-                                        Image(systemName: "person.circle.fill")
-                                            .padding([.trailing], -7)
-                                        Image(systemName: "person.circle.fill")
-                                            .padding([.horizontal], -7)
-                                        Image(systemName: "person.circle.fill")
-                                            .padding([.horizontal], -7)
-                                        Image(systemName: "person.circle.fill")
-                                            .padding([.horizontal], -7)
-                                        Spacer()
-                                    }
-                                    .padding([.horizontal])
-                                }
-                                .modifier(CardModifier(height: 140))
-                                .background(
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .foregroundColor(ColorPalette.green.0[1])
-                                        .opacity(0.8)
-                                )
-                                .padding([.vertical], 5)
-                            }
-                        }
-                        .buttonStyle(.plain)
-                        
-                        VStack {
-                            Image(systemName: "plus.circle")
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                            Text("방 만들기")
-                        }
-                        .onTapGesture {
-                            showCreateRoomModal = true
-                        }
-                        .modifier(CardModifier(height: 140))
-                        .background(
-                            RoundedRectangle(cornerRadius: 20)
-                                .foregroundColor(ColorPalette.green.0[1])
-                                .opacity(0.8)
-                        )
-                        .padding([.vertical], 5)
-                    }
-                    Spacer()
-                }
-                .sheet(isPresented: self.$showCreateRoomModal) {
-                    CreateRoomModalView()
-                        .environmentObject(competitionService)
-                }
-                .sheet(isPresented: self.$showJoinRoomModal) {
+                if showJoinRoomModal {
                     JoinRoomModalView()
                         .environmentObject(competitionService)
+                        .frame(height: 350)
+                } else {
+                    CreateRoomModalView()
+                        .environmentObject(competitionService)
+                        .frame(height: 350)
                 }
+                Spacer()
             }
-            .modifier(NavigationBarModifier())
+        }
+        .edgesIgnoringSafeArea(.bottom)
+        .offset(y: halfModalOffset - (keyboard.isShowing ? keyboard.height - 80 : 0))
+        .animation(.spring())
+    }
+    
+    private func competitionRoomCell(_ room: RoomData) -> some View {
+        return HStack {
+            VStack (alignment: .leading) {
+                Text("\(room.title)")
+                    .font(.system(size: 18, weight: .bold))
+                Text("\(room.startDate) ~")
+            }
+            Spacer()
+        }
+        .modifier(CardModifier(height: 144))
+        .padding([.vertical], 5)
+    }
+    
+    private func gameListandModalView() -> some View {
+        ZStack {
+            ScrollView {
+                HStack {
+                    Text("Game List")
+                        .bold()
+                        .padding(.horizontal)
+                    Spacer()
+                }
+                VStack {
+                    ForEach (competitionService.roomDatas, id: \.self.id) { room in
+                        NavigationLink {
+                            CompetitionRoomView(of: room.id)
+                                .environmentObject(competitionService)
+                        } label: {
+                            competitionRoomCell(room)
+                        }
+                    }
+                    .buttonStyle(.plain)
+                }
+                Spacer()
+            }
+            .disabled(showActionSheet || showJoinRoomModal || showCreateRoomModal)
+            .onTapGesture {
+                showActionSheet = false
+                showJoinRoomModal = false
+                showCreateRoomModal = false
+            }
+            .blur(radius: showJoinRoomModal || showActionSheet || showCreateRoomModal ? 3 : 0)
+            if showJoinRoomModal || showCreateRoomModal {
+                halfModalView()
+            }
+        }
+    }
+    
+    private func makeJoinActionsheet() -> ActionSheet {
+        return ActionSheet(
+            title: Text("Select Make Room or Join Room"),
+            buttons: [
+                .default(
+                    Text("Make Room"),
+                    action: { showCreateRoomModal = true }),
+                .default(Text("Join Room"), action: { showJoinRoomModal = true }),
+                .cancel({ showActionSheet = false })
+            ])
+    }
+    
+    var body: some View {
+        VStack {
+            toolbar()
+            gameListandModalView()
+            .actionSheet(isPresented: $showActionSheet) {
+                makeJoinActionsheet()
+            }
+        }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+        .onAppear {
+            self.keyboard.addObserver()
+        }
+        .onDisappear {
+            self.keyboard.removeObserver()
         }
     }
 }
