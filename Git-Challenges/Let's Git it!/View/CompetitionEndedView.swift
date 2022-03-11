@@ -9,9 +9,7 @@ import SwiftUI
 
 struct CompetitionEndedView: View {
     @Environment(\.presentationMode) private var presentationMode
-    @EnvironmentObject var competitionService: CompetitionService
     @EnvironmentObject var competitionRoomViewModel: CompetitionRoomViewModel
-    @EnvironmentObject var colorThemeService: ColorThemeService
     
     var body: some View {
         VStack {

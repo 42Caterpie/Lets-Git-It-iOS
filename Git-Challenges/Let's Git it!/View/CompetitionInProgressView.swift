@@ -10,8 +10,6 @@ import SwiftUI
 import Firebase
 
 struct CompetitionInProgressView: View {
-    @Environment(\.presentationMode) private var presentationMode
-    @EnvironmentObject var competitionService: CompetitionService
     @EnvironmentObject var competitionRoomViewModel: CompetitionRoomViewModel
     @ObservedObject var colorThemeService: ColorThemeService = ColorThemeService()
     @Binding var showAlert: Bool
