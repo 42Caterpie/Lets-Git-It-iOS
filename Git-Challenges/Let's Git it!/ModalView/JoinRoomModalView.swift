@@ -12,39 +12,50 @@ struct JoinRoomModalView: View {
     @EnvironmentObject var competitionMainViewModel: CompetitionService
     @State var roomNumber: String = ""
     
+    private func roomNumberTextField() -> some View {
+        HStack {
+            Text("Room Number")
+                .bold()
+            Spacer()
+            TextField("", text: $roomNumber)
+                .textContentType(.telephoneNumber)
+                .frame(width: 100)
+                .textFieldStyle(.roundedBorder)
+        }
+        .padding(.horizontal)
+    }
+    
+    private func joinButton() -> some View {
+        Button {
+            competitionMainViewModel.joinRoom(roomNumber)
+            if competitionMainViewModel.isJoinable {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.blue)
+                    .frame(height: 50)
+                Text("Join")
+                    .foregroundColor(.white)
+            }
+            .padding(.horizontal)
+        }
+    }
+    
+    private func errorText() -> some View {
+        Text(competitionMainViewModel.joinError)
+            .foregroundColor(.red)
+    }
+    
     var body: some View {
         VStack {
             Spacer()
-            HStack {
-                Text("Room Number")
-                    .bold()
-                Spacer()
-                TextField("", text: $roomNumber)
-                    .textContentType(.telephoneNumber)
-                    .frame(width: 100)
-                    .textFieldStyle(.roundedBorder)
-            }
-            .padding(.horizontal)
+            roomNumberTextField()
             Spacer()
-            Button {
-                competitionMainViewModel.joinRoom(roomNumber)
-                if competitionMainViewModel.isJoinable {
-                    self.presentationMode.wrappedValue.dismiss()
-                }
-            } label: {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(.blue)
-                        .frame(height: 50)
-                    Text("Join")
-                        .foregroundColor(.white)
-                }
-                .padding(.horizontal)
-            }
-            Text(competitionMainViewModel.joinError)
-                .foregroundColor(.red)
+            joinButton()
+            errorText()
         }
         .padding(.vertical)
-//        .frame(height: 300)
     }
 }
