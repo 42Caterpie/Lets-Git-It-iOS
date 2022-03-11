@@ -16,6 +16,18 @@ struct CreateRoomModalView: View {
     @State var goal: String = "10"
     let minimumGoal: Int = 10
     
+    var body: some View {
+        VStack {
+            titleTextField()
+            startDatePicker()
+            goalTextField()
+            participantsPicker()
+            makeRoomButton()
+        }
+        .padding()
+        .font(.system(size: 18))
+    }
+    
     func goalTextField() -> some View {
         HStack {
             Text("Goal")
@@ -47,9 +59,11 @@ struct CreateRoomModalView: View {
         HStack {
             Text("Start Date")
                 .bold()
-            DatePicker("",
-                       selection: $startDate,
-                       in: Date()..., displayedComponents: .date)
+            DatePicker(
+                "",
+                selection: $startDate,
+                in: Date()..., displayedComponents: .date
+            )
         }
     }
     
@@ -90,18 +104,6 @@ struct CreateRoomModalView: View {
             }
             .padding(.horizontal)
         }
-    }
-    
-    var body: some View {
-        VStack {
-            titleTextField()
-            startDatePicker()
-            goalTextField()
-            participantsPicker()
-            makeRoomButton()
-        }
-        .padding()
-        .font(.system(size: 18))
     }
 }
 

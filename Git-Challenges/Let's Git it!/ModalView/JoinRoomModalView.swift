@@ -12,6 +12,17 @@ struct JoinRoomModalView: View {
     @EnvironmentObject var competitionMainViewModel: CompetitionService
     @State var roomNumber: String = ""
     
+    var body: some View {
+        VStack {
+            Spacer()
+            roomNumberTextField()
+            Spacer()
+            joinButton()
+            errorText()
+        }
+        .padding(.vertical)
+    }
+    
     private func roomNumberTextField() -> some View {
         HStack {
             Text("Room Number")
@@ -46,16 +57,5 @@ struct JoinRoomModalView: View {
     private func errorText() -> some View {
         Text(competitionMainViewModel.joinError)
             .foregroundColor(.red)
-    }
-    
-    var body: some View {
-        VStack {
-            Spacer()
-            roomNumberTextField()
-            Spacer()
-            joinButton()
-            errorText()
-        }
-        .padding(.vertical)
     }
 }
