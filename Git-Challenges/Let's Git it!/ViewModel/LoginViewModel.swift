@@ -75,16 +75,16 @@ class LoginViewModel: ObservableObject {
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("bearer " + token, forHTTPHeaderField: "Authorization")
         request.httpBody = data
-        Alamofire.request(request).responseJSON { response in
-            switch response.result {
-            case .success(let response) :
-                if let res = response as? [String: Any] {
-                    print(res)
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        Alamofire.request(request).responseJSON { response in
+//            switch response.result {
+//            case .success(let response) :
+//                if let res = response as? [String: Any] {
+//                    print(res)
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
         
     }
     
