@@ -12,7 +12,6 @@ struct MainView: View {
     @ObservedObject var colorThemeService: ColorThemeService = ColorThemeService()
     
     var body: some View {
-        NavigationView {
             ScrollView (showsIndicators: false) {
                 VStack(spacing: 10) {
                     toolBar
@@ -29,10 +28,9 @@ struct MainView: View {
                 })
                 .environmentObject(userInfoService)
                 .environmentObject(colorThemeService)
-                .modifier(NavigationBarModifier())
             }
-        }
-        .navigationViewStyle(.stack)
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
     }
     
     private var toolBar: some View {
