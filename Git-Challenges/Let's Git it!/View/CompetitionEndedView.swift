@@ -50,7 +50,6 @@ struct CompetitionEndedView: View {
         HStack {
             Text("Ranks")
                 .font(.system(size: 23, weight: .bold))
-                .bold()
             Spacer()
         }
         .padding(.leading, 30)

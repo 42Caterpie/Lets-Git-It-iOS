@@ -18,7 +18,7 @@ class CompetitionRoomViewModel: ObservableObject {
     var host: String = ""
     var userToKick: String = ""
     
-    func kickUserFromRoom(_ userNameToKick: String) {
+    func kickUserAndUpdate(_ userNameToKick: String) {
         CompetitionService.kickUserFromRoom(
             roomID: self.roomData.id,
             userName: userNameToKick

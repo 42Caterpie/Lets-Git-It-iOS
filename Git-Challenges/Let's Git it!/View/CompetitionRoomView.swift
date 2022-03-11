@@ -61,7 +61,7 @@ struct CompetitionRoomView: View {
                     title: Text(Message.kickUserFromRoomTitle),
                     message: Text(Message.kickUserFromRoomMessage),
                     primaryButton: .cancel(Text("Kick")) {
-                        competitionRoomViewModel.kickUserFromRoom(
+                        competitionRoomViewModel.kickUserAndUpdate(
                             competitionRoomViewModel.userToKick
                         )
                     },

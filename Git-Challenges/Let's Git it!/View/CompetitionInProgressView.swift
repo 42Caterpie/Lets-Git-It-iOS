@@ -66,7 +66,6 @@ struct CompetitionInProgressView: View {
                 participantView(of: participant, percent)
                     .onTapGesture {
                         if isUserHost() {
-                            print("kick user")
                             alertType = .kickUserFromRoom
                             competitionRoomViewModel.userToKick = participant
                             showAlert.toggle()
@@ -79,7 +78,10 @@ struct CompetitionInProgressView: View {
     private func participantView(of name: String, _ percent: CGFloat) -> some View {
         VStack(spacing: 10) {
             participant(name: name)
-            progressBar(width: uiSize.width * widthRatio.progressBar, height: 10, percent: percent)
+            progressBar(
+                width: uiSize.width * widthRatio.progressBar,
+                height: 10, percent: percent
+            )
                 .padding()
         }
         .modifier(ParticipantCardModifier())
@@ -124,12 +126,14 @@ struct CompetitionInProgressView: View {
     }
     
     private func isUserHost() -> Bool {
-        let userID = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
+        let userID = UserDefaults.shared.string(forKey: "userId") ??
+        Auth.auth().currentUser?.uid ?? "none"
         return userID == competitionRoomViewModel.host
     }
     
     private func isUser(_ participant: String) -> Bool {
-        let userID = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
+        let userID = UserDefaults.shared.string(forKey: "userId") ??
+        Auth.auth().currentUser?.uid ?? "none"
         return userID == participant
     }
 }
