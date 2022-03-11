@@ -15,6 +15,7 @@
 		730952C827C4BFC7007A1155 /* ValidRoomID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730952C727C4BFC7007A1155 /* ValidRoomID.swift */; };
 		731FF2A82796B296001CD5E7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FF2A72796B296001CD5E7 /* Theme.swift */; };
 		7320A758279E6FD20021371C /* ColorThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7320A757279E6FD20021371C /* ColorThemeService.swift */; };
+		733D9DFE27D9F1780062ECF2 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D9DFD27D9F1780062ECF2 /* KeyboardObserver.swift */; };
 		73528DF827997183005DF67C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73528DF727997183005DF67C /* LoginView.swift */; };
 		735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3BD27914950000E4E8C /* ContributionView.swift */; };
 		735AA3C527916A16000E4E8C /* UserInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3C427916A16000E4E8C /* UserInfoService.swift */; };
@@ -130,6 +131,7 @@
 		7320A757279E6FD20021371C /* ColorThemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeService.swift; sourceTree = "<group>"; };
 		7326007627B1068400650FC6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		7326007827B1068400650FC6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		733D9DFD27D9F1780062ECF2 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		73528DF727997183005DF67C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		735AA3BD27914950000E4E8C /* ContributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionView.swift; sourceTree = "<group>"; };
 		735AA3C427916A16000E4E8C /* UserInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoService.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				A8A113342793F95F00F9C984 /* Constants.swift */,
 				731FF2A72796B296001CD5E7 /* Theme.swift */,
 				730952C727C4BFC7007A1155 /* ValidRoomID.swift */,
+				733D9DFD27D9F1780062ECF2 /* KeyboardObserver.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 			files = (
 				73E7F07727927A3A0045AC5F /* Commit.swift in Sources */,
 				A83AA0F127998FA80006A718 /* NotificationManager.swift in Sources */,
+				733D9DFE27D9F1780062ECF2 /* KeyboardObserver.swift in Sources */,
 				A896B0FB27B4ECF1005D9669 /* SettingCellModifier.swift in Sources */,
 				73EDBD71279A815300C9B6F0 /* LoginViewModel.swift in Sources */,
 				73E33FAB2796C36F00BF994D /* NameCard.swift in Sources */,
@@ -752,7 +756,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3.0;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9TH57H8UP9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Let's Git it!/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
