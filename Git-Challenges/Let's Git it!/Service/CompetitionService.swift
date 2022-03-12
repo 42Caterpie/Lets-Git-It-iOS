@@ -48,13 +48,11 @@ class CompetitionService: ObservableObject {
                                     maxParticipants: roomData.maxParticipants).asDictionary!
             self.db.collection("RoomData").document(roomID).setData(roomData)
             
-            // MARK: Reload Room Datas
+            // Reload Room Datas
             self.requestRoomDatas()
         }
     }
     
-    // TODO: kickedUsers에서 userName 탐색 로직 추가
-    // MARK: roomNumber 입력 않고 join 버튼 누르면 'Document path cannot be empty" 런타임 에러 발생
     func joinRoom(_ roomNumber: String) {
         isValidRoomIDtoJoin(id: roomNumber) { isDone, errString in
             if isDone == false {
@@ -70,12 +68,9 @@ class CompetitionService: ObservableObject {
     func deleteRoom(roomID: String, completionHandler: @escaping () -> Void) {
         db.collection("RoomData").document(roomID).delete() { error in
             if let error = error {
-                // TODO: Alert Error to user
                 print("Cannot Remove Document: \(error)")
             }
             else {
-                // TODO: Alert Success to user
-                print("Successfully Removed Document")
                 self.requestRoomDatas()
             }
         }
@@ -103,12 +98,7 @@ class CompetitionService: ObservableObject {
             "kickedUsers": FieldValue.arrayUnion([userName])
         ]) { error in
             if let error = error {
-                // TODO: Alert Error to user
                 print("Cannot Kick User: \(error)")
-            }
-            else {
-                // TODO: Alert Success to user
-                print("Successfully Kicked User")
             }
         }
     }
@@ -118,8 +108,6 @@ class CompetitionService: ObservableObject {
         
         db.collection("RoomData").document(roomID).getDocument { documentSnapshot, error in
             guard let document = documentSnapshot else {
-                // TODO: Alert Error to user
-                print("Error Fetching Document: \(error!)")
                 return
             }
             
@@ -127,8 +115,6 @@ class CompetitionService: ObservableObject {
                   let jsonData = try? JSONSerialization.data(withJSONObject: data),
                   let roomData = try? JSONDecoder().decode(RoomData.self, from: jsonData)
             else {
-                // TODO: Alert Error to user
-                print("Cannot Decode")
                 return
             }
             

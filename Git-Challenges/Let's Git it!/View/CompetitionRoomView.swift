@@ -11,13 +11,12 @@ import Firebase
 
 struct CompetitionRoomView: View {
     @Environment(\.presentationMode) private var presentationMode
-    @EnvironmentObject var competitionService: CompetitionService
     @ObservedObject var competitionRoomViewModel: CompetitionRoomViewModel = CompetitionRoomViewModel()
-    @ObservedObject var colorThemeService: ColorThemeService = ColorThemeService()
+    @ObservedObject var competitionService: CompetitionService = CompetitionService()
     @State private var isConfiguring: Bool = true
     @State private var showAlert: Bool = false
     @State private var alertType: RoomModificationAlertType = .noAction
-    @State private var userNameToKick: String = ""
+
     
     init(of roomID: String) {
         competitionRoomViewModel.roomID = roomID
@@ -26,25 +25,13 @@ struct CompetitionRoomView: View {
     var body: some View {
         VStack {
             navigationBar
-            roomDataSection
-            Divider()
-            HStack {
-                Text("Members")
-                    .bold()
-                Spacer()
-            }
-            .padding(.leading, 30)
-            .padding([.top, .bottom], 10)
-            ScrollView {
-                ForEach(
-                    competitionRoomViewModel.roomData.participants,
-                    id: \.self
-                ) { participant in
-                    let percent = competitionRoomViewModel.calculatePercentage(of: participant)
-                    participantView(of: participant, percent)
-                }
+            if competitionRoomViewModel.isExpired() {
+                CompetitionEndedView()
+            } else {
+                CompetitionInProgressView(showAlert: $showAlert, alertType: $alertType)
             }
         }
+        .environmentObject(competitionRoomViewModel)
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
         .overlay (
@@ -74,7 +61,9 @@ struct CompetitionRoomView: View {
                     title: Text(Message.kickUserFromRoomTitle),
                     message: Text(Message.kickUserFromRoomMessage),
                     primaryButton: .cancel(Text("Kick")) {
-                        competitionRoomViewModel.kickUserFromRoom(userNameToKick)
+                        competitionRoomViewModel.kickUserAndUpdate(
+                            competitionRoomViewModel.userToKick
+                        )
                     },
                     secondaryButton: .default(Text("Cancel"))
                 )
@@ -139,102 +128,8 @@ struct CompetitionRoomView: View {
         .padding()
     }
     
-    private var roomDataSection: some View {
-        VStack(spacing: 10) {
-            HStack {
-                Text("Start Date")
-                    .bold()
-                Spacer()
-                Text(competitionRoomViewModel.roomData.startDate)
-            }
-            HStack {
-                Text("Max Streak")
-                    .bold()
-                Spacer()
-                Text("\(competitionRoomViewModel.maxStreak())")
-                    .bold()
-            }
-        }
-        .padding([.leading, .trailing], 30)
-        .padding(.bottom, 10)
-        .overlay(
-            ZStack {
-                if competitionRoomViewModel.isExpired() {
-                    Rectangle()
-                        .foregroundColor(Color(UIColor.systemBackground))
-                    Text("The competition is over.")
-                        .bold()
-                }
-            }
-        )
-    }
-    
-    private func participantView(of name: String, _ percent: CGFloat) -> some View {
-        VStack(spacing: 10) {
-            participant(name: name)
-            progressBar(width: uiSize.width * widthRatio.progressBar, height: 10, percent: percent)
-                .padding()
-        }
-        .modifier(ParticipantCardModifier())
-    }
-    
-    private func participant(name participant: String) -> some View {
-        return HStack {
-            Text(participant)
-                .bold()
-            Text("\(competitionRoomViewModel.ranking(of: participant))")
-            Spacer(minLength: 0)
-            Button {
-                if isUserHost() {
-                    alertType = .kickUserFromRoom
-                    userNameToKick = participant
-                    showAlert.toggle()
-                }
-            } label: {
-                Image(systemName: "x.circle")
-                    .foregroundColor(
-                        isUserHost() && !isUser(participant) ? .black : .clear
-                    )
-            }
-        }
-        .padding([.leading, .trailing], 20)
-        .padding(.top, 15)
-        .buttonStyle(PlainButtonStyle())
-    }
-    
-    private func progressBar(width: CGFloat, height: CGFloat, percent: CGFloat) -> some View {
-        ZStack(alignment: .leading) {
-            Capsule()
-                .modifier(
-                    ProgressBarModifier(
-                        size: CGSize(
-                            width: width,
-                            height: height
-                        ),
-                        color: colorThemeService.themeColors[color.defaultGray.rawValue]
-                    )
-                )
-            Capsule()
-                .modifier(
-                    ProgressBarModifier(
-                        size: CGSize(
-                            width: width * percent,
-                            height: height
-                        ),
-                        color: colorThemeService.themeColors[color.progressBar.rawValue]
-                    )
-                )
-        }
-    }
-    
     private func isUserHost() -> Bool {
         let userID = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
         return userID == competitionRoomViewModel.host
     }
-    
-    private func isUser(_ participant: String) -> Bool {
-        let userID = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
-        return userID == participant
-    }
 }
-

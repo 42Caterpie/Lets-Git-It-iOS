@@ -10,15 +10,15 @@ import SwiftUI
 import SwiftSoup
 
 class CompetitionRoomViewModel: ObservableObject {
-    // TODO: Users' git streak count and return the values
-    
     @Published var roomData: RoomData = RoomData()
     @Published var participantStreak: [String: Int] = [:]
     @Published var ranks: [String: Int] = [:]
+    @Published var rankedParticipants: [String] = [String]()
     var roomID: String = ""
     var host: String = ""
+    var userToKick: String = ""
     
-    func kickUserFromRoom(_ userNameToKick: String) {
+    func kickUserAndUpdate(_ userNameToKick: String) {
         CompetitionService.kickUserFromRoom(
             roomID: self.roomData.id,
             userName: userNameToKick
@@ -30,16 +30,13 @@ class CompetitionRoomViewModel: ObservableObject {
     
     func calculateParticipantStreak() {
         if roomData.participants.isEmpty {
-            // Error: no participants
             return
         }
         
         for participant in roomData.participants {
-            let commits = getCommitData(of: participant)
+            let commits = commitData(of: participant)
             let streak = calculateStreak(with: commits)
             participantStreak[participant] = streak
-            // if particiapantStreak[participant] >= goal, Alert to user
-            print("\(participant): \(streak)")
         }
     }
     
@@ -47,7 +44,6 @@ class CompetitionRoomViewModel: ObservableObject {
         let goal = roomData.goal
         guard let streak = participantStreak[participant]
         else {
-            // Alert to user that there's no valid participant
             return 0
         }
         
@@ -70,20 +66,34 @@ class CompetitionRoomViewModel: ObservableObject {
         return currentStreak + 1
     }
     
+    func endDate() -> Date {
+        let startDate = roomData.startDate.toDate() ?? Date()
+        let daysAfter = roomData.goal - 1
+        
+        guard let endDate = Calendar.current.date(
+            byAdding: DateComponents(day: daysAfter),
+            to: startDate
+        )
+        else { return Date() }
+        return endDate
+    }
+    
     func isExpired() -> Bool {
-        return roomData.goal < maxStreak()
+        return endDate() < Date()
     }
     
     func calculateRanking() {
         let sortedStreak = Set(participantStreak.values).sorted { $0 > $1 }
         var ranks = [String: Int]()
+        var rankedParticipants = [String]()
         var rank = 0
         var sameRankCount = 0
         
         for streak in sortedStreak {
             for (participant, participantStreak) in participantStreak {
                 if streak == participantStreak {
-                    ranks[participant] = rank
+                    rankedParticipants.append(participant)
+                    ranks[participant, default: 0] += rank
                     sameRankCount += 1
                 }
             }
@@ -92,6 +102,7 @@ class CompetitionRoomViewModel: ObservableObject {
         }
         
         self.ranks = ranks
+        self.rankedParticipants = rankedParticipants
     }
     
     func ranking(of participant: String) -> String {
@@ -103,7 +114,7 @@ class CompetitionRoomViewModel: ObservableObject {
         return participantRank <= 2 ? rankEmoji[participantRank] : ""
     }
     
-    private func getCommitData(of userID: String) -> [Commit] {
+    private func commitData(of userID: String) -> [Commit] {
         var commits: [Commit] = [Commit]()
         
         let baseURL: String = "http://github.com/users/\(userID)/contributions"
@@ -125,7 +136,7 @@ class CompetitionRoomViewModel: ObservableObject {
                 })
                 .filter{ $0.0.isEmpty == false }
                 .compactMap({ (dateString, levelString) -> Commit in
-                    let date = dateString.toDate() ?? Date() // 여기서 시간
+                    let date = dateString.toDate() ?? Date()
                     let level = Int(levelString) ?? 0
                     
                     return Commit(date: date, level: level)
@@ -142,14 +153,20 @@ class CompetitionRoomViewModel: ObservableObject {
     }
     
     private func calculateStreak(with commits: [Commit]) -> Int {
-        let today = commits.count - 1
-        let yesterday = commits.count - 2
+        var today = commits.count - 1
+        var yesterday = today - 1
+        let endDate = self.endDate()
         var streakStartDate: Date? = nil
         var streak = 0
         
         if commits.isEmpty {
             return 0
         }
+        
+        while commits[today].date > endDate {
+            today -= 1
+        }
+        yesterday = today - 1
         
         if commits[yesterday].level == 0 && commits[today].level == 0 {
             return 0
@@ -160,22 +177,12 @@ class CompetitionRoomViewModel: ObservableObject {
                 streakStartDate = commits[day].date
                 streak += 1
             }
-            if (streakStartDate != nil && commits[day].level == 0) {
+            if roomData.startDate == commits[day].date.toString ||
+                (streakStartDate != nil && commits[day].level == 0) {
                 break
             }
         }
         
         return streak
-    }
-    
-    private func hasUserCommittedToday(_ todayCommitData: Commit?) -> Bool {
-        guard let todayCommitData = todayCommitData
-        else {
-            return false
-        }
-        if todayCommitData.date.isToday && todayCommitData.level > 0 {
-            return true
-        }
-        return false
     }
 }
