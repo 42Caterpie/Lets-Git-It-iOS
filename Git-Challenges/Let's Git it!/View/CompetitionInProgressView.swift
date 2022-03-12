@@ -80,7 +80,8 @@ struct CompetitionInProgressView: View {
             participant(name: name)
             progressBar(
                 width: uiSize.width * widthRatio.progressBar,
-                height: 10, percent: percent
+                height: 10,
+                percent: percent
             )
                 .padding()
         }
