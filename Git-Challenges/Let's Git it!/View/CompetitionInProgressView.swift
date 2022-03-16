@@ -15,14 +15,33 @@ struct CompetitionInProgressView: View {
     @Binding var showAlert: Bool
     @Binding var alertType: RoomModificationAlertType
     @State private var userNameToKick: String = ""
+    @State private var shouldPopupBePresented: Bool = false
+    @State private var isProcessing: Bool = false
 
     
     var body: some View {
-        VStack {
-            roomDataSection
-            Divider()
-            descriptionLabel
-            memberList
+        ZStack {
+            VStack {
+                roomDataSection
+                Divider()
+                descriptionLabel
+                memberList
+            }
+            
+            if shouldPopupBePresented {
+                footerPopup
+                    .offset(x: 0, y: uiSize.height / 2 - 100)
+                    .onAppear {
+                        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
+                            withAnimation(.easeInOut(duration: 2)) {
+                                self.shouldPopupBePresented.toggle()
+                            }
+                        }
+                        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
+                            self.isProcessing = false
+                        }
+                    }
+            }
         }
     }
     
@@ -40,6 +59,19 @@ struct CompetitionInProgressView: View {
                 Spacer()
                 Text("\(competitionRoomViewModel.roomData.goal)")
                     .bold()
+            }
+            Button {
+                UIPasteboard.general.string = competitionRoomViewModel.roomID
+                if !isProcessing {
+                    self.isProcessing = true
+                    self.shouldPopupBePresented.toggle()
+                }
+            } label: {
+                HStack {
+                    Image(systemName: "square.on.square")
+                    Text("Copy Room ID")
+                }
+                .font(.system(size: 15))
             }
         }
         .padding([.leading, .trailing], 30)
@@ -73,6 +105,18 @@ struct CompetitionInProgressView: View {
                     }
             }
         }
+    }
+    
+    private var footerPopup: some View {
+        RoundedRectangle(cornerRadius: 15)
+            .frame(width: uiSize.width * 0.6, height: 30)
+            .foregroundColor(colorThemeService.themeColors[color.defaultGray.rawValue])
+            .opacity(0.5)
+            .overlay(
+                Text("Room ID has copied to clipboard")
+                    .foregroundColor(.white)
+                    .font(.system(size: 13))
+            )
     }
     
     private func participantView(of name: String, _ percent: CGFloat) -> some View {
