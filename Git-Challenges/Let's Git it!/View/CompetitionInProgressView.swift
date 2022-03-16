@@ -60,18 +60,24 @@ struct CompetitionInProgressView: View {
                 Text("\(competitionRoomViewModel.roomData.goal)")
                     .bold()
             }
-            Button {
-                UIPasteboard.general.string = competitionRoomViewModel.roomID
-                if !isProcessing {
-                    self.isProcessing = true
-                    self.shouldPopupBePresented.toggle()
+            
+            VStack {
+                Button {
+                    UIPasteboard.general.string = competitionRoomViewModel.roomID
+                    if !isProcessing {
+                        self.isProcessing = true
+                        self.shouldPopupBePresented.toggle()
+                    }
+                } label: {
+                        HStack {
+                            Image(systemName: "square.on.square")
+                            Text("\(competitionRoomViewModel.roomID)")
+                        }
+                        .font(.system(size: 14, weight: .bold))
                 }
-            } label: {
-                HStack {
-                    Image(systemName: "square.on.square")
-                    Text("Copy Room ID")
-                }
-                .font(.system(size: 15))
+                Text("Tap to Copy")
+                    .font(.system(size: 10))
+                    .foregroundColor(.gray)
             }
         }
         .padding([.leading, .trailing], 30)
@@ -111,7 +117,7 @@ struct CompetitionInProgressView: View {
         RoundedRectangle(cornerRadius: 15)
             .frame(width: uiSize.width * 0.6, height: 30)
             .foregroundColor(colorThemeService.themeColors[color.defaultGray.rawValue])
-            .opacity(0.5)
+            .opacity(0.7)
             .overlay(
                 Text("Room ID has copied to clipboard")
                     .foregroundColor(.white)
