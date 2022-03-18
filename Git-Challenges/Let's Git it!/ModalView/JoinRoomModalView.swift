@@ -10,6 +10,7 @@ import SwiftUI
 struct JoinRoomModalView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var competitionMainViewModel: CompetitionService
+    @EnvironmentObject var showModalView: ShowModalView
     @State var roomNumber: String = ""
     
     var body: some View {
@@ -40,7 +41,7 @@ struct JoinRoomModalView: View {
         Button {
             competitionMainViewModel.joinRoom(roomNumber)
             if competitionMainViewModel.isJoinable {
-                self.presentationMode.wrappedValue.dismiss()
+                showModalView.showJoinRoomModal = false
             }
         } label: {
             ZStack {

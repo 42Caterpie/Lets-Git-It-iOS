@@ -117,7 +117,6 @@ class CompetitionService: ObservableObject {
             else {
                 return
             }
-            
             completionHandler(roomData)
         }
     }
