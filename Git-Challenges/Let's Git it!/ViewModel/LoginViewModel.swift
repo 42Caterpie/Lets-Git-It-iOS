@@ -42,7 +42,7 @@ class LoginViewModel: ObservableObject {
                         UserDefaults.shared.set(id, forKey: "userId")
                         WidgetCenter.shared.reloadAllTimelines()
                         if let authResult = authResult {
-                            self.getDataWithGraphQL(token: oauthCredential.accessToken!, id: id)
+//                            self.dataWithGraphQL(token: oauthCredential.accessToken!, id: id)
                             UserDefaults.shared.set(
                                 authResult.user.displayName,
                                 forKey: "displayName")
@@ -58,7 +58,7 @@ class LoginViewModel: ObservableObject {
     
     //MARK: Alamofire와 github GraphQL을 이용하여 깃 데이터 가져오기
     
-    private func getDataWithGraphQL(token: String, id: String) {
+    private func dataWithGraphQL(token: String, id: String) {
         let query =
         """
         {
