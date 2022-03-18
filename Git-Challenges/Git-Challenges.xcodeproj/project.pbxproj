@@ -13,7 +13,7 @@
 		730952C427C4BF66007A1155 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730952C327C4BF66007A1155 /* Encodable+Extension.swift */; };
 		730952C627C4BFA6007A1155 /* RandomNumberGenarator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730952C527C4BFA6007A1155 /* RandomNumberGenarator.swift */; };
 		730952C827C4BFC7007A1155 /* ValidRoomID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730952C727C4BFC7007A1155 /* ValidRoomID.swift */; };
-		730BC43927E4241A00D89FF6 /* UserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BC43827E4241A00D89FF6 /* UserImage.swift */; };
+		730BC43927E4241A00D89FF6 /* UserImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BC43827E4241A00D89FF6 /* UserImageService.swift */; };
 		731FF2A82796B296001CD5E7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FF2A72796B296001CD5E7 /* Theme.swift */; };
 		7320A758279E6FD20021371C /* ColorThemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7320A757279E6FD20021371C /* ColorThemeService.swift */; };
 		733D9DFE27D9F1780062ECF2 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D9DFD27D9F1780062ECF2 /* KeyboardObserver.swift */; };
@@ -129,7 +129,7 @@
 		730952C327C4BF66007A1155 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		730952C527C4BFA6007A1155 /* RandomNumberGenarator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberGenarator.swift; sourceTree = "<group>"; };
 		730952C727C4BFC7007A1155 /* ValidRoomID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidRoomID.swift; sourceTree = "<group>"; };
-		730BC43827E4241A00D89FF6 /* UserImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImage.swift; sourceTree = "<group>"; };
+		730BC43827E4241A00D89FF6 /* UserImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageService.swift; sourceTree = "<group>"; };
 		731FF2A72796B296001CD5E7 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		7320A757279E6FD20021371C /* ColorThemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeService.swift; sourceTree = "<group>"; };
 		7326007627B1068400650FC6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -240,7 +240,6 @@
 				731FF2A72796B296001CD5E7 /* Theme.swift */,
 				730952C727C4BFC7007A1155 /* ValidRoomID.swift */,
 				733D9DFD27D9F1780062ECF2 /* KeyboardObserver.swift */,
-				730BC43827E4241A00D89FF6 /* UserImage.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -280,6 +279,7 @@
 				A83AA0F027998FA80006A718 /* NotificationManager.swift */,
 				735AA3C427916A16000E4E8C /* UserInfoService.swift */,
 				7320A757279E6FD20021371C /* ColorThemeService.swift */,
+				730BC43827E4241A00D89FF6 /* UserImageService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -522,7 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				730BC43927E4241A00D89FF6 /* UserImage.swift in Sources */,
+				730BC43927E4241A00D89FF6 /* UserImageService.swift in Sources */,
 				73E7F07727927A3A0045AC5F /* Commit.swift in Sources */,
 				A83AA0F127998FA80006A718 /* NotificationManager.swift in Sources */,
 				733D9DFE27D9F1780062ECF2 /* KeyboardObserver.swift in Sources */,

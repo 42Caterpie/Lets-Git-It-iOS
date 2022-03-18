@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NameCardView: View {
     @EnvironmentObject private var userInfoService: UserInfoService
+    @ObservedObject private var userImageService = UserImageService()
     let userId = UserDefaults.shared.string(forKey: "userId") ?? ""
     let themeEmojis = getThemeEmojis()
     
@@ -38,7 +39,7 @@ struct NameCardView: View {
     private var nameCard: some View {
         HStack {
             Spacer()
-            currentUserProfileImage()
+            userImageService.currentUserProfileImage()
             Spacer()
             Spacer()
             VStack (spacing: 0) {

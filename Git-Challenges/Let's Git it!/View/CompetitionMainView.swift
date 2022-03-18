@@ -19,6 +19,7 @@ struct CompetitionMainView: View {
     @ObservedObject var keyboard: KeyboardObserver = KeyboardObserver()
     @ObservedObject var competitionService = CompetitionService()
     @ObservedObject var showModalView = ShowModalView()
+    @ObservedObject var userImageService = UserImageService()
     
     private func toolbar() -> some View {
         HStack {
@@ -71,7 +72,8 @@ struct CompetitionMainView: View {
             Text("\(room.startDate) ~")
             HStack {
                 ForEach (room.participants, id: \.self) { userID in
-                    userProfileImage(ID: userID)
+                    userImageService
+                        .userProfileImage(ID: userID)
                         .padding(.horizontal, -10)
                 }
                 Spacer()
