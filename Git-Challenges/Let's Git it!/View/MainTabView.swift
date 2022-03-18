@@ -19,7 +19,6 @@ struct MainTabView: View {
                     .tabItem {
                         Image(systemName: "house")
                     }
-                
                 CompetitionMainView()
                     .tabItem {
                         Image(systemName: "gamecontroller.fill")

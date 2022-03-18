@@ -131,7 +131,6 @@ class CompetitionService: ObservableObject {
                 print("Cannot Decode")
                 return
             }
-            
             completionHandler(roomData)
         }
     }
