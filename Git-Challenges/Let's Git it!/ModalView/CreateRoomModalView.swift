@@ -10,6 +10,7 @@ import SwiftUI
 struct CreateRoomModalView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var competitionService: CompetitionService
+    @EnvironmentObject var showModalView: ShowModalView
     @State var title: String = ""
     @State var startDate: Date = Date()
     @State var maxParticipants: Int = 2
@@ -93,7 +94,7 @@ struct CreateRoomModalView: View {
                 maxParticipants: maxParticipants
             )
             competitionService.createRoom(with: roomData)
-            self.presentationMode.wrappedValue.dismiss()
+            showModalView.showCreateRoomModal = false
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)

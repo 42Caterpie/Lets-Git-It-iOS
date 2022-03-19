@@ -7,20 +7,27 @@
 
 import SwiftUI
 
+class ShowModalView: ObservableObject {
+    @Published var showCreateRoomModal: Bool = false
+    @Published var showJoinRoomModal: Bool = false
+}
+
 struct CompetitionMainView: View {
     @State private var backgroundBlur: CGFloat = 0
     @State private var halfModalOffset = uiSize.height - 500
     @State private var showActionSheet: Bool = false
-    @State private var showCreateRoomModal: Bool = false
-    @State private var showJoinRoomModal: Bool = false
     @ObservedObject var keyboard: KeyboardObserver = KeyboardObserver()
     @ObservedObject var competitionService = CompetitionService()
+    @ObservedObject var showModalView = ShowModalView()
+    @ObservedObject var userImageService = UserImageService()
     
     private func toolbar() -> some View {
         HStack {
             Spacer()
             Button  {
-                if (!(showActionSheet || showJoinRoomModal || showCreateRoomModal)) {
+                if (!(showActionSheet ||
+                      showModalView.showJoinRoomModal ||
+                      showModalView.showCreateRoomModal)) {
                     showActionSheet = true
                 }
             } label: {
@@ -39,13 +46,15 @@ struct CompetitionMainView: View {
                 .foregroundColor(.white)
                 .shadow(radius: 10)
             VStack {
-                if showJoinRoomModal {
+                if showModalView.showJoinRoomModal {
                     JoinRoomModalView()
                         .environmentObject(competitionService)
+                        .environmentObject(showModalView)
                         .frame(height: 350)
                 } else {
                     CreateRoomModalView()
                         .environmentObject(competitionService)
+                        .environmentObject(showModalView)
                         .frame(height: 350)
                 }
                 Spacer()
@@ -57,14 +66,21 @@ struct CompetitionMainView: View {
     }
     
     private func competitionRoomCell(_ room: RoomData) -> some View {
-        return HStack {
-            VStack (alignment: .leading) {
-                Text("\(room.title)")
-                    .font(.system(size: 18, weight: .bold))
-                Text("\(room.startDate) ~")
+        return VStack (alignment: .leading) {
+            Text("\(room.title)")
+                .font(.system(size: 18, weight: .bold))
+            Text("\(room.startDate) ~")
+            HStack {
+                ForEach (room.participants, id: \.self) { userID in
+                    userImageService
+                        .userProfileImage(ID: userID)
+                        .padding(.horizontal, -10)
+                }
+                Spacer()
             }
-            Spacer()
+            .padding(.leading, 10)
         }
+        .padding(.leading, 20)
         .modifier(CardModifier(height: 144))
         .padding([.vertical], 5)
     }
@@ -91,14 +107,18 @@ struct CompetitionMainView: View {
                 }
                 Spacer()
             }
-            .disabled(showActionSheet || showJoinRoomModal || showCreateRoomModal)
+            .disabled(showActionSheet ||
+                      showModalView.showJoinRoomModal ||
+                      showModalView.showCreateRoomModal)
             .onTapGesture {
                 showActionSheet = false
-                showJoinRoomModal = false
-                showCreateRoomModal = false
+                showModalView.showJoinRoomModal = false
+                showModalView.showCreateRoomModal = false
             }
-            .blur(radius: showJoinRoomModal || showActionSheet || showCreateRoomModal ? 3 : 0)
-            if showJoinRoomModal || showCreateRoomModal {
+            .blur(radius: showActionSheet ||
+                  showModalView.showJoinRoomModal ||
+                  showModalView.showCreateRoomModal ? 3 : 0)
+            if showModalView.showJoinRoomModal || showModalView.showCreateRoomModal {
                 halfModalView()
             }
         }
@@ -110,8 +130,8 @@ struct CompetitionMainView: View {
             buttons: [
                 .default(
                     Text("Make Room"),
-                    action: { showCreateRoomModal = true }),
-                .default(Text("Join Room"), action: { showJoinRoomModal = true }),
+                    action: { showModalView.showCreateRoomModal = true }),
+                .default(Text("Join Room"), action: { showModalView.showJoinRoomModal = true }),
                 .cancel({ showActionSheet = false })
             ])
     }
@@ -120,13 +140,14 @@ struct CompetitionMainView: View {
         VStack {
             toolbar()
             gameListandModalView()
-            .actionSheet(isPresented: $showActionSheet) {
-                makeJoinActionsheet()
-            }
+                .actionSheet(isPresented: $showActionSheet) {
+                    makeJoinActionsheet()
+                }
         }
         .navigationBarTitle("")
         .navigationBarHidden(true)
         .onAppear {
+            competitionService.requestRoomDatas()
             self.keyboard.addObserver()
         }
         .onDisappear {

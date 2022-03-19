@@ -6,15 +6,12 @@
 //
 
 import SwiftUI
+
 import SwiftSoup
 
 class NameCardViewModel: ObservableObject {
     @Published var image: UIImage = UIImage(systemName: "person.circle") ?? UIImage()
     
-    // MARK: Subject
-    //    private let nameCardSubject = PassthroughSubject<String, Never>()
-    
-    // MARK: init
     init () {
         imageCrawling()
     }
@@ -34,15 +31,5 @@ class NameCardViewModel: ObservableObject {
             self.image = UIImage(data: data!)!
         }
     }
-    
-    //    MARK: Replaced with githubService.hasCommitted value
-    //    func getTodayCommit() {
-    //        let commits = githubService.commits
-    //        if commits[commits.count - 1].level == 0 {
-    //            todayCommit = emoji.notCommitted.rawValue
-    //        } else {
-    //            todayCommit = emoji.committed.rawValue
-    //        }
-    //    }
 }
 
