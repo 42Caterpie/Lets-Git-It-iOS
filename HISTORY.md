@@ -20,3 +20,7 @@
 
 ### 2.1
 - Fix small widget preview
+
+### 3.0
+- Update user competition features
+- Users can create rooms and participate in competition with their friends.
