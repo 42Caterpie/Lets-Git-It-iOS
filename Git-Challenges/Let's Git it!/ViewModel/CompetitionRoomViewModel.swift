@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+import Firebase
 import SwiftSoup
 
 class CompetitionRoomViewModel: ObservableObject {
@@ -112,6 +113,18 @@ class CompetitionRoomViewModel: ObservableObject {
         else { return "" }
         
         return participantRank <= 2 ? rankEmoji[participantRank] : ""
+    }
+    
+    func isUserHost() -> Bool {
+        let userID = UserDefaults.shared.string(forKey: "userId") ??
+        Auth.auth().currentUser?.uid ?? "none"
+        return userID == self.host
+    }
+    
+    func isUser(_ participant: String) -> Bool {
+        let userID = UserDefaults.shared.string(forKey: "userId") ??
+        Auth.auth().currentUser?.uid ?? "none"
+        return userID == participant
     }
     
     private func commitData(of userID: String) -> [Commit] {
