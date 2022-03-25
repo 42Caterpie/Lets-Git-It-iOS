@@ -43,11 +43,6 @@ enum RoomModificationAlertType {
     case leaveRoom
 }
 
-enum SettingViewAlertType {
-    case logout
-    case notification
-}
-
 enum widthRatio {
     static let card: CGFloat = 0.888
     static let badge: CGFloat = 1
