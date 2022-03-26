@@ -26,5 +26,26 @@ struct NotificationCell: View {
             }
         }
         .modifier(SettingCellModifier())
+        .alert(isPresented: $notificationManager.isAlertOccurred) {
+            Alert(
+                title: Text(Message.notiDeniedInSettingsTitle),
+                message: Text(Message.notiDeniedInSettingsMessage),
+                primaryButton: .default(Text("Cancel"), action: {
+                    notificationManager.isNotiOn = false
+                }),
+                secondaryButton: .cancel(Text("Go to Settings"), action: {
+                    notificationManager.isNotiOn = false
+                    openSettings()
+                }))
+        }
+    }
+    
+    private func openSettings() {
+        if let bundle = Bundle.main.bundleIdentifier,
+           let settings = URL(string: UIApplication.openSettingsURLString + bundle) {
+            if UIApplication.shared.canOpenURL(settings) {
+                UIApplication.shared.open(settings)
+            }
+        }
     }
 }
