@@ -11,7 +11,6 @@ import Firebase
 class CompetitionService: ObservableObject {
     @Published var roomDatas: [RoomData] = []
     @Published var joinError: String = " "
-    @Published var isJoinable: Bool = false
     let db = Firestore.firestore()
     let userID = UserDefaults.shared.string(forKey: "userId") ?? Auth.auth().currentUser?.uid ?? "none"
     
@@ -53,14 +52,14 @@ class CompetitionService: ObservableObject {
         }
     }
     
-    func joinRoom(_ roomNumber: String) {
+    func joinRoom(_ roomNumber: String, completionHandler: @escaping (Bool) -> ()) {
         isValidRoomIDtoJoin(id: roomNumber) { isDone, errString in
             if isDone == false {
                 self.joinError = errString
-                self.isJoinable = false
+                completionHandler(false)
             } else {
                 self.joinError = " "
-                self.isJoinable = true
+                completionHandler(true)
             }
         }
     }
