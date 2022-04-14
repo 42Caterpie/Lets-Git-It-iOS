@@ -30,7 +30,6 @@ struct JoinRoomModalView: View {
                 .bold()
             Spacer()
             TextField("", text: $roomNumber)
-                .textContentType(.telephoneNumber)
                 .keyboardType(.decimalPad)
                 .frame(width: 100)
                 .textFieldStyle(.roundedBorder)
