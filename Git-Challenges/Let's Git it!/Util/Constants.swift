@@ -25,6 +25,7 @@ enum Message {
     static let deleteRoomMessage: String = "This cannot be restored.\nReally want to delete the room?"
     static let leaveRoomTitle: String = "Leave this room"
     static let leaveRoomMessage: String = "This cannot be restored.\nReally want to leave the room?"
+    static let logoutTitle: String = "Are you sure you want to log out?"
 }
 
 enum JoinErrorMessage {

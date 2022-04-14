@@ -10,7 +10,7 @@ import SwiftUI
 import Firebase
 
 struct CompetitionInProgressView: View {
-    @EnvironmentObject var competitionRoomViewModel: CompetitionRoomViewModel
+    @EnvironmentObject var viewModel: CompetitionRoomViewModel
     @ObservedObject var colorThemeService: ColorThemeService = ColorThemeService()
     @Binding var showAlert: Bool
     @Binding var alertType: RoomModificationAlertType
@@ -51,19 +51,19 @@ struct CompetitionInProgressView: View {
                 Text("Start Date")
                     .bold()
                 Spacer()
-                Text(competitionRoomViewModel.roomData.startDate)
+                Text(viewModel.roomData.startDate)
             }
             HStack {
                 Text("Goal")
                     .bold()
                 Spacer()
-                Text("\(competitionRoomViewModel.roomData.goal)")
+                Text("\(viewModel.roomData.goal)")
                     .bold()
             }
             
             VStack {
                 Button {
-                    UIPasteboard.general.string = competitionRoomViewModel.roomID
+                    UIPasteboard.general.string = viewModel.roomID
                     if !isProcessing {
                         self.isProcessing = true
                         self.shouldPopupBePresented.toggle()
@@ -71,7 +71,7 @@ struct CompetitionInProgressView: View {
                 } label: {
                         HStack {
                             Image(systemName: "square.on.square")
-                            Text("\(competitionRoomViewModel.roomID)")
+                            Text("\(viewModel.roomID)")
                         }
                         .font(.system(size: 14, weight: .bold))
                 }
@@ -97,15 +97,15 @@ struct CompetitionInProgressView: View {
     private var memberList: some View {
         ScrollView {
             ForEach(
-                competitionRoomViewModel.roomData.participants,
+                viewModel.roomData.participants,
                 id: \.self
             ) { participant in
-                let percent = competitionRoomViewModel.calculatePercentage(of: participant)
+                let percent = viewModel.calculatePercentage(of: participant)
                 participantView(of: participant, percent)
                     .onTapGesture {
-                        if isUserHost() {
+                        if viewModel.isUserHost() && !viewModel.isUser(participant) {
                             alertType = .kickUserFromRoom
-                            competitionRoomViewModel.userToKick = participant
+                            viewModel.userToKick = participant
                             showAlert.toggle()
                         }
                     }
@@ -140,11 +140,11 @@ struct CompetitionInProgressView: View {
     
     private func participant(name participant: String) -> some View {
         return HStack {
-            Text("\(competitionRoomViewModel.ranking(of: participant))")
+            Text("\(viewModel.ranking(of: participant))")
             Text(participant)
                 .bold()
             Spacer(minLength: 0)
-            Text("\(competitionRoomViewModel.participantStreak[participant] ?? 0)")
+            Text("\(viewModel.participantStreak[participant] ?? 0)")
         }
         .padding([.leading, .trailing], 20)
         .padding(.top, 15)
@@ -174,18 +174,6 @@ struct CompetitionInProgressView: View {
                     )
                 )
         }
-    }
-    
-    private func isUserHost() -> Bool {
-        let userID = UserDefaults.shared.string(forKey: "userId") ??
-        Auth.auth().currentUser?.uid ?? "none"
-        return userID == competitionRoomViewModel.host
-    }
-    
-    private func isUser(_ participant: String) -> Bool {
-        let userID = UserDefaults.shared.string(forKey: "userId") ??
-        Auth.auth().currentUser?.uid ?? "none"
-        return userID == participant
     }
 }
 
