@@ -9,7 +9,7 @@ import SwiftUI
 
 struct JoinRoomModalView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @EnvironmentObject var competitionMainViewModel: CompetitionService
+    @EnvironmentObject var competitionService: CompetitionService
     @EnvironmentObject var showModalView: ShowModalView
     @State var roomNumber: String = ""
     
@@ -30,7 +30,7 @@ struct JoinRoomModalView: View {
                 .bold()
             Spacer()
             TextField("", text: $roomNumber)
-                .textContentType(.telephoneNumber)
+                .keyboardType(.decimalPad)
                 .frame(width: 100)
                 .textFieldStyle(.roundedBorder)
         }
@@ -39,9 +39,11 @@ struct JoinRoomModalView: View {
     
     private func joinButton() -> some View {
         Button {
-            competitionMainViewModel.joinRoom(roomNumber)
-            if competitionMainViewModel.isJoinable {
-                showModalView.showJoinRoomModal = false
+            competitionService.joinRoom(roomNumber) { isJoinable in
+                if isJoinable {
+                    showModalView.showJoinRoomModal = false
+                    competitionService.requestRoomDatas()
+                }
             }
         } label: {
             ZStack {
@@ -56,7 +58,7 @@ struct JoinRoomModalView: View {
     }
     
     private func errorText() -> some View {
-        Text(competitionMainViewModel.joinError)
+        Text(competitionService.joinError)
             .foregroundColor(.red)
     }
 }
