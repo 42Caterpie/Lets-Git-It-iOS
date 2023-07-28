@@ -76,7 +76,7 @@ class UserInfoService: ObservableObject {
             do {
                 let html = try String(contentsOf: url, encoding: .utf8)
                 let parsedHtml = try SwiftSoup.parse(html)
-                let dailyContribution = try parsedHtml.select("rect")
+                let dailyContribution = try parsedHtml.select("td")
                 
                 commits = dailyContribution
                     .compactMap({ element -> (String, String) in
