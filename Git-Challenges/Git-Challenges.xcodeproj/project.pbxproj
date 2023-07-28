@@ -20,7 +20,6 @@
 		73528DF827997183005DF67C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73528DF727997183005DF67C /* LoginView.swift */; };
 		735AA3BE27914950000E4E8C /* ContributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3BD27914950000E4E8C /* ContributionView.swift */; };
 		735AA3C527916A16000E4E8C /* UserInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA3C427916A16000E4E8C /* UserInfoService.swift */; };
-		73710D9B279009F3009EBA62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73710D9A279009F3009EBA62 /* GoogleService-Info.plist */; };
 		73710DAC279018A6009EBA62 /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73710DAB279018A6009EBA62 /* CardModifier.swift */; };
 		73710DAE27902ED2009EBA62 /* NameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73710DAD27902ED2009EBA62 /* NameCardView.swift */; };
 		73751ED6279D6A76006A8F94 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73751ED5279D6A76006A8F94 /* ActivityIndicator.swift */; };
@@ -96,6 +95,7 @@
 		A8E9B45D27D7804B00FA208B /* ParticipantCardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E9B45C27D7804B00FA208B /* ParticipantCardModifier.swift */; };
 		A8F8233927929C920000FB08 /* ChallengeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8233827929C920000FB08 /* ChallengeCardView.swift */; };
 		A8F8233D27929DCB0000FB08 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8233C27929DCB0000FB08 /* MainView.swift */; };
+		DB6876AA2A734ABE00734CA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB6876A92A734ABE00734CA5 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,7 +138,6 @@
 		73528DF727997183005DF67C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		735AA3BD27914950000E4E8C /* ContributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionView.swift; sourceTree = "<group>"; };
 		735AA3C427916A16000E4E8C /* UserInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoService.swift; sourceTree = "<group>"; };
-		73710D9A279009F3009EBA62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		73710DAB279018A6009EBA62 /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
 		73710DAD27902ED2009EBA62 /* NameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCardView.swift; sourceTree = "<group>"; };
 		73751ED5279D6A76006A8F94 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -195,6 +194,7 @@
 		A8E9B45C27D7804B00FA208B /* ParticipantCardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantCardModifier.swift; sourceTree = "<group>"; };
 		A8F8233827929C920000FB08 /* ChallengeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCardView.swift; sourceTree = "<group>"; };
 		A8F8233C27929DCB0000FB08 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		DB6876A92A734ABE00734CA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,7 +324,7 @@
 				73CF60AB2790033B005F4BF4 /* Assets.xcassets */,
 				73CF60AD2790033B005F4BF4 /* LaunchScreen.storyboard */,
 				73CF60B02790033B005F4BF4 /* Info.plist */,
-				73710D9A279009F3009EBA62 /* GoogleService-Info.plist */,
+				DB6876A92A734ABE00734CA5 /* GoogleService-Info.plist */,
 			);
 			path = "Let's Git it!";
 			sourceTree = "<group>";
@@ -501,8 +501,8 @@
 			files = (
 				73CF60AF2790033B005F4BF4 /* LaunchScreen.storyboard in Resources */,
 				73CF60AC2790033B005F4BF4 /* Assets.xcassets in Resources */,
+				DB6876AA2A734ABE00734CA5 /* GoogleService-Info.plist in Resources */,
 				73CF60AA27900339005F4BF4 /* Main.storyboard in Resources */,
-				73710D9B279009F3009EBA62 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,7 +763,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Let's Git it!/Let's Git it!.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.0;
+				CURRENT_PROJECT_VERSION = 3.1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9TH57H8UP9;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -781,7 +781,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.Caterpie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -800,7 +800,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Let's Git it!/Let's Git it!.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.0;
+				CURRENT_PROJECT_VERSION = 3.1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9TH57H8UP9;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -818,7 +818,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.Caterpie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
