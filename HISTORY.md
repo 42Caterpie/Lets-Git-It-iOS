@@ -1,6 +1,9 @@
 # Let's Git it  
 ## History
 
+### 3.1
+- Fixed a bug.
+
 ### 3.0
 - Update user competition features
 - Users can create rooms and participate in competition with their friends.
