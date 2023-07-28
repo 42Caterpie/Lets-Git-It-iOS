@@ -94,7 +94,7 @@ class UserInfoService: ObservableObject {
                         
                         return Commit(date: date, level: level)
                     })
-                
+                    .sorted(by: { $0.date < $1.date })
                 if commits.last!.date.isToday && commits.last!.level > 0 {
                     self.hasCommitted = emoji.committed.rawValue
                 }
